@@ -9,3 +9,14 @@ D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VID
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.dll
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\bin\Debug\CapaNegocio.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\bin\Debug\CapaNegocio.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\bin\Debug\CapaDatos.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\bin\Debug\CapaEntidad.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\bin\Debug\CapaDatos.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\bin\Debug\CapaEntidad.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.pdb

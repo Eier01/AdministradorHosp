@@ -4,5 +4,70 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Requisitos</h2>
+<ol class="breadcrumb mb-4 mt-4">
+    <li class="breadcrumb-item">Administrador gestion humana HV</li>
+    <li class="breadcrumb-item active">Requisitos</li>
+</ol>
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-briefcase"></i> Requisitos
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-3">
+                <p class="form-label" for="validationCustom05" style="font-size:13px"><b>...</b></p>
+            </div>
+            <div class="col-3">
+                <p class="form-label" for="validationCustom05" style="color: #ff0000; font-size: 13px">MARIA CLAUDIA MARTINEZ GAEHT</p>
+            </div>
+            <div class="col-3">
+                <p class="form-label" for="validationCustom05" style="font-size:13px">UNION DE EMPLEADOS TRABAJADORES Y CONTRATISTAS DE LA SALUD - UTRASSALUD Gestion Humana Profecional del Talento Humano</p>
+            </div>
+            <div class="col-3">
+                <p class="form-label" for="validationCustom05" style="font-size:13px">Confirmado:</p>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom05" class="form-label">SERVIDOR PUBLICO</label>
+            </div>
+            <div class="col-md-6">
+                <p for="validationCustom05" class="form-label">0 Años  3 Meses</p>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom05" class="form-label"><b>Cumple Experiencia Laboral?</b></label>
+                <input type="text" class="form-control" id="validationCustom05" required>
+                <div class="invalid-feedback">
+                    Please provide a valid zip.
+                </div>
+            </div>
+            <div class="col-md-2">
+                <select class="form-select mt-4" id="validationCustom04" required>
+                    <option selected disabled value="">Seleccione </option>
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid state.
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-light mt-4" style="font-size: 12px;">Actualizar Cumplimiento</button>
+            </div>
+            <table id="tabla" class="table table-hover" style="width:100%; font-size:12px">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Documento</th>
+                        <th>Fecha Expedición</th>
+                        <th>Ver Adjunto</th>
+                        <th>Fecha Registro</th>
+                        <th>Cumple</th>
+                        <th>......</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
