@@ -1,11 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\CapaEntidad",
+    "\\CapaEntidad\\Properties",
+    "\\CapaNegocio",
     "\\CapaPresentacionAdmin",
     "\\CapaPresentacionAdmin\\Controllers",
     "\\CapaPresentacionAdmin\\Views",
-    "\\CapaPresentacionAdmin\\Views\\Verificar"
+    "\\CapaPresentacionAdmin\\Views\\Home"
   ],
-  "SelectedNode": "\\CapaPresentacionAdmin\\Views\\Verificar\\Reporte.cshtml",
+  "SelectedNode": "\\CapaPresentacionAdmin\\Views\\Home\\Procesos.cshtml",
   "PreviewInSolutionExplorer": false
 }

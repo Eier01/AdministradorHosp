@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -48,6 +49,37 @@ namespace CapaPresentacionAdmin.Controllers
 
             //retornamos esto de esta forma porque DataTable asi lo requiere
             return Json(new {data = oLista}, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpPost]
+        public JsonResult GuardarProceso(Procesos objeto)
+        {
+            //nos permite guarda cualquier tipo de datos
+            object resultado;
+            string mensaje = string.Empty;
+
+            if(objeto.IdProceso == 0)
+            {
+                resultado = new CN_Procesos().Registrar(objeto, out mensaje);
+            }
+            else
+            {
+                resultado = new CN_Procesos().Editar(objeto, out mensaje);
+            }
+
+            return Json(new { resultado = resultado, mensaje = mensaje}, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult EliminarProceso(int id)
+        {
+            bool respuesta = false;
+            string mensaje = string.Empty;
+
+            respuesta = new CN_Procesos().Eliminar(id, out mensaje);
+
+            return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
     }
 }
