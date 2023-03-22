@@ -7,3 +7,12 @@ D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VID
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.dll
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\bin\Debug\CapaDatos.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\bin\Debug\CapaDatos.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\bin\Debug\CapaEntidad.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\bin\Debug\CapaEntidad.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\obj\Debug\CapaDatos.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaDatos\obj\Debug\CapaDatos.pdb
