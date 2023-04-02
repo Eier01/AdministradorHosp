@@ -90,3 +90,11 @@ D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VID
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\CapaEntidad.pdb
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\CapaNegocio.pdb
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\CapaDatos.pdb
+D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.dll
+D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\DocumentFormat.OpenXml.dll
+D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\ExcelNumberFormat.dll
+D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\System.IO.Packaging.dll
+D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.pdb
+D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.xml
+D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\DocumentFormat.OpenXml.xml
+D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaPresentacionAdmin\bin\ExcelNumberFormat.xml

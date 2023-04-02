@@ -10,8 +10,7 @@ namespace CapaEntidad
     public class RequisitoPorActividad
     {
         public int IdRequisitoActividad { get; set; }
-        public Actividad actividad { get; set; }
+        public Actividad oActividad { get; set; }
         public CrearRequisitoLegal oRequisitoLegal { get; set; }
-        public string RequisitoActividad { get; set; }
     }
 }
