@@ -42,7 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CD_Actividad.cs" />
+    <Compile Include="CD_CRequisitoLegal.cs" />
     <Compile Include="CD_Procesos.cs" />
+    <Compile Include="CD_RequisitoPorActividad.cs" />
+    <Compile Include="CD_RpGeneral.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,7 +12,7 @@ namespace CapaEntidad
     public class Actividad
     {
         public int IdActividad { get; set; }
-        public string NombreProceso { get; set; }
+        public string NombreActividad { get; set; }
         public string TipoActividad { get; set; }
     }
 }
