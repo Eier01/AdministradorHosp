@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actividad.cs" />
+    <Compile Include="Buscar.cs" />
     <Compile Include="CrearRequisitoLegal.cs" />
     <Compile Include="Procesos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
