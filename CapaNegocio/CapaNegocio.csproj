@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CN_Actividad.cs" />
+    <Compile Include="CN_CRequisitoLegal.cs" />
     <Compile Include="CN_Procesos.cs" />
     <Compile Include="CN_Recursos.cs" />
+    <Compile Include="CN_RequisitoPorActividad.cs" />
+    <Compile Include="CN_RpGeneral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

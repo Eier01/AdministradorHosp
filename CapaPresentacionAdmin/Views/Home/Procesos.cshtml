@@ -18,7 +18,7 @@
             <div class="col-4">
                 <button type="button" class="btn btn-primary" onclick="abrirModal()">Crear Proceso</button>
             </div>
-            <div class="col-6">
+            <div class="col-6 border border-2 rounded-1 p-2">
                 <table id="tabla" class="table table-hover" style="width:100%">
                     <thead>
                         <tr>
@@ -101,7 +101,7 @@
 
         });
 
-        //-----------------------------editar
+        //-----------------------------abrir modal, editar
         function abrirModal(json) {
             $("#txtid").val(0)
             $("#txtproceso").val("")
@@ -174,7 +174,7 @@
         })
 
         //-----------------------------Guardar
-        function Guardar(fila) {
+        function Guardar() {
             var Proceso = {
                 IdProceso: $("#txtid").val(),
                 NombreProceso: $("#txtproceso").val()
