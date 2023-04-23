@@ -9,3 +9,14 @@ D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VID
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.dll
 D:\Users\XIMENA DIAZ\Documents\Fup\FUP 10\PASANTIA\ADMINISTRADOR DE HOJAS DE VIDA\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaNegocio\obj\Debug\CapaNegocio.pdb

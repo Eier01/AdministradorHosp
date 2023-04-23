@@ -37,6 +37,9 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
+        
+       
+
 
         //PROCESOS JSONRESULT
         [HttpGet]
@@ -49,5 +52,8 @@ namespace CapaPresentacionAdmin.Controllers
             //retornamos esto de esta forma porque DataTable asi lo requiere
             return Json(new {data = oLista}, JsonRequestBehavior.AllowGet);
         }
+
+        
+       
     }
 }

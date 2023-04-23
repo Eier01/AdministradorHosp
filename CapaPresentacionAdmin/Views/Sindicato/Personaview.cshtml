@@ -1,0 +1,537 @@
+﻿
+@{
+    ViewBag.Title = "Personaview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="hola">
+    <div class="col-md-3">
+        <h3>Datos Personales</h3>
+        <label for="validationCustom01" class="form-label">Identificacion</label>
+        <input type="text" class="form-control" id="validationCustom01" value="0">
+
+    </div>
+    <br>
+    <div class="hola1">
+        <button type="button" class="btn btn-primary" onclick="abrirModal(null)">Crear Nuevo</button>
+        <button type="button" class="btn btn-primary">Consultar</button>
+    </div>
+    <br>
+    <hr>
+
+    <table id="tablapersona" class="table table-hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>Identificacion</th>
+                <th>Nombre</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Profesión</th>
+                <th>Eps</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="FormModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-fullscreen-xxl-down">
+        <div class="modal-content">
+            <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
+                <h5 class="modal-title" id="exampleModalLabel">Datos Personales</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body g-4">
+
+                <div class="contenido_texto block" data-seccion="1">
+                    <section>
+                        <form class="row g-3 needs-validation" id="form_persona" name="form_persona">
+
+                            <input type="text" class="form-control" id="IdpersonaU" value="0">
+
+                            <div class="col-md-3">
+                                <label for="tipo_doc" class="form-label">Tipo de Documento</label>
+                                <select class="form-control" name="tipo_doc" id="tipo_doc" required>
+                                    <option value="">Seleccione</option>
+                                    <option value="1" required>CC</option>
+                                    <option value="2" required>RC</option>
+                                    <option value="3" required>TI</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="nro_doc" class="form-label">Identificacion</label>
+                                <input type="text" class="form-control" name="nro_doc" id="nro_doc" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="FechaEx" class="form-label">Fecha de expedición</label>
+                                <input type="date" class="form-control" id="FechaEx" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="LugarExped" class="form-label">lugar de expedicion</label>
+                                <input type="text" class="form-control" id="LugarExped" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Pnombre" class="form-label">Primer nombre</label>
+                                <input type="text" class="form-control" id="Pnombre">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Snombre" class="form-label">Segundo nombre</label>
+                                <input type="text" class="form-control" id="Snombre" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Papellido" class="form-label">Primer apellido</label>
+                                <input type="text" class="form-control" id="Papellido" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Sapellido" class="form-label">Segundo apellido</label>
+                                <input type="text" class="form-control" id="Sapellido" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtsexo" class="form-label">Sexo</label>
+                                <select class="form-control" name="sexo" id="txtsexo">
+                                    <option value="" required>Seleccione</option>
+                                    <option value="Masculino" required>Masculino</option>
+                                    <option value="Femenino" required>Femenino</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="NPais" class="form-label">Nacionalidad</label>
+                                <select class="form-control" name="Nacion" id="NPais">
+                                    <option value="" required>Seleccione</option>
+                                    <option value="1" required>Colombiano</option>
+                                    <option value="2" required>Estranjero</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <label for="estadocivil" class="form-label">Estado Civil</label>
+                                <select class="form-control" name="estadocivil" id="estadocivil">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="1" required>Soltero</option>
+                                    <option value="2" required>Casado</option>
+                                    <option value="3" required>Viudo</option>
+                                    <option value="4" required>Divorciado</option>
+                                    <option value="5" required>Union Libre</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Nhijos" class="form-label">Numero hijos</label>
+                                <select class="form-control" name="Nhijos" id="Nhijos">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="0" required>0</option>
+                                    <option value="1" required>1</option>
+                                    <option value="2" required>2</option>
+                                    <option value="3" required>3</option>
+                                    <option value="4" required>4</option>
+                                    <option value="5" required>5</option>
+                                    <option value="6" required>Mas</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="Lmilitar" class="form-label">N° Libreta militar</label>
+                                <input type="text" class="form-control" id="Lmilitar" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Dmilitar" class="form-label">Distrito militar</label>
+                                <input type="text" class="form-control" id="Dmilitar" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtLMilitar" class="form-label">Libreta Militar</label>
+                                <select class="form-control" name="sexo" id="txtLMilitar">
+                                    <option value="A" required>Seleccione.</option>
+                                    <option value="0" required>No Tiene</option>
+                                    <option value="1" required>1 RA</option>
+                                    <option value="2" required>2 DA</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Fnacimiento" class="form-label">Fecha de nacimiento</label>
+                                <input type="date" class="form-control" id="Fnacimento" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtpaisnacimiento" class="form-label">Pais Nacimiento</label>
+                                <input type="text" class="form-control" id="txtpaisnacimiento" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="txtdepnacimiento" class="form-label">Departamento Nacimiento</label>
+                                <input type="text" class="form-control" id="txtdepnacimiento" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtciunacimiento" class="form-label">Ciudad Nacimiento</label>
+                                <input type="text" class="form-control" id="txtciunacimiento" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Direction" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="Direction" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtpaisDireccion" class="form-label">Pais Direccion</label>
+                                <input type="text" class="form-control" id="txtpaisDireccion" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtDdireccion" class="form-label">Departamento Direccion</label>
+                                <input type="text" class="form-control" id="txtDdireccion" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtCdireccion" class="form-label">Ciudad Direccion</label>
+                                <input type="text" class="form-control" id="txtCdireccion" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Tel" class="form-label">Telefono</label>
+                                <input type="text" class="form-control" id="Tel" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="CorreoE" class="form-label">Correo electronico</label>
+                                <input type="text" class="form-control" id="CorreoE" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="GrupoS" class="form-label">RH</label>
+                                <select class="form-control" name="GrupoSanguineo" id="GrupoS">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="1" required>A +</option>
+                                    <option value="2" required>O +</option>
+                                    <option value="3" required>B +</option>
+                                    <option value="4" required>AB +</option>
+                                    <option value="5" required>O -</option>
+                                    <option value="6" required>A -</option>
+                                    <option value="7" required>B -</option>
+                                    <option value="8" required>AB -</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="GrupoEtnico" class="form-label">Grupo Etnico</label>
+                                <select class="form-control" name="GrupoEtnico" id="GrupoEtnico">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="1" required>Afrodecendiente</option>
+                                    <option value="2" required>Indigena</option>
+                                    <option value="3" required>Raizal</option>
+                                    <option value="4" required>Gitano</option>
+                                    <option value="5" required>Mestizo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Profesion" class="form-label">Profesion</label>
+                                <input type="text" class="form-control" id="Profesion" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Eps" class="form-label">EPS</label>
+                                <input type="text" class="form-control" id="Eps" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="fondopensiones" class="form-label">Fondo De Pensiones</label>
+                                <input type="text" class="form-control" id="fondopensiones" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="arl" class="form-label">ARL</label>
+                                <input type="text" class="form-control" id="arl" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Activo" class="form-label">Activo</label>
+                                <select class="form-control" name="acticacion" id="Activo">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="1" required>SI</option>
+                                    <option value="0" required>NO</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Fechaestado" class="form-label">Fecha de Activacion</label>
+                                <input type="date" class="form-control" id="Fechaestado" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+                            </div>
+                        </form>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section scripts{
+    <script>
+        var tabladata;
+        var filaSelec;
+
+        jQuery.ajax({
+            url: '@Url.Action("ListarPersona", "Sindicato")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.info("aqui estoy");
+                console.log(data)
+            }
+
+        })
+        tabladata = $("#tablapersona").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListarPersona", "Sindicato")',
+                type: "GET",
+                dataType: "json",
+            },
+            "columns": [
+                { "data": "IdPersona"},
+                { "data": "PrimerNombre" },
+                { "data": "Direccion" },
+                { "data": "Telefono" },
+                { "data": "CorreoElectronico" },
+                { "data": "Profesion" },
+                { "data": "Eps" },
+
+                {
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarP"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "orderable": false,
+                    "searchable": false,
+                    "width":"90px"
+                }
+            ],
+            "language": {
+                "url":"https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
+            }
+
+        })
+
+
+        function abrirModal(json) {
+            //document.getElementById("form_persona").reset();
+
+            if (json != null) {
+
+                $("#IdpersonaU").val(json.IdPersona);
+                ("#nro_doc").val(json.NumeroDocumento);
+                $("#LugarExped").val(json.LugarExpedicion);
+                $("#FechaEx").val(json.FechaExpedicion);
+                $("#Pnombre").val(json.PrimerNombre);
+                $("#Snombre").val(json.SegundoNombre);
+                $("#Papellido").val(json.PrimerApellido);
+                $("#Sapellido").val(json.SegundoApellido);
+                $("#NPais").val(json.Pais == "Colombiano" ? "1" : "2");
+                $("#Lmilitar").val(json.NumeroLibreta);
+                $("#Dmilitar").val(json.DistritoMilitar);
+                $("#txtpaisnacimiento").val(json.PaisNacimiento);
+                $("#txtdepnacimiento").val(json.DeapartamentoNacimiento);
+                $("#Fnacimento").val(json.FechaNacimiente);
+                $("#txtciunacimiento").val(json.CiudadNacimiento);
+                $("#Direction").val(json.Direccion);
+                $("#txtpaisDireccion").val(json.PaisDireccion);
+                $("#txtDdireccion").val(json.DepartamentoResidencia);
+                $("#txtCdireccion").val(json.CiudadDireccion);
+                $("#Tel").val(json.Telefono);
+                $("#CorreoE").val(json.CorreoElectronico);
+                $("#Profesion").val(json.Profesion);
+                $("#Eps").val(json.Eps);
+                $("#fondopensiones").val(json.FondoPensiones);
+                $("#arl").val(json.Arl);
+                $("#txtsexo").val(json.Genero == "masculino" ? "Masculino" : "Femenino");
+                $("#estadocivil").val(json.EstadoCivil == "Soltero" ? "1" : json.EstadoCivil == "Casado" ? "2" : json.EstadoCivil == "Viudo" ? "3" : json.EstadoCivil == "Divorciado" ? "4" : "5");
+                $("#Nhijos").val(json.NumeroHijos == "0" ? "0" : json.NumeroHijos == "1" ? "1" : json.NumeroHijos == "2" ? "2" : json.NumeroHijos == "3" ? "3" : json.NumeroHijos == "4" ? "4" : json.NumeroHijos == "5" ? "5" : "6");
+                $("#txtLMilitar").val(json.LibretaMilitar == "No Tiene" ? "0" : json.LibretaMilitar == "1 RA" ? "1" : "2");
+
+                $("#GrupoS").val(json.GrupoSanguineo == "A+" ? "1" : "2");
+                    //json.GrupoSanguineo == "O+" ? "2" : json.GrupoSanguineo == "B+" ? "3" : json.GrupoSanguineo == "AB+" ? "4" : json.GrupoSanguineo == "O-" ? "5" : json.GrupoSanguineo == "A-" ? "6" : json.GrupoSanguineo == "B-" ? "7" : "8");
+
+                $("#GrupoEtnico").val(json.GrupoEtnico == "Afrodecendiente" ? "1" : json.GrupoEtnico == "Indigena" ? "2" : json.GrupoEtnico == "Raizal" ? "3" : json.GrupoEtnico == "Gitano" ? "4" : "5");
+                $("#tipo_doc").val(json.TipoIdentificacion == "CC" ? "1" : json.TipoIdentificacion == "RC" ? "2" : "3");
+                $("#Activo").val(json.Estado == true ? "1" : "0");
+                $("#Fechaestado").val(json.Estadofecha);
+
+            }
+            $("#FormModal1").modal("show");
+
+
+        }
+
+
+
+
+        $("#tablapersona tbody").on("click",'.btn-editarP', function () {
+
+            var filaSelec = $(this).closest("tr");
+            var data = tabladata.row(filaSelec).data();
+
+            abrirModal(data)
+
+
+        })
+
+        function Guardar()
+        {
+
+            var Rpersona = {
+                IdPersona: $("#IdpersonaU").val(),
+                NumeroDocumento: $("#nro_doc").val(),
+                LugarExpedicion: $("#LugarExped").val(),
+                FechaExpedicion: $("#FechaEx").val(),
+                PrimerNombre: $("#Pnombre").val(),
+                SegundoNombre: $("#Snombre").val(),
+                PrimerApellido: $("#Papellido").val(),
+                SegundoApellido: $("#Sapellido").val(),
+                Pais: $("#NPais").val(),
+                NumeroLibreta: $("#Lmilitar").val(),
+                DistritoMilitar: $("#Dmilitar").val(),
+                PaisNacimiento: $("#txtpaisnacimiento").val(),
+                DeapartamentoNacimiento: $("#txtdepnacimiento").val(),
+                FechaNacimiente: $("#Fnacimento").val(),
+                CiudadNacimiento: $("#txtciunacimiento").val(),
+                Direccion: $("#Direction").val(),
+                PaisDireccion: $("#txtpaisDireccion").val(),
+                DepartamentoResidencia: $("#txtDdireccion").val(),
+                CiudadDireccion: $("#txtCdireccion").val(),
+                Telefono: $("#Tel").val(),
+                CorreoElectronico: $("#CorreoE").val(),
+                Profesion: $("#Profesion").val(),
+                Eps: $("#Eps").val(),
+                FondoPensiones: $("#fondopensiones").val(),
+                Arl: $("#arl").val(),
+                Genero: $("#txtsexo").val(),
+                EstadoCivil: $("#estadocivil").val(),
+                NumeroHijos: $("#Nhijos").val(),
+                LibretaMilitar: $("#txtLMilitar").val(),
+                GrupoSanguineo: $("#GrupoS").val(),
+                GrupoEtnico: $("#GrupoEtnico").val(),
+                TipoIdentificacion: $("#tipo_doc").val(),
+                Estado: $("#Activo").val() == 1 ?  true : false,
+                Estadofecha: $("#Fechaestado").val(),
+
+            }
+
+
+                jQuery.ajax({
+                    url: '@Url.Action("GuardarPersona", "Sindicato")',
+                    type: "POST",
+                    data: JSON.stringify({objeto: Rpersona}),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+
+                    success: function (data) {
+
+                        //debugger;
+
+                        //Usuario Nuevo
+                        if (Rpersona.IdPersona == 0) {
+
+                            if (data.resultado != 0) {
+
+                                Rpersona.IdPersona = data.resultado;
+                                tabladata.row.add(Rpersona).draw(false);
+                                $("#FormModal1").modal("hide");
+                            } else {
+
+                                alert(data.mensaje)
+                            }
+
+
+                        } else {
+
+                            tabladata.row(filaSelec).data(Rpersona).draw(false);
+                        }
+
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    }
+                });
+        }
+
+
+    </script>
+
+
+}
+
+

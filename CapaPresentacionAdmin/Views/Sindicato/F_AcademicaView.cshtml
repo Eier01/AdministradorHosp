@@ -1,0 +1,393 @@
+﻿
+@{
+    ViewBag.Title = "F_AcademicaView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hola">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-briefcase"></i> Procesos
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <h3>Formacion Academica</h3>
+
+                </div>
+                <br>
+                <div class="hola1">
+                    <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Crear Usuario</button>
+                </div>
+                <br>
+                <br>
+                <table id="tablaF" class="table table-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Educacion Basica</th>
+                            <th>Titulo</th>
+                            <th>Institucion Educativa</th>
+                            <th> Nombre del Titulo</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="FormModalFacademica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-xxl-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <input type="text" id="txtIdFacademica" value="0" />
+
+                    <div class="contenido_texto block" data-seccion="1">
+                        <section>
+                            <form class="row g-3 needs-validation" id="fAcadec" novalidate>
+
+
+                                <div class="col-md-4 form-check-inline">
+                                    <label for="txtcargoasp" class="form-label">Cargo que Aspira</label>
+                                    <input type="text" class="form-control" id="txtcargoasp" required>
+                                </div>
+
+                                <div class="col-md-3" style="margin-top: 49px;">
+
+                                    <input type="text" class="form-control" id="validationCustom01" value="" required>
+
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3" style="margin-top: 49px;">
+                                    <div class="hola">
+                                        <button type="button" class="btn btn-primary">Eliminar Cargo</button>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid zip.
+                                    </div>
+                                </div>
+                                <h5>Formacion Academica Basica</h5>
+
+                                <div class="col-md-3">
+                                    <label for="txtedubasica" class="form-label">Educacion Basica</label>
+                                    <select class="form-control" name="txtedubasica" id="txtedubasica">
+                                        <option value="" required>Seleccione.</option>
+                                        <option value="Primaria" required>Primaria</option>
+                                        <option value="Secundaria" required>Secundaria</option>
+                                        <option value="Media" required>Media</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 form-check-inline">
+                                    <label for="txttitulobt" class="form-label">Titulo obtenido</label>
+                                    <input type="text" class="form-control" id="txttitulobt" required>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="txtmes" class="form-label">Mes Grado</label>
+                                    <select class="form-control" name="txtmes" id="txtmes">
+                                        <option value="" required>Seleccione.</option>
+                                        <option value="1" required>1</option>
+                                        <option value="2" required>2</option>
+                                        <option value="3" required>3</option>
+                                        <option value="4" required>4</option>
+                                        <option value="5" required>5</option>
+                                        <option value="6" required>6</option>
+                                        <option value="7" required>7</option>
+                                        <option value="8" required>8</option>
+                                        <option value="9" required>9</option>
+                                        <option value="10" required>10</option>
+                                        <option value="11" required>11</option>
+                                        <option value="12" required>12</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 form-check-inline">
+                                    <label for="txtañogrado" class="form-label">Año Grado</label>
+                                    <input type="text" class="form-control" id="txtañogrado" required>
+                                </div>
+                                <div class="col-md-6 form-check-inline">
+                                    <label for="txtinstitucion" class="form-label">Institucion Educativa</label>
+                                    <input type="text" class="form-control" id="txtinstitucion" required>
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="formFile" class="form-label">Adjuntar Acta</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="formFile" class="form-label">Adjuntar Diploma</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+
+                                <hr>
+                                <h5><br>Formacion Academica Superior<br /></h5>
+                                <div class="col-md-3">
+                                    <label for="txtmodacademica" class="form-label">Modalidad Academica</label>
+                                    <select class="form-control" name="txtmodacademica" id="txtmodacademica">
+                                        <option value="" required>Seleccione.</option>
+                                        <option value="Tecnico" required>Tecnico</option>
+                                        <option value="Pregrado" required>Pregrado</option>
+                                        <option value="Especializacion" required>Especializacion</option>
+                                        <option value="Maestria" required>Maestria</option>
+                                        <option value="Doctorado" required>Doctorado</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="txtgraduado" class="form-label">Graduado</label>
+                                    <select class="form-control" name="txtgraduado" id="txtgraduado">
+                                        <option value="" required>Seleccione</option>
+                                        <option value="SI" required>SI</option>
+                                        <option value="NO" required>NO</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="txtsemaprobados" class="form-label">Semestres Aprobados</label>
+                                    <select class="form-control" name="txtsemaprobados" id="txtsemaprobados">
+                                        <option value="" required>Seleccione.</option>
+                                        <option value="1" required>1</option>
+                                        <option value="2" required>2</option>
+                                        <option value="3" required>3</option>
+                                        <option value="4" required>4</option>
+                                        <option value="5" required>5</option>
+                                        <option value="6" required>6</option>
+                                        <option value="7" required>7</option>
+                                        <option value="8" required>8</option>
+                                        <option value="9" required>9</option>
+                                        <option value="10" required>10</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4 ">
+                                    <label for="txtnomtitulo" class="form-label">Nombre del Titulo</label>
+                                    <input type="text" class="form-control" id="txtnomtitulo" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="txtmestermino" class="form-label">Mes Termino</label>
+                                    <select class="form-control" name="txtmestermino" id="txtmestermino">
+                                        <option value="" required>Seleccione.</option>
+                                        <option value="1" required>1</option>
+                                        <option value="2" required>2</option>
+                                        <option value="3" required>3</option>
+                                        <option value="4" required>4</option>
+                                        <option value="5" required>5</option>
+                                        <option value="6" required>6</option>
+                                        <option value="7" required>7</option>
+                                        <option value="8" required>8</option>
+                                        <option value="9" required>9</option>
+                                        <option value="10" required>10</option>
+                                        <option value="11" required>11</option>
+                                        <option value="12" required>12</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <label for="txtaniotitulo" class="form-label">Año</label>
+                                    <input type="text" class="form-control" id="txtaniotitulo" required>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <label for="txttarprofesional" class="form-label">Numero Targeta Profesional</label>
+                                    <input type="text" class="form-control" id="txttarprofesional" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="txtnominstitucionprof" class="form-label">Nombre Institucion</label>
+                                    <input type="text" class="form-control" id="txtnominstitucionprof" required>
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="formFile" class="form-label">Adjuntar Acta</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="formFile" class="form-label">Adjuntar Diploma</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                            </form>
+
+                        </section>
+
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <div id="mensajEerror" class="alert alert-danger" role="alert">
+                                    A simple danger alert—check it out!
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@section scripts{
+    <script>
+        var tabladata;
+        var filaSeleccionada;
+
+        jQuery.ajax({
+            url: '@Url.Action("ListarFacademica", "Sindicato")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+            console.log(data)
+            }
+
+        })
+        tabladata = $("#tablaF").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListarFacademica", "Sindicato")',
+                type: "GET",
+                dataType: "json",
+            },
+            "columns": [
+                { "data": "IdFormacionAcademica" },
+                { "data": "EducacionBasica" },
+                { "data": "TituloObtenido" },
+                { "data": "InstituEducativa" },
+                { "data": "NombreTitulo" },
+
+                {
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarFacademica"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "orderable": false,
+                    "searchable": false,
+                    "width":"90px"
+                }
+            ],
+            "language": {
+                "url":"https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
+            }
+
+        })
+
+
+        function abrirmodal(json) {
+            document.getElementById("fAcadec").reset();
+            $("#txtIdFacademica").val(0);
+            $("#mensajEerror").hide();
+
+
+            if (json != null) {
+
+                $("#txtIdFacademica").val(json.IdFormacionAcademica);
+                $("#txtcargoasp").val(json.CargoAspira);
+                $("#txtedubasica").val(json.EducacionBasica == "Primaria" ? "Primaria" : json.EducacionBasica == "Secundaria" ? "Secundaria" : "Media");
+                $("#txttitulobt").val(json.TituloObtenido);
+                $("#txtmes").val(json.MesGrado == "1" ? "1" : json.MesGrado == "2" ? "2" : json.MesGrado == "3" ? "3" : json.MesGrado == "4" ? "4" : json.MesGrado == "5" ? "5" : json.MesGrado == "6" ? "6" : json.MesGrado == "7" ? "7" : json.MesGrado == "8" ? "8" : json.MesGrado == "9" ? "9" : json.MesGrado == "10" ? "10" : json.MesGrado == "11" ? "11" : "12");
+                $("#txtañogrado").val(json.AnoGrado);
+                $("#txtinstitucion").val(json.InstituEducativa);
+                $("#txtmodacademica").val(json.ModalidadAcademica == "Tecnico" ? "Tecnico" : json.ModalidadAcademica == "Pregrado" ? "Pregrado" : json.ModalidadAcademica == "Especializacion" ? "Especializacion" : json.ModalidadAcademica == "Maestria" ? "Maestria" : "Doctorado");
+                $("#txtgraduado").val(json.Graduado == "SI" ? "SI" : "NO");
+                $("#txtsemaprobados").val(json.SemestresAprobados == "1" ? "1" : json.SemestresAprobados == "2" ? "2" : json.SemestresAprobados == "3" ? "3" : json.SemestresAprobados == "4" ? "4" : json.SemestresAprobados == "5" ? "5" : json.SemestresAprobados == "6" ? "6" : json.SemestresAprobados == "7" ? "7" : json.SemestresAprobados == "8" ? "8" : json.SemestresAprobados == "9" ? "9" : "10");
+                $("#txtnomtitulo").val(json.NombreTitulo);
+                $("#txtmestermino").val(json.MesTermino == "1" ? "1" : json.MesTermino == "2" ? "2" : json.MesTermino == "3" ? "3" : json.MesTermino == "4" ? "4" : json.MesTermino == "5" ? "5" : json.MesTermino == "6" ? "6" : json.MesTermino == "7" ? "7" : json.MesTermino == "8" ? "8" : json.MesTermino == "9" ? "9" : "10");
+                $("#txtaniotitulo").val(json.Ano);
+                $("#txttarprofesional").val(json.NTarjetaProfecional);
+                $("#txtnominstitucionprof").val(json.NombreInstitucion);
+
+            }
+
+            $("#FormModalFacademica").modal("show");
+        }
+
+       // Editar
+        $("#tablaF tbody").on("click", '.btn-editarFacademica', function () {
+
+            var filaSeleccionada = $(this).closest("tr");
+            var data = tabladata.row(filaSeleccionada).data();
+             abrirmodal(data)
+
+        })
+
+         function Guardar() {
+
+             var FormacionG = {
+
+                 IdFormacionAcademica: $("#txtIdFacademica").val(),
+                 CargoAspira: $("#txtcargoasp").val(),
+                 EducacionBasica: $("#txtedubasica").val(),
+                 TituloObtenido: $("#txttitulobt").val(),
+                 MesGrado: $("#txtmes").val(),
+                 AnoGrado: $("#txtañogrado").val(),
+                 InstituEducativa: $("#txtinstitucion").val(),
+                 ModalidadAcademica: $("#txtmodacademica").val(),
+                 Graduado: $("#txtgraduado").val(),
+                 SemestresAprobados: $("#txtsemaprobados").val(),
+                 NombreTitulo: $("#txtnomtitulo").val(),
+                 MesTermino: $("#txtmestermino").val(),
+                 Ano: $("#txtaniotitulo").val(),
+                 NTarjetaProfecional: $("#txttarprofesional").val(),
+                 NombreInstitucion: $("#txtnominstitucionprof").val(),
+            }
+
+
+
+             jQuery.ajax({
+                url: '@Url.Action("GuardarFormacion", "Sindicato")',
+                type: "POST",
+                 data: JSON.stringify({ objeto: FormacionG }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                 success: function (data) {
+
+                        //Usuario Nuevo
+                     if (FormacionG.IdFormacionAcademica == 0) {
+
+                         if (data.resultado != 0) {
+
+                             FormacionG.IdFormacionAcademica = data.resultado;
+                             tabladata.row.add(FormacionG).draw(false);
+                             $("#FormModalFacademica").modal("hide");
+                         } else {
+
+
+                             $("#mensajEerror").text(data.mensaje)
+                             $("#mensajEerror").show()
+                         }
+                         //Usuario Editar
+                     }
+                     else {
+
+                         if (data.resultado) {
+
+                             tabladata.row(filaSeleccionada).data(FormacionG).draw(false);
+                             filaSeleccionada = null;
+                             $("#FormModalFacademica").modal("hide");
+
+                         } else {
+                             $("#mensajEerror").text(data.mensaje)
+                             $("#mensajEerror").show()
+                         }
+
+
+                         }
+                     },
+                     error: function (error) {
+                             console.log(error)
+                        }
+            });
+         }
+
+    </script>
+}
+

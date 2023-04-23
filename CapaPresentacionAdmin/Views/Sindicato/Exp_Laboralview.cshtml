@@ -1,0 +1,294 @@
+﻿
+@{
+    ViewBag.Title = "Exp_Laboralview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hola">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-book"></i> Lista Experiencia Laboral
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <br>
+                <div class="hola1">
+                    <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Añadir Experiencia Laboral </button>
+                </div>
+                <br>
+                <br>
+                <table id="tabla3" class="table table-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Empresa</th>
+                            <th>Dependencia</th>
+                            <th>Cargo</th>
+                            <th>Fecha Ingreso</th>
+                            <th>Fecha Egreso</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="FormModalExp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-xxl-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Formulario Experiencia laboral</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="txtPersona" class="form-label">EN REGISTRO</label>
+                    <input type="text" id="txtIdExp" value="0" />
+                    <input type="text" id="txtPersona" value="IdPersona()" />
+                    <hr>
+                    <div class="contenido_texto block" data-seccion="1">
+                        <section>
+                            <form class="row g-3 needs-validation" novalidate id="FormExpLaboral">
+
+
+                                <div class="col-md-5 form-check-inline">
+                                    <label for="txtEntidad" class="form-label">Entidad o Empresa</label>
+                                    <input type="text" class="form-control" id="txtEntidad" required>
+                                </div>
+
+                                <div class="col-md-2 form-check-inline">
+                                    <label for="txtLaboro" class="form-label">Pais laboró</label>
+                                    <input type="text" class="form-control" id="txtLaboro" required>
+                                </div>
+
+                                <div class="col-md-2 form-check-inline">
+                                    <label for="txtdepartamento" class="form-label">Departamento</label>
+                                    <input type="text" class="form-control" id="txtdepartamento" required>
+                                </div>
+
+                                <div class="col-md-2 form-check-inline">
+                                    <label for="txtciudad" class="form-label">Ciudad</label>
+                                    <input type="text" class="form-control" id="txtciudad" required>
+                                </div>
+                                @*______________*@
+                                <div class="col-md-3 form-check-inline">
+                                    <label for="txtdireccion" class="form-label">Direccion</label>
+                                    <input type="text" class="form-control" id="txtdireccion" required>
+                                </div>
+                                <div class="col-md-3 form-check-inline">
+                                    <label for="txttelefono" class="form-label">Telefonos</label>
+                                    <input type="text" class="form-control" id="txttelefono" required>
+                                </div>
+                                <div class="col-md-3 form-check-inline">
+                                    <label for="txtcorreo" class="form-label">Correo Electronico</label>
+                                    <input type="text" class="form-control" id="txtcorreo" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="txtsector" class="form-label">Sector Empresa</label>
+                                    <select class="form-control" name="txtLoEscribe" id="txtsector" required>
+                                        <option value="" required>Seleccione.</option>
+                                        <option value="Publica" required>Publica</option>
+                                        <option value="Privada" required>Privada</option>
+                                    </select>
+                                </div>
+                                @*______________*@
+
+                                <div class="col-md-3 form-check-inline">
+                                    <label for="txtcargo" class="form-label">Cargo o contrato actual</label>
+                                    <input type="text" class="form-control" id="txtcargo" required>
+                                </div>
+                                <div class="col-md-3 form-check-inline">
+                                    <label for="txtdependencia" class="form-label">Dependencia</label>
+                                    <input type="text" class="form-control" id="txtdependencia" required>
+                                </div>
+                                <div class="col-md-2 form-check-inline">
+                                    <label for="txtfechain" class="form-label">Fecha Ingreso</label>
+                                    <input type="text" class="form-control" id="txtfechain" required>
+                                </div>
+                                <div class="col-md-2 form-check-inline">
+                                    <label for="txtfechasal" class="form-label">Fecha salida</label>
+                                    <input type="text" class="form-control" id="txtfechasal" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="formFile" class="form-label">Adjuntar Soporte</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+
+                            </form>
+
+                        </section>
+
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <div id="mensajEerror" class="alert alert-danger" role="alert">
+                                    A simple danger alert—check it out!
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var tabladata;
+        var filaSeleccionada;
+
+        jQuery.ajax({
+            url: '@Url.Action("ListaExp_Laboral", "Sindicato")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.log(data)
+            }
+
+        })
+        tabladata = $("#tabla3").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListaExp_Laboral", "Sindicato")',
+                type: "GET",
+                dataType: "json",
+            },
+            "columns": [
+                { "data": "IdExperienciaLaboral" },
+                { "data": "EmpresaEntidad" },
+                { "data": "Dependencia" }, 
+                { "data": "CargoContratoActual" },              
+                { "data": "FechaIngreso" },
+                { "data": "FechaEgreso" },
+
+                {
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarExplaboral"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "orderable": false,
+                    "searchable": false,
+                    "width":"90px"
+                }
+            ],
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
+        }
+
+        });
+
+        function abrirmodal(json) {
+            document.getElementById("FormExpLaboral").reset();
+            $("#txtIdExp").val(0);
+            $("#mensajEerror").hide();
+
+
+            if (json != null) {
+
+                $("#txtIdExp").val(json.IdExperienciaLaboral);
+                $("#txtEntidad").val(json.EmpresaEntidad);
+                $("#txtLaboro").val(json.Pais);
+                $("#txtdepartamento").val(json.Departamento);
+                $("#txtciudad").val(json.Ciudad);
+                $("#txtdireccion").val(json.Direccion);
+                $("#txttelefono").val(json.Telefono);
+                $("#txtcorreo").val(json.CorreoElectronico);
+                $("#txtsector").val(json.SectorEmpresa == "Publica" ? "Publica" : "Privada");
+                $("#txtcargo").val(json.CargoContratoActual);
+                $("#txtdependencia").val(json.Dependencia);
+                $("#txtfechain").val(json.FechaIngreso);
+                $("#txtfechasal").val(json.FechaEgreso);
+                //bool graduado = json.Graduado == "true";
+
+            }
+
+
+            $("#FormModalExp").modal("show");
+        }
+
+        //Editar
+        $("#tabla3 tbody").on("click", '.btn-editarExplaboral', function () {
+
+            var filaSeleccionada = $(this).closest("tr");
+            var data = tabladata.row(filaSeleccionada).data();
+
+            abrirmodal(data)
+
+        })
+
+        function Guardar() {
+
+            var Experienciag = {
+
+                IdExperienciaLaboral: $("#txtIdExp").val(),
+                EmpresaEntidad: $("#txtEntidad").val(),
+                Pais: $("#txtLaboro").val(),
+                Departamento: $("#txtdepartamento").val(),
+                Ciudad: $("#txtciudad").val(),
+                Direccion: $("#txtdireccion").val(),
+                Telefono: $("#txttelefono").val(),
+                CorreoElectronico: $("#txtcorreo").val(),
+                SectorEmpresa: $("#txtsector").val(),
+                CargoContratoActual: $("#txtcargo").val(),
+                Dependencia: $("#txtdependencia").val(),
+                FechaIngreso: $("#txtfechain").val(),
+                FechaEgreso: $("#txtfechasal").val(),
+
+            }
+
+             jQuery.ajax({
+                url: '@Url.Action("GuardarExp", "Sindicato")',
+                 type: "POST",
+                 data: JSON.stringify({ objeto: Experienciag }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                 success: function (data) {
+
+                        //Usuario Nuevo
+                     if (Experienciag.IdExperienciaLaboral == 0) {
+
+                         if (data.resultado != 0) {
+
+                             Experienciag.IdExperienciaLaboral = data.resultado;
+                             tabladata.row.add(Experienciag).draw(false);
+                             $("#FormModalExp").modal("hide");
+                         } else {
+
+
+                             $("#mensajEerror").text(data.mensaje)
+                             $("#mensajEerror").show()
+                         }
+
+                         //Usuario Editar
+                     }
+                     else {
+
+                         if (data.resultado) {
+
+                             tabladata.row(filaSeleccionada).data(Experienciag).draw(false);
+                             filaSeleccionada = null;
+                             $("#FormModalExp").modal("hide");
+
+                         } else {
+                             $("#mensajEerror").text(data.mensaje)
+                             $("#mensajEerror").show()
+                         }
+
+
+                     }
+                },
+                        error: function (error) {
+                            console.log(error)
+                        }
+            });
+         }
+
+    </script>
+}
+
