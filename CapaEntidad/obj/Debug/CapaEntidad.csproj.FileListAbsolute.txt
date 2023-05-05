@@ -10,3 +10,9 @@ C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaEntidad\obj\Debug\Cap
 C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\Sebastian Gutierrez\Desktop\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.pdb

@@ -21,7 +21,7 @@ namespace CapaEntidad
         public String Dependencia { get; set; }
         public string FechaIngreso { get; set; }
         public String FechaEgreso { get; set; }
-        //public bool AdjuntarSoporte { get; set; } 
+        public string AdjuntarSoporte { get; set; } 
 
         //public Formacion_academica(){
         //    Inicializamos las variables de tipo 'bit' en 'false'

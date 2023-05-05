@@ -164,8 +164,8 @@
             "columns": [
                 { "data": "IdExperienciaLaboral" },
                 { "data": "EmpresaEntidad" },
-                { "data": "Dependencia" }, 
-                { "data": "CargoContratoActual" },              
+                { "data": "Dependencia" },
+                { "data": "CargoContratoActual" },
                 { "data": "FechaIngreso" },
                 { "data": "FechaEgreso" },
 
@@ -238,54 +238,76 @@
                 CargoContratoActual: $("#txtcargo").val(),
                 Dependencia: $("#txtdependencia").val(),
                 FechaIngreso: $("#txtfechain").val(),
-                FechaEgreso: $("#txtfechasal").val(),
+                FechaEgreso: $("#txtfechasal").val()
 
             }
 
+            var formData = new FormData();
+            formData.append("IdExperienciaLaboral", $("#txtIdExp").val());
+            formData.append("EmpresaEntidad", $("#txtEntidad").val());
+            formData.append("Pais", $("#txtLaboro").val());
+            formData.append("Departamento", $("#txtdepartamento").val());
+            formData.append("Ciudad", $("#txtciudad").val());
+            formData.append("Direccion", $("#txtdireccion").val());
+            formData.append("Telefono", $("#txttelefono").val());
+            formData.append("CorreoElectronico", $("#txtcorreo").val());
+            formData.append("SectorEmpresa", $("#txtsector").val());
+            formData.append("CargoContratoActual", $("#txtcargo").val());
+            formData.append("Dependencia", $("#txtdependencia").val());
+            formData.append("FechaIngreso", $("#txtfechain").val());
+            formData.append("FechaEgreso", $("#txtfechasal").val());
+            formData.append("AdjuntarSoporte", $("#formFile")[0].files[0]);
+
+            //console.info($("#formFile")[0].files[0]);
+
+
              jQuery.ajax({
                 url: '@Url.Action("GuardarExp", "Sindicato")',
-                 type: "POST",
-                 data: JSON.stringify({ objeto: Experienciag }),
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                 success: function (data) {
+                type: "POST",
+                data: formData,
+                cache: false,
+                processData: false,
+                cache:false,
+                contentType: false,
+                success: function (data) {
+                    console.info(data);
 
-                        //Usuario Nuevo
-                     if (Experienciag.IdExperienciaLaboral == 0) {
+                     //Usuario Nuevo
+                    if (Experienciag.IdExperienciaLaboral == 0) {
 
-                         if (data.resultado != 0) {
+                            if (data.resultado != 0) {
 
-                             Experienciag.IdExperienciaLaboral = data.resultado;
-                             tabladata.row.add(Experienciag).draw(false);
-                             $("#FormModalExp").modal("hide");
-                         } else {
-
-
-                             $("#mensajEerror").text(data.mensaje)
-                             $("#mensajEerror").show()
-                         }
-
-                         //Usuario Editar
-                     }
-                     else {
-
-                         if (data.resultado) {
-
-                             tabladata.row(filaSeleccionada).data(Experienciag).draw(false);
-                             filaSeleccionada = null;
-                             $("#FormModalExp").modal("hide");
-
-                         } else {
-                             $("#mensajEerror").text(data.mensaje)
-                             $("#mensajEerror").show()
-                         }
+                                Experienciag.IdExperienciaLaboral = data.resultado;
+                                tabladata.row.add(Experienciag).draw(false);
+                                $("#FormModalExp").modal("hide");
+                            } else {
 
 
-                     }
-                },
-                        error: function (error) {
-                            console.log(error)
+                                $("#mensajEerror").text(data.mensaje)
+                                $("#mensajEerror").show()
+                            }
+
+                            //Usuario Editar
+                    }
+                    else {
+
+                        if (data.resultado) {
+
+                            tabladata.row(filaSeleccionada).data(Experienciag).draw(false);
+                            filaSeleccionada = null;
+                            $("#FormModalExp").modal("hide");
+
+                        } else {
+                            $("#mensajEerror").text(data.mensaje)
+                            $("#mensajEerror").show()
                         }
+
+
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                }
             });
          }
 

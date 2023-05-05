@@ -3,6 +3,7 @@ using CapaNegocio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -133,6 +134,19 @@ namespace CapaPresentacionAdmin.Controllers
         {
             object resultado;
             string mensaje = string.Empty;
+            int resacr = 0;
+
+            HttpPostedFileBase archivo = Request.Files["AdjuntarSoporte"];
+            string nombreArchivo = null;
+            if (archivo != null)
+            {
+                nombreArchivo = Path.GetFileName(archivo.FileName);
+                resacr = CargaArchivo(archivo);
+            }
+
+            objeto.AdjuntarSoporte = nombreArchivo;
+
+            //
             if (objeto.IdExperienciaLaboral == 0)
             {
                 resultado = new CN_Ex_Laboral().RegistrarExpLaboral(objeto, out mensaje);
@@ -142,8 +156,39 @@ namespace CapaPresentacionAdmin.Controllers
                 resultado = new CN_Ex_Laboral().ActualizarExpLaboral(objeto, out mensaje);
             }
 
+            //mensaje = nombreArchivo+"_"+resacr;
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
 
+        }
+
+        public int CargaArchivo(HttpPostedFileBase archivo)
+        {
+            try
+            {
+                // Verifica que se haya seleccionado un archivo
+                if (archivo != null && archivo.ContentLength > 0)
+                {
+                    // Crea la ruta de destino del archivo
+                    string rutaDestino = Server.MapPath("~/Views/Subidos/") + archivo.FileName;
+
+                    // Guarda el archivo en la carpeta "subidos"
+                    archivo.SaveAs(rutaDestino);
+
+                    // Devuelve 1 si el archivo se subió correctamente
+                    return 1;
+                }
+
+                // Devuelve 0 si no se seleccionó ningún archivo
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                // Loguea la excepción
+                // ...
+
+                // Devuelve -1 si se produjo un error al subir el archivo
+                return -1;
+            }
         }
 
 

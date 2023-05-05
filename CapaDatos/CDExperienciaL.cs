@@ -90,7 +90,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Dependencia", obj.Dependencia);
                     cmd.Parameters.AddWithValue("FechaIngreso", obj.FechaIngreso);
                     cmd.Parameters.AddWithValue("FechaEgreso", obj.FechaEgreso);
-                    //cmd.Parameters.AddWithValue("AdjuntarSoporte", obj.AdjuntarSoporte);
+                    cmd.Parameters.AddWithValue("AdjuntarSoporte", obj.AdjuntarSoporte);
 
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -143,6 +143,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Dependencia", obj.Dependencia);
                     cmd.Parameters.AddWithValue("FechaIngreso", obj.FechaIngreso);
                     cmd.Parameters.AddWithValue("FechaEgreso", obj.FechaEgreso);
+                    cmd.Parameters.AddWithValue("AdjuntarSoporte", obj.AdjuntarSoporte);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
