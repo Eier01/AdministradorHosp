@@ -33,6 +33,10 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
+        public ActionResult CapacitacionesCView()
+        {
+            return View();
+        }
 
 
         [HttpGet]
@@ -74,6 +78,16 @@ namespace CapaPresentacionAdmin.Controllers
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public JsonResult ListaCapacitacionesC()
+        {
+            List<CapacitacionesC> oLista = new List<CapacitacionesC>();
+            oLista = new CNCapacitacionesC().Listar();
+
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult GuardarPersona(Persona objeto)
         {
@@ -220,6 +234,39 @@ namespace CapaPresentacionAdmin.Controllers
             else
             {
                 resultado = new CN_Ex_Laboral().ActualizarExpLaboral(objeto, out mensaje);
+            }
+
+            //mensaje = nombreArchivo+"_"+resacr;
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+        [HttpPost]
+        public JsonResult GuardarCapatacitaciones(CapacitacionesC objeto)
+        {
+            object resultado;
+            string mensaje = string.Empty;
+            int resacr = 0;
+
+            HttpPostedFileBase archivo = Request.Files["Archivo"];
+            string nombreArchivo = null;
+            if (archivo != null)
+            {
+                nombreArchivo = Path.GetFileName(archivo.FileName);
+                resacr = CargaArchivo(archivo);
+            }
+
+            objeto.Archivo = nombreArchivo;
+
+            //
+            if (objeto.idCapacitacionesCursos == 0)
+            {
+                resultado = new CNCapacitacionesC().RegistrarCursos(objeto, out mensaje);
+            }
+            else
+            {
+                resultado = new CNCapacitacionesC().EditarCursos(objeto, out mensaje);
             }
 
             //mensaje = nombreArchivo+"_"+resacr;

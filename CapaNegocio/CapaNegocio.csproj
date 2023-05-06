@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CNCapacitacionesC.cs" />
     <Compile Include="CNF_Academica.cs" />
     <Compile Include="CN_Ex_Laboral.cs" />
     <Compile Include="CN_Idiomas.cs" />

@@ -49,7 +49,11 @@ namespace CapaDatos
                                     Dependencia = dr["Dependencia"].ToString(),
                                     FechaIngreso = dr["FechaIngreso"].ToString(),
                                     FechaEgreso = dr["FechaEgreso"].ToString(),
+<<<<<<< HEAD
                                    
+=======
+                                    AdjuntarSoporte = dr["AdjuntarSoporte"].ToString(),
+>>>>>>> d539e36b51ff3f2da0b3a667607889973e20fac6
                                 }
                             );
                         }
