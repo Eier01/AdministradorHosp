@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CDCapacitacionesC.cs" />
     <Compile Include="CDExperienciaL.cs" />
     <Compile Include="CD_Facademica.cs" />
     <Compile Include="CD_Idiomas.cs" />
