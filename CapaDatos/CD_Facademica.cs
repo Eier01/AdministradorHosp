@@ -82,6 +82,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("TituloObtenido", obj.TituloObtenido);
                     cmd.Parameters.AddWithValue("MesGrado", obj.MesGrado);
                     cmd.Parameters.AddWithValue("AnoGrado", obj.AnoGrado);
+                    cmd.Parameters.AddWithValue("ActaColegio", obj.ActaColegio);
+                    cmd.Parameters.AddWithValue("DiplomaColegio", obj.DiplomaColegio);
                     cmd.Parameters.AddWithValue("InstituEducativa", obj.InstituEducativa);
                     cmd.Parameters.AddWithValue("ModalidadAcademica", obj.ModalidadAcademica);
                     cmd.Parameters.AddWithValue("SemestresAprobados", obj.SemestresAprobados);
@@ -91,6 +93,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Ano", obj.Ano);
                     cmd.Parameters.AddWithValue("NTarjetaProfecional", obj.NTarjetaProfecional);
                     cmd.Parameters.AddWithValue("NombreInstitucion", obj.NombreInstitucion);
+                    cmd.Parameters.AddWithValue("ActaUniversitaria", obj.ActaUniversitaria);
+                    cmd.Parameters.AddWithValue("DiplomaUniversitario", obj.DiplomaUniversitario);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -135,6 +139,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("TituloObtenido", obj.TituloObtenido);
                     cmd.Parameters.AddWithValue("MesGrado", obj.MesGrado);
                     cmd.Parameters.AddWithValue("AnoGrado", obj.AnoGrado);
+                    cmd.Parameters.AddWithValue("ActaColegio", obj.ActaColegio);
+                    cmd.Parameters.AddWithValue("DiplomaColegio", obj.DiplomaColegio);
                     cmd.Parameters.AddWithValue("InstituEducativa", obj.InstituEducativa);
                     cmd.Parameters.AddWithValue("ModalidadAcademica", obj.ModalidadAcademica);
                     cmd.Parameters.AddWithValue("SemestresAprobados", obj.SemestresAprobados);
@@ -144,6 +150,8 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Ano", obj.Ano);
                     cmd.Parameters.AddWithValue("NTarjetaProfecional", obj.NTarjetaProfecional);
                     cmd.Parameters.AddWithValue("NombreInstitucion", obj.NombreInstitucion);
+                    cmd.Parameters.AddWithValue("ActaUniversitaria", obj.ActaUniversitaria);
+                    cmd.Parameters.AddWithValue("DiplomaUniversitario", obj.DiplomaUniversitario);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
 

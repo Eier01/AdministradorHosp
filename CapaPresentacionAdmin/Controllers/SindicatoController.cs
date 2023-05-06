@@ -94,11 +94,77 @@ namespace CapaPresentacionAdmin.Controllers
 
 
         [HttpPost]
+        //public JsonResult GuardarFormacion(Formacion_academica objeto)
+        //{
+        //    object resultado;
+        //    string mensaje = string.Empty;
+
+        //    if (objeto.IdFormacionAcademica == 0)
+        //    {
+        //        resultado = new CNF_Academica().RegistrarFormacion(objeto, out mensaje);
+        //    }
+        //    else
+        //    {
+        //        resultado = new CNF_Academica().EditarFormacion(objeto, out mensaje);
+        //    }
+
+        //    return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        //}
+
         public JsonResult GuardarFormacion(Formacion_academica objeto)
         {
             object resultado;
             string mensaje = string.Empty;
+            List<string> nombresArchivosActaUniversitaria = new List<string>();
+            List<string> nombresArchivosDiplomaUniversitario = new List<string>();
+            List<string> nombresArchivosActaColegio = new List<string>();
+            List<string> nombresArchivosDiplomaColegio = new List<string>();
+            List<int> resacrsActaUniversitaria = new List<int>();
+            List<int> resacrsDiplomaUniversitario = new List<int>();
+            List<int> resacrsActaColegio = new List<int>();
+            List<int> resacrsDiplomaColegio = new List<int>();
 
+            // Obtiene los archivos adjuntos
+            for (int i = 0; i < Request.Files.Count; i++)
+            {
+                HttpPostedFileBase archivo = Request.Files[i];
+                string nombreArchivo = null;
+                int resacr = 0;
+
+                if (archivo != null)
+                {
+                    nombreArchivo = Path.GetFileName(archivo.FileName);
+                    resacr = CargaArchivo(archivo);
+                }
+
+                if (Request.Files.GetKey(i) == "ActaUniversitaria")
+                {
+                    nombresArchivosActaUniversitaria.Add(nombreArchivo);
+                    resacrsActaUniversitaria.Add(resacr);
+                }
+                else if (Request.Files.GetKey(i) == "DiplomaUniversitario")
+                {
+                    nombresArchivosDiplomaUniversitario.Add(nombreArchivo);
+                    resacrsDiplomaUniversitario.Add(resacr);
+                }
+                else if (Request.Files.GetKey(i) == "ActaColegio")
+                {
+                    nombresArchivosActaColegio.Add(nombreArchivo);
+                    resacrsActaColegio.Add(resacr);
+                }
+                else if (Request.Files.GetKey(i) == "DiplomaColegio")
+                {
+                    nombresArchivosDiplomaColegio.Add(nombreArchivo);
+                    resacrsDiplomaColegio.Add(resacr);
+                }
+            }
+
+            objeto.ActaUniversitaria = string.Join(",", nombresArchivosActaUniversitaria);
+            objeto.DiplomaUniversitario = string.Join(",", nombresArchivosDiplomaUniversitario);
+            objeto.ActaColegio = string.Join(",", nombresArchivosActaColegio);
+            objeto.DiplomaColegio = string.Join(",", nombresArchivosDiplomaColegio);
+
+            //
             if (objeto.IdFormacionAcademica == 0)
             {
                 resultado = new CNF_Academica().RegistrarFormacion(objeto, out mensaje);
@@ -108,9 +174,9 @@ namespace CapaPresentacionAdmin.Controllers
                 resultado = new CNF_Academica().EditarFormacion(objeto, out mensaje);
             }
 
+            //mensaje = nombreArchivo+"_"+resacr;
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
-
 
         [HttpPost]
         public JsonResult GuardarIdioma(Idiomas objeto)

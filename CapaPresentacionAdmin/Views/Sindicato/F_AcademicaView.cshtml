@@ -125,12 +125,12 @@
                                     <input type="text" class="form-control" id="txtinstitucion" required>
                                 </div>
                                 <div class="col-md-5">
-                                    <label for="formFile" class="form-label">Adjuntar Acta</label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <label for="adactacol" class="form-label">Adjuntar Acta</label>
+                                    <input class="form-control" type="file" id="adactacol">
                                 </div>
                                 <div class="col-md-5">
-                                    <label for="formFile" class="form-label">Adjuntar Diploma</label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <label for="addiplomacol" class="form-label">Adjuntar Diploma</label>
+                                    <input class="form-control" type="file" id="addiplomacol">
                                 </div>
 
                                 <hr>
@@ -206,12 +206,12 @@
                                     <input type="text" class="form-control" id="txtnominstitucionprof" required>
                                 </div>
                                 <div class="col-md-5">
-                                    <label for="formFile" class="form-label">Adjuntar Acta</label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <label for="actauni" class="form-label">Adjuntar Acta</label>
+                                    <input class="form-control" type="file" id="actauni">
                                 </div>
                                 <div class="col-md-5">
-                                    <label for="formFile" class="form-label">Adjuntar Diploma</label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <label for="diplouni" class="form-label">Adjuntar Diploma</label>
+                                    <input class="form-control" type="file" id="diplouni">
                                 </div>
                             </form>
 
@@ -319,36 +319,63 @@
 
         })
 
-         function Guardar() {
+        function Guardar() {
 
-             var FormacionG = {
+            var FormacionG = {
 
-                 IdFormacionAcademica: $("#txtIdFacademica").val(),
-                 CargoAspira: $("#txtcargoasp").val(),
-                 EducacionBasica: $("#txtedubasica").val(),
-                 TituloObtenido: $("#txttitulobt").val(),
-                 MesGrado: $("#txtmes").val(),
-                 AnoGrado: $("#txtañogrado").val(),
-                 InstituEducativa: $("#txtinstitucion").val(),
-                 ModalidadAcademica: $("#txtmodacademica").val(),
-                 Graduado: $("#txtgraduado").val(),
-                 SemestresAprobados: $("#txtsemaprobados").val(),
-                 NombreTitulo: $("#txtnomtitulo").val(),
-                 MesTermino: $("#txtmestermino").val(),
-                 Ano: $("#txtaniotitulo").val(),
-                 NTarjetaProfecional: $("#txttarprofesional").val(),
-                 NombreInstitucion: $("#txtnominstitucionprof").val(),
+                IdFormacionAcademica: $("#txtIdFacademica").val(),
+                CargoAspira: $("#txtcargoasp").val(),
+                EducacionBasica: $("#txtedubasica").val(),
+                TituloObtenido: $("#txttitulobt").val(),
+                MesGrado: $("#txtmes").val(),
+                AnoGrado: $("#txtañogrado").val(),
+                InstituEducativa: $("#txtinstitucion").val(),
+                ModalidadAcademica: $("#txtmodacademica").val(),
+                Graduado: $("#txtgraduado").val(),
+                SemestresAprobados: $("#txtsemaprobados").val(),
+                NombreTitulo: $("#txtnomtitulo").val(),
+                MesTermino: $("#txtmestermino").val(),
+                Ano: $("#txtaniotitulo").val(),
+                NTarjetaProfecional: $("#txttarprofesional").val(),
+                NombreInstitucion: $("#txtnominstitucionprof").val(),
             }
 
+
+            var formData = new FormData();
+            formData.append("IdFormacionAcademica", $("#txtIdFacademica").val());
+            formData.append("CargoAspira", $("#txtcargoasp").val());
+            formData.append("EducacionBasica", $("#txtedubasica").val());
+            formData.append("TituloObtenido", $("#txttitulobt").val());
+            formData.append("MesGrado", $("#txtmes").val());
+            formData.append("AnoGrado", $("#txtañogrado").val());
+
+            formData.append("ActaColegio", $("#adactacol")[0].files[0]);
+            formData.append("DiplomaColegio", $("#addiplomacol")[0].files[0]);
+
+            formData.append("InstituEducativa", $("#txtinstitucion").val());
+            formData.append("ModalidadAcademica", $("#txtmodacademica").val());
+            formData.append("Graduado", $("#txtgraduado").val());
+            formData.append("SemestresAprobados", $("#txtsemaprobados").val());
+            formData.append("NombreTitulo", $("#txtnomtitulo").val());
+            formData.append("MesTermino", $("#txtmestermino").val());
+            formData.append("Ano", $("#txtaniotitulo").val());
+            formData.append("NTarjetaProfecional", $("#txttarprofesional").val());
+            formData.append("NombreInstitucion", $("#txtnominstitucionprof").val());
+
+            formData.append("ActaUniversitaria", $("#actauni")[0].files[0]);
+            formData.append("DiplomaUniversitario", $("#diplouni")[0].files[0]);
 
 
              jQuery.ajax({
                 url: '@Url.Action("GuardarFormacion", "Sindicato")',
-                type: "POST",
-                 data: JSON.stringify({ objeto: FormacionG }),
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
+                 type: "POST",
+                 data: formData,
+                 cache: false,
+                 processData: false,
+                 cache: false,
+                 contentType: false,
                  success: function (data) {
+                     console.info(data); 
 
                         //Usuario Nuevo
                      if (FormacionG.IdFormacionAcademica == 0) {

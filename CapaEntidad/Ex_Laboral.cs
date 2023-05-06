@@ -22,9 +22,5 @@ namespace CapaEntidad
         public string FechaIngreso { get; set; }
         public String FechaEgreso { get; set; }
         public string AdjuntarSoporte { get; set; } 
-
-        //public Formacion_academica(){
-        //    Inicializamos las variables de tipo 'bit' en 'false'
-        //    ActaColegio = false;
     }
 }

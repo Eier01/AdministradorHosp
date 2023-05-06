@@ -204,7 +204,6 @@
                 $("#txtdependencia").val(json.Dependencia);
                 $("#txtfechain").val(json.FechaIngreso);
                 $("#txtfechasal").val(json.FechaEgreso);
-                //bool graduado = json.Graduado == "true";
 
             }
 
@@ -258,7 +257,7 @@
             formData.append("FechaEgreso", $("#txtfechasal").val());
             formData.append("AdjuntarSoporte", $("#formFile")[0].files[0]);
 
-            //console.info($("#formFile")[0].files[0]);
+           
 
 
              jQuery.ajax({
