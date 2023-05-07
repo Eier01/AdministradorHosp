@@ -1,0 +1,280 @@
+﻿
+@{
+    ViewBag.Title = "Datos_Laboralesview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hola">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-briefcase"></i> Procesos
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <h3>Datos Laborales</h3>
+
+                </div>
+                <br>
+                <div class="hola1">
+                    <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Crear Informacion Laboral</button>
+                </div>
+                <br>
+                <br>
+                <table id="tablad" class="table table-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Area</th>
+                            <th>Nombre Area</th>
+                            <th>Tipo Actividad</th>
+                            <th>Horas Contratadas</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="FormModalDatoslaborales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-xxl-down">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="contenido_texto block" data-seccion="1">
+                    <section>
+                        <form class="row g-3 needs-validation" id="Formlaborales" novalidate>
+                            <div class="col-md-3">
+                                <label for="txtarea" class="form-label">Area de Cargo</label>
+                                <select class="form-control" name="txtarea" id="txtarea" required>
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="Sindicato" required>Sindicato</option>
+                                    <option value="OPS" required>OPS</option>
+                                    <option value="Planta" required>Planta</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-check-inline">
+                                <label for="txtNombrearea" class="form-label">Nombre Area</label>
+                                <input type="text" class="form-control" id="txtNombrearea" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txttipoactividades" class="form-label">Tipo de actividades</label>
+                                <select class="form-control" name="txttipoactividades" id="txttipoactividades" required>
+                                    <option value="" required>Seleccione.</option>
+                                </select>
+                            </div>
+
+                            <div class="d-flex flex-row flex-wrap">
+                                <div class="me-xl-3">
+                                    <label for="validationCustom04" class="form-label">Actividades</label>
+                                    <select class="form-select form-control-lg" multiple aria-label="multiple select example">
+                                        <option value="0">...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="validationCustom04" class="form-label">Subprocesos</label>
+                                    <select class="form-select form-control-lg" multiple aria-label="multiple select example">
+                                        <option value="0">...</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-3 form-check-inline">
+                                <label for="txtfechain" class="form-label">Fecha ingreso</label>
+                                <input type="text" class="form-control" id="txtfechain" required>
+                            </div>
+                            <div class="col-md-3 form-check-inline">
+                                <label for="txtfechare" class="form-label">Fecha retiro</label>
+                                <input type="text" class="form-control" id="txtfechare" required>
+                            </div>
+                            <div class="col-md-3 form-check-inline">
+                                <label for="txthorascon" class="form-label">Horas contratadas al mes</label>
+                                <input type="text" class="form-control" id="txthorascon" required>
+                            </div>
+                            <div class="col-md-3" style="margin-top: 49px;">
+                                <div class="hola">
+                                    <button type="button" class="btn btn-primary">Guardar</button>
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+
+</section>
+
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <div id="mensajEerror" class="alert alert-danger" role="alert">
+                                A simple danger alert—check it out!
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var tabladata;
+        var filaSeleccionada;
+
+        jQuery.ajax({
+            url: '@Url.Action("ListarDatosLaborales", "Sindicato")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.log(data)
+            }
+
+        })
+        tabladata = $("#tablad").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListarDatosLaborales", "Sindicato")',
+                type: "GET",
+                dataType: "json",
+            },
+            "columns": [
+                { "data": "IdDatosLaborales"},
+                { "data": "Area" },
+                { "data": "NombreArea" },
+                { "data": "txtipoactividades" },
+                { "data": "HorasContratadas" },
+
+                {
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarDatosLaborales"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "orderable": false,
+                    "searchable": false,
+                    "width":"90px"
+                }
+            ],
+            "language": {
+                "url":"https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
+            }
+
+        })
+
+        function abrirmodal(json) {
+            document.getElementById("Formlaborales").reset();
+            $("#IdDatosLaborales").val(0);
+            $("#mensajEerror").hide();
+
+
+            if (json != null) {
+
+                $("#txtIddatoslaborales").val(json.IdDatosLaborales);
+                $("#txtarea").val();
+                $("#txtNombrearea").val();
+                $("#txttipoactividades").val();
+                $("#txtfechain").val();
+                $("#txtfechare").val(); 
+                $("#txthorascon").val(); 
+               
+            }
+
+
+            $("#FormModalDatoslaborales").modal("show");
+        }
+
+        //Editar
+        $("#tabla1 tbody").on("click", '.btn-editarDatosLaborales', function () {
+
+            var filaSeleccionada = $(this).closest("tr");
+            var data = tabladata.row(filaSeleccionada).data();
+
+             abrirmodal(data)
+
+        })
+
+        function Guardar() {
+
+            var DatosLab = {
+
+                IdDatosLaborales: $("#txtIddatoslaborales").val(),
+                Area: $("#txtarea").val(),
+                NombreArea: $("#txtNombrearea").val(),
+                TipoActividad: $("#txttipoactividades").val(),
+                FechaIngreso: $("#txtfechain").val(),
+                FechaRetiro: $("#txtfechare").val(),
+                HorasContratadas: $("#txthorascon").val(),
+            }
+
+
+
+             jQuery.ajax({
+                url: '@Url.Action("GuardarDatosLaborales", "Sindicato")',
+                type: "POST",
+                 data: JSON.stringify({ objeto: DatosLab }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                 success: function (data) {
+
+                        //Usuario Nuevo
+                     if (DatosLab.IdDatosLaborales == 0) {
+
+                         if (data.resultado != 0) {
+
+                             DatosLab.IdDatosLaborales = data.resultado;
+                             tabladata.row.add(DatosLab).draw(false);
+                             $("#FormModalDatoslaborales").modal("hide");
+                         } else {
+
+
+                             $("#mensajEerror").text(data.mensaje)
+                             $("#mensajEerror").show()
+                         }
+
+                         //Usuario Editar
+                     }
+                     else {
+
+                         if (data.resultado) {
+
+                             tabladata.row(filaSeleccionada).data(IdiomasG).draw(false);
+                             filaSeleccionada = null;
+                             $("#FormModalDatoslaborales").modal("hide");
+
+                         } else {
+                             $("#mensajEerror").text(data.mensaje)
+                             $("#mensajEerror").show()
+                         }
+
+
+                     }
+                },
+                        error: function (error) {
+                            console.log(error)
+                        }
+            });
+         }
+
+    </script>
+}

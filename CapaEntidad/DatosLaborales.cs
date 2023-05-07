@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    internal class Rlegales
+    internal class DatosLaborales
     {
     }
 }

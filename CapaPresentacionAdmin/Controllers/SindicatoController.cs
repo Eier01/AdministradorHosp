@@ -33,6 +33,10 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
+        public ActionResult Datos_Laboralesview()
+        {
+            return View();
+        }
 
 
         [HttpGet]
@@ -74,6 +78,15 @@ namespace CapaPresentacionAdmin.Controllers
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
+        [HttpGet]
+        public JsonResult ListarDatosLaborales()
+        {
+            List<Datos_Laborales> oLista = new List<Datos_Laborales>();
+            oLista = new CN_Laborales().Listar();
+
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult GuardarPersona(Persona objeto)
         {
@@ -92,25 +105,27 @@ namespace CapaPresentacionAdmin.Controllers
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult GuardarDatosLaborales(Datos_Laborales objeto)
+        {
+            object resultado;
+            string mensaje = string.Empty;
+
+            if (objeto.IdDatosLaborales == 0)
+            {
+                resultado = new CN_Laborales().RegistrarDatosLaborales(objeto, out mensaje);
+            }
+            else
+            {
+                resultado = new CN_Laborales().EditarDatosLaborales(objeto, out mensaje);
+            }
+
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+
 
         [HttpPost]
-        //public JsonResult GuardarFormacion(Formacion_academica objeto)
-        //{
-        //    object resultado;
-        //    string mensaje = string.Empty;
-
-        //    if (objeto.IdFormacionAcademica == 0)
-        //    {
-        //        resultado = new CNF_Academica().RegistrarFormacion(objeto, out mensaje);
-        //    }
-        //    else
-        //    {
-        //        resultado = new CNF_Academica().EditarFormacion(objeto, out mensaje);
-        //    }
-
-        //    return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
-        //}
-
+    
         public JsonResult GuardarFormacion(Formacion_academica objeto)
         {
             object resultado;

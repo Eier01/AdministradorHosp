@@ -8,7 +8,6 @@ namespace CapaEntidad
 {
     public class Idiomas
     {
-        //IdIdiomas,Idioma,LoHabla,LoLee, LoEscribe, IdPersona
         public int IdIdiomas { get; set; }
         public string Idioma { get; set; }
         public string LoHabla { get; set; }
