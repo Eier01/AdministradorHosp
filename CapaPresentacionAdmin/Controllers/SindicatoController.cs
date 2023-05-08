@@ -37,6 +37,14 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
+        public ActionResult CapacitacionesCView()
+        {
+            return View();
+        }
+        public ActionResult RlegalesView()
+        {
+            return View();
+        }
 
 
         [HttpGet]
@@ -60,6 +68,15 @@ namespace CapaPresentacionAdmin.Controllers
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult ListarRlegales()
+
+        {
+            List<Rlegales> oLista = new List<Rlegales>();
+            oLista = new CN_Rlegales().Listar();
+
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpGet]
         public JsonResult ListarIdioma()
@@ -83,6 +100,15 @@ namespace CapaPresentacionAdmin.Controllers
         {
             List<Datos_Laborales> oLista = new List<Datos_Laborales>();
             oLista = new CN_Laborales().Listar();
+
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult ListaCapacitacionesC()
+        {
+            List<CapacitacionesC> oLista = new List<CapacitacionesC>();
+            oLista = new CNCapacitacionesC().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -235,6 +261,69 @@ namespace CapaPresentacionAdmin.Controllers
             else
             {
                 resultado = new CN_Ex_Laboral().ActualizarExpLaboral(objeto, out mensaje);
+            }
+
+            //mensaje = nombreArchivo+"_"+resacr;
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpPost]
+        public JsonResult GuardarCapatacitaciones(CapacitacionesC objeto)
+        {
+            object resultado;
+            string mensaje = string.Empty;
+            int resacr = 0;
+
+            HttpPostedFileBase archivo = Request.Files["Archivo"];
+            string nombreArchivo = null;
+            if (archivo != null)
+            {
+                nombreArchivo = Path.GetFileName(archivo.FileName);
+                resacr = CargaArchivo(archivo);
+            }
+
+            objeto.Archivo = nombreArchivo;
+
+            //
+            if (objeto.idCapacitacionesCursos == 0)
+            {
+                resultado = new CNCapacitacionesC().RegistrarCursos(objeto, out mensaje);
+            }
+            else
+            {
+                resultado = new CNCapacitacionesC().EditarCursos(objeto, out mensaje);
+            }
+
+            //mensaje = nombreArchivo+"_"+resacr;
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public JsonResult GuardarRlegales(Rlegales objeto)
+        {
+            object resultado;
+            string mensaje = string.Empty;
+            int resacr = 0;
+
+            HttpPostedFileBase archivo = Request.Files["Archivo"];
+            string nombreArchivo = null;
+            if (archivo != null)
+            {
+                nombreArchivo = Path.GetFileName(archivo.FileName);
+                resacr = CargaArchivo(archivo);
+            }
+
+            objeto.Archivo = nombreArchivo;
+
+            //
+            if (objeto.IdRequisitosLegales == 0)
+            {
+                resultado = new CN_Rlegales().RegistrarRlegales(objeto, out mensaje);
+            }
+            else
+            {
+                resultado = new CN_Rlegales().EditarRlegales(objeto, out mensaje);
             }
 
             //mensaje = nombreArchivo+"_"+resacr;

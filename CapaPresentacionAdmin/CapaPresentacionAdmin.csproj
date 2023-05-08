@@ -509,6 +509,8 @@
     <Content Include="Views\Sindicato\F_AcademicaView.cshtml" />
     <Content Include="Views\Sindicato\Exp_Laboralview.cshtml" />
     <Content Include="Views\Sindicato\Datos_Laboralesview.cshtml" />
+    <Content Include="Views\Sindicato\CapacitacionesCView.cshtml" />
+    <Content Include="Views\Sindicato\RlegalesView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
