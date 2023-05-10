@@ -41,9 +41,11 @@ namespace CapaEntidad
         public string Eps { get; set; }
         public string FondoPensiones { get; set; }
         public string Arl { get; set; }
-       // public int PersonaPerId { get; set; }
-        public String FechaRevision { get; set; }
         public Boolean Estado { get; set; }
         public String Estadofecha { get; set; }
+
+       // public String  NombreCompleto  { get; set; }
+
+        // public int PersonaPerId { get; set; }
     }
 }

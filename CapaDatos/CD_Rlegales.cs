@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace CapaDatos
 {
@@ -57,7 +58,9 @@ namespace CapaDatos
 
             return lista;
         }
+
         //REGISTRAR REQUISITOS LEGALES
+
         public int RegistrarRlegales(Rlegales obj, out string Mensaje)
         {
 

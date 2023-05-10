@@ -8,16 +8,18 @@
     <br>
     <div class="card">
         <div class="card-header">
-            <i class="fas fa-book"></i> Lista Experiencia Laboral
+            <i class="fas fa-book"></i> Capacitaciónes o Cursos 
         </div>
         <div class="card-body">
             <div class="row">
                 <br>
+                <br>
                 <div class="hola1">
-                    <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Añadir Experiencia Laboral </button>
+                    <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Añadir Capacitación </button>
                 </div>
                 <br>
                 <br>
+                <hr>
                 <table id="tablaCC" class="table table-hover" style="width:100%">
                     <thead>
                         <tr>
@@ -39,17 +41,17 @@
 
     <!-- Modal -->
     <div class="modal fade" id="FormModalCapacitaciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-xxl-down ">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
-                    <input type="text" id="txtIdCapacitacionesC" value="0" />
+                    <input type="text" id="txtIdCapacitacionesC" value="0" style="display: none;" />
 
-                    <div class="contenido_texto block" data-seccion="1">
+                    <div style="width: 85%; margin: 0 auto;">
                         <section>
 
                             <form class="row g-3 needs-validation" novalidate id="formCcursos">

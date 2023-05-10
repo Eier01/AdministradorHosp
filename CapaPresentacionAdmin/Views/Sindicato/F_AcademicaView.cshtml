@@ -8,21 +8,22 @@
     <br>
     <div class="card">
         <div class="card-header">
-            <i class="fas fa-briefcase"></i> Procesos
+            <i class="fas fa-briefcase"></i> Formación Academica 
         </div>
         <div class="card-body">
             <div class="row">
-
-                <div class="col-md-3">
-                    <h3>Formacion Academica</h3>
-
-                </div>
+                <br>
                 <br>
                 <div class="hola1">
-                    <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Crear Usuario</button>
+                    <button type="button" class="btn btn-primary" onclick="abrirModal(null)">Crear Nuevo</button>
                 </div>
                 <br>
                 <br>
+
+
+
+                <hr>
+
                 <table id="tablaF" class="table table-hover" style="width:100%">
                     <thead>
                         <tr>
@@ -45,47 +46,36 @@
 
     <!-- Modal -->
     <div class="modal fade" id="FormModalFacademica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-xxl-down">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <div class="modal-header  text-light" style="background: hsl(145, 76%, 42%)">
+                    <h5 class="modal-title" id="exampleModalLabel">Formación Academica</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-
-                    <input type="text" id="txtIdFacademica" value="0" />
-
-                    <div class="contenido_texto block" data-seccion="1">
+                <div class="modal-body">                
+                    <div style="width: 85%; margin: 0 auto;">
                         <section>
                             <form class="row g-3 needs-validation" id="fAcadec" novalidate>
 
+                                <input type="text" class="form-control" id="txtIdFacademica" value="0" style="display: none;">
 
+                                <div>
+                                    <div class="col-md-3 form-check-inline">
+                                        <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
+                                        <input type="text" class="form-control" id="txtPerson" required>
+                                    </div>
+                                </div>
+                                <hr>
                                 <div class="col-md-4 form-check-inline">
                                     <label for="txtcargoasp" class="form-label">Cargo que Aspira</label>
                                     <input type="text" class="form-control" id="txtcargoasp" required>
                                 </div>
 
-                                <div class="col-md-3" style="margin-top: 49px;">
 
-                                    <input type="text" class="form-control" id="validationCustom01" value="" required>
-
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
-
-                                </div>
-                                <div class="col-md-3" style="margin-top: 49px;">
-                                    <div class="hola">
-                                        <button type="button" class="btn btn-primary">Eliminar Cargo</button>
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid zip.
-                                    </div>
-                                </div>
                                 <h5>Formacion Academica Basica</h5>
 
-                                <div class="col-md-3">
-                                    <label for="txtedubasica" class="form-label">Educacion Basica</label>
+                                <div class="col-md-4">
+                                    <label for="txtedubasica" class="form-label">Educación Basica</label>
                                     <select class="form-control" name="txtedubasica" id="txtedubasica">
                                         <option value="" required>Seleccione.</option>
                                         <option value="Primaria" required>Primaria</option>
@@ -93,12 +83,12 @@
                                         <option value="Media" required>Media</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4 form-check-inline">
+                                <div class="col-md-4 ">
                                     <label for="txttitulobt" class="form-label">Titulo obtenido</label>
                                     <input type="text" class="form-control" id="txttitulobt" required>
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="txtmes" class="form-label">Mes Grado</label>
                                     <select class="form-control" name="txtmes" id="txtmes">
                                         <option value="" required>Seleccione.</option>
@@ -116,26 +106,28 @@
                                         <option value="12" required>12</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4 form-check-inline">
+                                <div class="col-md-4 ">
                                     <label for="txtañogrado" class="form-label">Año Grado</label>
                                     <input type="text" class="form-control" id="txtañogrado" required>
                                 </div>
-                                <div class="col-md-6 form-check-inline">
-                                    <label for="txtinstitucion" class="form-label">Institucion Educativa</label>
+
+                                <div class="col-md-8">
+                                    <label for="txtinstitucion" class="form-label">Institución Educativa</label>
                                     <input type="text" class="form-control" id="txtinstitucion" required>
                                 </div>
-                                <div class="col-md-5">
+
+                                <div class="col-md-6">
                                     <label for="adactacol" class="form-label">Adjuntar Acta</label>
                                     <input class="form-control" type="file" id="adactacol">
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <label for="addiplomacol" class="form-label">Adjuntar Diploma</label>
                                     <input class="form-control" type="file" id="addiplomacol">
                                 </div>
-
                                 <hr>
-                                <h5><br>Formacion Academica Superior<br /></h5>
-                                <div class="col-md-3">
+                                <h5>Formacion Academica Superior</h5>
+                                
+                                <div class="col-md-4">
                                     <label for="txtmodacademica" class="form-label">Modalidad Academica</label>
                                     <select class="form-control" name="txtmodacademica" id="txtmodacademica">
                                         <option value="" required>Seleccione.</option>
@@ -146,7 +138,7 @@
                                         <option value="Doctorado" required>Doctorado</option>
                                     </select>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="txtgraduado" class="form-label">Graduado</label>
                                     <select class="form-control" name="txtgraduado" id="txtgraduado">
                                         <option value="" required>Seleccione</option>
@@ -154,7 +146,7 @@
                                         <option value="NO" required>NO</option>
                                     </select>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="txtsemaprobados" class="form-label">Semestres Aprobados</label>
                                     <select class="form-control" name="txtsemaprobados" id="txtsemaprobados">
                                         <option value="" required>Seleccione.</option>
@@ -175,7 +167,7 @@
                                     <label for="txtnomtitulo" class="form-label">Nombre del Titulo</label>
                                     <input type="text" class="form-control" id="txtnomtitulo" required>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <label for="txtmestermino" class="form-label">Mes Termino</label>
                                     <select class="form-control" name="txtmestermino" id="txtmestermino">
                                         <option value="" required>Seleccione.</option>
@@ -193,23 +185,23 @@
                                         <option value="12" required>12</option>
                                     </select>
                                 </div>
-                                <div class="col-md-3 ">
+                                <div class="col-md-4">
                                     <label for="txtaniotitulo" class="form-label">Año</label>
                                     <input type="text" class="form-control" id="txtaniotitulo" required>
                                 </div>
-                                <div class="col-md-3 ">
+                                <div class="col-md-4 ">
                                     <label for="txttarprofesional" class="form-label">Numero Targeta Profesional</label>
                                     <input type="text" class="form-control" id="txttarprofesional" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="txtnominstitucionprof" class="form-label">Nombre Institucion</label>
+                                <div class="col-md-8">
+                                    <label for="txtnominstitucionprof" class="form-label">Nombre Institución</label>
                                     <input type="text" class="form-control" id="txtnominstitucionprof" required>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <label for="actauni" class="form-label">Adjuntar Acta</label>
                                     <input class="form-control" type="file" id="actauni">
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <label for="diplouni" class="form-label">Adjuntar Diploma</label>
                                     <input class="form-control" type="file" id="diplouni">
                                 </div>

@@ -66,13 +66,15 @@
                                 </div>
                             </div>
 
+                    
                             <div class="col-md-3">
                                 <label for="txtFechaEXP" class="form-label">Fecha expedición</label>
-                                <input type="text" class="form-control" id="txtFechaEXP" required>
+                                <input type="text" class="form-control" id="txtFechaEXP" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
                             </div>
+
                             <div class="col-md-6">
                                 <label for="formRl" class="form-label">Buscar archivo para adjuntar</label>
                                 <input class="form-control" type="file" id="formRl">
@@ -101,7 +103,11 @@
 </div>
 
 @section scripts{
+ 
     <script>
+
+        $("#txtFechaEXP").datepicker({dateFormat : 'dd/mm/yy'}).datepicker('setDate',new Date())
+
         var tabladata;
         var filaSeleccionada;
 
@@ -153,6 +159,10 @@
                 $("#txtIdRL").val(json.IdRequisitosLegales);
                 $("#txtFechaEXP").val(json.FechaExpedicion);
 
+                //if (json.Archivo != null) {
+                //    $("#formRl").text(json.Archivo.nombre);
+                //}
+
                 //$("#formAdjuntar").val(json.Archivo);
 
 
@@ -180,7 +190,7 @@
 
                 IdRequisitosLegales: $("#txtIdRL").val(),
                 FechaExpedicion: $("#txtFechaEXP").val(),
-                
+
             }
 
             var formData = new FormData();

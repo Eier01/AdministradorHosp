@@ -44,6 +44,7 @@ namespace CapaDatos
                                     Genero = dr["Genero"].ToString(),
                                     Pais = dr["Pais"].ToString(),
                                     LugarExpedicion = dr["LugarExpedicion"].ToString(),
+
                                     FechaExpedicion = dr["FechaExpedicion"].ToString(),
                                     EstadoCivil = dr["EstadoCivil"].ToString(),
                                     NumeroHijos = Convert.ToInt32(dr["NumeroHijos"]),
@@ -54,7 +55,9 @@ namespace CapaDatos
                                     LibretaMilitar = dr["LibretaMilitar"].ToString(),
                                     NumeroLibreta = Convert.ToInt32(dr["NumeroLibreta"]),
                                     DistritoMilitar = Convert.ToInt32(dr["DistritoMilitar"]),
+
                                     FechaNacimiente = dr["FechaNacimiente"].ToString(),
+
                                     PaisNacimiento = dr["PaisNacimiento"].ToString(),
                                     DeapartamentoNacimiento = dr["DeapartamentoNacimiento"].ToString(),
                                     CiudadNacimiento = dr["CiudadNacimiento"].ToString(),
@@ -71,7 +74,6 @@ namespace CapaDatos
                                     FondoPensiones = dr["FondoPensiones"].ToString(),
                                     Arl = dr["Arl"].ToString(),
                                    // PersonaPerId = Convert.ToInt32(dr["PersonaPerId"]),
-                                    FechaRevision = dr["FechaRevision"].ToString(),
                                     Estado = Convert.ToBoolean(dr["Estado"]),
                                     Estadofecha = dr["Estadofecha"].ToString(),
                                 }
@@ -135,7 +137,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("FondoPensiones", obj.FondoPensiones);
                     cmd.Parameters.AddWithValue("Arl", obj.Arl);
                     //cmd.Parameters.AddWithValue("PersonaPerId", obj.PersonaPerId);
-                    cmd.Parameters.AddWithValue("FechaRevision", obj.FechaRevision);
+
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.AddWithValue("Estadofecha", obj.Estadofecha);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -151,9 +153,9 @@ namespace CapaDatos
 
             }
             catch (Exception ex){
-                idautogenerado = -14;
-                Mensaje = ex.Message+obj.FechaExpedicion;
-            
+                idautogenerado = 0;
+                Mensaje = ex.Message;
+
             }
             return idautogenerado;
 
@@ -204,7 +206,6 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("FondoPensiones", obj.FondoPensiones);
                     cmd.Parameters.AddWithValue("Arl", obj.Arl);
                     //cmd.Parameters.AddWithValue("PersonaPerId", obj.PersonaPerId);
-                    cmd.Parameters.AddWithValue("FechaRevision", obj.FechaRevision);
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.AddWithValue("Estadofecha", obj.Estadofecha);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
@@ -229,34 +230,34 @@ namespace CapaDatos
 
         }
 
-        public bool EliminarPersona(int id, out string Mensaje)
-        {
+        //public bool EliminarPersona(int id, out string Mensaje)
+        //{
 
-            bool resultado = false;
-            Mensaje = string.Empty;
+        //    bool resultado = false;
+        //    Mensaje = string.Empty;
 
-            try
-            {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
-                {
+        //    try
+        //    {
+        //        using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+        //        {
 
-                    SqlCommand cmd = new SqlCommand("delete top (1) from PERSONA where IdPersona = @id", oconexion);
-                    cmd.Parameters.AddWithValue("@id", id);
-                    cmd.CommandType = CommandType.Text;
-                    oconexion.Open();
-                    resultado = cmd.ExecuteNonQuery() > 0 ? true : false;
-                }
+        //            SqlCommand cmd = new SqlCommand("delete top (1) from PERSONA where IdPersona = @id", oconexion);
+        //            cmd.Parameters.AddWithValue("@id", id);
+        //            cmd.CommandType = CommandType.Text;
+        //            oconexion.Open();
+        //            resultado = cmd.ExecuteNonQuery() > 0 ? true : false;
+        //        }
 
 
-            }
-            catch(Exception ex)
-            {
-                resultado = false;
-                Mensaje = ex.Message;
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        resultado = false;
+        //        Mensaje = ex.Message;
 
-            }
-            return resultado;
-        }
+        //    }
+        //    return resultado;
+        //}
 
     }
 }

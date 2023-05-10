@@ -72,7 +72,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
-                    SqlCommand cmd = new SqlCommand("insertidioma", oconexion);
+                    SqlCommand cmd = new SqlCommand("insertdatoslaborales", oconexion);
 
                     cmd.Parameters.AddWithValue("Area", obj.Area);
                     cmd.Parameters.AddWithValue("NombreArea", obj.NombreArea);
@@ -115,7 +115,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
-                    SqlCommand cmd = new SqlCommand("sp_ActualizarIdioma", oconexion);
+                    SqlCommand cmd = new SqlCommand("sp_ActualizarDatosL", oconexion);
 
                     cmd.Parameters.AddWithValue("Area", obj.Area);
                     cmd.Parameters.AddWithValue("NombreArea", obj.NombreArea);

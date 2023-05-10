@@ -59,9 +59,9 @@ namespace CapaPresentacionAdmin.Controllers
 
 
         [HttpGet]
-        public JsonResult ListarPersona()
-        
+        public JsonResult ListarPersona()         
         {
+            
             List<Persona> oLista = new List<Persona>();
             oLista = new CN_Persona().Listar();
 
