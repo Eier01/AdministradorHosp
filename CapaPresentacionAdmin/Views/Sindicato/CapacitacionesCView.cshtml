@@ -94,14 +94,14 @@
 
                                 <div class="col-md-3 ">
                                     <label for="txtfechaI" class="form-label">Fecha Inicio</label>
-                                    <input type="text" class="form-control" id="txtfechaI" required>
+                                    <input type="text" class="form-control" id="txtfechaI"  placeholder="dd-mm-yy" required>
 
                                 </div>
 
 
                                 <div class="col-md-3 ">
                                     <label for="txtfechaF" class="form-label">Fecha finalización</label>
-                                    <input type="text" class="form-control" id="txtfechaF" required>
+                                    <input type="text" class="form-control" id="txtfechaF"  placeholder="dd-mm-yy" required>
 
                                 </div>
 
@@ -135,6 +135,8 @@
 
 @section scripts{
     <script>
+        $("#txtfechaI").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+        $("#txtfechaF").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
         var tabladata;
         var filaSeleccionada;
 

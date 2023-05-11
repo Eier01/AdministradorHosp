@@ -8,7 +8,7 @@
     <br>
     <div class="card">
         <div class="card-header">
-            <i class="fas fa-book"></i> Lista Experiencia Laboral
+            <i class="fas fa-book"></i> Experiencia Laboral
         </div>
         <div class="card-body">
             <div class="row">
@@ -37,44 +37,52 @@
         </div>
     </div>
     <div class="modal fade" id="FormModalExp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-xxl-down">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
                     <h5 class="modal-title" id="exampleModalLabel">Formulario Experiencia laboral</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="txtPersona" class="form-label">EN REGISTRO</label>
-                    <input type="text" id="txtIdExp" value="0" />
-                    <input type="text" id="txtPersona" value="IdPersona()" />
-                    <hr>
-                    <div class="contenido_texto block" data-seccion="1">
+                    
+                    
+                    
+                    <div style="width: 85%; margin: 0 auto;">
                         <section>
-                            <form class="row g-3 needs-validation" novalidate id="FormExpLaboral">
 
+                            <form class="row g-3 needs-validation" novalidate id="FormExpLaboral">
+                                <input type="text" id="txtIdExp" value="0" style="display: none;" />
+
+                                <div>
+                                    <div class="col-md-3 form-check-inline">
+                                        <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
+                                        <input type="text" class="form-control" id="txtPerson" required>
+                                    </div>
+                                </div>
+                                <hr>
 
                                 <div class="col-md-5 form-check-inline">
                                     <label for="txtEntidad" class="form-label">Entidad o Empresa</label>
                                     <input type="text" class="form-control" id="txtEntidad" required>
                                 </div>
 
-                                <div class="col-md-2 form-check-inline">
+                                <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtLaboro" class="form-label">Pais laboró</label>
                                     <input type="text" class="form-control" id="txtLaboro" required>
                                 </div>
 
-                                <div class="col-md-2 form-check-inline">
+                                <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtdepartamento" class="form-label">Departamento</label>
                                     <input type="text" class="form-control" id="txtdepartamento" required>
                                 </div>
 
-                                <div class="col-md-2 form-check-inline">
+                                <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtciudad" class="form-label">Ciudad</label>
                                     <input type="text" class="form-control" id="txtciudad" required>
                                 </div>
                                 @*______________*@
                                 <div class="col-md-3 form-check-inline">
-                                    <label for="txtdireccion" class="form-label">Direccion</label>
+                                    <label for="txtdireccion" class="form-label">Dirección</label>
                                     <input type="text" class="form-control" id="txtdireccion" required>
                                 </div>
                                 <div class="col-md-3 form-check-inline">
@@ -105,11 +113,11 @@
                                 </div>
                                 <div class="col-md-2 form-check-inline">
                                     <label for="txtfechain" class="form-label">Fecha Ingreso</label>
-                                    <input type="text" class="form-control" id="txtfechain" required>
+                                    <input type="text" class="form-control" id="txtfechain" placeholder="dd-mm-yy" required>
                                 </div>
                                 <div class="col-md-2 form-check-inline">
                                     <label for="txtfechasal" class="form-label">Fecha salida</label>
-                                    <input type="text" class="form-control" id="txtfechasal" required>
+                                    <input type="text" class="form-control" id="txtfechasal" placeholder="dd-mm-yy" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="formFile" class="form-label">Adjuntar Soporte</label>
@@ -140,6 +148,9 @@
 </div>
 @section scripts{
     <script>
+
+        $("#txtfechain").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+        $("#txtfechasal").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
         var tabladata;
         var filaSeleccionada;
 

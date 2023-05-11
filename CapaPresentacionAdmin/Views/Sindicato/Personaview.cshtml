@@ -137,8 +137,8 @@
                                 <label for="NPais" class="form-label">Nacionalidad</label>
                                 <select class="form-control" name="Nacion" id="NPais">
                                     <option value="" required>Seleccione</option>
-                                    <option value="Colombia" required>Colombia</option>
-                                    <option value="Estranjero" required>Estranjero</option>
+                                    <option value="Colombiano-a" required>Colombiano-a</option>
+                                    <option value="Extranjero" required>Extranjero</option>
                                 </select>
                             </div>
 
@@ -433,7 +433,7 @@
                 $("#Snombre").val(json.SegundoNombre);
                 $("#Papellido").val(json.PrimerApellido);
                 $("#Sapellido").val(json.SegundoApellido);
-                $("#NPais").val(json.Pais == "Colombia" ? "Colombia" : "Estranjero");
+                $("#NPais").val(json.Pais == "Colombia" ? "Colombia" : "Extranjero");
                 $("#Lmilitar").val(json.NumeroLibreta);
                 $("#Dmilitar").val(json.DistritoMilitar);
                 $("#txtpaisnacimiento").val(json.PaisNacimiento);
