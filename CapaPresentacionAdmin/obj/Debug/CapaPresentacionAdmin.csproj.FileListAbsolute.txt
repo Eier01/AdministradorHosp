@@ -182,3 +182,11 @@ F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\obj\Debug\Capa
 F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.csproj.CopyComplete
 F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.dll
 F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\bin\ClosedXML.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\bin\DocumentFormat.OpenXml.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\bin\ExcelNumberFormat.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\bin\System.IO.Packaging.dll
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\bin\ClosedXML.pdb
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\bin\ClosedXML.xml
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\bin\DocumentFormat.OpenXml.xml
+F:\PROGRAMACION\gitkraken\AdministradorHosp\CapaPresentacionAdmin\bin\ExcelNumberFormat.xml
