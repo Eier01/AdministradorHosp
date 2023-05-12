@@ -8,7 +8,7 @@
     <br>
     <div class="card">
         <div class="card-header">
-            <i class="fas fa-book"></i> Formacion academica
+            <i class="fas fa-book"></i> Formación academica
         </div>
         <div class="card-body">
             <div class="row">
@@ -21,13 +21,13 @@
                 <br>
                 <hr>
 
-                <table id="tablaF" class="table table-hover" style="width:100%">
+                <table id="tablaF" class="display cell-border" style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Educacion Basica</th>
+                            <th>Educación Basica</th>
                             <th>Titulo</th>
-                            <th>Institucion Educativa</th>
+                            <th>Institución Educativa</th>
                             <th> Nombre del Titulo</th>
                             <th></th>
 
@@ -69,7 +69,7 @@
                                 </div>
 
 
-                                <h5>Formacion Academica Basica</h5>
+                                <h5>Formación Academica Basica</h5>
 
                                 <div class="col-md-4">
                                     <label for="txtedubasica" class="form-label">Educación Basica</label>
@@ -122,7 +122,7 @@
                                     <input class="form-control" type="file" id="addiplomacol">
                                 </div>
                                 <hr>
-                                <h5>Formacion Academica Superior</h5>
+                                <h5>Formación Academica Superior</h5>
                                 
                                 <div class="col-md-4">
                                     <label for="txtmodacademica" class="form-label">Modalidad Academica</label>
@@ -130,7 +130,7 @@
                                         <option value="" required>Seleccione.</option>
                                         <option value="Tecnico" required>Tecnico</option>
                                         <option value="Pregrado" required>Pregrado</option>
-                                        <option value="Especializacion" required>Especializacion</option>
+                                        <option value="Especialización" required>Especialización</option>
                                         <option value="Maestria" required>Maestria</option>
                                         <option value="Doctorado" required>Doctorado</option>
                                     </select>
@@ -256,8 +256,7 @@
                 { "data": "NombreTitulo" },
 
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarFacademica"><i class="fas fa-pen"></i></button>' +
-                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarFacademica"><i class="fas fa-pen"></i></button>',
                     "orderable": false,
                     "searchable": false,
                     "width":"90px"
@@ -285,7 +284,7 @@
                 $("#txtmes").val(json.MesGrado == "1" ? "1" : json.MesGrado == "2" ? "2" : json.MesGrado == "3" ? "3" : json.MesGrado == "4" ? "4" : json.MesGrado == "5" ? "5" : json.MesGrado == "6" ? "6" : json.MesGrado == "7" ? "7" : json.MesGrado == "8" ? "8" : json.MesGrado == "9" ? "9" : json.MesGrado == "10" ? "10" : json.MesGrado == "11" ? "11" : "12");
                 $("#txtañogrado").val(json.AnoGrado);
                 $("#txtinstitucion").val(json.InstituEducativa);
-                $("#txtmodacademica").val(json.ModalidadAcademica == "Tecnico" ? "Tecnico" : json.ModalidadAcademica == "Pregrado" ? "Pregrado" : json.ModalidadAcademica == "Especializacion" ? "Especializacion" : json.ModalidadAcademica == "Maestria" ? "Maestria" : "Doctorado");
+                $("#txtmodacademica").val(json.ModalidadAcademica == "Tecnico" ? "Tecnico" : json.ModalidadAcademica == "Pregrado" ? "Pregrado" : json.ModalidadAcademica == "Especialización" ? "Especialización" : json.ModalidadAcademica == "Maestria" ? "Maestria" : "Doctorado");
                 $("#txtgraduado").val(json.Graduado == "SI" ? "SI" : "NO");
                 $("#txtsemaprobados").val(json.SemestresAprobados == "1" ? "1" : json.SemestresAprobados == "2" ? "2" : json.SemestresAprobados == "3" ? "3" : json.SemestresAprobados == "4" ? "4" : json.SemestresAprobados == "5" ? "5" : json.SemestresAprobados == "6" ? "6" : json.SemestresAprobados == "7" ? "7" : json.SemestresAprobados == "8" ? "8" : json.SemestresAprobados == "9" ? "9" : "10");
                 $("#txtnomtitulo").val(json.NombreTitulo);

@@ -11,7 +11,7 @@ namespace CapaEntidad
         public int IdDatosLaborales { get; set; }
         public String Area { get; set; }
         public String NombreArea { get; set; }
-        public String TipoActividad { get; set; }
+        //public String TipoActividad { get; set; }
         public String FechaIngreso { get; set; }
         public String FechaRetiro { get; set; }
         public String HorasContratadas { get; set; }

@@ -19,7 +19,8 @@
                 </div>
                 <br>
                 <br>
-                <table id="tabla1" class="table table-hover" style="width:100%">
+                <hr>
+                <table id="tabla1" class="display cell-border" style="width:100%">
                     <thead>
                         <tr>
                             <th>IdIdiomas</th>
@@ -43,7 +44,7 @@
         <div class="modal-dialog modal-xl"/>
             <div class="modal-content">
                 <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
-                    <h5 class="modal-title" id="exampleModalLabel">Idiomas</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Formulario Idiomas </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -60,20 +61,20 @@
                                 <div class="contenido_texto block " data-seccion="1">
                                     <div class="col-md-4 form-check-inline">
                                         <label for="txtPerson" class="form-label" style="margin-top: 20px"><b>Persona en Registro</b></label>
-                                        <input type="text" class="form-control" id="txtPerson" required>
+                                        <input type="text" class="form-control" id="txtPerson" required  autocomplete="off">
                                     </div>
                                     <hr>
 
                                     <div class="col-md-4 form-check-inline">
                                         <label for="txtIdioma" class="form-label" style="margin-top: 20px"><b>Idioma</b></label>
-                                        <input type="text" class="form-control" id="txtIdioma" required>
+                                        <input type="text" class="form-control" id="txtIdioma" required autocomplete="off">
                                     </div>
                                 </div>
 
 
                                 <div class="col-md-3">
                                     <label for="txtLoHabla" class="form-label">Lo Habla</label>
-                                    <select class="form-control" name="txtLoHabla" id="txtLoHabla" required>
+                                    <select class="form-control" name="txtLoHabla" id="txtLoHabla" required autocomplete="off">
                                         <option value="" required>Seleccione.</option>
                                         <option value="Regular" required>Regular</option>
                                         <option value="Bien" required>Bien</option>
@@ -83,7 +84,7 @@
 
                                 <div class="col-md-3">
                                     <label for="LoLee" class="form-label">Lo Lee</label>
-                                    <select class="form-select" name="LoLee" id="LoLee" required>
+                                    <select class="form-select" name="LoLee" id="LoLee" required autocomplete="off">
                                         <option value="" required>Seleccione.</option>
                                         <option value="Regular" required>Regular</option>
                                         <option value="Bien" required>Bien</option>
@@ -92,7 +93,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label for="txtLoEscribe" class="form-label">Lo Escribe</label>
-                                    <select class="form-control" name="txtLoEscribe" id="txtLoEscribe" required>
+                                    <select class="form-control" name="txtLoEscribe" id="txtLoEscribe" required autocomplete="off">
                                         <option value="" required>Seleccione.</option>
                                         <option value="Regular" required>Regular</option>
                                         <option value="Bien" required>Bien</option>
@@ -121,7 +122,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 
 @section scripts{
@@ -155,8 +156,7 @@
                 { "data": "LoEscribe" },
 
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarIdiomas"><i class="fas fa-pen"></i></button>' +
-                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarIdiomas"><i class="fas fa-pen"></i></button>',
                     "orderable": false,
                     "searchable": false,
                     "width":"90px"

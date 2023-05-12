@@ -24,7 +24,7 @@
                 <br>
                 <br>
                 <hr>
-                <table id="tablad" class="table table-hover" style="width:100%">
+                <table id="tablad" class="display cell-border" style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -46,7 +46,7 @@
     <div class="modal-dialog modal-xl" >
         <div class="modal-content">
             <div class="modal-header  text-light" style="background: hsl(145, 76%, 42%)">
-                <h5 class="modal-title" id="exampleModalLabel">Registrar Datos  Laborales</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> Formulario Datos Laborales</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -61,14 +61,14 @@
                             <div>
                                 <div class="col-md-4 form-check-inline">
                                     <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
-                                    <input type="text" class="form-control" id="txtPerson" required>
+                                    <input type="text" class="form-control" id="txtPerson" required autocomplete="off">
                                 </div>
                             </div>
                             <hr>
 
                             <div class="col-md-5">
                                 <label for="txtarea" class="form-label">Area de Cargo</label>
-                                <select class="form-control" name="txtarea" id="txtarea" required>
+                                <select class="form-control" name="txtarea" id="txtarea" required autocomplete="off">
                                     <option value="" required>Seleccione.</option>
                                     <option value="Sindicato" required>Sindicato</option>
                                     <option value="OPS" required>OPS</option>
@@ -81,7 +81,7 @@
                             </div>
                             <div class="col-md-5">
                                 <label for="txttipoactividades" class="form-label">Tipo de actividades</label>
-                                <select class="form-control" name="txttipoactividades" id="txttipoactividades" required>
+                                <select class="form-control" name="txttipoactividades" id="txttipoactividades" required autocomplete="off">
                                     <option value="" required>Seleccione.</option>
                                 </select>
                             </div>
@@ -90,7 +90,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="validationCustom04" class="form-label">Actividades</label>
-                                    <select class="form-select" multiple aria-label="multiple select example" id="txtactividades" required>
+                                    <select class="form-select" multiple aria-label="multiple select example" id="txtactividades" required autocomplete="off">
                                         <option value="0">...</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="validationCustom04" class="form-label">Subprocesos</label>
-                                    <select class="form-select form-control-lg" multiple aria-label="multiple select example" id="txtSubP" required>
+                                    <select class="form-select form-control-lg" multiple aria-label="multiple select example" id="txtSubP" required autocomplete="off">
                                         <option value="0">...</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -110,11 +110,11 @@
 
                             <div class="col-md-3 form-check-inline">
                                 <label for="txtfechain" class="form-label">Fecha ingreso</label>
-                                <input type="text" class="form-control" id="txtfechain" required autocomplete="off">
+                                <input type="text" class="form-control" id="txtfechain"  placeholder="dd-mm-yy" required autocomplete="off">
                             </div>
                             <div class="col-md-3 form-check-inline">
                                 <label for="txtfechare" class="form-label">Fecha retiro</label>
-                                <input type="text" class="form-control" id="txtfechare" required autocomplete="off">
+                                <input type="text" class="form-control" id="txtfechare"  placeholder="dd-mm-yy" required autocomplete="off">
                             </div>
                             <div class="col-md-3 form-check-inline">
                                 <label for="txthorascon" class="form-label">Horas contratadas al mes</label>
@@ -144,8 +144,10 @@
 
 @section scripts{
     <script>
+
         $("#txtfechain").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
         $("#txtfechare").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+
         var tabladata;
         var filaSeleccionada;
 
@@ -174,15 +176,14 @@
                 { "data": "HorasContratadas" },
 
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarDatosLaborales"><i class="fas fa-pen"></i></button>' +
-                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarDatosLaborales"><i class="fas fa-pen"></i></button>',
                     "orderable": false,
                     "searchable": false,
-                    "width":"90px"
+                    "width": "90px"
                 }
             ],
             "language": {
-                "url":"https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
+                "url": "https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
             }
 
         })
@@ -194,14 +195,14 @@
 
 
             if (json != null) {
-
-                $("#txtIddatoslaborales").val(json.IdDatosLaborales);
-                $("#txtarea").val();
-                $("#txtNombrearea").val();
+                
+                $("#txtIddatoslaborales").val(json.IdDatosLaborales)
+                $("#txtarea").val(json.Area == "Sindicato" ? "Sindicato" : json.Area == "OPS" ? "OPS" : "Planta");
+                $("#txtNombrearea").val(json.NombreArea);
                 /*$("#txttipoactividades").val();*/
-                $("#txtfechain").val();
-                $("#txtfechare").val(); 
-                $("#txthorascon").val(); 
+                $("#txtfechain").val(json.FechaIngreso);
+                $("#txtfechare").val(json.FechaRetiro); 
+                $("#txthorascon").val(json.HorasContratadas); 
                
             }
 
@@ -210,7 +211,7 @@
         }
 
         //Editar
-        $("#tabla1 tbody").on("click", '.btn-editarDatosLaborales', function () {
+        $("#tablad tbody").on("click", '.btn-editarDatosLaborales', function () {
 
             var filaSeleccionada = $(this).closest("tr");
             var data = tabladata.row(filaSeleccionada).data();
@@ -229,7 +230,7 @@
                 /*TipoActividad: $("#txttipoactividades").val(),*/
                 FechaIngreso: $("#txtfechain").val(),
                 FechaRetiro: $("#txtfechare").val(),
-                HorasContratadas: $("#txthorascon").val(),
+                HorasContratadas: $("#txthorascon").val()
             }
 
 
@@ -263,7 +264,7 @@
 
                          if (data.resultado) {
 
-                             tabladata.row(filaSeleccionada).data(IdiomasG).draw(false);
+                             tabladata.row(filaSeleccionada).data(DatosLab).draw(false);
                              filaSeleccionada = null;
                              $("#FormModalDatoslaborales").modal("hide");
 

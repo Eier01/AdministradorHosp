@@ -22,24 +22,24 @@ namespace CapaNegocio
 
             if (string.IsNullOrEmpty(obj.Area) || string.IsNullOrWhiteSpace(obj.Area))
             {
-                Mensaje = "El proceso no puede ser vacio";
+                Mensaje = "El campo area es obligatorio";
             }
             
             else if (string.IsNullOrEmpty(obj.NombreArea) || string.IsNullOrWhiteSpace(obj.NombreArea))
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "El campo Nombre area es obligatorio";
             }
-            else if (string.IsNullOrEmpty(obj.TipoActividad) || string.IsNullOrWhiteSpace(obj.TipoActividad))
-            {
-                Mensaje = "Este campo numero documento es obligatorio";
-            }
+            //else if (string.IsNullOrEmpty(obj.TipoActividad) || string.IsNullOrWhiteSpace(obj.TipoActividad))
+            //{
+            //    Mensaje = "El campo es obligatorio";
+            //}
             else if (string.IsNullOrEmpty(obj.FechaIngreso) || string.IsNullOrWhiteSpace(obj.FechaIngreso))
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "El campo Fecha ingreso es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.HorasContratadas) || string.IsNullOrWhiteSpace(obj.HorasContratadas))
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "El campo Horas contratadas  es obligatorio";
             }
             if (string.IsNullOrEmpty(Mensaje))
             {
@@ -56,24 +56,24 @@ namespace CapaNegocio
 
             if (string.IsNullOrEmpty(obj.Area) || string.IsNullOrWhiteSpace(obj.Area))
             {
-                Mensaje = "El proceso no puede ser vacio";
+                Mensaje = "El campo area no puede ser vacio";
             }
 
             else if (string.IsNullOrEmpty(obj.NombreArea) || string.IsNullOrWhiteSpace(obj.NombreArea))
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "El campo  Nombre area es obligatorio";
             }
-            else if (string.IsNullOrEmpty(obj.TipoActividad) || string.IsNullOrWhiteSpace(obj.TipoActividad))
-            {
-                Mensaje = "Este campo numero documento es obligatorio";
-            }
+            //else if (string.IsNullOrEmpty(obj.TipoActividad) || string.IsNullOrWhiteSpace(obj.TipoActividad))
+            //{
+            //    Mensaje = "Este campo numero documento es obligatorio";
+            //}
             else if (string.IsNullOrEmpty(obj.FechaIngreso) || string.IsNullOrWhiteSpace(obj.FechaIngreso))
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "El campo fecha ingreso  es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.HorasContratadas) || string.IsNullOrWhiteSpace(obj.HorasContratadas))
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "El campo Horas contratadas  es obligatorio";
             }
             if (string.IsNullOrEmpty(Mensaje))
             {

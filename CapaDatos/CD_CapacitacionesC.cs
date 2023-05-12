@@ -41,8 +41,10 @@ namespace CapaDatos
                                     Nombre = dr["Nombre"].ToString(),
                                     EstadoFormacion = dr["EstadoFormacion"].ToString(),
                                     FechaInicio = dr["FechaInicio"].ToString(),
-                                    FechaFinalizacion = dr["FechaFinalizacion"].ToString(),
                                     Archivo = dr["Archivo"].ToString(),
+                                    FechaFinalizacion = dr["FechaFinalizacion"].ToString(),
+
+                                   
 
                                 }
 
@@ -119,6 +121,7 @@ namespace CapaDatos
                 {
                     SqlCommand cmd = new SqlCommand("sp_ActualizarCapacitacionesC", oconexion);
 
+                    cmd.Parameters.AddWithValue("idCapacitacionesCursos", obj.idCapacitacionesCursos);
                     cmd.Parameters.AddWithValue("TipoFormacion", obj.TipoFormacion);
                     cmd.Parameters.AddWithValue("Nombre", obj.Nombre);
                     cmd.Parameters.AddWithValue("EstadoFormacion", obj.EstadoFormacion);

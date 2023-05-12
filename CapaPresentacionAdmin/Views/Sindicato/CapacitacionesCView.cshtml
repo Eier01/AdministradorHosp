@@ -20,11 +20,11 @@
                 <br>
                 <br>
                 <hr>
-                <table id="tablaCC" class="table table-hover" style="width:100%">
+                <table id="tablaCC"  class="display cell-border" style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Tipo formación</th>
+                            <th>formación</th>
                             <th>Nombre formación</th>
                             <th>Fecha inicial</th>
                             <th>Fecha final</th>
@@ -44,7 +44,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Formulario Capacitaciónes o Cursos</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -69,7 +69,7 @@
                                     <label for="txtformacion" class="form-label">Tipo de formación</label>
                                     <select class="form-control" name="txtLoHabla" id="txtformacion" required>
                                         <option value="" required>Seleccione.</option>
-                                        <option value="Capacitacion" required>Capacitación</option>
+                                        <option value="Capacitación" required>Capacitación</option>
                                         <option value="Especialización" required>Especialización</option>
                                         <option value="Maestria" required>Maestria</option>
                                         <option value="Doctorado" required>Doctorado</option>
@@ -79,13 +79,13 @@
                                 <div class="col-md-3">
 
                                     <label for="txtnombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="txtnombre" required>
+                                    <input type="text" class="form-control" id="txtnombre" required autocomplete="off">
 
                                 </div>
 
                                 <div class="col-md-3">
                                     <label for="txtestadoF" class="form-label">Estado de formación</label>
-                                    <select class="form-control" name="txtLoEscribe" id="txtestadoF" required>
+                                    <select class="form-control" name="txtLoEscribe" id="txtestadoF" required autocomplete="of">
                                         <option value="" required>Seleccione.</option>
                                         <option value="Terminado" required>Terminado</option>
                                         <option value="En Curso" required>En Curso</option>
@@ -94,14 +94,14 @@
 
                                 <div class="col-md-3 ">
                                     <label for="txtfechaI" class="form-label">Fecha Inicio</label>
-                                    <input type="text" class="form-control" id="txtfechaI"  placeholder="dd-mm-yy" required>
+                                    <input type="text" class="form-control" id="txtfechaI"  placeholder="dd-mm-yy" required  autocomplete="off">
 
                                 </div>
 
 
                                 <div class="col-md-3 ">
                                     <label for="txtfechaF" class="form-label">Fecha finalización</label>
-                                    <input type="text" class="form-control" id="txtfechaF"  placeholder="dd-mm-yy" required>
+                                    <input type="text" class="form-control" id="txtfechaF"  placeholder="dd-mm-yy" required autocomplete="off">
 
                                 </div>
 
@@ -159,6 +159,7 @@
                 dataType: "json",
             },
             "columns": [
+
                 { "data": "idCapacitacionesCursos" },
                 { "data": "TipoFormacion" },
                 { "data": "Nombre" },
@@ -167,8 +168,7 @@
                 { "data": "Archivo" },
 
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarCapacitacionesC"><i class="fas fa-pen"></i></button>' +
-                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarCapacitacionesC"><i class="fas fa-pen"></i></button>',
                     "orderable": false,
                     "searchable": false,
                     "width":"90px"
@@ -189,7 +189,7 @@
             if (json != null) {
 
                 $("#txtIdCapacitacionesC").val(json.idCapacitacionesCursos);
-                $("#txtformacion").val(json.TipoFormacion == "Especialización" ? "Especialización" : json.TipoFormacion == "Maestria" ? "Maestria" : "Doctorado");
+                $("#txtformacion").val(json.TipoFormacion == "Capacitación" ? "Capacitación" : json.TipoFormacion == "Especialización" ? "Especialización" : json.TipoFormacion == "Maestria" ? "Maestria" : "Doctorado");
                 $("#txtnombre").val(json.Nombre);
                 $("#txtestadoF").val(json.EstadoFormacion == "Terminado" ? "Terminado" : "En Curso");
                 $("#txtfechaI").val(json.FechaInicio);
@@ -224,7 +224,7 @@
                 Nombre: $("#txtnombre").val(),
                 EstadoFormacion: $("#txtestadoF").val(),
                 FechaInicio: $("#txtfechaI").val(),
-                FechaFinalizacion: $("#txtfechaF").val(),
+                FechaFinalizacion: $("#txtfechaF").val()
             }
 
             var formData = new FormData();
@@ -236,19 +236,16 @@
             formData.append("FechaFinalizacion", $("#txtfechaF").val());
             formData.append("Archivo", $("#formAdjuntar")[0].files[0]);
 
-            //console.info($("#formFile")[0].files[0]);
-
-
              jQuery.ajax({
                 url: '@Url.Action("GuardarCapatacitaciones", "Sindicato")',
-                type: "POST",
-                data: formData,
-                cache: false,
-                processData: false,
-                cache:false,
-                contentType: false,
-                success: function (data) {
-                    console.info(data);
+                 type: "POST",
+                 data: formData,
+                 cache: false,
+                 processData: false,
+                 cache: false,
+                 contentType: false,
+                 success: function (data) {
+                     console.info(data); 
 
                      //Usuario Nuevo
                     if (CapacitacionesC.idCapacitacionesCursos == 0) {

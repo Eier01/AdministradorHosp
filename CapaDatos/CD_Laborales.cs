@@ -39,7 +39,7 @@ namespace CapaDatos
                                     IdDatosLaborales = Convert.ToInt32(dr["IdDatosLaborales"]),
                                     Area = dr["Area"].ToString(),
                                     NombreArea = dr["NombreArea"].ToString(),
-                                    TipoActividad = dr["TipoActividad"].ToString(),
+                                    //TipoActividad = dr["TipoActividad"].ToString(),
                                     FechaIngreso = dr["FechaIngreso"].ToString(),
                                     FechaRetiro = dr["FechaRetiro"].ToString(),
                                     HorasContratadas = dr["HorasContratadas"].ToString(),
@@ -76,7 +76,7 @@ namespace CapaDatos
 
                     cmd.Parameters.AddWithValue("Area", obj.Area);
                     cmd.Parameters.AddWithValue("NombreArea", obj.NombreArea);
-                    cmd.Parameters.AddWithValue("TipoActividad", obj.TipoActividad);
+                   // cmd.Parameters.AddWithValue("TipoActividad", obj.TipoActividad);
                     cmd.Parameters.AddWithValue("FechaIngreso", obj.FechaIngreso);
                     cmd.Parameters.AddWithValue("FechaRetiro", obj.FechaRetiro);
                     cmd.Parameters.AddWithValue("HorasContratadas", obj.HorasContratadas);
@@ -117,9 +117,10 @@ namespace CapaDatos
                 {
                     SqlCommand cmd = new SqlCommand("sp_ActualizarDatosL", oconexion);
 
+                    cmd.Parameters.AddWithValue("IdDatosLaborales", obj.IdDatosLaborales);
                     cmd.Parameters.AddWithValue("Area", obj.Area);
                     cmd.Parameters.AddWithValue("NombreArea", obj.NombreArea);
-                    cmd.Parameters.AddWithValue("TipoActividad", obj.TipoActividad);
+                    //cmd.Parameters.AddWithValue("TipoActividad", obj.TipoActividad);
                     cmd.Parameters.AddWithValue("FechaIngreso", obj.FechaIngreso);
                     cmd.Parameters.AddWithValue("FechaRetiro", obj.FechaRetiro);
                     cmd.Parameters.AddWithValue("HorasContratadas", obj.HorasContratadas);

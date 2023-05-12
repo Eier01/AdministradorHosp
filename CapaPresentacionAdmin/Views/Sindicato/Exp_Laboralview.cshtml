@@ -18,7 +18,7 @@
                 </div>
                 <br>
                 <br>
-                <table id="tabla3" class="table table-hover" style="width:100%">
+                <table id="tabla3" class="display cell-border" style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -36,6 +36,7 @@
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="FormModalExp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -56,46 +57,46 @@
                                 <div>
                                     <div class="col-md-3 form-check-inline">
                                         <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
-                                        <input type="text" class="form-control" id="txtPerson" required>
+                                        <input type="text" class="form-control" id="txtPerson" required autocomplete="off">
                                     </div>
                                 </div>
                                 <hr>
 
                                 <div class="col-md-5 form-check-inline">
                                     <label for="txtEntidad" class="form-label">Entidad o Empresa</label>
-                                    <input type="text" class="form-control" id="txtEntidad" required>
+                                    <input type="text" class="form-control" id="txtEntidad" required autocomplete="off">
                                 </div>
 
                                 <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtLaboro" class="form-label">Pais laboró</label>
-                                    <input type="text" class="form-control" id="txtLaboro" required>
+                                    <input type="text" class="form-control" id="txtLaboro" required autocomplete="off">
                                 </div>
 
                                 <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtdepartamento" class="form-label">Departamento</label>
-                                    <input type="text" class="form-control" id="txtdepartamento" required>
+                                    <input type="text" class="form-control" id="txtdepartamento" required autocomplete="off">
                                 </div>
 
                                 <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtciudad" class="form-label">Ciudad</label>
-                                    <input type="text" class="form-control" id="txtciudad" required>
+                                    <input type="text" class="form-control" id="txtciudad" required autocomplete="off">
                                 </div>
                                 @*______________*@
                                 <div class="col-md-3 form-check-inline">
                                     <label for="txtdireccion" class="form-label">Dirección</label>
-                                    <input type="text" class="form-control" id="txtdireccion" required>
+                                    <input type="text" class="form-control" id="txtdireccion" required autocomplete="off">
                                 </div>
-                                <div class="col-md-3 form-check-inline">
+                                <div class="col-md-2 form-check-inline">
                                     <label for="txttelefono" class="form-label">Telefonos</label>
-                                    <input type="text" class="form-control" id="txttelefono" required>
+                                    <input type="text" class="form-control" id="txttelefono" required autocomplete="off">
                                 </div>
-                                <div class="col-md-3 form-check-inline">
+                                <div class="col-md-4 form-check-inline">
                                     <label for="txtcorreo" class="form-label">Correo Electronico</label>
-                                    <input type="text" class="form-control" id="txtcorreo" required>
+                                    <input type="text" class="form-control" id="txtcorreo" required autocomplete="off">
                                 </div>
                                 <div class="col-md-2">
                                     <label for="txtsector" class="form-label">Sector Empresa</label>
-                                    <select class="form-control" name="txtLoEscribe" id="txtsector" required>
+                                    <select class="form-control" name="txtLoEscribe" id="txtsector" required autocomplete="off">
                                         <option value="" required>Seleccione.</option>
                                         <option value="Publica" required>Publica</option>
                                         <option value="Privada" required>Privada</option>
@@ -105,19 +106,19 @@
 
                                 <div class="col-md-3 form-check-inline">
                                     <label for="txtcargo" class="form-label">Cargo o contrato actual</label>
-                                    <input type="text" class="form-control" id="txtcargo" required>
+                                    <input type="text" class="form-control" id="txtcargo" required autocomplete="off">
                                 </div>
                                 <div class="col-md-3 form-check-inline">
                                     <label for="txtdependencia" class="form-label">Dependencia</label>
-                                    <input type="text" class="form-control" id="txtdependencia" required>
+                                    <input type="text" class="form-control" id="txtdependencia" required autocomplete="off">
                                 </div>
                                 <div class="col-md-2 form-check-inline">
                                     <label for="txtfechain" class="form-label">Fecha Ingreso</label>
-                                    <input type="text" class="form-control" id="txtfechain" placeholder="dd-mm-yy" required>
+                                    <input type="text" class="form-control" id="txtfechain" placeholder="dd-mm-yy" required autocomplete="off">
                                 </div>
                                 <div class="col-md-2 form-check-inline">
                                     <label for="txtfechasal" class="form-label">Fecha salida</label>
-                                    <input type="text" class="form-control" id="txtfechasal" placeholder="dd-mm-yy" required>
+                                    <input type="text" class="form-control" id="txtfechasal" placeholder="dd-mm-yy" required autocomplete="off">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="formFile" class="form-label">Adjuntar Soporte</label>
@@ -181,8 +182,7 @@
                 { "data": "FechaEgreso" },
 
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarExplaboral"><i class="fas fa-pen"></i></button>' +
-                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarExplaboral"><i class="fas fa-pen"></i></button>',
                     "orderable": false,
                     "searchable": false,
                     "width":"90px"

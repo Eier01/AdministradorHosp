@@ -9,37 +9,46 @@
 
 
 <div class="hola">
-    <div class="col-md-3">
-        <h3>Datos Personales</h3>
-        <label for="validationCustom01" class="form-label">Identificacion</label>
-        <input type="text" class="form-control" id="validationCustom01" value="0">
-
-    </div>
     <br>
-    <div class="hola1">
-        <button type="button" class="btn btn-primary" onclick="abrirModal(null)">Crear Nuevo</button>
-        <button type="button" class="btn btn-primary">Consultar</button>
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-book"></i> Datos Personales
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="validationCustom01" class="form-label">Identificación</label>
+                    <input type="text" class="form-control" id="validationCustom01" value="0">
+                    <br>
+                </div>
+
+                <div class="hola1">
+                    <button type="button" class="btn btn-primary" onclick="abrirModal(null)">Crear Nuevo</button>
+                    <button type="button" class="btn btn-primary">Consultar</button>
+                </div>
+                <br>
+                <br>
+                <hr>
+
+                <table id="tablapersona" class="display cell-border" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Identificación</th>
+                            <th>Primer nombre</th>
+                            <th>Dirección</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Profesión</th>
+                            <th>Eps</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <br>
-    <hr>
-
-    <table id="tablapersona" class="table table-hover" style="width:100%">
-        <thead>
-            <tr>
-                <th>Identificacion</th>
-                <th>Primer nombre</th>
-                <th>Direccion</th>
-                <th>Telefono</th>
-                <th>Correo</th>
-                <th>Profesión</th>
-                <th>Eps</th>
-
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
 </div>
 
 
@@ -50,7 +59,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
-                <h5 class="modal-title" id="exampleModalLabel">Datos Personales</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Formulario Datos Personales</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body g-4">
@@ -92,7 +101,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="LugarExped" class="form-label">lugar de expedición</label>
-                                <input type="text" class="form-control" id="LugarExped" required>
+                                <input type="text" class="form-control" id="LugarExped" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
@@ -127,7 +136,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="txtsexo" class="form-label">Sexo</label>
-                                <select class="form-control" name="sexo" id="txtsexo">
+                                <select class="form-control" name="sexo" id="txtsexo" required autocomplete="off">
                                     <option value="" required>Seleccione</option>
                                     <option value="Masculino" required>Masculino</option>
                                     <option value="Femenino" required>Femenino</option>
@@ -135,7 +144,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="NPais" class="form-label">Nacionalidad</label>
-                                <select class="form-control" name="Nacion" id="NPais">
+                                <select class="form-control" name="Nacion" id="NPais" required autocomplete="off">
                                     <option value="" required>Seleccione</option>
                                     <option value="Colombiano-a" required>Colombiano-a</option>
                                     <option value="Extranjero" required>Extranjero</option>
@@ -145,7 +154,7 @@
 
                             <div class="col-md-3">
                                 <label for="estadocivil" class="form-label">Estado Civil</label>
-                                <select class="form-control" name="estadocivil" id="estadocivil">
+                                <select class="form-control" name="estadocivil" id="estadocivil" required autocomplete="off">
                                     <option value="" required>Seleccione.</option>
                                     <option value="Soltero" required>Soltero</option>
                                     <option value="Casado" required>Casado</option>
@@ -156,7 +165,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="Nhijos" class="form-label">Numero hijos</label>
-                                <select class="form-control" name="Nhijos" id="Nhijos">
+                                <select class="form-control" name="Nhijos" id="Nhijos" required autocomplete="off">
                                     <option value="" required>Seleccione.</option>
                                     <option value="0" required>0</option>
                                     <option value="1" required>1</option>
@@ -169,7 +178,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="txtLMilitar" class="form-label">Libreta Militar</label>
-                                <select class="form-control" name="sexo" id="txtLMilitar">
+                                <select class="form-control" name="sexo" id="txtLMilitar" required autocomplete="off">
                                     <option value="A" required>Seleccione.</option>
                                     <option value="No Tiene" required>No Tiene</option>
                                     <option value="1 RA" required>1 RA</option>
@@ -191,7 +200,7 @@
                                     Please provide a valid zip.
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-3">
                                 <label for="Fnacimiento" class="form-label">Fecha de nacimiento</label>
                                 <input type="text" class="form-control" id="Fnacimento" placeholder="dd-mm-yy" required autocomplete="off">
@@ -201,7 +210,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="txtpaisnacimiento" class="form-label">Pais Nacimiento</label>
-                                <input type="text" class="form-control" id="txtpaisnacimiento" required>
+                                <input type="text" class="form-control" id="txtpaisnacimiento" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
@@ -209,14 +218,14 @@
 
                             <div class="col-md-3">
                                 <label for="txtdepnacimiento" class="form-label">Departamento Nacimiento</label>
-                                <input type="text" class="form-control" id="txtdepnacimiento" required>
+                                <input type="text" class="form-control" id="txtdepnacimiento" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <label for="txtciunacimiento" class="form-label">Ciudad Nacimiento</label>
-                                <input type="text" class="form-control" id="txtciunacimiento" required>
+                                <input type="text" class="form-control" id="txtciunacimiento" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
@@ -230,21 +239,21 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="txtpaisDireccion" class="form-label">Pais Dirección</label>
-                                <input type="text" class="form-control" id="txtpaisDireccion" required>
+                                <input type="text" class="form-control" id="txtpaisDireccion" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <label for="txtDdireccion" class="form-label">Departamento Dirección</label>
-                                <input type="text" class="form-control" id="txtDdireccion" required>
+                                <input type="text" class="form-control" id="txtDdireccion" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <label for="txtCdireccion" class="form-label">Ciudad Dirección</label>
-                                <input type="text" class="form-control" id="txtCdireccion" required>
+                                <input type="text" class="form-control" id="txtCdireccion" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
@@ -265,7 +274,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="GrupoS" class="form-label">Grupo sanguineo</label>
-                                <select class="form-control" name="GrupoS" id="GrupoS">
+                                <select class="form-control" name="GrupoS" id="GrupoS" required autocomplete="off">
                                     <option value="" required>Seleccione.</option>
                                     <option value="A+" required>A+</option>
                                     <option value="O+" required>O+</option>
@@ -280,7 +289,7 @@
 
                             <div class="col-md-3">
                                 <label for="GrupoEtnico" class="form-label">Grupo Etnico</label>
-                                <select class="form-control" name="GrupoEtnico" id="GrupoEtnico">
+                                <select class="form-control" name="GrupoEtnico" id="GrupoEtnico" required autocomplete="off">
                                     <option value="" required>Seleccione.</option>
                                     <option value="Afrodecendiente" required>Afrodecendiente</option>
                                     <option value="Indigena" required>Indigena</option>
@@ -292,14 +301,14 @@
 
                             <div class="col-md-3">
                                 <label for="Profesion" class="form-label">Profesion</label>
-                                <input type="text" class="form-control" id="Profesion" required>
+                                <input type="text" class="form-control" id="Profesion" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <label for="Eps" class="form-label">EPS</label>
-                                <input type="text" class="form-control" id="Eps" required>
+                                <input type="text" class="form-control" id="Eps" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
@@ -320,7 +329,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="Activo" class="form-label">Activo</label>
-                                <select class="form-control" name="acticacion" id="Activo">
+                                <select class="form-control" name="acticacion" id="Activo" required autocomplete="off">
                                     <option value="" required>Seleccione.</option>
                                     <option value="1" required>SI</option>
                                     <option value="0" required>NO</option>
@@ -346,7 +355,6 @@
                                 A simple danger alert—check it out!
                             </div>
                         </div>
-
                     </div>
 
                 </div>
@@ -354,7 +362,6 @@
         </div>
     </div>
 </div>
-
 
 
 
@@ -422,6 +429,8 @@
 
         function abrirModal(json) {
             document.getElementById("form_persona").reset();
+            $("#IdpersonaU").val(0);
+            $("#mensajEerror").hide();
 
             if (json != null) {
 
@@ -453,13 +462,13 @@
                 $("#txtsexo").val(json.Genero == "Masculino" ? "Masculino" : "Femenino");
                 $("#estadocivil").val(json.EstadoCivil == "Soltero" ? "Soltero" : json.EstadoCivil == "Casado" ? "Casado" : json.EstadoCivil == "Viudo" ? "Viudo" : json.EstadoCivil == "Divorciado" ? "Divorciado" : "Union Libre");
                 $("#Nhijos").val(json.NumeroHijos == "0" ? "0" : json.NumeroHijos == "1" ? "1" : json.NumeroHijos == "2" ? "2" : json.NumeroHijos == "3" ? "3" : json.NumeroHijos == "4" ? "4" : json.NumeroHijos == "5" ? "5" : "6");
-                $("#txtLMilitar").val(json.LibretaMilitar == "No Tiene" ? "No Tiene" : json.LibretaMilitar == "1 RA" ? "1 RA" : "2 DA");               
+                $("#txtLMilitar").val(json.LibretaMilitar == "No Tiene" ? "No Tiene" : json.LibretaMilitar == "1 RA" ? "1 RA" : "2 DA");
                 $("#GrupoS").val(json.GrupoSanguineo == "A+" ? "A+" : json.GrupoSanguineo == "O+" ? "O+" : json.GrupoSanguineo == "B+" ? "B+" : json.GrupoSanguineo == "AB+" ? "AB+" : json.GrupoSanguineo == "O-" ? "O-" : json.GrupoSanguineo == "A-" ? "A-" : json.GrupoSanguineo == "B-" ? "B-" : "AB-");
                 $("#GrupoEtnico").val(json.GrupoEtnico == "Afrodecendiente" ? "Afrodecendiente" : json.GrupoEtnico == "Indigena" ? "Indigena" : json.GrupoEtnico == "Raizal" ? "Raizal" : json.GrupoEtnico == "Gitano" ? "Gitano" : "Mestizo");
                 $("#tipo_doc").val(json.TipoIdentificacion == "CC" ? "CC" : json.TipoIdentificacion == "RC" ? "RC" : "TI");
                 $("#Activo").val(json.Estado == true ? "1" : "0");
                 $("#Fechaestado").val(json.Estadofecha);
-                                                                                                                                  
+
             }
             $("#FormModal1").modal("show");
 
@@ -574,8 +583,6 @@
 
 
     </script>
-
-
 }
 
 
