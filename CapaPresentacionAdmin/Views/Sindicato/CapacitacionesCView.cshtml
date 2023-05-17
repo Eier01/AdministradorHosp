@@ -1,0 +1,291 @@
+﻿
+@{
+    ViewBag.Title = "CapacitacionesCView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hola">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-book"></i> Capacitaciónes o Cursos 
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <br>
+                <br>
+                <div class="hola1">
+                    <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Añadir Capacitación </button>
+                </div>
+                <br>
+                <br>
+                <hr>
+                <table id="tablaCC"  class="display cell-border" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>formación</th>
+                            <th>Nombre formación</th>
+                            <th>Fecha inicial</th>
+                            <th>Fecha final</th>
+                            <th>ver adjunto</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="FormModalCapacitaciones" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
+                    <h5 class="modal-title" id="exampleModalLabel">Formulario Capacitaciónes o Cursos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <input type="text" id="txtIdCapacitacionesC" value="0" style="display: none;" />
+
+                    <div style="width: 85%; margin: 0 auto;">
+                        <section>
+
+                            <form class="row g-3 needs-validation" novalidate id="formCcursos">
+
+                                <div class="contenido_texto block " data-seccion="1">
+                                    <div class="col-md-4 form-check-inline">
+                                        <label for="txtPerson" class="form-label" style="margin-top: 20px"><b>Persona en Registro</b></label>
+                                        <input type="text" class="form-control" id="txtPerson" required>
+                                    </div>
+                                    <hr>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <label for="txtformacion" class="form-label">Tipo de formación</label>
+                                    <select class="form-control" name="txtLoHabla" id="txtformacion" required>
+                                        <option value="" required>Seleccione.</option>
+                                        <option value="Capacitación" required>Capacitación</option>
+                                        <option value="Especialización" required>Especialización</option>
+                                        <option value="Maestria" required>Maestria</option>
+                                        <option value="Doctorado" required>Doctorado</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <label for="txtnombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="txtnombre" required autocomplete="off">
+
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="txtestadoF" class="form-label">Estado de formación</label>
+                                    <select class="form-control" name="txtLoEscribe" id="txtestadoF" required autocomplete="of">
+                                        <option value="" required>Seleccione.</option>
+                                        <option value="Terminado" required>Terminado</option>
+                                        <option value="En Curso" required>En Curso</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-3 ">
+                                    <label for="txtfechaI" class="form-label">Fecha Inicio</label>
+                                    <input type="text" class="form-control" id="txtfechaI"  placeholder="dd-mm-yy" required  autocomplete="off">
+
+                                </div>
+
+
+                                <div class="col-md-3 ">
+                                    <label for="txtfechaF" class="form-label">Fecha finalización</label>
+                                    <input type="text" class="form-control" id="txtfechaF"  placeholder="dd-mm-yy" required autocomplete="off">
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="formAdjuntar" class="form-label">Adjuntar Soporte</label>
+                                    <input class="form-control" type="file" id="formAdjuntar">
+                                </div>
+                            </form>
+
+                        </section>
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <div id="mensajEerror" class="alert alert-danger" role="alert">
+                                    A simple danger alert—check it out!
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+    <script>
+        $("#txtfechaI").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+        $("#txtfechaF").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+        var tabladata;
+        var filaSeleccionada;
+
+        jQuery.ajax({
+            url: '@Url.Action("ListaCapacitacionesC", "Sindicato")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.log(data)
+            }
+
+        })
+        tabladata = $("#tablaCC").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListaCapacitacionesC", "Sindicato")',
+                type: "GET",
+                dataType: "json",
+            },
+            "columns": [
+
+                { "data": "idCapacitacionesCursos" },
+                { "data": "TipoFormacion" },
+                { "data": "Nombre" },
+                { "data": "FechaInicio" },
+                { "data": "FechaFinalizacion" },
+                { "data": "Archivo" },
+
+                {
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarCapacitacionesC"><i class="fas fa-pen"></i></button>',
+                    "orderable": false,
+                    "searchable": false,
+                    "width":"90px"
+                }
+            ],
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
+        }
+
+        });
+
+        function abrirmodal(json) {
+            document.getElementById("formCcursos").reset();
+            $("#txtIdCapacitacionesC").val(0);
+            $("#mensajEerror").hide();
+
+
+            if (json != null) {
+
+                $("#txtIdCapacitacionesC").val(json.idCapacitacionesCursos);
+                $("#txtformacion").val(json.TipoFormacion == "Capacitación" ? "Capacitación" : json.TipoFormacion == "Especialización" ? "Especialización" : json.TipoFormacion == "Maestria" ? "Maestria" : "Doctorado");
+                $("#txtnombre").val(json.Nombre);
+                $("#txtestadoF").val(json.EstadoFormacion == "Terminado" ? "Terminado" : "En Curso");
+                $("#txtfechaI").val(json.FechaInicio);
+                $("#txtfechaF").val(json.FechaFinalizacion);
+                //$("#formAdjuntar").val(json.Archivo);
+
+
+                //bool graduado = json.Graduado == "true";
+
+            }
+
+
+            $("#FormModalCapacitaciones").modal("show");
+        }
+
+        //Editar
+        $("#tablaCC tbody").on("click", '.btn-editarCapacitacionesC', function () {
+
+            var filaSeleccionada = $(this).closest("tr");
+            var data = tabladata.row(filaSeleccionada).data();
+
+            abrirmodal(data)
+
+        })
+
+        function Guardar() {
+
+            var CapacitacionesC = {
+
+                idCapacitacionesCursos: $("#txtIdCapacitacionesC").val(),
+                TipoFormacion: $("#txtformacion").val(),
+                Nombre: $("#txtnombre").val(),
+                EstadoFormacion: $("#txtestadoF").val(),
+                FechaInicio: $("#txtfechaI").val(),
+                FechaFinalizacion: $("#txtfechaF").val()
+            }
+
+            var formData = new FormData();
+            formData.append("idCapacitacionesCursos", $("#txtIdCapacitacionesC").val());
+            formData.append("TipoFormacion", $("#txtformacion").val());
+            formData.append("Nombre", $("#txtnombre").val());
+            formData.append("EstadoFormacion", $("#txtestadoF").val());
+            formData.append("FechaInicio", $("#txtfechaI").val());
+            formData.append("FechaFinalizacion", $("#txtfechaF").val());
+            formData.append("Archivo", $("#formAdjuntar")[0].files[0]);
+
+             jQuery.ajax({
+                url: '@Url.Action("GuardarCapatacitaciones", "Sindicato")',
+                 type: "POST",
+                 data: formData,
+                 cache: false,
+                 processData: false,
+                 cache: false,
+                 contentType: false,
+                 success: function (data) {
+                     console.info(data); 
+
+                     //Usuario Nuevo
+                    if (CapacitacionesC.idCapacitacionesCursos == 0) {
+
+                            if (data.resultado != 0) {
+
+                                CapacitacionesC.idCapacitacionesCursos = data.resultado;
+                                tabladata.row.add(CapacitacionesC).draw(false);
+                                $("#FormModalCapacitaciones").modal("hide");
+                            } else {
+
+
+                                $("#mensajEerror").text(data.mensaje)
+                                $("#mensajEerror").show()
+                            }
+
+                            //Usuario Editar
+                    }
+                    else {
+
+                        if (data.resultado) {
+
+                            tabladata.row(filaSeleccionada).data(CapacitacionesC).draw(false);
+                            filaSeleccionada = null;
+                            $("#FormModalCapacitaciones").modal("hide");
+
+                        } else {
+                            $("#mensajEerror").text(data.mensaje)
+                            $("#mensajEerror").show()
+                        }
+
+
+                    }
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+            });
+         }
+
+    </script>
+}
+

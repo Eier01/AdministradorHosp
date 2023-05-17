@@ -1,0 +1,589 @@
+﻿
+@{
+    ViewBag.Title = "Personaview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<div class="hola">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-book"></i>Datos Personales
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="validationCustom01" class="form-label">Identificación</label>
+                    <input type="text" class="form-control" id="validationCustom01" value="0">
+                    <br>
+                </div>
+
+                <div class="hola1">
+                    <button type="button" class="btn btn-primary" onclick="abrirModal(null)">Crear Nuevo</button>
+                    <button type="button" class="btn btn-primary">Consultar</button>
+                    <input type="button" class="btn btn-success" value="Descargar" onclick="location.href='@Url.Action("ExportPersona", "Sindicato")'" />
+                </div>
+                <br>
+                <br>
+                <hr>
+
+                <table id="tablapersona" class="display cell-border" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Identificación</th>
+                            <th>Primer nombre</th>
+                            <th>Dirección</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Profesión</th>
+                            <th>Eps</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="FormModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
+                <h5 class="modal-title" id="exampleModalLabel">Formulario Datos Personales</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body g-4">
+
+                <div style="width: 85%; margin: 0 auto;">
+                    <section>
+                        <form class="row g-3 needs-validation" id="form_persona" name="form_persona">
+
+                            <input type="text" class="form-control" id="IdpersonaU" value="0" style="display: none;">
+                            <div>
+                                <div class="col-md-4 form-check-inline">
+                                    <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
+                                    <input type="text" class="form-control" id="txtPerson" required>
+                                </div>
+                            </div>
+                            <hr>
+
+
+                            <div class="col-md-3">
+                                <label for="tipo_doc" class="form-label">Tipo de identificación</label>
+                                <select class="form-control" name="Tipodoc" id="tipo_doc">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="CC" required>CC</option>
+                                    <option value="RC" required>RC</option>
+                                    <option value="TI" required>TI</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="nro_doc" class="form-label">Identificación</label>
+                                <input type="text" class="form-control" name="nro_doc" id="nro_doc" required autocomplete="off">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="FechaEx" class="form-label">Fecha de expedición</label>
+                                <input type="text" class="form-control" id="FechaEx" placeholder="dd-mm-yy" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="LugarExped" class="form-label">lugar de expedición</label>
+                                <input type="text" class="form-control" id="LugarExped" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Pnombre" class="form-label">Primer nombre</label>
+                                <input type="text" class="form-control" id="Pnombre" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Snombre" class="form-label">Segundo nombre</label>
+                                <input type="text" class="form-control" id="Snombre" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Papellido" class="form-label">Primer apellido</label>
+                                <input type="text" class="form-control" id="Papellido" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Sapellido" class="form-label">Segundo apellido</label>
+                                <input type="text" class="form-control" id="Sapellido" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtsexo" class="form-label">Sexo</label>
+                                <select class="form-control" name="sexo" id="txtsexo" required autocomplete="off">
+                                    <option value="" required>Seleccione</option>
+                                    <option value="Masculino" required>Masculino</option>
+                                    <option value="Femenino" required>Femenino</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="NPais" class="form-label">Nacionalidad</label>
+                                <select class="form-control" name="Nacion" id="NPais" required autocomplete="off">
+                                    <option value="" required>Seleccione</option>
+                                    <option value="Colombiano-a" required>Colombiano-a</option>
+                                    <option value="Extranjero" required>Extranjero</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <label for="estadocivil" class="form-label">Estado Civil</label>
+                                <select class="form-control" name="estadocivil" id="estadocivil" required autocomplete="off">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="Soltero" required>Soltero</option>
+                                    <option value="Casado" required>Casado</option>
+                                    <option value="Viudo" required>Viudo</option>
+                                    <option value="Divorciado" required>Divorciado</option>
+                                    <option value="Union Libre" required>Union Libre</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Nhijos" class="form-label">Numero hijos</label>
+                                <select class="form-control" name="Nhijos" id="Nhijos" required autocomplete="off">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="0" required>0</option>
+                                    <option value="1" required>1</option>
+                                    <option value="2" required>2</option>
+                                    <option value="3" required>3</option>
+                                    <option value="4" required>4</option>
+                                    <option value="5" required>5</option>
+                                    <option value="6" required>Mas</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtLMilitar" class="form-label">Libreta Militar</label>
+                                <select class="form-control" name="sexo" id="txtLMilitar" required autocomplete="off">
+                                    <option value="A" required>Seleccione.</option>
+                                    <option value="No Tiene" required>No Tiene</option>
+                                    <option value="1 RA" required>1 RA</option>
+                                    <option value="2 DA" required>2 DA</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="Lmilitar" class="form-label">N° Libreta militar</label>
+                                <input type="text" class="form-control" id="Lmilitar" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Dmilitar" class="form-label">Distrito militar</label>
+                                <input type="text" class="form-control" id="Dmilitar" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="Fnacimiento" class="form-label">Fecha de nacimiento</label>
+                                <input type="text" class="form-control" id="Fnacimento" placeholder="dd-mm-yy" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtpaisnacimiento" class="form-label">Pais Nacimiento</label>
+                                <input type="text" class="form-control" id="txtpaisnacimiento" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="txtdepnacimiento" class="form-label">Departamento Nacimiento</label>
+                                <input type="text" class="form-control" id="txtdepnacimiento" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtciunacimiento" class="form-label">Ciudad Nacimiento</label>
+                                <input type="text" class="form-control" id="txtciunacimiento" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Direction" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="Direction" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtpaisDireccion" class="form-label">Pais Dirección</label>
+                                <input type="text" class="form-control" id="txtpaisDireccion" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtDdireccion" class="form-label">Departamento Dirección</label>
+                                <input type="text" class="form-control" id="txtDdireccion" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="txtCdireccion" class="form-label">Ciudad Dirección</label>
+                                <input type="text" class="form-control" id="txtCdireccion" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Tel" class="form-label">Telefono</label>
+                                <input type="text" class="form-control" id="Tel" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="CorreoE" class="form-label">Correo electronico</label>
+                                <input type="text" class="form-control" id="CorreoE" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="GrupoS" class="form-label">Grupo sanguineo</label>
+                                <select class="form-control" name="GrupoS" id="GrupoS" required autocomplete="off">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="A+" required>A+</option>
+                                    <option value="O+" required>O+</option>
+                                    <option value="B+" required>B+</option>
+                                    <option value="AB+" required>AB+</option>
+                                    <option value="O-" required>O-</option>
+                                    <option value="A-" required>A-</option>
+                                    <option value="B-" required>B-</option>
+                                    <option value="AB-" required>AB-</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="GrupoEtnico" class="form-label">Grupo Etnico</label>
+                                <select class="form-control" name="GrupoEtnico" id="GrupoEtnico" required autocomplete="off">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="Afrodecendiente" required>Afrodecendiente</option>
+                                    <option value="Indigena" required>Indigena</option>
+                                    <option value="Raizal" required>Raizal</option>
+                                    <option value="Gitano" required>Gitano</option>
+                                    <option value="Mestizo" required>Mestizo</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="Profesion" class="form-label">Profesion</label>
+                                <input type="text" class="form-control" id="Profesion" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Eps" class="form-label">EPS</label>
+                                <input type="text" class="form-control" id="Eps" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="fondopensiones" class="form-label">Fondo De Pensiones</label>
+                                <input type="text" class="form-control" id="fondopensiones" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="arl" class="form-label">ARL</label>
+                                <input type="text" class="form-control" id="arl" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Activo" class="form-label">Activo</label>
+                                <select class="form-control" name="acticacion" id="Activo" required autocomplete="off">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="1" required>SI</option>
+                                    <option value="0" required>NO</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="Fechaestado" class="form-label">Fecha de Activación</label>
+                                <input type="text" class="form-control" id="Fechaestado" placeholder="dd-mm-yy" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+                            </div>
+                        </form>
+                    </section>
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <div id="mensajEerror" class="alert alert-danger" role="alert">
+                                A simple danger alert—check it out!
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section scripts{
+    <script>
+
+        document.getElementById("txtLMilitar").onchange = function () {
+            if (this.value === "No Tiene") {
+                document.getElementById("Lmilitar").value = "0";
+                document.getElementById("Dmilitar").value = "0";
+            }
+        };
+
+        $("#FechaEx").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+        $("#Fnacimento").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+        $("#Fechaestado").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+
+        var tabladata;
+        var filaSeleccionada;
+
+        jQuery.ajax({
+            url: '@Url.Action("ListarPersona", "Sindicato")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                console.log(data)
+            }
+
+        })
+        tabladata = $("#tablapersona").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListarPersona", "Sindicato")',
+                type: "GET",
+                dataType: "json",
+            },
+            "columns": [
+
+                { "data": "NumeroDocumento"},
+                { "data": "PrimerNombre" },
+                { "data": "Direccion" },
+                { "data": "Telefono" },
+                { "data": "CorreoElectronico" },
+                { "data": "Profesion" },
+                { "data": "Eps" },
+
+                {
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarP"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-sm ms-2"><i class="fas fa-trash"></i></button>',
+                    "orderable": false,
+                    "searchable": false,
+                    "width":"90px"
+                }
+            ],
+            "language": {
+                "url":"https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
+            }
+
+        })
+
+
+        function abrirModal(json) {
+            document.getElementById("form_persona").reset();
+            $("#IdpersonaU").val(0);
+            $("#mensajEerror").hide();
+
+            if (json != null) {
+
+                $("#IdpersonaU").val(json.IdPersona);
+                $("#nro_doc").val(json.NumeroDocumento);
+                $("#LugarExped").val(json.LugarExpedicion);
+                $("#FechaEx").val(json.FechaExpedicion);
+                $("#Pnombre").val(json.PrimerNombre);
+                $("#Snombre").val(json.SegundoNombre);
+                $("#Papellido").val(json.PrimerApellido);
+                $("#Sapellido").val(json.SegundoApellido);
+                $("#NPais").val(json.Pais == "Colombia" ? "Colombia" : "Extranjero");
+                $("#Lmilitar").val(json.NumeroLibreta);
+                $("#Dmilitar").val(json.DistritoMilitar);
+                $("#txtpaisnacimiento").val(json.PaisNacimiento);
+                $("#txtdepnacimiento").val(json.DeapartamentoNacimiento);
+                $("#Fnacimento").val(json.FechaNacimiente);
+                $("#txtciunacimiento").val(json.CiudadNacimiento);
+                $("#Direction").val(json.Direccion);
+                $("#txtpaisDireccion").val(json.PaisDireccion);
+                $("#txtDdireccion").val(json.DepartamentoResidencia);
+                $("#txtCdireccion").val(json.CiudadDireccion);
+                $("#Tel").val(json.Telefono);
+                $("#CorreoE").val(json.CorreoElectronico);
+                $("#Profesion").val(json.Profesion);
+                $("#Eps").val(json.Eps);
+                $("#fondopensiones").val(json.FondoPensiones);
+                $("#arl").val(json.Arl);
+                $("#txtsexo").val(json.Genero == "Masculino" ? "Masculino" : "Femenino");
+                $("#estadocivil").val(json.EstadoCivil == "Soltero" ? "Soltero" : json.EstadoCivil == "Casado" ? "Casado" : json.EstadoCivil == "Viudo" ? "Viudo" : json.EstadoCivil == "Divorciado" ? "Divorciado" : "Union Libre");
+                $("#Nhijos").val(json.NumeroHijos == "0" ? "0" : json.NumeroHijos == "1" ? "1" : json.NumeroHijos == "2" ? "2" : json.NumeroHijos == "3" ? "3" : json.NumeroHijos == "4" ? "4" : json.NumeroHijos == "5" ? "5" : "6");
+                $("#txtLMilitar").val(json.LibretaMilitar == "No Tiene" ? "No Tiene" : json.LibretaMilitar == "1 RA" ? "1 RA" : "2 DA");
+                $("#GrupoS").val(json.GrupoSanguineo == "A+" ? "A+" : json.GrupoSanguineo == "O+" ? "O+" : json.GrupoSanguineo == "B+" ? "B+" : json.GrupoSanguineo == "AB+" ? "AB+" : json.GrupoSanguineo == "O-" ? "O-" : json.GrupoSanguineo == "A-" ? "A-" : json.GrupoSanguineo == "B-" ? "B-" : "AB-");
+                $("#GrupoEtnico").val(json.GrupoEtnico == "Afrodecendiente" ? "Afrodecendiente" : json.GrupoEtnico == "Indigena" ? "Indigena" : json.GrupoEtnico == "Raizal" ? "Raizal" : json.GrupoEtnico == "Gitano" ? "Gitano" : "Mestizo");
+                $("#tipo_doc").val(json.TipoIdentificacion == "CC" ? "CC" : json.TipoIdentificacion == "RC" ? "RC" : "TI");
+                $("#Activo").val(json.Estado == true ? "1" : "0");
+                $("#Fechaestado").val(json.Estadofecha);
+
+            }
+            $("#FormModal1").modal("show");
+
+
+        }
+
+
+
+
+        $("#tablapersona tbody").on("click",'.btn-editarP', function () {
+
+            var filaSeleccionada = $(this).closest("tr");
+            var data = tabladata.row(filaSeleccionada).data();
+
+            abrirModal(data)
+
+
+        })
+
+        function Guardar()
+        {
+
+            var Rpersona = {
+
+                IdPersona: $("#IdpersonaU").val(),
+                NumeroDocumento: $("#nro_doc").val(),
+                LugarExpedicion: $("#LugarExped").val(),
+                FechaExpedicion: $("#FechaEx").val(),
+                PrimerNombre: $("#Pnombre").val(),
+                SegundoNombre: $("#Snombre").val(),
+                PrimerApellido: $("#Papellido").val(),
+                SegundoApellido: $("#Sapellido").val(),
+                Pais: $("#NPais").val(),
+                NumeroLibreta: $("#Lmilitar").val(),
+                DistritoMilitar: $("#Dmilitar").val(),
+                PaisNacimiento: $("#txtpaisnacimiento").val(),
+                DeapartamentoNacimiento: $("#txtdepnacimiento").val(),
+                FechaNacimiente: $("#Fnacimento").val(),
+                CiudadNacimiento: $("#txtciunacimiento").val(),
+                Direccion: $("#Direction").val(),
+                PaisDireccion: $("#txtpaisDireccion").val(),
+                DepartamentoResidencia: $("#txtDdireccion").val(),
+                CiudadDireccion: $("#txtCdireccion").val(),
+                Telefono: $("#Tel").val(),
+                CorreoElectronico: $("#CorreoE").val(),
+                Profesion: $("#Profesion").val(),
+                Eps: $("#Eps").val(),
+                FondoPensiones: $("#fondopensiones").val(),
+                Arl: $("#arl").val(),
+                Genero: $("#txtsexo").val(),
+                EstadoCivil: $("#estadocivil").val(),
+                NumeroHijos: $("#Nhijos").val(),
+                LibretaMilitar: $("#txtLMilitar").val(),
+                GrupoSanguineo: $("#GrupoS").val(),
+                GrupoEtnico: $("#GrupoEtnico").val(),
+                TipoIdentificacion: $("#tipo_doc").val(),
+                Estado: $("#Activo").val() == 1 ?  true : false,
+                Estadofecha: $("#Fechaestado").val(),
+
+            }
+
+
+                jQuery.ajax({
+                    url: '@Url.Action("GuardarPersona", "Sindicato")',
+                    type: "POST",
+                    data: JSON.stringify({objeto: Rpersona}),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+
+                    success: function (data) {
+
+                        //debugger;
+
+                        //Usuario Nuevo
+                        if (Rpersona.IdPersona == 0) {
+
+                            if (data.resultado != 0) {
+
+                                Rpersona.IdPersona = data.resultado;
+                                tabladata.row.add(Rpersona).draw(false);
+                                $("#FormModal1").modal("hide");
+                            } else {
+
+
+                                $("#mensajEerror").text(data.mensaje)
+                                $("#mensajEerror").show()
+                            }
+
+                            //Usuario Editar
+                        }
+                        else {
+
+                            if (data.resultado) {
+
+                                tabladata.row(filaSeleccionada).data(Rpersona).draw(false);
+                                filaSeleccionada = null;
+                                $("#FormModal1").modal("hide");
+
+                            } else {
+                                $("#mensajEerror").text(data.mensaje)
+                                $("#mensajEerror").show()
+                            }
+
+
+                        }
+                    },
+                            error: function (error) {
+                                console.log(error)
+                            }
+                });
+        }
+
+
+    </script>
+}
+
+

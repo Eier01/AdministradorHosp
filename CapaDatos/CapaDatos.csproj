@@ -42,7 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CDExperienciaL.cs" />
+    <Compile Include="CD_CapacitacionesC.cs" />
+    <Compile Include="CD_Facademica.cs" />
+    <Compile Include="CD_Idiomas.cs" />
+    <Compile Include="CD_Laborales.cs" />
+    <Compile Include="CD_Persona.cs" />
     <Compile Include="CD_Procesos.cs" />
+    <Compile Include="CD_Rlegales.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

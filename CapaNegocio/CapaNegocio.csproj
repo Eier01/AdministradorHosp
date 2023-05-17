@@ -41,7 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CNCapacitacionesC.cs" />
+    <Compile Include="CNF_Academica.cs" />
+    <Compile Include="CN_Ex_Laboral.cs" />
+    <Compile Include="CN_Idiomas.cs" />
+    <Compile Include="CN_Laborales.cs" />
+    <Compile Include="CN_Persona.cs" />
     <Compile Include="CN_Procesos.cs" />
+    <Compile Include="CN_Rlegales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
