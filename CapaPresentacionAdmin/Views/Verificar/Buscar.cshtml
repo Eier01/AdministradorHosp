@@ -4,5 +4,52 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Buscar</h2>
+<ol class="breadcrumb mb-4 mt-4">
+    <li class="breadcrumb-item">Administrador gestion humana HV</li>
+    <li class="breadcrumb-item active">Buscar</li>
+</ol>
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-briefcase"></i> Buscar
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4">
+                <input type="text" class="form-control" id="validationCustom01" value="" required>
+
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-1 mt-1">
+                <button type="button" class="btn btn-primary ">Consultar</button>
+            </div>
+            <div class="col-3 mt-1 m-3">    
+                <button type="button" class="btn btn-success "><i class="fas fa-file-excel mx-2"></i>Exportar</button>
+            </div>
+        </div>
+        <table id="tabla" class="table table-hover" style="width:100%; font-size:10px">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Cédula</th>
+                    <th>Nombre</th>
+                    <th>Género</th>
+                    <th>Fecha Nac.</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Sindicato</th>
+                    <th>Profesión</th>
+                    <th>Actividad</th>
+                    <th>Fec. Ingreso</th>
+                    <th>Fec. Retiro</th>
+                    <th>Estado</th>
+                    <th>Verificado</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
 
