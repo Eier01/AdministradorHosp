@@ -1,8 +1,10 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
+using ClosedXML.Excel;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -67,6 +69,54 @@ namespace CapaPresentacionAdmin.Controllers
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public FileResult ExportPersona()
+        {
+            List<Persona> oLista = new List<Persona>();
+            oLista = new CN_Persona().Listar();
+
+            DataTable dt = new DataTable();
+            dt.Locale= new System.Globalization.CultureInfo("es-CO");
+
+            //Identificación	Primer nombre	Dirección	Telefono	Correo	Profesión	Eps	
+            dt.Columns.Add("Identificación", typeof(String));
+            dt.Columns.Add("Primer nombre", typeof(String));
+            dt.Columns.Add("Dirección", typeof(String));
+            dt.Columns.Add("Telefono", typeof(String));
+            dt.Columns.Add("Correo", typeof(String));
+            dt.Columns.Add("Profesión", typeof(String));
+            dt.Columns.Add("Eps", typeof(String));
+
+            foreach (Persona persona in oLista)
+            {
+                dt.Rows.Add(new object[]
+                {
+                    persona.NumeroDocumento,
+                    persona.PrimerNombre,
+                    persona.Direccion,
+                    persona.Telefono,
+                    persona.CorreoElectronico,
+                    persona.Profesion,
+                    persona.Eps
+
+
+                });
+            }
+            dt.TableName = "ReportePersonas";
+
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt);
+                using(MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(),"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","Reporte Usuarios "+ DateTime.Now.ToString("dd/MM/yyyy_HH:mm:ss") + ".xlsx");
+                }
+            }
+
+        }
+
 
         [HttpGet]
         public JsonResult ListarRlegales()
