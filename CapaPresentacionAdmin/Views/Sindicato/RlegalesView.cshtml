@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>RlegalesView</h2>
+
+
+@{
+    ViewBag.Title = "RlegalesView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 <br>
 <div class="card">
     <div class="card-header">
@@ -44,17 +52,17 @@
             </div>
             <div class="modal-body">
 
-               
+
 
                 <div style="width: 85%; margin: 0 auto;">
-                    
+
 
                     <section>
 
                         <form class="row g-3 needs-validation" novalidate id="formRlegales">
 
                             <input type="text" id="txtIdRL" value="0" style="display: none;" />
-                            
+
 
                             <div class="col-md-4 form-check-inline">
                                 <label for="txtPersonRequisito" class="form-label" style="margin-top: 20px"><b>Persona en Registro</b></label>
@@ -73,7 +81,7 @@
 
                             <div class="col-md-3">
                                 <label for="txtFechaEXP" class="form-label">Fecha expedición</label>
-                                <input type="text" class="form-control" id="txtFechaEXP" placeholder="dd-mm-yy"  required autocomplete="off">
+                                <input type="text" class="form-control" id="txtFechaEXP" placeholder="dd-mm-yy" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Please provide a valid zip.
                                 </div>
@@ -107,7 +115,7 @@
 </div>
 
 @section scripts{
- 
+
     <script>
 
         $("#txtFechaEXP").datepicker({dateFormat : 'dd/mm/yy'}).datepicker('setDate',new Date())

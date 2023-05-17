@@ -41,188 +41,188 @@
     </div>
 </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="FormModalFacademica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header  text-light" style="background: hsl(145, 76%, 42%)">
-                    <h5 class="modal-title" id="exampleModalLabel">Formación Academica</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">                
-                    <div style="width: 85%; margin: 0 auto;">
-                        <section>
-                            <form class="row g-3 needs-validation" id="fAcadec" novalidate>
+<!-- Modal -->
+<div class="modal fade" id="FormModalFacademica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header  text-light" style="background: hsl(145, 76%, 42%)">
+                <h5 class="modal-title" id="exampleModalLabel">Formación Academica</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div style="width: 85%; margin: 0 auto;">
+                    <section>
+                        <form class="row g-3 needs-validation" id="fAcadec" novalidate>
 
-                                <input type="text" class="form-control" id="txtIdFacademica" value="0" style="display: none;">
+                            <input type="text" class="form-control" id="txtIdFacademica" value="0" style="display: none;">
 
-                                <div>
-                                    <div class="col-md-3 form-check-inline">
-                                        <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
-                                        <input type="text" class="form-control" id="txtPerson" required>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="col-md-4 form-check-inline">
-                                    <label for="txtcargoasp" class="form-label">Cargo que Aspira</label>
-                                    <input type="text" class="form-control" id="txtcargoasp" required>
-                                </div>
-
-
-                                <h5>Formación Academica Basica</h5>
-
-                                <div class="col-md-4">
-                                    <label for="txtedubasica" class="form-label">Educación Basica</label>
-                                    <select class="form-control" name="txtedubasica" id="txtedubasica">
-                                        <option value="" required>Seleccione.</option>
-                                        <option value="Primaria" required>Primaria</option>
-                                        <option value="Secundaria" required>Secundaria</option>
-                                        <option value="Media" required>Media</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4 ">
-                                    <label for="txttitulobt" class="form-label">Titulo obtenido</label>
-                                    <input type="text" class="form-control" id="txttitulobt" required>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label for="txtmes" class="form-label">Mes Grado</label>
-                                    <select class="form-control" name="txtmes" id="txtmes">
-                                        <option value="" required>Seleccione.</option>
-                                        <option value="1" required>1</option>
-                                        <option value="2" required>2</option>
-                                        <option value="3" required>3</option>
-                                        <option value="4" required>4</option>
-                                        <option value="5" required>5</option>
-                                        <option value="6" required>6</option>
-                                        <option value="7" required>7</option>
-                                        <option value="8" required>8</option>
-                                        <option value="9" required>9</option>
-                                        <option value="10" required>10</option>
-                                        <option value="11" required>11</option>
-                                        <option value="12" required>12</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4 ">
-                                    <label for="txtañogrado" class="form-label">Año Grado</label>
-                                    <input type="text" class="form-control" id="txtañogrado" required>
-                                </div>
-
-                                <div class="col-md-8">
-                                    <label for="txtinstitucion" class="form-label">Institución Educativa</label>
-                                    <input type="text" class="form-control" id="txtinstitucion" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="adactacol" class="form-label">Adjuntar Acta</label>
-                                    <input class="form-control" type="file" id="adactacol">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="addiplomacol" class="form-label">Adjuntar Diploma</label>
-                                    <input class="form-control" type="file" id="addiplomacol">
-                                </div>
-                                <hr>
-                                <h5>Formación Academica Superior</h5>
-                                
-                                <div class="col-md-4">
-                                    <label for="txtmodacademica" class="form-label">Modalidad Academica</label>
-                                    <select class="form-control" name="txtmodacademica" id="txtmodacademica">
-                                        <option value="" required>Seleccione.</option>
-                                        <option value="Tecnico" required>Tecnico</option>
-                                        <option value="Pregrado" required>Pregrado</option>
-                                        <option value="Especialización" required>Especialización</option>
-                                        <option value="Maestria" required>Maestria</option>
-                                        <option value="Doctorado" required>Doctorado</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="txtgraduado" class="form-label">Graduado</label>
-                                    <select class="form-control" name="txtgraduado" id="txtgraduado">
-                                        <option value="" required>Seleccione</option>
-                                        <option value="SI" required>SI</option>
-                                        <option value="NO" required>NO</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="txtsemaprobados" class="form-label">Semestres Aprobados</label>
-                                    <select class="form-control" name="txtsemaprobados" id="txtsemaprobados">
-                                        <option value="" required>Seleccione.</option>
-                                        <option value="1" required>1</option>
-                                        <option value="2" required>2</option>
-                                        <option value="3" required>3</option>
-                                        <option value="4" required>4</option>
-                                        <option value="5" required>5</option>
-                                        <option value="6" required>6</option>
-                                        <option value="7" required>7</option>
-                                        <option value="8" required>8</option>
-                                        <option value="9" required>9</option>
-                                        <option value="10" required>10</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-4 ">
-                                    <label for="txtnomtitulo" class="form-label">Nombre del Titulo</label>
-                                    <input type="text" class="form-control" id="txtnomtitulo" required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="txtmestermino" class="form-label">Mes Termino</label>
-                                    <select class="form-control" name="txtmestermino" id="txtmestermino">
-                                        <option value="" required>Seleccione.</option>
-                                        <option value="1" required>1</option>
-                                        <option value="2" required>2</option>
-                                        <option value="3" required>3</option>
-                                        <option value="4" required>4</option>
-                                        <option value="5" required>5</option>
-                                        <option value="6" required>6</option>
-                                        <option value="7" required>7</option>
-                                        <option value="8" required>8</option>
-                                        <option value="9" required>9</option>
-                                        <option value="10" required>10</option>
-                                        <option value="11" required>11</option>
-                                        <option value="12" required>12</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="txtaniotitulo" class="form-label">Año</label>
-                                    <input type="text" class="form-control" id="txtaniotitulo" required>
-                                </div>
-                                <div class="col-md-4 ">
-                                    <label for="txttarprofesional" class="form-label">Numero Targeta Profesional</label>
-                                    <input type="text" class="form-control" id="txttarprofesional" required>
-                                </div>
-                                <div class="col-md-8">
-                                    <label for="txtnominstitucionprof" class="form-label">Nombre Institución</label>
-                                    <input type="text" class="form-control" id="txtnominstitucionprof" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="actauni" class="form-label">Adjuntar Acta</label>
-                                    <input class="form-control" type="file" id="actauni">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="diplouni" class="form-label">Adjuntar Diploma</label>
-                                    <input class="form-control" type="file" id="diplouni">
-                                </div>
-                            </form>
-
-                        </section>
-
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <div id="mensajEerror" class="alert alert-danger" role="alert">
-                                    A simple danger alert—check it out!
+                            <div>
+                                <div class="col-md-3 form-check-inline">
+                                    <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
+                                    <input type="text" class="form-control" id="txtPerson" required>
                                 </div>
                             </div>
+                            <hr>
+                            <div class="col-md-4 form-check-inline">
+                                <label for="txtcargoasp" class="form-label">Cargo que Aspira</label>
+                                <input type="text" class="form-control" id="txtcargoasp" required>
+                            </div>
 
+
+                            <h5>Formación Academica Basica</h5>
+
+                            <div class="col-md-4">
+                                <label for="txtedubasica" class="form-label">Educación Basica</label>
+                                <select class="form-control" name="txtedubasica" id="txtedubasica">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="Primaria" required>Primaria</option>
+                                    <option value="Secundaria" required>Secundaria</option>
+                                    <option value="Media" required>Media</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="txttitulobt" class="form-label">Titulo obtenido</label>
+                                <input type="text" class="form-control" id="txttitulobt" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="txtmes" class="form-label">Mes Grado</label>
+                                <select class="form-control" name="txtmes" id="txtmes">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="1" required>1</option>
+                                    <option value="2" required>2</option>
+                                    <option value="3" required>3</option>
+                                    <option value="4" required>4</option>
+                                    <option value="5" required>5</option>
+                                    <option value="6" required>6</option>
+                                    <option value="7" required>7</option>
+                                    <option value="8" required>8</option>
+                                    <option value="9" required>9</option>
+                                    <option value="10" required>10</option>
+                                    <option value="11" required>11</option>
+                                    <option value="12" required>12</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="txtañogrado" class="form-label">Año Grado</label>
+                                <input type="text" class="form-control" id="txtañogrado" required>
+                            </div>
+
+                            <div class="col-md-8">
+                                <label for="txtinstitucion" class="form-label">Institución Educativa</label>
+                                <input type="text" class="form-control" id="txtinstitucion" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="adactacol" class="form-label">Adjuntar Acta</label>
+                                <input class="form-control" type="file" id="adactacol">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="addiplomacol" class="form-label">Adjuntar Diploma</label>
+                                <input class="form-control" type="file" id="addiplomacol">
+                            </div>
+                            <hr>
+                            <h5>Formación Academica Superior</h5>
+
+                            <div class="col-md-4">
+                                <label for="txtmodacademica" class="form-label">Modalidad Academica</label>
+                                <select class="form-control" name="txtmodacademica" id="txtmodacademica">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="Tecnico" required>Tecnico</option>
+                                    <option value="Pregrado" required>Pregrado</option>
+                                    <option value="Especialización" required>Especialización</option>
+                                    <option value="Maestria" required>Maestria</option>
+                                    <option value="Doctorado" required>Doctorado</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtgraduado" class="form-label">Graduado</label>
+                                <select class="form-control" name="txtgraduado" id="txtgraduado">
+                                    <option value="" required>Seleccione</option>
+                                    <option value="SI" required>SI</option>
+                                    <option value="NO" required>NO</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtsemaprobados" class="form-label">Semestres Aprobados</label>
+                                <select class="form-control" name="txtsemaprobados" id="txtsemaprobados">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="1" required>1</option>
+                                    <option value="2" required>2</option>
+                                    <option value="3" required>3</option>
+                                    <option value="4" required>4</option>
+                                    <option value="5" required>5</option>
+                                    <option value="6" required>6</option>
+                                    <option value="7" required>7</option>
+                                    <option value="8" required>8</option>
+                                    <option value="9" required>9</option>
+                                    <option value="10" required>10</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4 ">
+                                <label for="txtnomtitulo" class="form-label">Nombre del Titulo</label>
+                                <input type="text" class="form-control" id="txtnomtitulo" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtmestermino" class="form-label">Mes Termino</label>
+                                <select class="form-control" name="txtmestermino" id="txtmestermino">
+                                    <option value="" required>Seleccione.</option>
+                                    <option value="1" required>1</option>
+                                    <option value="2" required>2</option>
+                                    <option value="3" required>3</option>
+                                    <option value="4" required>4</option>
+                                    <option value="5" required>5</option>
+                                    <option value="6" required>6</option>
+                                    <option value="7" required>7</option>
+                                    <option value="8" required>8</option>
+                                    <option value="9" required>9</option>
+                                    <option value="10" required>10</option>
+                                    <option value="11" required>11</option>
+                                    <option value="12" required>12</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="txtaniotitulo" class="form-label">Año</label>
+                                <input type="text" class="form-control" id="txtaniotitulo" required>
+                            </div>
+                            <div class="col-md-4 ">
+                                <label for="txttarprofesional" class="form-label">Numero Targeta Profesional</label>
+                                <input type="text" class="form-control" id="txttarprofesional" required>
+                            </div>
+                            <div class="col-md-8">
+                                <label for="txtnominstitucionprof" class="form-label">Nombre Institución</label>
+                                <input type="text" class="form-control" id="txtnominstitucionprof" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="actauni" class="form-label">Adjuntar Acta</label>
+                                <input class="form-control" type="file" id="actauni">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="diplouni" class="form-label">Adjuntar Diploma</label>
+                                <input class="form-control" type="file" id="diplouni">
+                            </div>
+                        </form>
+
+                    </section>
+
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <div id="mensajEerror" class="alert alert-danger" role="alert">
+                                A simple danger alert—check it out!
+                            </div>
                         </div>
+
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary" onclick="Guardar()">Guardar</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary" onclick="Guardar()">Guardar</button>
             </div>
         </div>
     </div>
+</div>
 
 
 @section scripts{
@@ -363,7 +363,7 @@
                  cache: false,
                  contentType: false,
                  success: function (data) {
-                     console.info(data); 
+                     console.info(data);
 
                         //Usuario Nuevo
                      if (FormacionG.IdFormacionAcademica == 0) {

@@ -4,26 +4,43 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<ol class="breadcrumb mb-4 mt-4">
-    <li class="breadcrumb-item">Administrador gestion humana HV</li>
-    <li class="breadcrumb-item active">Reporte</li>
-</ol>
+
+<div class="mb-3 mt-2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-4 bg-body rounded border border-1" style="width:100%">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="@Url.Action("Buscar","Verificar")">Buscar</a>
+                    <a class="nav-link" href="@Url.Action("DatosPersonales","Verificar")">Datos Personales</a>
+                    <a class="nav-link" href="@Url.Action("FormacionAcademica","Verificar")">Formacion Academica</a>
+                    <a class="nav-link" href="@Url.Action("Capacitaciones","Verificar")">Cursos</a>
+                    <a class="nav-link" href="@Url.Action("Idiomas","Verificar")">Idiomas</a>
+                    <a class="nav-link" href="@Url.Action("ExperienciaLaboral","Verificar")">ExLaboral</a>
+                    <a class="nav-link" href="@Url.Action("DatosLaborales","Verificar")">Datos Laborales</a>
+                    <a class="nav-link" href="@Url.Action("Requisitos","Verificar")">Requisitos</a>
+                    <a class="nav-link" href="@Url.Action("Reporte","Verificar")">Reporte</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
 <div class="card">
     <div class="card-header">
-        <i class="fas fa-briefcase"></i> Reporte
+        <i class="fas fa-briefcase"></i>  <span class="text-secondary">Verificar Hoja De Vida/ Reporte</span>
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-3">
-                <p class="form-label" for="validationCustom05" style="font-size:13px"><b>...</b></p>
-            </div>
             <div class="col-3">
                 <p class="form-label" for="validationCustom05" style="color: #ff0000; font-size: 13px">
                     MARIA CLAUDIA
                     MARTINEZ GAEHT
                 </p>
             </div>
-            <div class="col-3">
+            <div class="col-6">
                 <p class="form-label" for="validationCustom05" style="font-size:13px">
                     UNION DE EMPLEADOS
                     TRABAJADORES Y CONTRATISTAS DE LA SALUD - UTRASSALUD Gestion Humana Profecional del Talento
@@ -40,7 +57,7 @@
                 <button type="button" class="btn btn-success">Imprimir</button>
             </div>
             <div class="col-md-3">
-                <button type="button" class="btn btn-info">Actualizar Cumplimiento</button>
+                <button type="button" class="btn btn-info">Comfirmar Cumplimiento</button>
             </div>
             <div class="col-md-3">
                 <p class="form-label" for="validationCustom05" style="font-size:13px"></p>

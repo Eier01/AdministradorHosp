@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CN_Buscar.cs" />
+    <Compile Include="CN_DatosLaborales.cs" />
+    <Compile Include="CN_ExperienciaLaboral.cs" />
+    <Compile Include="CN_Idiomas.cs" />
+    <Compile Include="CN_InfoCPersona.cs" />
+    <Compile Include="CN_Requisitos.cs" />
     <Compile Include="S_CNCapacitacionesC.cs" />
     <Compile Include="S_CNF_Academica.cs" />
     <Compile Include="S_CN_Ex_Laboral.cs" />

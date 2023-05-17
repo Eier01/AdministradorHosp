@@ -7,8 +7,9 @@
     "\\CapaPresentacionAdmin",
     "\\CapaPresentacionAdmin\\Controllers",
     "\\CapaPresentacionAdmin\\Views",
-    "\\CapaPresentacionAdmin\\Views\\Home"
+    "\\CapaPresentacionAdmin\\Views\\Home",
+    "\\CapaPresentacionAdmin\\Views\\Verificar"
   ],
-  "SelectedNode": "\\CapaPresentacionAdmin\\Views\\Home\\ReporteGeneral.cshtml",
+  "SelectedNode": "\\CapaPresentacionAdmin\\Controllers\\VerificarController.cs",
   "PreviewInSolutionExplorer": false
 }

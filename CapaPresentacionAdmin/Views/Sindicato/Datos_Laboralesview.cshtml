@@ -14,9 +14,9 @@
             <div class="row">
 
                 @*<div class="col-md-3">
-                    <h3>Datos Laborales</h3>
+                        <h3>Datos Laborales</h3>
 
-                </div>*@
+                    </div>*@
                 <br>
                 <div class="hola1">
                     <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Crear Datos Laboral</button>
@@ -43,7 +43,7 @@
     </div>
 </div>
 <div class="modal fade" id="FormModalDatoslaborales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" >
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header  text-light" style="background: hsl(145, 76%, 42%)">
                 <h5 class="modal-title" id="exampleModalLabel"> Formulario Datos Laborales</h5>
@@ -110,11 +110,11 @@
 
                             <div class="col-md-3 form-check-inline">
                                 <label for="txtfechain" class="form-label">Fecha ingreso</label>
-                                <input type="text" class="form-control" id="txtfechain"  placeholder="dd-mm-yy" required autocomplete="off">
+                                <input type="text" class="form-control" id="txtfechain" placeholder="dd-mm-yy" required autocomplete="off">
                             </div>
                             <div class="col-md-3 form-check-inline">
                                 <label for="txtfechare" class="form-label">Fecha retiro</label>
-                                <input type="text" class="form-control" id="txtfechare"  placeholder="dd-mm-yy" required autocomplete="off">
+                                <input type="text" class="form-control" id="txtfechare" placeholder="dd-mm-yy" required autocomplete="off">
                             </div>
                             <div class="col-md-3 form-check-inline">
                                 <label for="txthorascon" class="form-label">Horas contratadas al mes</label>
@@ -195,15 +195,15 @@
 
 
             if (json != null) {
-                
+
                 $("#txtIddatoslaborales").val(json.IdDatosLaborales)
                 $("#txtarea").val(json.Area == "Sindicato" ? "Sindicato" : json.Area == "OPS" ? "OPS" : "Planta");
                 $("#txtNombrearea").val(json.NombreArea);
                 /*$("#txttipoactividades").val();*/
                 $("#txtfechain").val(json.FechaIngreso);
-                $("#txtfechare").val(json.FechaRetiro); 
-                $("#txthorascon").val(json.HorasContratadas); 
-               
+                $("#txtfechare").val(json.FechaRetiro);
+                $("#txthorascon").val(json.HorasContratadas);
+
             }
 
 

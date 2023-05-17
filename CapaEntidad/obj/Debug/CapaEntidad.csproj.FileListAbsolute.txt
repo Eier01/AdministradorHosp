@@ -28,3 +28,9 @@ C:\Users\USUARIO\Desktop\ultimo\AdministradorHosp\CapaEntidad\obj\Debug\CapaEnti
 C:\Users\USUARIO\Desktop\ultimo\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\USUARIO\Desktop\ultimo\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\USUARIO\Desktop\ultimo\AdministradorHosp\CapaEntidad\obj\Debug\CapaEntidad.pdb
+C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.pdb
