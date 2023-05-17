@@ -52,8 +52,8 @@ namespace CapaPresentacionAdmin.Controllers
         [HttpGet]
         public JsonResult ListarFacademica()
         {
-            List<Formacion_academica> oLista = new List<Formacion_academica>();
-            oLista = new CNF_Academica().Listar();
+            List<S_Formacion_academica> oLista = new List<S_Formacion_academica>();
+            oLista = new S_CNF_Academica().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -64,8 +64,8 @@ namespace CapaPresentacionAdmin.Controllers
         public JsonResult ListarPersona()         
         {
             
-            List<Persona> oLista = new List<Persona>();
-            oLista = new CN_Persona().Listar();
+            List<S_Persona> oLista = new List<S_Persona>();
+            oLista = new S_CN_Persona().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -73,8 +73,8 @@ namespace CapaPresentacionAdmin.Controllers
         [HttpGet]
         public FileResult ExportPersona()
         {
-            List<Persona> oLista = new List<Persona>();
-            oLista = new CN_Persona().Listar();
+            List<S_Persona> oLista = new List<S_Persona>();
+            oLista = new S_CN_Persona().Listar();
 
             DataTable dt = new DataTable();
             dt.Locale= new System.Globalization.CultureInfo("es-CO");
@@ -88,7 +88,7 @@ namespace CapaPresentacionAdmin.Controllers
             dt.Columns.Add("Profesión", typeof(String));
             dt.Columns.Add("Eps", typeof(String));
 
-            foreach (Persona persona in oLista)
+            foreach (S_Persona persona in oLista)
             {
                 dt.Rows.Add(new object[]
                 {
@@ -122,8 +122,8 @@ namespace CapaPresentacionAdmin.Controllers
         public JsonResult ListarRlegales()
 
         {
-            List<Rlegales> oLista = new List<Rlegales>();
-            oLista = new CN_Rlegales().Listar();
+            List<S_Rlegales> oLista = new List<S_Rlegales>();
+            oLista = new S_CN_Rlegales().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -132,24 +132,24 @@ namespace CapaPresentacionAdmin.Controllers
         public JsonResult ListarIdioma()
 
         {
-            List<Idiomas> oLista = new List<Idiomas>();
-            oLista = new CN_Idiomas().Listar();
+            List<S_Idiomas> oLista = new List<S_Idiomas>();
+            oLista = new S_CN_Idiomas().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
         public JsonResult ListaExp_Laboral()
         {
-            List<Ex_Laboral> oLista = new List<Ex_Laboral>();
-            oLista = new CN_Ex_Laboral().Listar();
+            List<S_Ex_Laboral> oLista = new List<S_Ex_Laboral>();
+            oLista = new S_CN_Ex_Laboral().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
         public JsonResult ListarDatosLaborales()
         {
-            List<Datos_Laborales> oLista = new List<Datos_Laborales>();
-            oLista = new CN_Laborales().Listar();
+            List<S_Datos_Laborales> oLista = new List<S_Datos_Laborales>();
+            oLista = new S_CN_Laborales().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -157,43 +157,43 @@ namespace CapaPresentacionAdmin.Controllers
         [HttpGet]
         public JsonResult ListaCapacitacionesC()
         {
-            List<CapacitacionesC> oLista = new List<CapacitacionesC>();
-            oLista = new CNCapacitacionesC().Listar();
+            List<S_CapacitacionesC> oLista = new List<S_CapacitacionesC>();
+            oLista = new S_CNCapacitacionesC().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult GuardarPersona(Persona objeto)
+        public JsonResult GuardarPersona(S_Persona objeto)
         {
             object resultado;
             string mensaje = string.Empty;
 
             if(objeto.IdPersona == 0)
             {
-                resultado = new CN_Persona().RegistrarPerson(objeto, out mensaje);
+                resultado = new S_CN_Persona().RegistrarPerson(objeto, out mensaje);
             }
             else
             {
-                resultado = new CN_Persona().EditarPerson(objeto, out mensaje);
+                resultado = new S_CN_Persona().EditarPerson(objeto, out mensaje);
             }
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult GuardarDatosLaborales(Datos_Laborales objeto)
+        public JsonResult GuardarDatosLaborales(S_Datos_Laborales objeto)
         {
             object resultado;
             string mensaje = string.Empty;
 
             if (objeto.IdDatosLaborales == 0)
             {
-                resultado = new CN_Laborales().RegistrarDatosLaborales(objeto, out mensaje);
+                resultado = new S_CN_Laborales().RegistrarDatosLaborales(objeto, out mensaje);
             }
             else
             {
-                resultado = new CN_Laborales().EditarDatosLaborales(objeto, out mensaje);
+                resultado = new S_CN_Laborales().EditarDatosLaborales(objeto, out mensaje);
             }
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
@@ -202,7 +202,7 @@ namespace CapaPresentacionAdmin.Controllers
 
         [HttpPost]
     
-        public JsonResult GuardarFormacion(Formacion_academica objeto)
+        public JsonResult GuardarFormacion(S_Formacion_academica objeto)
         {
             object resultado;
             string mensaje = string.Empty;
@@ -258,11 +258,11 @@ namespace CapaPresentacionAdmin.Controllers
             //
             if (objeto.IdFormacionAcademica == 0)
             {
-                resultado = new CNF_Academica().RegistrarFormacion(objeto, out mensaje);
+                resultado = new S_CNF_Academica().RegistrarFormacion(objeto, out mensaje);
             }
             else
             {
-                resultado = new CNF_Academica().EditarFormacion(objeto, out mensaje);
+                resultado = new S_CNF_Academica().EditarFormacion(objeto, out mensaje);
             }
 
             //mensaje = nombreArchivo+"_"+resacr;
@@ -270,24 +270,24 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
         [HttpPost]
-        public JsonResult GuardarIdioma(Idiomas objeto)
+        public JsonResult GuardarIdioma(S_Idiomas objeto)
         {
             object resultado;
             string mensaje = string.Empty;
             if (objeto.IdIdiomas == 0)
             {
-                resultado = new CN_Idiomas().RegistrarIdioma(objeto, out mensaje);
+                resultado = new S_CN_Idiomas().RegistrarIdioma(objeto, out mensaje);
             }
             else
             {
-                resultado = new CN_Idiomas().EditarIdiomas(objeto, out mensaje);
+                resultado = new S_CN_Idiomas().EditarIdiomas(objeto, out mensaje);
             }
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
 
         }
         [HttpPost]
-        public JsonResult GuardarExp(Ex_Laboral objeto)
+        public JsonResult GuardarExp(S_Ex_Laboral objeto)
         {
             object resultado;
             string mensaje = string.Empty;
@@ -306,11 +306,11 @@ namespace CapaPresentacionAdmin.Controllers
             //
             if (objeto.IdExperienciaLaboral == 0)
             {
-                resultado = new CN_Ex_Laboral().RegistrarExpLaboral(objeto, out mensaje);
+                resultado = new S_CN_Ex_Laboral().RegistrarExpLaboral(objeto, out mensaje);
             }
             else
             {
-                resultado = new CN_Ex_Laboral().ActualizarExpLaboral(objeto, out mensaje);
+                resultado = new S_CN_Ex_Laboral().ActualizarExpLaboral(objeto, out mensaje);
             }
 
             //mensaje = nombreArchivo+"_"+resacr;
@@ -319,7 +319,7 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
         [HttpPost]
-        public JsonResult GuardarCapatacitaciones(CapacitacionesC objeto)
+        public JsonResult GuardarCapatacitaciones(S_CapacitacionesC objeto)
         {
             object resultado;
             string mensaje = string.Empty;
@@ -338,11 +338,11 @@ namespace CapaPresentacionAdmin.Controllers
             //
             if (objeto.idCapacitacionesCursos == 0)
             {
-                resultado = new CNCapacitacionesC().RegistrarCursos(objeto, out mensaje);
+                resultado = new S_CNCapacitacionesC().RegistrarCursos(objeto, out mensaje);
             }
             else
             {
-                resultado = new CNCapacitacionesC().EditarCursos(objeto, out mensaje);
+                resultado = new S_CNCapacitacionesC().EditarCursos(objeto, out mensaje);
             }
 
             //mensaje = nombreArchivo+"_"+resacr;
@@ -350,7 +350,7 @@ namespace CapaPresentacionAdmin.Controllers
 
         }
 
-        public JsonResult GuardarRlegales(Rlegales objeto)
+        public JsonResult GuardarRlegales(S_Rlegales objeto)
         {
             object resultado;
             string mensaje = string.Empty;
@@ -369,11 +369,11 @@ namespace CapaPresentacionAdmin.Controllers
             //
             if (objeto.IdRequisitosLegales == 0)
             {
-                resultado = new CN_Rlegales().RegistrarRlegales(objeto, out mensaje);
+                resultado = new S_CN_Rlegales().RegistrarRlegales(objeto, out mensaje);
             }
             else
             {
-                resultado = new CN_Rlegales().EditarRlegales(objeto, out mensaje);
+                resultado = new S_CN_Rlegales().EditarRlegales(objeto, out mensaje);
             }
 
             //mensaje = nombreArchivo+"_"+resacr;
