@@ -22,15 +22,15 @@
                         <input type="text" class="form-control" id="txtConsultar" value="">
                     </div>
                     <div class="col-sm-3">
-                        <button id="btnconsultar" type="button" class="btn btn-primary ">Consultar</button>
+                        <button id="btnconsultar" type="button" class="btn btn-primary" onclick="Consultar()">Consultar</button>
                     </div>
                 </div>
-                
+
 
                 <div class="hola1 mt-4 mb-4">
                     <button type="button" class="btn btn-primary" onclick="abrirModal(null)">Crear Nuevo</button>
                     @*<input type="button" class="btn btn-success" value="Exportar" onclick="location.href='@Url.Action("ExportPersona", "Sindicato")'" />*@
-                    <button type="button" class="btn btn-success" value="Exportar" onclick="location.href='@Url.Action("Consultar", "Sindicato")'"><i class="fas fa-file-excel mx-1"></i>Exporatar</button>
+                    <button type="button" class="btn btn-success" value="Exportar" onclick="@Url.Action("ExportPersona","Sindicato")><i class="fas fa-file-excel mx-1"></i>Exporatar</button>
                 </div>
                 <br>
                 <br>
@@ -47,7 +47,7 @@
                             <th>Correo</th>
                             <th>Telefono</th>
                             <th>Sindicato</th>
-                          
+
                         </tr>
                     </thead>
                     <tbody>
@@ -381,9 +381,9 @@
         var tabladata
         var filaSeleccionada;
 
-        
 
-        
+
+
 
         document.getElementById("txtLMilitar").onchange = function () {
             if (this.value === "No Tiene") {
@@ -396,8 +396,8 @@
         $("#Fnacimento").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
         $("#Fechaestado").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
 
-       
-       
+
+
 
         jQuery.ajax({
             url: '@Url.Action("ListarPersona", "Sindicato")',
@@ -440,6 +440,23 @@
             }
 
         })
+
+        function Consultar() {
+            
+
+                jQuery.ajax({
+                    url: '@Url.Action("Consultar", "Sindicato")',
+                    type: "POST",
+                    data: JSON.stringify({ documento: $("#txtConsultar").val() }),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        console.log(data.data)
+                    },
+
+                });
+
+        }
 
 
         function abrirModal(json) {
