@@ -12,9 +12,9 @@ namespace CapaNegocio
     {
         private S_CD_Facademica objCapaDato = new S_CD_Facademica();
 
-        public List<S_Formacion_academica> Listar()
+        public List<S_Formacion_academica> Listar(string numero)
         {
-            return objCapaDato.Listar();
+            return objCapaDato.Listar(numero);
         }
 
         public int RegistrarFormacion(S_Formacion_academica obj, out string Mensaje)

@@ -22,5 +22,6 @@ namespace CapaEntidad
         public string FechaIngreso { get; set; }
         public String FechaEgreso { get; set; }
         public string AdjuntarSoporte { get; set; } 
+        public string IdPersona { get; set; } 
     }
 }

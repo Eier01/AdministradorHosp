@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class S_CD_Facademica
     {
-        public List<S_Formacion_academica> Listar()
+        public List<S_Formacion_academica> Listar(string numero)
         {
             List<S_Formacion_academica> lista = new List<S_Formacion_academica>();
 
@@ -20,10 +20,11 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
 
-                    string query = "select * from FORMACION_ACADEMICA";
-
+                    string query = "select * from FORMACION_ACADEMICA where IdPersona = @numero ";
+                    
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numero ", numero);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -95,6 +96,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("NombreInstitucion", obj.NombreInstitucion);
                     cmd.Parameters.AddWithValue("ActaUniversitaria", obj.ActaUniversitaria);
                     cmd.Parameters.AddWithValue("DiplomaUniversitario", obj.DiplomaUniversitario);
+                    cmd.Parameters.AddWithValue("IdPersona", obj.IdPersona);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
 

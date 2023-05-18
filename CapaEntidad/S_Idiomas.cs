@@ -13,7 +13,7 @@ namespace CapaEntidad
         public string LoHabla { get; set; }
         public string LoLee { get; set; }
         public string LoEscribe { get; set; }
-        public  S_Persona oIdPersona { get; set; }
+        public  string IdPersona { get; set; }
 
     }
 }

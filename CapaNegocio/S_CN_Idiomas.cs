@@ -12,9 +12,9 @@ namespace CapaNegocio
     {
         private S_CD_Idiomas objCapaDato = new S_CD_Idiomas();
 
-        public List<S_Idiomas> Listar()
+        public List<S_Idiomas> Listar(string numero)
         {
-            return objCapaDato.Listar();
+            return objCapaDato.Listar(numero);
         }
 
         public int RegistrarIdioma(S_Idiomas obj, out string Mensaje)

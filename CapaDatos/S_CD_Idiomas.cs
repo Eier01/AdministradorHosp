@@ -12,7 +12,7 @@ namespace CapaDatos
 {
     public class S_CD_Idiomas
     {
-        public List<S_Idiomas> Listar()
+        public List<S_Idiomas> Listar(string numero)
         {
             List<S_Idiomas> lista = new List<S_Idiomas>();
 
@@ -21,10 +21,11 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
                     
-                    string query = "select * from IDIOMAS";
+                    string query = "select * from IDIOMAS where IdPersona = @numero";
 
                   
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numero ", numero);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -81,6 +82,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("LoHabla", obj.LoHabla);
                     cmd.Parameters.AddWithValue("LoLee", obj.LoLee);
                     cmd.Parameters.AddWithValue("LoEscribe", obj.LoEscribe);
+                    cmd.Parameters.AddWithValue("IdPersona", obj.IdPersona);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     

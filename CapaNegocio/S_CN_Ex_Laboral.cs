@@ -11,9 +11,9 @@ namespace CapaNegocio
     public class S_CN_Ex_Laboral
     {
         private CD_ExLaboral objCapaDato = new CD_ExLaboral();
-        public List<S_Ex_Laboral> Listar()
+        public List<S_Ex_Laboral> Listar(string numero)
         {
-            return objCapaDato.Listar();
+            return objCapaDato.Listar(numero);
         }
         public int RegistrarExpLaboral(S_Ex_Laboral obj, out string Mensaje)
         {

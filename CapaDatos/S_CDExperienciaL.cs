@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class CD_ExLaboral
     {
-        public List<S_Ex_Laboral> Listar()
+        public List<S_Ex_Laboral> Listar(string numero)
         {
             List<S_Ex_Laboral> lista = new List<S_Ex_Laboral>();
 
@@ -20,10 +20,11 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
 
-                    string query = "select * from EXPERIENCIA_LABORAL";
+                    string query = "select * from EXPERIENCIA_LABORAL where IdPersona = @numero";
 
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numero ", numero);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -76,7 +77,7 @@ namespace CapaDatos
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
-                    SqlCommand cmd = new SqlCommand("insertExplaboral", oconexion);
+                    SqlCommand cmd = new SqlCommand("insertexperiencialaboral", oconexion);
 
                     cmd.Parameters.AddWithValue("EmpresaEntidad", obj.EmpresaEntidad);
                     cmd.Parameters.AddWithValue("Pais", obj.Pais);
@@ -91,6 +92,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("FechaIngreso", obj.FechaIngreso);
                     cmd.Parameters.AddWithValue("FechaEgreso", obj.FechaEgreso);
                     cmd.Parameters.AddWithValue("AdjuntarSoporte", obj.AdjuntarSoporte);
+                    cmd.Parameters.AddWithValue("IdPersona", obj.IdPersona);
 
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;

@@ -12,9 +12,9 @@ namespace CapaNegocio
     {
         private S_CD_CapacitacionesC objCapaDato = new S_CD_CapacitacionesC();
 
-        public List<S_CapacitacionesC> Listar()
+        public List<S_CapacitacionesC> Listar(string numero)
         {
-            return objCapaDato.Listar();
+            return objCapaDato.Listar(numero);
         }
 
         public int RegistrarCursos(S_CapacitacionesC obj, out string Mensaje)

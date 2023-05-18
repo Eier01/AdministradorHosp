@@ -1,6 +1,7 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office2010.PowerPoint;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace CapaPresentacionAdmin.Controllers
         }
         public ActionResult CapacitacionesCView()
         {
+
             return View();
         }
         public ActionResult RlegalesView()
@@ -53,7 +55,23 @@ namespace CapaPresentacionAdmin.Controllers
         public JsonResult ListarFacademica()
         {
             List<S_Formacion_academica> oLista = new List<S_Formacion_academica>();
-            oLista = new S_CNF_Academica().Listar();
+
+            string numero;
+
+            numero = Convert.ToString(Session["Documento"]);
+           
+            Session["Documento"] = Convert.ToInt32(numero);
+
+            if(numero.Equals('0'))
+            {
+                string documento = ((string)Session["Documento"]);
+
+                oLista = new S_CNF_Academica().Listar(numero);
+                return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+            }
+
+            oLista = new S_CNF_Academica().Listar(numero);
+
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -133,15 +151,22 @@ namespace CapaPresentacionAdmin.Controllers
 
         {
             List<S_Idiomas> oLista = new List<S_Idiomas>();
-            oLista = new S_CN_Idiomas().Listar();
+            string numero;
+            numero = Convert.ToString(Session["Documento"]);
+            Session["Documento"] = Convert.ToInt32(numero); ;
+            oLista = new S_CN_Idiomas().Listar(numero);
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]
         public JsonResult ListaExp_Laboral()
         {
+            
             List<S_Ex_Laboral> oLista = new List<S_Ex_Laboral>();
-            oLista = new S_CN_Ex_Laboral().Listar();
+            string numero;
+            numero = Convert.ToString(Session["Documento"]);
+            Session["Documento"] = Convert.ToInt32(numero); ;
+            oLista = new S_CN_Ex_Laboral().Listar(numero);
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -158,7 +183,10 @@ namespace CapaPresentacionAdmin.Controllers
         public JsonResult ListaCapacitacionesC()
         {
             List<S_CapacitacionesC> oLista = new List<S_CapacitacionesC>();
-            oLista = new S_CNCapacitacionesC().Listar();
+            string numero;
+            numero = Convert.ToString(Session["Documento"]);
+            Session["Documento"] = Convert.ToInt32(numero); ;
+            oLista = new S_CNCapacitacionesC().Listar(numero);
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -171,7 +199,17 @@ namespace CapaPresentacionAdmin.Controllers
 
             if(objeto.IdPersona == 0)
             {
+
                 resultado = new S_CN_Persona().RegistrarPerson(objeto, out mensaje);
+                int id = Convert.ToInt32(resultado);
+                if (id != 0)
+                {
+                    Session["Documento"] = id;
+                }
+                else
+                {
+                    Session["Documento"] = '0';
+                }
             }
             else
             {
@@ -258,6 +296,8 @@ namespace CapaPresentacionAdmin.Controllers
             //
             if (objeto.IdFormacionAcademica == 0)
             {
+                objeto.IdPersona = Convert.ToString(Session["Documento"]);
+
                 resultado = new S_CNF_Academica().RegistrarFormacion(objeto, out mensaje);
             }
             else
@@ -276,6 +316,7 @@ namespace CapaPresentacionAdmin.Controllers
             string mensaje = string.Empty;
             if (objeto.IdIdiomas == 0)
             {
+                objeto.IdPersona = Convert.ToString(Session["Documento"]);
                 resultado = new S_CN_Idiomas().RegistrarIdioma(objeto, out mensaje);
             }
             else
@@ -306,6 +347,7 @@ namespace CapaPresentacionAdmin.Controllers
             //
             if (objeto.IdExperienciaLaboral == 0)
             {
+                objeto.IdPersona = Convert.ToString(Session["Documento"]);
                 resultado = new S_CN_Ex_Laboral().RegistrarExpLaboral(objeto, out mensaje);
             }
             else
@@ -338,6 +380,7 @@ namespace CapaPresentacionAdmin.Controllers
             //
             if (objeto.idCapacitacionesCursos == 0)
             {
+                objeto.IdPersona = Convert.ToString(Session["Documento"]);
                 resultado = new S_CNCapacitacionesC().RegistrarCursos(objeto, out mensaje);
             }
             else
@@ -412,6 +455,26 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
 
+        [HttpGet]
+        public JsonResult Consultar(string documento)
+        {
+            List<Buscar> oLista = new List<Buscar>();
 
+            oLista = new CN_Buscar().Listar(documento);
+            
+
+            Session["Consultarid"] = '0';
+
+            if (oLista.Count() > 0)
+            {
+                Session["Consultarid"] = documento;
+                return Json(new { data = "operacion exitosa" }, JsonRequestBehavior.AllowGet);
+            }
+
+
+
+            //retornamos esto de esta forma porque DataTable asi lo requiere
+            return Json(new { data = "No se encontro a la persona " }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

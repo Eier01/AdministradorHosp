@@ -16,16 +16,21 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col-md-3">
-                    <label for="validationCustom01" class="form-label">Identificación</label>
-                    <input type="text" class="form-control" id="validationCustom01" value="0">
-                    <br>
+                <div class="row align-items-end">
+                    <div class="col-sm-3">
+                        <label for="txtConsultar" class="form-label">Numero de Documento:</label>
+                        <input type="text" class="form-control" id="txtConsultar" value="">
+                    </div>
+                    <div class="col-sm-3">
+                        <button id="btnconsultar" type="button" class="btn btn-primary ">Consultar</button>
+                    </div>
                 </div>
+                
 
-                <div class="hola1">
+                <div class="hola1 mt-4 mb-4">
                     <button type="button" class="btn btn-primary" onclick="abrirModal(null)">Crear Nuevo</button>
-                    <button type="button" class="btn btn-primary">Consultar</button>
-                    <input type="button" class="btn btn-success" value="Exportar" onclick="location.href='@Url.Action("ExportPersona", "Sindicato")'" />
+                    @*<input type="button" class="btn btn-success" value="Exportar" onclick="location.href='@Url.Action("ExportPersona", "Sindicato")'" />*@
+                    <button type="button" class="btn btn-success" value="Exportar" onclick="location.href='@Url.Action("Consultar", "Sindicato")'"><i class="fas fa-file-excel mx-1"></i>Exporatar</button>
                 </div>
                 <br>
                 <br>
@@ -34,19 +39,21 @@
                 <table id="tablapersona" class="display cell-border" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Identificación</th>
-                            <th>Primer nombre</th>
-                            <th>Dirección</th>
-                            <th>Telefono</th>
+                            <th>Id</th>
+                            <th>Cédula</th>
+                            <th>Nombre</th>
+                            <th>Género</th>
+                            <th>Fecha Nac.</th>
                             <th>Correo</th>
-                            <th>Profesión</th>
-                            <th>Eps</th>
-                            <th></th>
+                            <th>Telefono</th>
+                            <th>Sindicato</th>
+                          
                         </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>
@@ -371,6 +378,13 @@
 @section scripts{
     <script>
 
+        var tabladata
+        var filaSeleccionada;
+
+        
+
+        
+
         document.getElementById("txtLMilitar").onchange = function () {
             if (this.value === "No Tiene") {
                 document.getElementById("Lmilitar").value = "0";
@@ -382,8 +396,8 @@
         $("#Fnacimento").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
         $("#Fechaestado").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
 
-        var tabladata;
-        var filaSeleccionada;
+       
+       
 
         jQuery.ajax({
             url: '@Url.Action("ListarPersona", "Sindicato")',

@@ -25,10 +25,11 @@ namespace CapaEntidad
         public String NombreTitulo { get; set; }
         public string MesTermino { get; set; }
         public String Ano { get; set; }      
-        public string NTarjetaProfecional { get; set; }
+        public String NTarjetaProfecional { get; set; }
         public String NombreInstitucion { get; set; }
         public String ActaUniversitaria { get; set; }
         public String DiplomaUniversitario { get; set; }
+        public String IdPersona { get; set; }
 
         
     }
