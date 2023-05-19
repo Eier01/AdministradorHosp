@@ -31,6 +31,10 @@
                             <th>Area</th>
                             <th>Nombre Area</th>
                             <th>Horas Contratadas</th>
+                            <th>Tipo Actividad</th>
+                            <th>Actividad</th>
+                            <th>Proceso</th>
+
                             <th></th>
 
                         </tr>
@@ -69,7 +73,7 @@
                             <div class="col-md-5">
                                 <label for="txtarea" class="form-label">Area de Cargo</label>
                                 <select class="form-control" name="txtarea" id="txtarea" required autocomplete="off">
-                                    <option value="" required>Seleccione.</option>
+                                    <option value="Seleccione" required>Seleccione.</option>
                                     <option value="Sindicato" required>Sindicato</option>
                                     <option value="OPS" required>OPS</option>
                                     <option value="Planta" required>Planta</option>
@@ -81,8 +85,8 @@
                             </div>
                             <div class="col-md-5">
                                 <label for="txttipoactividades" class="form-label">Tipo de actividades</label>
-                                <select class="form-control" name="txttipoactividades" id="txttipoactividades" required autocomplete="off">
-                                    <option value="" required>Seleccione.</option>
+                                <select class="form-control" name="txttipoactividades" id="txtipoactividad" required autocomplete="off">
+                                    <option value="todas" id="tActividad" selected required>Seleccione.</option>
                                 </select>
                             </div>
 
@@ -90,20 +94,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label for="validationCustom04" class="form-label">Actividades</label>
-                                    <select class="form-select" multiple aria-label="multiple select example" id="txtactividades" required autocomplete="off">
-                                        <option value="0">...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select" multiple aria-label="multiple select example" id="txtActividad" required autocomplete="off">
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="validationCustom04" class="form-label">Subprocesos</label>
-                                    <select class="form-select form-control-lg" multiple aria-label="multiple select example" id="txtSubP" required autocomplete="off">
-                                        <option value="0">...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                    <select class="form-select form-control-lg" multiple aria-label="multiple select example" id="txtProceso" required autocomplete="off">
                                     </select>
                                 </div>
                             </div>
@@ -142,8 +138,59 @@
     </div>
 </div>
 
+@*<select required="required" class="form-control" name="servicio" id="servicio">
+    <option value="" selected="selected"></option>
+    <option value="1">HelpDesk</option>
+    <option value="2">HelpDesk2</option>
+</select>
+<br>
+<br>
+<input id="servicioSelecionado" name="nom_Servicio">*@
+
 @section scripts{
     <script>
+
+        var tActividadPrevia;
+        var tipoActSinRepetir = [];
+        var unicos = [];
+
+        function unicosElementos() {
+            for (var i = 0; i < tipoActSinRepetir.length; i++) {
+                const elemento = tipoActSinRepetir[i]
+
+                if (!unicos.includes(tipoActSinRepetir[i])) {
+                    unicos.push(elemento)
+                }
+            }            
+        }
+
+        $(document).on('change', '#txtipoactividad', function (event) {
+
+            tActividadPrevia = $("#txtipoactividad option:selected").text()
+                
+                jQuery.ajax({
+                    url: '@Url.Action("ListarActividadSindicato", "Sindicato")',
+                    type: "POST",
+                    data: JSON.stringify({ tActividad: $("#txtipoactividad option:selected").text() }),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (response) {
+                        
+                        $("#txtActividad").empty();
+                        $.each(response.data, function (i, element) {
+                            $("<option>").attr({ "name": element.NombreActividad, "value": element.IdActividad, "id": "a" + i }).text(element.NombreActividad).appendTo("#txtActividad")
+
+                            if (tActividadPrevia != element.TipoActividad) {
+                                
+                                $("<option>").attr({ "value": element.TipoActividad, "id": "a" + i }).text(element.TipoActividad).appendTo("#txtipoactividad")
+                            }
+                        })                        
+                    }
+                })
+
+        });
+
+
 
         $("#txtfechain").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
         $("#txtfechare").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
@@ -151,16 +198,9 @@
         var tabladata;
         var filaSeleccionada;
 
-        jQuery.ajax({
-            url: '@Url.Action("ListarDatosLaborales", "Sindicato")',
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                console.log(data)
-            }
 
-        })
+
+
         tabladata = $("#tablad").DataTable({
             responsive: true,
             ordering: false,
@@ -174,6 +214,9 @@
                 { "data": "Area" },
                 { "data": "NombreArea" },
                 { "data": "HorasContratadas" },
+                { "data": "TipoActividad" },
+                { "data": "IdActividad" },
+                { "data": "IdProceso" },
 
                 {
                     "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarDatosLaborales"><i class="fas fa-pen"></i></button>',
@@ -190,9 +233,57 @@
 
         function abrirmodal(json) {
             document.getElementById("Formlaborales").reset();
-            $("#IdDatosLaborales").val(0);
+            $("#txtIddatoslaborales").val(0);
             $("#mensajEerror").hide();
 
+
+            jQuery.ajax({
+                url: '@Url.Action("ListarActividadSindicato", "Sindicato")',
+                type: "POST",
+                data: JSON.stringify({ tActividad: $("#tActividad").val() }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+
+                    $("#txtActividad").empty();
+                    $("#txtipoactividad").empty();
+                    $("<option>").attr({ "value": "todas", "id": "tActividad"}).text("todas").appendTo("#txtipoactividad")
+
+                    $.each(response.data, function (i, element) {
+                        $("<option>").attr({ "name": element.NombreActividad, "value": element.IdActividad, "id": "a" + i }).text(element.NombreActividad).appendTo("#txtActividad")
+                        tipoActSinRepetir.push(element.TipoActividad)
+                        
+                         
+
+                        
+                    })
+                    unicosElementos()
+
+                    $.each(unicos, function (i, element) {
+                        $("<option>").attr({ "value": element, "id": "a" + i }).text(element).appendTo("#txtipoactividad")
+                    })
+
+                    
+
+                    
+                }
+            })
+
+
+
+            jQuery.ajax({
+                url: '@Url.Action("ListarProcesos", "Home")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    $.each(response.data, function (i, element) {
+                        $("<option>").attr({ "name": element.NombreProceso, "value": element.IdProceso, "id": "a" + i }).text(element.NombreProceso).appendTo("#txtProceso")
+                    })
+
+
+                }
+            })
 
             if (json != null) {
 
@@ -203,6 +294,9 @@
                 $("#txtfechain").val(json.FechaIngreso);
                 $("#txtfechare").val(json.FechaRetiro);
                 $("#txthorascon").val(json.HorasContratadas);
+                $("#txtipoactividad").val(json.TipoActividad);
+                $("#txtActividad").val(json.idActividad);
+                $("#txtProceso").val(json.idProceso);
 
             }
 
@@ -220,6 +314,27 @@
 
         })
 
+        var selectActividad = document.getElementById('txtActividad');
+        var selectProceso = document.getElementById('txtProceso');
+        var idActividad;
+        var idProceso;
+
+       
+        selectActividad.addEventListener('change',
+            function () {
+                idActividad = this.options[selectActividad.selectedIndex].value;
+                console.log(idActividad)
+
+            })
+
+        selectProceso.addEventListener('change',
+            function () {
+                idProceso = this.options[selectProceso.selectedIndex].value;
+                console.log(idProceso)
+            })
+
+        
+
         function Guardar() {
 
             var DatosLab = {
@@ -227,10 +342,12 @@
                 IdDatosLaborales: $("#txtIddatoslaborales").val(),
                 Area: $("#txtarea").val(),
                 NombreArea: $("#txtNombrearea").val(),
-                /*TipoActividad: $("#txttipoactividades").val(),*/
+                TipoActividad: $("#txtipoactividad").val(),                
                 FechaIngreso: $("#txtfechain").val(),
                 FechaRetiro: $("#txtfechare").val(),
-                HorasContratadas: $("#txthorascon").val()
+                HorasContratadas: $("#txthorascon").val(),
+                IdActividad: idActividad,
+                IdProceso: idProceso,
             }
 
 

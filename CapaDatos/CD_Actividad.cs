@@ -54,6 +54,46 @@ namespace CapaDatos
             return lista;
         }
 
+        public List<Actividad> ListarActividad_Sindicato(string tActividad)
+        {
+            List<Actividad> lista = new List<Actividad>();
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ListarActividadSindicato", oconexion);
+                    cmd.Parameters.AddWithValue("@tipoActividad", tActividad);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+
+                    //SqlDataReader: nos ayuada a leer el resultado del query
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(
+                                new Actividad()
+                                {
+                                    IdActividad = Convert.ToInt32(dr["IdActividad"]),
+                                    NombreActividad = dr["NombreActividad"].ToString(),
+                                    TipoActividad = dr["TipoActividad"].ToString(),
+                                }
+                            );
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                lista = new List<Actividad>();
+            }
+
+
+            return lista;
+        }
 
         public int Registrar(Actividad obj, out string Mensaje)
         {

@@ -262,7 +262,39 @@ namespace CapaPresentacionAdmin.Controllers
         public JsonResult ListarDatosLaborales()
         {
             List<S_Datos_Laborales> oLista = new List<S_Datos_Laborales>();
-            oLista = new S_CN_Laborales().Listar();
+            string numero;
+            numero = Convert.ToString(Session["Documento"]);
+
+            if (string.IsNullOrWhiteSpace(numero))
+            {
+                numero = "0";
+            }
+            Session["Documento"] = Convert.ToInt32(numero); ;
+
+            if (numero.Equals("0"))
+            {
+                string documento = ((string)Session["Consultarid"]);
+
+                if (documento != null)
+                {
+                    S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
+
+
+                    string idPersona = Convert.ToString(persona.IdPersona);
+
+
+                    oLista = new S_CN_Laborales().Listar(idPersona);
+                    return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    oLista = new S_CN_Laborales().Listar("0");
+                    return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+                }
+
+            }
+
+            oLista = new S_CN_Laborales().Listar(numero);
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -306,9 +338,7 @@ namespace CapaPresentacionAdmin.Controllers
             oLista = new S_CNCapacitacionesC().Listar(numero);
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
-
-
-            
+ 
 
         }
 
@@ -342,9 +372,17 @@ namespace CapaPresentacionAdmin.Controllers
         {
             object resultado;
             string mensaje = string.Empty;
-
             if (objeto.IdDatosLaborales == 0)
             {
+                objeto.IdPersona = Convert.ToString(Session["Documento"]);
+                if (objeto.IdPersona.Equals("0"))
+                {
+                    string documento = ((string)Session["Consultarid"]);
+
+                    S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
+
+                    objeto.IdPersona = Convert.ToString(persona.IdPersona);
+                }
                 resultado = new S_CN_Laborales().RegistrarDatosLaborales(objeto, out mensaje);
             }
             else
@@ -609,6 +647,8 @@ namespace CapaPresentacionAdmin.Controllers
         [HttpPost]
         public JsonResult Consultar(string documento)
         {
+            bool estado;
+
             List<Buscar> oLista = new List<Buscar>();
 
             oLista = new CN_Buscar().Listar(documento);
@@ -618,14 +658,26 @@ namespace CapaPresentacionAdmin.Controllers
 
             if (oLista.Count() > 0)
             {
+                estado = true;
                 Session["Consultarid"] = documento;
-                return Json(new { data = "operacion exitosa" }, JsonRequestBehavior.AllowGet);
+                return Json(new { message = "operacion exitosa", estado=estado }, JsonRequestBehavior.AllowGet);
             }
 
-
+            estado = false;
 
             //retornamos esto de esta forma porque DataTable asi lo requiere
-            return Json(new { data = "No se encontro a la persona " }, JsonRequestBehavior.AllowGet);
+            return Json(new { message = "No se encontro a la persona ", estado=estado}, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult ListarActividadSindicato(String tActividad)
+        {
+            List<Actividad> oLista = new List<Actividad>();
+
+            oLista = new CN_Actividad().ListarActividad_Sindicato(tActividad);
+
+            //retornamos esto de esta forma porque DataTable asi lo requiere
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
     }
 }

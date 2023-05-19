@@ -12,9 +12,9 @@ namespace CapaNegocio
     {
         private S_CD_Laborales objCapaDato = new S_CD_Laborales();
 
-        public List<S_Datos_Laborales> Listar()
+        public List<S_Datos_Laborales> Listar(string numero)
         {
-            return objCapaDato.Listar();
+            return objCapaDato.Listar(numero);
         }
         public int RegistrarDatosLaborales(S_Datos_Laborales obj, out string Mensaje)
         {

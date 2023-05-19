@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class S_CD_Laborales
     {
-        public List<S_Datos_Laborales> Listar()
+        public List<S_Datos_Laborales> Listar(string numero)
         {
             List<S_Datos_Laborales> lista = new List<S_Datos_Laborales>();
 
@@ -20,10 +20,11 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
 
-                    string query = "select * from DATOS_LABORALES";
+                    string query = "select * from DATOS_LABORALES where IdPersona = @numero";
 
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numero ", numero);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -39,10 +40,12 @@ namespace CapaDatos
                                     IdDatosLaborales = Convert.ToInt32(dr["IdDatosLaborales"]),
                                     Area = dr["Area"].ToString(),
                                     NombreArea = dr["NombreArea"].ToString(),
-                                    //TipoActividad = dr["TipoActividad"].ToString(),
+                                    TipoActividad = dr["TipoActividad"].ToString(),
                                     FechaIngreso = dr["FechaIngreso"].ToString(),
                                     FechaRetiro = dr["FechaRetiro"].ToString(),
                                     HorasContratadas = dr["HorasContratadas"].ToString(),
+                                    IdActividad = Convert.ToInt32(dr["IdActividad"]),
+                                    IdProceso = Convert.ToInt32(dr["IdProceso"]),
 
                                 }
 
@@ -76,10 +79,13 @@ namespace CapaDatos
 
                     cmd.Parameters.AddWithValue("Area", obj.Area);
                     cmd.Parameters.AddWithValue("NombreArea", obj.NombreArea);
-                   // cmd.Parameters.AddWithValue("TipoActividad", obj.TipoActividad);
+                    cmd.Parameters.AddWithValue("TipoActividad", obj.TipoActividad);
                     cmd.Parameters.AddWithValue("FechaIngreso", obj.FechaIngreso);
                     cmd.Parameters.AddWithValue("FechaRetiro", obj.FechaRetiro);
                     cmd.Parameters.AddWithValue("HorasContratadas", obj.HorasContratadas);
+                    cmd.Parameters.AddWithValue("IdActividad", obj.IdActividad);
+                    cmd.Parameters.AddWithValue("IdProceso", obj.IdProceso);
+                    cmd.Parameters.AddWithValue("IdPersona", obj.IdPersona);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
 

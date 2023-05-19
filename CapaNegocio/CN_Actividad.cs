@@ -18,6 +18,10 @@ namespace CapaNegocio
             return objCapaDato.Listar();
         }
 
+        public List<Actividad> ListarActividad_Sindicato(string tActividad)
+        {
+            return objCapaDato.ListarActividad_Sindicato(tActividad);
+        }
 
         public int Registrar(Actividad obj, out string Mensaje)
         {
