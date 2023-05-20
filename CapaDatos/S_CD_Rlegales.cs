@@ -12,7 +12,7 @@ namespace CapaDatos
 {
     public class S_CD_Rlegales
     {
-        public List<S_Rlegales> Listar()
+        public List<S_Rlegales> Listar(string numero)
         {
             List<S_Rlegales> lista = new List<S_Rlegales>();
 
@@ -21,10 +21,11 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
 
-                    string query = "select * from REQUISITOS_LEGALES";
+                    string query = "select * from REQUISITOS_LEGALES where IdPersona = @numero";
 
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.Parameters.AddWithValue("@numero ", numero);
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -40,6 +41,7 @@ namespace CapaDatos
                                     IdRequisitosLegales = Convert.ToInt32(dr["IdRequisitosLegales"]),
                                     FechaExpedicion = dr["FechaExpedicion"].ToString(),
                                     Archivo = dr["Archivo"].ToString(),
+                                    IdCrearRequisitoLegal = Convert.ToInt32(dr["IdCrearRequisitoLegal"]),
                                 }
 
                             );
@@ -77,6 +79,8 @@ namespace CapaDatos
                    
                     cmd.Parameters.AddWithValue("FechaExpedicion", obj.FechaExpedicion);
                     cmd.Parameters.AddWithValue("Archivo", obj.Archivo);
+                    cmd.Parameters.AddWithValue("IdCrearRequisitoLegal", obj.IdCrearRequisitoLegal);
+                    cmd.Parameters.AddWithValue("IdPersona", obj.IdPersona);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -118,6 +122,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdRequisitosLegales", obj.IdRequisitosLegales);
                     cmd.Parameters.AddWithValue("FechaExpedicion", obj.FechaExpedicion);
                     cmd.Parameters.AddWithValue("Archivo", obj.Archivo);
+                    cmd.Parameters.AddWithValue("IdCrearRequisitoLegal", obj.IdCrearRequisitoLegal);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 

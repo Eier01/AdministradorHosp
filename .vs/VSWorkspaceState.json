@@ -8,8 +8,9 @@
     "\\CapaPresentacionAdmin\\Controllers",
     "\\CapaPresentacionAdmin\\Views",
     "\\CapaPresentacionAdmin\\Views\\Home",
+    "\\CapaPresentacionAdmin\\Views\\Sindicato",
     "\\CapaPresentacionAdmin\\Views\\Verificar"
   ],
-  "SelectedNode": "\\CapaPresentacionAdmin\\Controllers\\SindicatoController.cs",
+  "SelectedNode": "\\CapaPresentacionAdmin\\Views\\Sindicato\\Datos_Laboralesview.cshtml",
   "PreviewInSolutionExplorer": false
 }

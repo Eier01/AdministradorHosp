@@ -12,9 +12,9 @@ namespace CapaNegocio
     {
         private S_CD_Rlegales objCapaDato = new S_CD_Rlegales();
 
-        public List<S_Rlegales> Listar()
+        public List<S_Rlegales> Listar(string numero)
         {
-            return objCapaDato.Listar();
+            return objCapaDato.Listar(numero);
         }
 
         public int RegistrarRlegales(S_Rlegales obj, out string Mensaje)

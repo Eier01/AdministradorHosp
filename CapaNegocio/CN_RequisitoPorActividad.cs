@@ -10,12 +10,18 @@ using CapaEntidad;
 namespace CapaNegocio
 {
     public class CN_RequisitoPorActividad
+
     {
         private CD_RequisitoPorActividad objCapaDato = new CD_RequisitoPorActividad();
 
         public List<RequisitoPorActividad> Listar()
         {
             return objCapaDato.Listar();
+        }
+
+        public List<RequisitoPorActividad> ListarParaSindicato(int idActivdad)
+        {
+            return objCapaDato.ListarParaSindicato(idActivdad);
         }
 
         public int Registrar(int idActividad, int idRequisitoL, out string Mensaje)

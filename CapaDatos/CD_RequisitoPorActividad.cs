@@ -59,6 +59,47 @@ namespace CapaDatos
             return lista;
         }
 
+
+        public List<RequisitoPorActividad> ListarParaSindicato(int idActivdad)
+        {
+            List<RequisitoPorActividad> lista = new List<RequisitoPorActividad>();
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ListarRequisitoActividadSindicato", oconexion);
+                    cmd.Parameters.AddWithValue("idActividad", idActivdad);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+
+                    //SqlDataReader: nos ayuada a leer el resultado del query
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(
+                                new RequisitoPorActividad()
+                                {
+                                    IdRequisitoActividad = Convert.ToInt32(dr["IdRequisitoActividad"]),
+                                    oActividad = new Actividad() { IdActividad = Convert.ToInt32(dr["IdActividad"]), NombreActividad = dr["NombreActividad"].ToString() },
+                                    oRequisitoLegal = new CrearRequisitoLegal() { IdCrearRequisitoLegal = Convert.ToInt32(dr["IdCrearRequisitoLegal"]), NombreRequisito = dr["NombreRequisito"].ToString() }
+                                }
+                            );
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                lista = new List<RequisitoPorActividad>();
+            }
+
+
+            return lista;
+        }
+
         public int Registrar(int idActividad, int idRequisitoL, out string Mensaje)
         {
             int idautogenerado = 0;

@@ -32,6 +32,8 @@
                         <th>Id</th>
                         <th>Fecha Expedición</th>
                         <th>Ver adjunto</th>
+                        <th>id rlegal</th>
+
                         <th></th>
                     </tr>
                 </thead>
@@ -65,19 +67,16 @@
 
 
                             <div class="col-md-4 form-check-inline">
-                                <label for="txtPersonRequisito" class="form-label" style="margin-top: 20px"><b>Persona en Registro</b></label>
-                                <input type="text" class="form-control" id="txtPersonRequisito" required autocomplete="off">
+                                <label for="txtPersonRequisito" class="form-label" style="margin-top: 20px"><b>Actividad</b></label>
+                                <p class="form-label text-primary" id="idActividad" style="font-size: 13px">Nombre de la actividad</p>
                             </div>
                             <hr>
 
-                            <div class="col-md-3">
-                                <label for="txtTipo_documento" class="form-label">Tipo de documento</label>
-                                <input type="text" class="form-control" id="txtTipo_documento" required autocomplete="off">
-                                <div class="invalid-feedback">
-                                    Please provide a valid zip.
-                                </div>
+                            <div class="col-md-4">
+                                <label for="txtFechaEXP" class="form-label">Seleccione Tipo de documento</label>
+                                <select class="form-control" name="txtarea" id="rLegal" required autocomplete="off">
+                                </select>
                             </div>
-
 
                             <div class="col-md-3">
                                 <label for="txtFechaEXP" class="form-label">Fecha expedición</label>
@@ -87,7 +86,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <label for="formRl" class="form-label">Buscar archivo para adjuntar</label>
                                 <input class="form-control" type="file" id="formRl">
                             </div>
@@ -123,16 +122,25 @@
         var tabladata;
         var filaSeleccionada;
 
+
+
         jQuery.ajax({
-            url: '@Url.Action("ListarRlegales", "Sindicato")',
+            url: '@Url.Action("ListarDatosLaborales", "Sindicato")',
             type: "GET",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                console.log(data)
+                //var dLaboral = data.data.NombreActividad
+                //$("#idNombrec").val(data.data.NombreActividad)
+                //$("#idNombrec").text(dLaboral)
+                $.each(data.data, function (i, element) {
+                    $("#idActividad").val(element.IdActividad)                    
+                })
             }
 
         })
+
+
         tabladata = $("#tablaRl").DataTable({
             responsive: true,
             ordering: false,
@@ -145,6 +153,8 @@
                 { "data": "IdRequisitosLegales" },
                 { "data": "FechaExpedicion" },
                 { "data": "Archivo" },
+                { "data": "IdCrearRequisitoLegal" },
+              
 
                 {
                     "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarRl"><i class="fas fa-pen"></i></button>',
@@ -160,15 +170,52 @@
         });
 
         function abrirmodal(json) {
+
+            var requisito = 0
+
+            if (json != null) {
+                requisito = json.IdCrearRequisitoLegal;
+            }
+
             document.getElementById("formRlegales").reset();
             $("#txtIdRL").val(0);
             $("#mensajEerror").hide();
+
+
+            jQuery.ajax({
+                url: '@Url.Action("ListarParaSindicato", "Sindicato")',
+                type: "POST",
+                data: JSON.stringify({ idActividad: $("#idActividad").val() }),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+
+                    $("#rLegal").empty();
+                    $.each(response.data, function (i, element) {
+                        $("#idActividad").text(element.oActividad.NombreActividad)
+
+                        if (element.oRequisitoLegal.IdCrearRequisitoLegal == requisito) {
+                            $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i, "selected":"selected" }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
+                        } else {
+                            $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
+                        }
+
+                        
+                    })
+
+                    
+                }
+
+            })
 
 
             if (json != null) {
 
                 $("#txtIdRL").val(json.IdRequisitosLegales);
                 $("#txtFechaEXP").val(json.FechaExpedicion);
+
+
+                //$("#rLegal").text(json.FechaExpedicion)
 
                 //if (json.Archivo != null) {
                 //    $("#formRl").text(json.Archivo.nombre);
@@ -201,13 +248,15 @@
 
                 IdRequisitosLegales: $("#txtIdRL").val(),
                 FechaExpedicion: $("#txtFechaEXP").val(),
-
             }
+
+            console.log($("#rLegal").val())
 
             var formData = new FormData();
             formData.append("IdRequisitosLegales", $("#txtIdRL").val());
             formData.append("FechaExpedicion", $("#txtFechaEXP").val());
             formData.append("Archivo", $("#formRl")[0].files[0]);
+            formData.append("IdCrearRequisitoLegal", $("#rLegal").val());
 
             //console.info($("#formFile")[0].files[0]);
 

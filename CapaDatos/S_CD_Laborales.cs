@@ -126,7 +126,9 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdDatosLaborales", obj.IdDatosLaborales);
                     cmd.Parameters.AddWithValue("Area", obj.Area);
                     cmd.Parameters.AddWithValue("NombreArea", obj.NombreArea);
-                    //cmd.Parameters.AddWithValue("TipoActividad", obj.TipoActividad);
+                    cmd.Parameters.AddWithValue("TipoActividad", obj.TipoActividad);
+                    cmd.Parameters.AddWithValue("IdActividad", obj.IdActividad);
+                    cmd.Parameters.AddWithValue("IdProceso", obj.IdProceso);
                     cmd.Parameters.AddWithValue("FechaIngreso", obj.FechaIngreso);
                     cmd.Parameters.AddWithValue("FechaRetiro", obj.FechaRetiro);
                     cmd.Parameters.AddWithValue("HorasContratadas", obj.HorasContratadas);
