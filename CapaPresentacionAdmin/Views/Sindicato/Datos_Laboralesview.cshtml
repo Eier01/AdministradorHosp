@@ -106,11 +106,11 @@
 
                             <div class="col-md-3 form-check-inline">
                                 <label for="txtfechain" class="form-label">Fecha ingreso</label>
-                                <input type="text" class="form-control" id="txtfechain" placeholder="dd-mm-yy" required autocomplete="off">
+                                <input type="text" class="form-control" id="txtfechain" placeholder="dd-mm-yy" required autocomplete="off" onchange="calcularHorasTrabajadas()">
                             </div>
                             <div class="col-md-3 form-check-inline">
                                 <label for="txtfechare" class="form-label">Fecha retiro</label>
-                                <input type="text" class="form-control" id="txtfechare" placeholder="dd-mm-yy" required autocomplete="off">
+                                <input type="text" class="form-control" id="txtfechare" placeholder="dd-mm-yy" required autocomplete="off" onchange="calcularHorasTrabajadas()">
                             </div>
                             <div class="col-md-3 form-check-inline">
                                 <label for="txthorascon" class="form-label">Horas contratadas al mes</label>
@@ -149,6 +149,31 @@
 
 @section scripts{
     <script>
+
+        function calcularHorasTrabajadas() {
+            var fechaIngreso = document.getElementById("txtfechain").value;
+            var fechaRetiro = document.getElementById("txtfechare").value;
+
+            // Verificar si ambos campos de fecha tienen valores antes de calcular
+            if (fechaIngreso && fechaRetiro) {
+                var fechaInicio = new Date(fechaIngreso.split("-").reverse().join("-"));
+                var fechaFin = new Date(fechaRetiro.split("-").reverse().join("-"));
+
+                var diasTrabajados = 0;
+
+                for (var date = new Date(fechaInicio); date <= fechaFin; date.setDate(date.getDate() + 1)) {
+
+                    var dayOfWeek = date.getDay(); // Obtener el día de la semana (0: Domingo, 1: Lunes, ...)
+                    if (dayOfWeek !== 0 && dayOfWeek !== 4) {
+                        diasTrabajados++; // Aumentar el contador solo si no es fin de semana (días laborables)
+                    }
+                }
+
+                var horasTrabajadas = diasTrabajados * 160; // Total de horas trabajadas considerando 8 horas diarias
+
+                document.getElementById("txthorascon").value = horasTrabajadas;
+            }
+        }
 
         var tActividadPrevia;
         var tipoActSinRepetir = [];
