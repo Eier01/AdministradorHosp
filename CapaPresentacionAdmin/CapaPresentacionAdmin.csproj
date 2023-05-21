@@ -146,6 +146,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SindicatoController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\VerificarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -540,6 +541,7 @@
     <Content Include="Views\Sindicato\Datos_Laboralesview.cshtml" />
     <Content Include="Views\Sindicato\CapacitacionesCView.cshtml" />
     <Content Include="Views\Sindicato\RlegalesView.cshtml" />
+    <Content Include="Views\Usuarios\UsuariosView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

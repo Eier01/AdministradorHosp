@@ -98,7 +98,7 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-file-excel"></i></div>
                                     Reporte General
                                 </a>
-                            </nav>  
+                            </nav>
                         </div>
                         <a class="nav-link collapsed" href="@Url.Action("ReporteGeneral","Home")" data-bs-toggle="collapse" data-bs-target="#sindicatohv" aria-expanded="false" aria-controls="sindicatohv">
                             <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
@@ -108,7 +108,7 @@
                         <div class="collapse" id="sindicatohv" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link" href="@Url.Action("Personaview","Sindicato")">
-                                    
+
                                     <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                                     Datos Personales
                                 </a>
@@ -140,8 +140,20 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-file-archive"></i></div>
                                     Hoja de Vida
                                 </a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="@Url.Action("ReporteGeneral","Home")" data-bs-toggle="collapse" data-bs-target="#administradorhv" aria-expanded="false" aria-controls="administradorhv">
+                            <div class="sb-nav-link-icon"><i class="fas fa-university"></i></div>
+                            Administrador
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="administradorhv" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link" href="@Url.Action("UsuariosView","Usuarios")">
 
-
+                                    <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                                    Usuarios
+                                </a>
                             </nav>
                         </div>
                     </div>

@@ -47,6 +47,7 @@
     <Compile Include="CN_Idiomas.cs" />
     <Compile Include="CN_InfoCPersona.cs" />
     <Compile Include="CN_Requisitos.cs" />
+    <Compile Include="CN_Usuarios.cs" />
     <Compile Include="S_CNCapacitacionesC.cs" />
     <Compile Include="S_CNF_Academica.cs" />
     <Compile Include="S_CN_Ex_Laboral.cs" />
