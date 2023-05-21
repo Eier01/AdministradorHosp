@@ -48,6 +48,7 @@
     <Compile Include="CD_Idiomas.cs" />
     <Compile Include="CD_InfoCPersona.cs" />
     <Compile Include="CD_Requisitos.cs" />
+    <Compile Include="CD_Usuarios.cs" />
     <Compile Include="S_CDExperienciaL.cs" />
     <Compile Include="S_CD_CapacitacionesC.cs" />
     <Compile Include="S_CD_Facademica.cs" />
