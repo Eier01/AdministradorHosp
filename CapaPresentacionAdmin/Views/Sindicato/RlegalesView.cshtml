@@ -134,7 +134,8 @@
                 //$("#idNombrec").val(data.data.NombreActividad)
                 //$("#idNombrec").text(dLaboral)
                 $.each(data.data, function (i, element) {
-                    $("#idActividad").val(element.IdActividad)                    
+                    $("#idActividad").val(element.IdActividad)
+                    listarRequisitos()
                 })
             }
 
@@ -154,7 +155,7 @@
                 { "data": "FechaExpedicion" },
                 { "data": "Archivo" },
                 { "data": "IdCrearRequisitoLegal" },
-              
+
 
                 {
                     "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarRl"><i class="fas fa-pen"></i></button>',
@@ -169,20 +170,8 @@
 
         });
 
-        function abrirmodal(json) {
-
-            var requisito = 0
-
-            if (json != null) {
-                requisito = json.IdCrearRequisitoLegal;
-            }
-
-            document.getElementById("formRlegales").reset();
-            $("#txtIdRL").val(0);
-            $("#mensajEerror").hide();
-
-
-            jQuery.ajax({
+        function listarRequisitos() {
+               jQuery.ajax({
                 url: '@Url.Action("ListarParaSindicato", "Sindicato")',
                 type: "POST",
                 data: JSON.stringify({ idActividad: $("#idActividad").val() }),
@@ -194,25 +183,43 @@
                     $.each(response.data, function (i, element) {
                         $("#idActividad").text(element.oActividad.NombreActividad)
 
-                        if (element.oRequisitoLegal.IdCrearRequisitoLegal == requisito) {
-                            $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i, "selected":"selected" }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
-                        } else {
-                            $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
-                        }
+                        //if (element.oRequisitoLegal.IdCrearRequisitoLegal == requisito) {
+                        //    $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i, "selected":"selected" }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
+                        //} else {
+                        //    $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
+                        //}
+                        $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
 
-                        
+
                     })
 
-                    
+
                 }
 
             })
+        }
+
+        function abrirmodal(json) {
+
+            //var requisito = 0
+
+            //if (json != null) {
+            //    requisito = json.IdCrearRequisitoLegal;
+            //}
+
+            document.getElementById("formRlegales").reset();
+            $("#txtIdRL").val(0);
+            $("#mensajEerror").hide();
+
+
+
 
 
             if (json != null) {
 
-                $("#txtIdRL").val(json.IdRequisitosLegales);
+                $("#txtIdRL").val(json.IdRequisitosLegales); 
                 $("#txtFechaEXP").val(json.FechaExpedicion);
+                $("#rLegal").val(json.IdCrearRequisitoLegal);
 
 
                 //$("#rLegal").text(json.FechaExpedicion)
