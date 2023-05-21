@@ -654,7 +654,18 @@ namespace CapaPresentacionAdmin.Controllers
 
         }
 
-        public int CargaArchivo(HttpPostedFileBase archivo)
+        [HttpPost]
+        public JsonResult EliminarPersona(int id)
+        {
+            bool respuesta = false;
+            string mensaje = string.Empty;
+
+            respuesta = new S_CN_Persona().EliminarPersona(id, out mensaje);
+
+            return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+
+            public int CargaArchivo(HttpPostedFileBase archivo)
         {
             try
             {

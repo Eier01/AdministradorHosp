@@ -4,13 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>RlegalesView</h2>
 
 
-@{
+
+@*@{
     ViewBag.Title = "RlegalesView";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+}*@
 
 <br>
 <div class="card">
@@ -183,11 +183,7 @@
                     $.each(response.data, function (i, element) {
                         $("#idActividad").text(element.oActividad.NombreActividad)
 
-                        //if (element.oRequisitoLegal.IdCrearRequisitoLegal == requisito) {
-                        //    $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i, "selected":"selected" }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
-                        //} else {
-                        //    $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
-                        //}
+                       
                         $("<option>").attr({ "name": element.oRequisitoLegal.NombreRequisito, "value": element.oRequisitoLegal.IdCrearRequisitoLegal, "id": "a" + i }).text(element.oRequisitoLegal.NombreRequisito).appendTo("#rLegal")
 
 

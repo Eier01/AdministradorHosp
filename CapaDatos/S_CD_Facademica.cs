@@ -51,7 +51,8 @@ namespace CapaDatos
                                     MesTermino = dr["MesTermino"].ToString(),
                                     Ano = dr["Ano"].ToString(),                     
                                     NTarjetaProfecional = dr["NTarjetaProfecional"].ToString(),
-                                    NombreInstitucion = dr["NombreInstitucion"].ToString(),                                  
+                                    NombreInstitucion = dr["NombreInstitucion"].ToString(),
+                                    IdPersona = dr["IdPersona"].ToString(),                                 
                                 }
                             );
                         }

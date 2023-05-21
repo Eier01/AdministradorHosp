@@ -8,7 +8,7 @@
     <br>
     <div class="card">
         <div class="card-header">
-            <i class="fas fa-book"></i> Formación academica
+            <i class="fas fa-book"></i> Formación Academica
         </div>
         <div class="card-body">
             <div class="row">
@@ -46,7 +46,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header  text-light" style="background: hsl(145, 76%, 42%)">
-                <h5 class="modal-title" id="exampleModalLabel">Formación Academica</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Formulario Formación Academica</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -227,6 +227,8 @@
 
 @section scripts{
     <script>
+
+       
         var tabladata;
         var filaSeleccionada;
 
@@ -268,11 +270,14 @@
 
         })
 
-
+        
+        
         function abrirmodal(json) {
             document.getElementById("fAcadec").reset();
             $("#txtIdFacademica").val(0);
             $("#mensajEerror").hide();
+            
+            
 
 
             if (json != null) {
@@ -292,11 +297,16 @@
                 $("#txtaniotitulo").val(json.Ano);
                 $("#txttarprofesional").val(json.NTarjetaProfecional);
                 $("#txtnominstitucionprof").val(json.NombreInstitucion);
+                
+                
 
             }
-
+           
             $("#FormModalFacademica").modal("show");
+            
         }
+        
+
 
        // Editar
         $("#tablaF tbody").on("click", '.btn-editarFacademica', function () {
@@ -352,6 +362,7 @@
 
             formData.append("ActaUniversitaria", $("#actauni")[0].files[0]);
             formData.append("DiplomaUniversitario", $("#diplouni")[0].files[0]);
+            
 
 
              jQuery.ajax({
