@@ -130,7 +130,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Nombres", obj.Nombres);
                     cmd.Parameters.AddWithValue("Apelldios", obj.Apelldios);
                     cmd.Parameters.AddWithValue("Correo", obj.Correo);
-                    cmd.Parameters.AddWithValue("Clave", obj.Clave);
+                    //cmd.Parameters.AddWithValue("Clave", obj.Clave);
                     cmd.Parameters.AddWithValue("Activo", obj.Activo);
                     //cmd.Parameters.AddWithValue("Reestablecer", obj.Reestablecer);
                     cmd.Parameters.AddWithValue("Fecharegistro", obj.Fecharegistro);

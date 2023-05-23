@@ -19,6 +19,7 @@ namespace CapaPresentacionAdmin.Controllers
         public JsonResult ListarUsuarios()
         {
             List<Usuario> oLista = new List<Usuario>();
+
             oLista = new CN_Usuarios().Listar();
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
