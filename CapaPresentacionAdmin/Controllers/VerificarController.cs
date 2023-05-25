@@ -16,6 +16,7 @@ using System.Web.Services.Description;
 
 namespace CapaPresentacionAdmin.Controllers
 {
+    [Authorize]
     public class VerificarController : Controller
     {
         // GET: Verificar

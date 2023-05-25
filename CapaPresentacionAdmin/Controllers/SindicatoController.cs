@@ -14,6 +14,7 @@ using System.Web.Mvc;
 
 namespace CapaPresentacionAdmin.Controllers
 {
+    [Authorize]
     public class SindicatoController : Controller
     {
         // GET: Sindicato

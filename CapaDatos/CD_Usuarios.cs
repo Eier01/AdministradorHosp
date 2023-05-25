@@ -43,7 +43,7 @@ namespace CapaDatos
                                     Correo = dr["Correo"].ToString(),
                                     Clave = dr["Clave"].ToString(),
                                     Activo = Convert.ToBoolean(dr["Activo"]),
-                                    //Reestablecer = (bool)dr["Reestablecer"],
+                                    Reestablecer = (bool)dr["Reestablecer"],
                                     Fecharegistro = dr["Fecharegistro"].ToString(),
                                 }
 
@@ -170,6 +170,64 @@ namespace CapaDatos
 
                     SqlCommand cmd = new SqlCommand("delete top (1) from USUARIO where IdUsuario = @id", oconexion);
                     cmd.Parameters.AddWithValue("@id", id);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+                    resultado = cmd.ExecuteNonQuery() > 0 ? true : false;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+                Mensaje = ex.Message;
+
+            }
+            return resultado;
+        }
+        public bool cambiarClave(int IdUsuario, string nuevaclave, out string Mensaje)
+        {
+
+            bool resultado = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+
+                    SqlCommand cmd = new SqlCommand("update USUARIO set Clave = @nuevaclave, Reestablecer = 0 where IdUsuario = @id", oconexion);
+                    cmd.Parameters.AddWithValue("@id", IdUsuario);
+                    cmd.Parameters.AddWithValue("@nuevaclave", nuevaclave);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+                    resultado = cmd.ExecuteNonQuery() > 0 ? true : false;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                resultado = false;
+                Mensaje = ex.Message;
+
+            }
+            return resultado;
+        }
+        public bool RestablecerClave(int IdUsuario, string Clave, out string Mensaje)
+        {
+
+            bool resultado = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+
+                    SqlCommand cmd = new SqlCommand("update USUARIO set Clave = @Clave, Reestablecer = 1 where IdUsuario = @id", oconexion);
+                    cmd.Parameters.AddWithValue("@id", IdUsuario);
+                    cmd.Parameters.AddWithValue("@Clave", Clave);
                     cmd.CommandType = CommandType.Text;
                     oconexion.Open();
                     resultado = cmd.ExecuteNonQuery() > 0 ? true : false;
