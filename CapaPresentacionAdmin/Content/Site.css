@@ -5006,6 +5006,7 @@ textarea.form-control-lg {
     margin-left: -0.5rem;
 }
 
+
 .card-img-overlay {
     position: absolute;
     top: 0;
@@ -12024,13 +12025,13 @@ body {
     z-index: 1038;
 }
 
-.sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
-    padding-top: 56px;
-}
+    .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
+        padding-top: 56px;
+    }
 
-    .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
-        overflow-y: auto;
-    }        
+        .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
+            overflow-y: auto;
+        }
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
     padding-left: 225px;
@@ -12349,15 +12350,5 @@ body {
     .sb-nav-fixed .contenedor {
         display: none;
     }
-
 }
 
-
-    .foto {
-        width: 14rem;
-        height: 100%;
-        border-radius: 0.5rem;
-        overflow: hidden;
-        padding: 1px;
-        margin-left: 1.5rem;
-    }

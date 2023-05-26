@@ -40,7 +40,55 @@ namespace CapaDatos
                                 {
                                     IdRequisitosLegales = Convert.ToInt32(dr["IdRequisitosLegales"]),
                                     FechaExpedicion = dr["FechaExpedicion"].ToString(),
-                                    Archivo = dr["Archivo"].ToString(),
+                                    //Archivo = dr["Archivo"] as byte[],
+                                    IdCrearRequisitoLegal = Convert.ToInt32(dr["IdCrearRequisitoLegal"]),
+                                }
+
+                            );
+                        }
+                    }
+                }
+
+
+
+            }
+            catch
+            {
+                lista = new List<S_Rlegales>();
+            }
+
+
+            return lista;
+        }
+
+        public List<S_Rlegales> ListarArchivo()
+        {
+            List<S_Rlegales> lista = new List<S_Rlegales>();
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+
+                    string query = "select * from REQUISITOS_LEGALES";
+
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    //SqlDataReader: nos ayuada a leer el resultado del query
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(
+                                new S_Rlegales()
+                                {
+                                    IdRequisitosLegales = Convert.ToInt32(dr["IdRequisitosLegales"]),
+                                    FechaExpedicion = dr["FechaExpedicion"].ToString(),
+                                    Archivo = dr["Archivo"] as byte[],
                                     IdCrearRequisitoLegal = Convert.ToInt32(dr["IdCrearRequisitoLegal"]),
                                 }
 

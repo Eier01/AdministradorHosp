@@ -31,7 +31,7 @@
         <i class="fas fa-briefcase"></i>  <span class="text-secondary">Verificar Hoja De Vida/ Datos Personales</span>
     </div>
 
-    <div class="card-body">
+    <div class="card-body" id="idbody">
         <div class="contenido_texto block" data-seccion="1">
             <section>
                 <form class="row g-3 needs-validation" novalidate>
@@ -214,7 +214,7 @@
 
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <input class="form-check-input" type="checkbox" id="idEstado" value="option1">
                         <label class="form-check-label" for="inlineCheckbox1">INACTIVO.</label>
                     </div>
 
@@ -233,7 +233,7 @@
     <script>
 
         jQuery.ajax({
-            url: '@Url.Action("ListarInfoCpersona", "Verificar")',
+            url: '@Url.Action("ListarDatosPersonales", "Verificar")',
             type: "GET",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -255,6 +255,10 @@
                         $("#idMaculino").prop("checked", true)
                     } else if (element.TipoIdentificacion == $("#idFemenino").val()) {
                         $("#idFemenino").prop("checked", true)
+                    }
+
+                    if (element.Estado == 0) {
+                        $("#idEstado").prop("checked", true)
                     }
 
                     $("#idPais").val(element.Pais)
@@ -295,8 +299,27 @@
                         $('#idNombrec').addClass('text-primary');
                     }
 
-
+                    
                 })
+                $("#idbody").LoadingOverlay("hide")
+            },            
+            error: function (error) {
+                
+                $("#idbody").LoadingOverlay("hide")
+                
+                $("#FormModal").modal("show");
+                $("#respuesta").text("Error Ajax", error)
+
+
+            },
+            beforeSend: function () {
+                
+                $("#idbody").LoadingOverlay("show", {
+                    imageResizeFactor: 2,
+                    text: "Cargando...",
+                    size: 14
+                })
+                
             }
 
         })

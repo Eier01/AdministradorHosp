@@ -99,6 +99,10 @@ namespace CapaDatos
 
             int idautogenerado = 0;
             Mensaje = string.Empty;
+
+            DateTime thisDay = DateTime.Today;
+            //obj.FechaRevision = thisDay.ToString();
+
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
@@ -136,7 +140,9 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Eps", obj.Eps);
                     cmd.Parameters.AddWithValue("FondoPensiones", obj.FondoPensiones);
                     cmd.Parameters.AddWithValue("Arl", obj.Arl);
-                    //cmd.Parameters.AddWithValue("PersonaPerId", obj.PersonaPerId);
+                    //fecha de resumen
+                    cmd.Parameters.AddWithValue("FechaResumen", obj.Estadofecha);
+
 
                     cmd.Parameters.AddWithValue("Estado", obj.Estado);
                     cmd.Parameters.AddWithValue("Estadofecha", obj.Estadofecha);

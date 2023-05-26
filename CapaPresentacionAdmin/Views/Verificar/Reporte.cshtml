@@ -57,7 +57,7 @@
                 <button type="button" class="btn btn-success">Imprimir</button>
             </div>
             <div class="col-md-3">
-                <button type="button" class="btn btn-info">Comfirmar Cumplimiento</button>
+                <button type="button" class="btn btn-info" onclick="confirmarVerific()">Comfirmar Verificación</button>
             </div>
             <div class="col-md-3">
                 <p class="form-label" for="validationCustom05" style="font-size:13px"></p>
@@ -87,3 +87,60 @@
     </div>
 </div>
 
+
+<div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="respuesta"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+
+
+        function confirmarVerific(){
+            jQuery.ajax({
+            url: '@Url.Action("ConfirmarVerificacion", "Verificar")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                $("#respuesta").text(response.mensaje)
+
+                if (response.resultado) {
+                    $('#respuesta').removeClass('text-danger');
+                    $('#respuesta').addClass('text-primary');
+                } else {
+                    $('#respuesta').removeClass('text-primary');
+                    $('#respuesta').addClass('text-danger');
+                }
+
+                $("#FormModal").modal("show");
+            },
+            error: function (error) {
+
+                $("#contenido").LoadingOverlay("hide")
+
+                $("#respuesta").text("Error Ajax")
+                $("#FormModal").modal("show");
+
+            }
+
+        })
+        }
+
+    </script>    
+
+}

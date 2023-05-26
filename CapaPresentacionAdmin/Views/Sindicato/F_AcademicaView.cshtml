@@ -337,8 +337,8 @@
             formData.append("MesGrado", $("#txtmes").val());
             formData.append("AnoGrado", $("#txtañogrado").val());
 
-            formData.append("ActaColegio", $("#adactacol")[0].files[0]);
-            formData.append("DiplomaColegio", $("#addiplomacol")[0].files[0]);
+            formData.append("ActaColegioNombre", $("#adactacol")[0].files[0]);
+            formData.append("DiplomaColegioNombre", $("#addiplomacol")[0].files[0]);
 
             formData.append("InstituEducativa", $("#txtinstitucion").val());
             formData.append("ModalidadAcademica", $("#txtmodacademica").val());
@@ -350,8 +350,8 @@
             formData.append("NTarjetaProfecional", $("#txttarprofesional").val());
             formData.append("NombreInstitucion", $("#txtnominstitucionprof").val());
 
-            formData.append("ActaUniversitaria", $("#actauni")[0].files[0]);
-            formData.append("DiplomaUniversitario", $("#diplouni")[0].files[0]);
+            formData.append("ActaUniversitariaNombre", $("#actauni")[0].files[0]);
+            formData.append("DiplomaUniversitarioNombre", $("#diplouni")[0].files[0]);
 
 
              jQuery.ajax({

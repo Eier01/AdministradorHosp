@@ -234,7 +234,7 @@
             formData.append("EstadoFormacion", $("#txtestadoF").val());
             formData.append("FechaInicio", $("#txtfechaI").val());
             formData.append("FechaFinalizacion", $("#txtfechaF").val());
-            formData.append("Archivo", $("#formAdjuntar")[0].files[0]);
+            formData.append("ArchivoNombre", $("#formAdjuntar")[0].files[0]);
 
              jQuery.ajax({
                 url: '@Url.Action("GuardarCapatacitaciones", "Sindicato")',

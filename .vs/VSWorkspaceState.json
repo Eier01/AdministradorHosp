@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CapaEntidad",
-    "\\CapaEntidad\\Properties",
+    "\\CapaDatos",
     "\\CapaNegocio",
     "\\CapaPresentacionAdmin",
     "\\CapaPresentacionAdmin\\Controllers",
     "\\CapaPresentacionAdmin\\Views",
     "\\CapaPresentacionAdmin\\Views\\Home",
     "\\CapaPresentacionAdmin\\Views\\Sindicato",
+    "\\CapaPresentacionAdmin\\Views\\Subidos",
     "\\CapaPresentacionAdmin\\Views\\Verificar"
   ],
-  "SelectedNode": "\\CapaPresentacionAdmin\\Views\\Sindicato\\Datos_Laboralesview.cshtml",
+  "SelectedNode": "\\CapaDatos\\CD_InfoCPersona.cs",
   "PreviewInSolutionExplorer": false
 }

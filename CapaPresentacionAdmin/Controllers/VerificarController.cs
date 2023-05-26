@@ -16,6 +16,7 @@ using System.Web.Services.Description;
 
 namespace CapaPresentacionAdmin.Controllers
 {
+    [Authorize]
     public class VerificarController : Controller
     {
         // GET: Verificar
@@ -79,7 +80,7 @@ namespace CapaPresentacionAdmin.Controllers
 
             oLista = new CN_Buscar().Listar(documento);
 
-            Session["numDocumento"] = '0';
+            Session["numDocumento"] = "0";
 
             if (oLista.Count() > 0)
             {
@@ -159,18 +160,17 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
         //--------------------------------LISTAR DATOS PERSONALES Y DEMAS
-
         [HttpGet]
-        public JsonResult ListarInfoCpersona()
+        public JsonResult ListarDatosPersonales()
         {
 
-            List<InfoCPersona> oLista = new List<InfoCPersona>();
+            List<FormacionAcademica> oLista = new List<FormacionAcademica>();
 
             string numero = ((string)Session["numDocumento"]);
 
             Session["numDocumento"] = numero;
 
-            oLista = new CN_InfoCPersona().Listar(numero);
+            oLista = new CN_FormacioAc_Cursos().ListarFormacion(numero);
 
             //Session["InfoCPersona"] = oLista;
             //List<InfoCPersona> hola = ((List<InfoCPersona>)Session["InfoCPersona"]);
@@ -179,14 +179,12 @@ namespace CapaPresentacionAdmin.Controllers
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
 
-
-
         //--------------------------------FORMACION ACADEMICA
         [HttpGet]
         public JsonResult ListarFAcademica()
         {
 
-            InfoCPersona oLista;
+            FormacionAcademica oLista;
 
             string numero = ((string)Session["numDocumento"]);
 
@@ -194,11 +192,11 @@ namespace CapaPresentacionAdmin.Controllers
 
 
             //oLista = new CN_InfoCPersona().Listar(numero);
-            oLista = new CN_InfoCPersona().Listar(numero).Where((Ra) => Ra.NumeroDocumento == int.Parse(numero)).FirstOrDefault();
+            oLista = new CN_FormacioAc_Cursos().ListarFormacion(numero).Where((Ra) => Ra.NumeroDocumento == int.Parse(numero)).FirstOrDefault();
 
             if (oLista == null)
             {
-                oLista = new InfoCPersona();
+                oLista = new FormacionAcademica();
                 if (string.IsNullOrEmpty(oLista.ObservacionBasica) && string.IsNullOrEmpty(oLista.ObservacionSuperior))
                 {
                     oLista.ObservacionBasica = "Debes Hacer una consulta";
@@ -229,14 +227,14 @@ namespace CapaPresentacionAdmin.Controllers
         {
             //nos permite guarda cualquier tipo de datos
             bool resultado;
-            InfoCPersona oLista;
+            FormacionAcademica oLista;
             string mensaje = string.Empty;
 
             string numero = ((string)Session["numDocumento"]);
 
             Session["numDocumento"] = numero;
 
-            oLista = new CN_InfoCPersona().Listar(numero).Where((Ra) => Ra.NumeroDocumento == int.Parse(numero)).FirstOrDefault();
+            oLista = new CN_FormacioAc_Cursos().ListarFormacion(numero).Where((Ra) => Ra.NumeroDocumento == int.Parse(numero)).FirstOrDefault();
 
             if (oLista == null)
             {
@@ -247,25 +245,123 @@ namespace CapaPresentacionAdmin.Controllers
 
             int IdPersona = oLista.IdPersonaFAcademica;
 
-            resultado = new CN_InfoCPersona().Editar(IdPersona, IdFAcademica, Numero, Cumple, Observacion, out mensaje);
+            resultado = new CN_FormacioAc_Cursos().Editar(IdPersona, IdFAcademica, Numero, Cumple, Observacion, out mensaje);
 
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public FileResult verPdfFormacionAcademica(int IdFAcademica, string nombre)
+        {
+
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = numero;
+
+            List<S_Formacion_academica> oLista = new List<S_Formacion_academica>();
+
+            S_Formacion_academica fAcademica = new S_Formacion_academica();
+
+            oLista = new S_CNF_Academica().ListarArchivo();
+
+            fAcademica = oLista.Where((f) => f.IdFormacionAcademica == IdFAcademica).FirstOrDefault();
+
+            if (fAcademica != null)
+            {
+                if (nombre == "ActaColegio")
+                {
+                    return File(fAcademica.ActaColegio, "application/pdf");
+
+                }
+                else if (nombre == "DiplomaColegio")
+                {
+                    return File(fAcademica.DiplomaColegio, "application/pdf");
+
+                }
+                else if (nombre == "ActaUniversitaria")
+                {
+                    return File(fAcademica.ActaUniversitaria, "application/pdf");
+
+                }
+                else if (nombre == "DiplomaUniversitario")
+                {
+                    return File(fAcademica.DiplomaUniversitario, "application/pdf");
+
+                }
+                else
+                {
+                    return File("../pdf/moral.pdf", "application/pdf", "No hay pdf");
+                }
+            }
+            else
+            {
+                return File("../pdf/moral.pdf", "application/pdf", "No hay pdf");
+            }
+
+        }
+
 
         //--------------------------------CURSOS
+        [HttpGet]
+        public JsonResult ListarCursos()
+        {
+
+            List<CapacitacionesCursos> oLista = new List<CapacitacionesCursos>();
+
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = numero;
+
+            oLista = new CN_FormacioAc_Cursos().ListarCuros(numero);
+
+            //Session["InfoCPersona"] = oLista;
+            //List<InfoCPersona> hola = ((List<InfoCPersona>)Session["InfoCPersona"]);
+
+            //retornamos esto de esta forma porque DataTable asi lo requiere
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+
+
         [HttpPost]
         public JsonResult EditarCurso(int IdPersona, int IdCurso, string Cumple, string Observacion)
         {
             bool resultado;
             string mensaje = string.Empty;
 
-            resultado = new CN_InfoCPersona().EditarCurso(IdPersona, IdCurso, Cumple, Observacion, out mensaje);
+            resultado = new CN_FormacioAc_Cursos().EditarCurso(IdPersona, IdCurso, Cumple, Observacion, out mensaje);
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
+
+        [HttpPost]
+        public FileResult verPdfCapaciatciones(int IdCapacitaciones)
+        {
+
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = numero;
+
+            List<S_CapacitacionesC> oLista = new List<S_CapacitacionesC>();
+
+            S_CapacitacionesC capacitaciones = new S_CapacitacionesC();
+
+            oLista = new S_CNCapacitacionesC().ListarArchivo();
+
+            capacitaciones = oLista.Where((c) => c.idCapacitacionesCursos == IdCapacitaciones).FirstOrDefault();
+
+            if (capacitaciones != null)
+            {
+
+                return File(capacitaciones.Archivo, "application/pdf");
+            }
+            else
+            {
+                return File("../pdf/moral.pdf", "application/pdf", "No hay pdf");
+            }
+
+        }
 
 
         //--------------------------------IDIOMAS
@@ -318,6 +414,34 @@ namespace CapaPresentacionAdmin.Controllers
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
+
+        [HttpPost]
+        public FileResult verPdExpLaboral(int IdexpLaboral)
+        {
+
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = numero;
+
+            List<S_Ex_Laboral> oLista = new List<S_Ex_Laboral>();
+
+            S_Ex_Laboral exLaboral = new S_Ex_Laboral();
+
+            oLista = new S_CN_Ex_Laboral().ListarArchivo();
+
+            exLaboral = oLista.Where((e) => e.IdExperienciaLaboral == IdexpLaboral).FirstOrDefault();
+
+            if (exLaboral != null)
+            {
+
+                return File(exLaboral.AdjuntarSoporte, "application/pdf");
+            }
+            else
+            {
+                return File("../pdf/moral.pdf", "application/pdf", "No hay pdf");
+            }
+
+        }
 
 
         //--------------------------------DATOS LABORALES
@@ -377,6 +501,51 @@ namespace CapaPresentacionAdmin.Controllers
             string mensaje = string.Empty;
 
             resultado = new CN_Requisitos().EditarRequisito(IdPersona, IdRequisito, Cumple, Observacion, out mensaje);
+
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public FileResult verArchivoPdfRlegales(int IdRequisito)
+        {
+
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = numero;
+
+            List<S_Rlegales> oLista = new List<S_Rlegales>();
+
+            S_Rlegales rLegal = new S_Rlegales();
+
+            oLista = new S_CN_Rlegales().ListarArchivo();
+
+            rLegal = oLista.Where((r) => r.IdRequisitosLegales == IdRequisito).FirstOrDefault();
+
+            if (rLegal != null)
+            {
+                return File(rLegal.Archivo, "application/pdf");
+            }
+            else
+            {
+                return File("../pdf/moral.pdf", "application/pdf", "No hay pdf");
+            }
+
+        }
+
+
+        //--------------------------------REPORTE
+        [HttpGet]
+        public JsonResult ConfirmarVerificacion()
+        {
+            bool resultado;
+
+            string mensaje = string.Empty;
+
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = "0";
+
+            resultado = new CN_Reporte().Editar(numero, out mensaje);
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }

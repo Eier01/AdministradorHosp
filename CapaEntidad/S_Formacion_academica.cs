@@ -16,8 +16,10 @@ namespace CapaEntidad
         public String TituloObtenido { get; set; }
         public String MesGrado { get; set; }
         public String AnoGrado { get; set; } 
-        public String ActaColegio { get; set; }
-        public String DiplomaColegio { get; set; }
+        public byte[] ActaColegio { get; set; }
+        public String ActaColegioNombre { get; set; }
+        public byte[] DiplomaColegio { get; set; }
+        public String DiplomaColegioNombre { get; set; }
         public String InstituEducativa { get; set; }
         public String ModalidadAcademica { get; set; }
         public int SemestresAprobados { get; set; }
@@ -27,8 +29,10 @@ namespace CapaEntidad
         public String Ano { get; set; }      
         public String NTarjetaProfecional { get; set; }
         public String NombreInstitucion { get; set; }
-        public String ActaUniversitaria { get; set; }
-        public String DiplomaUniversitario { get; set; }
+        public byte[] ActaUniversitaria { get; set; }
+        public String ActaUniversitariaNombre { get; set; }
+        public byte[] DiplomaUniversitario { get; set; }
+        public String DiplomaUniversitarioNombre { get; set; }
         public String IdPersona { get; set; }
 
         

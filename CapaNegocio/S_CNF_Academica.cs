@@ -17,6 +17,11 @@ namespace CapaNegocio
             return objCapaDato.Listar(numero);
         }
 
+        public List<S_Formacion_academica> ListarArchivo()
+        {
+            return objCapaDato.ListarArchivo();
+        }
+
         public int RegistrarFormacion(S_Formacion_academica obj, out string Mensaje)
         {
             Mensaje = string.Empty;

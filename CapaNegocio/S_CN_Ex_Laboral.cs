@@ -15,6 +15,11 @@ namespace CapaNegocio
         {
             return objCapaDato.Listar(numero);
         }
+        
+         public List<S_Ex_Laboral> ListarArchivo()
+        {
+            return objCapaDato.ListarArchivo();
+        }
         public int RegistrarExpLaboral(S_Ex_Laboral obj, out string Mensaje)
         {
             Mensaje = string.Empty;
@@ -67,6 +72,10 @@ namespace CapaNegocio
             else if (string.IsNullOrEmpty(obj.FechaEgreso) || string.IsNullOrWhiteSpace(obj.FechaEgreso))
             {
                 Mensaje = "Este campo FechaEgreso es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.AdjuntarSoporteNombre) || string.IsNullOrWhiteSpace(obj.AdjuntarSoporteNombre))
+            {
+                Mensaje = "Adjunte un pdf";
             }
             if (string.IsNullOrEmpty(Mensaje))
             {

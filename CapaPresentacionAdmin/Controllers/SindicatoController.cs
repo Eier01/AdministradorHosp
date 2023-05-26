@@ -14,6 +14,7 @@ using System.Web.Mvc;
 
 namespace CapaPresentacionAdmin.Controllers
 {
+    [Authorize]
     public class SindicatoController : Controller
     {
         // GET: Sindicato
@@ -407,6 +408,12 @@ namespace CapaPresentacionAdmin.Controllers
             if (objeto.IdDatosLaborales == 0)
             {
                 objeto.IdPersona = Convert.ToString(Session["Documento"]);
+                if (objeto.IdPersona == "")
+                {
+                    Session["Documento"] = "0";
+                    objeto.IdPersona = "0";
+                }
+
                 if (objeto.IdPersona.Equals("0"))
                 {
                     string documento = ((string)Session["Consultarid"]);
@@ -432,59 +439,55 @@ namespace CapaPresentacionAdmin.Controllers
         {
             object resultado;
             string mensaje = string.Empty;
-            List<string> nombresArchivosActaUniversitaria = new List<string>();
-            List<string> nombresArchivosDiplomaUniversitario = new List<string>();
-            List<string> nombresArchivosActaColegio = new List<string>();
-            List<string> nombresArchivosDiplomaColegio = new List<string>();
-            List<int> resacrsActaUniversitaria = new List<int>();
-            List<int> resacrsDiplomaUniversitario = new List<int>();
-            List<int> resacrsActaColegio = new List<int>();
-            List<int> resacrsDiplomaColegio = new List<int>();
 
             // Obtiene los archivos adjuntos
             for (int i = 0; i < Request.Files.Count; i++)
             {
                 HttpPostedFileBase archivo = Request.Files[i];
                 string nombreArchivo = null;
-                int resacr = 0;
+
+                MemoryStream ms = new MemoryStream();
+
+                archivo.InputStream.CopyTo(ms);
+                byte[] data = ms.ToArray();
 
                 if (archivo != null)
                 {
                     nombreArchivo = Path.GetFileName(archivo.FileName);
-                    resacr = CargaArchivo(archivo);
+
                 }
 
-                if (Request.Files.GetKey(i) == "ActaUniversitaria")
+                if (Request.Files.GetKey(i) == "ActaColegioNombre")
                 {
-                    nombresArchivosActaUniversitaria.Add(nombreArchivo);
-                    resacrsActaUniversitaria.Add(resacr);
+                    objeto.ActaColegio = data;
+                    objeto.ActaColegioNombre = nombreArchivo;
                 }
-                else if (Request.Files.GetKey(i) == "DiplomaUniversitario")
+                else if (Request.Files.GetKey(i) == "DiplomaColegioNombre")
                 {
-                    nombresArchivosDiplomaUniversitario.Add(nombreArchivo);
-                    resacrsDiplomaUniversitario.Add(resacr);
+                    objeto.DiplomaColegio = data;
+                    objeto.DiplomaColegioNombre = nombreArchivo;
                 }
-                else if (Request.Files.GetKey(i) == "ActaColegio")
+                else if (Request.Files.GetKey(i) == "ActaUniversitariaNombre")
                 {
-                    nombresArchivosActaColegio.Add(nombreArchivo);
-                    resacrsActaColegio.Add(resacr);
+                    objeto.ActaUniversitaria = data;
+                    objeto.ActaUniversitariaNombre = nombreArchivo;
                 }
-                else if (Request.Files.GetKey(i) == "DiplomaColegio")
+                else if (Request.Files.GetKey(i) == "DiplomaUniversitarioNombre")
                 {
-                    nombresArchivosDiplomaColegio.Add(nombreArchivo);
-                    resacrsDiplomaColegio.Add(resacr);
+                    objeto.DiplomaUniversitario = data;
+                    objeto.DiplomaUniversitarioNombre = nombreArchivo;
                 }
             }
-
-            objeto.ActaUniversitaria = string.Join(",", nombresArchivosActaUniversitaria);
-            objeto.DiplomaUniversitario = string.Join(",", nombresArchivosDiplomaUniversitario);
-            objeto.ActaColegio = string.Join(",", nombresArchivosActaColegio);
-            objeto.DiplomaColegio = string.Join(",", nombresArchivosDiplomaColegio);
 
             //
             if (objeto.IdFormacionAcademica == 0)
             {
                 objeto.IdPersona = Convert.ToString(Session["Documento"]);
+                if (objeto.IdPersona == "")
+                {
+                    Session["Documento"] = "0";
+                    objeto.IdPersona = "0";
+                }
 
                 if (objeto.IdPersona.Equals("0"))
                 {
@@ -514,6 +517,12 @@ namespace CapaPresentacionAdmin.Controllers
             if (objeto.IdIdiomas == 0)
             {
                 objeto.IdPersona = Convert.ToString(Session["Documento"]);
+                if (objeto.IdPersona == "")
+                {
+                    Session["Documento"] = "0";
+                    objeto.IdPersona = "0";
+                }
+
                 if (objeto.IdPersona.Equals("0"))
                 {
                     string documento = ((string)Session["Consultarid"]);
@@ -537,22 +546,35 @@ namespace CapaPresentacionAdmin.Controllers
         {
             object resultado;
             string mensaje = string.Empty;
-            int resacr = 0;
 
-            HttpPostedFileBase archivo = Request.Files["AdjuntarSoporte"];
+
+            HttpPostedFileBase archivo = Request.Files["AdjuntarSoporteNombre"];
             string nombreArchivo = null;
+
+            MemoryStream ms = new MemoryStream();
+
+            archivo.InputStream.CopyTo(ms);
+            byte[] data = ms.ToArray();
+
             if (archivo != null)
             {
                 nombreArchivo = Path.GetFileName(archivo.FileName);
-                resacr = CargaArchivo(archivo);
             }
 
-            objeto.AdjuntarSoporte = nombreArchivo;
+            objeto.AdjuntarSoporte = data;
+            objeto.AdjuntarSoporteNombre = nombreArchivo;
 
             //
             if (objeto.IdExperienciaLaboral == 0)
             {
+                //en caso de que alguien se haya olvidado de registrar en este modulo y le de depues por consultar y rellenarlo
+                //para eso necesitamo que el Session["Documento"] sea igual a cero.
                 objeto.IdPersona = Convert.ToString(Session["Documento"]);
+                if(objeto.IdPersona == "")
+                {
+                    Session["Documento"] = "0";
+                    objeto.IdPersona = "0";
+                }
                 if (objeto.IdPersona.Equals("0"))
                 {
                     string documento = ((string)Session["Consultarid"]);
@@ -578,22 +600,33 @@ namespace CapaPresentacionAdmin.Controllers
         {
             object resultado;
             string mensaje = string.Empty;
-            int resacr = 0;
 
-            HttpPostedFileBase archivo = Request.Files["Archivo"];
+
+            HttpPostedFileBase archivo = Request.Files["ArchivoNombre"];
+            MemoryStream ms = new MemoryStream();
+
+            archivo.InputStream.CopyTo(ms);
+            byte[] data = ms.ToArray();
+
             string nombreArchivo = null;
             if (archivo != null)
             {
                 nombreArchivo = Path.GetFileName(archivo.FileName);
-                resacr = CargaArchivo(archivo);
             }
 
-            objeto.Archivo = nombreArchivo;
+            objeto.Archivo = data;
+            objeto.ArchivoNombre = nombreArchivo;
 
             //
             if (objeto.idCapacitacionesCursos == 0)
             {
                 objeto.IdPersona = Convert.ToString(Session["Documento"]);
+                if (objeto.IdPersona == "")
+                {
+                    Session["Documento"] = "0";
+                    objeto.IdPersona = "0";
+                }
+
                 if (objeto.IdPersona.Equals("0"))
                 {
                     string documento = ((string)Session["Consultarid"]);
@@ -618,22 +651,34 @@ namespace CapaPresentacionAdmin.Controllers
         {
             object resultado;
             string mensaje = string.Empty;
-            int resacr = 0;
+            //int resacr = 0;
 
-            HttpPostedFileBase archivo = Request.Files["Archivo"];
+            HttpPostedFileBase archivo = Request.Files["archivoNombre"];
+            MemoryStream ms = new MemoryStream();
+            
+            archivo.InputStream.CopyTo(ms);
+            byte[] data = ms.ToArray();
+
             string nombreArchivo = null;
             if (archivo != null)
             {
                 nombreArchivo = Path.GetFileName(archivo.FileName);
-                resacr = CargaArchivo(archivo);
+                //resacr = CargaArchivo(archivo);
             }
 
-            objeto.Archivo = nombreArchivo;
+            objeto.Archivo = data;
+            objeto.archivoNombre = nombreArchivo;
 
             //
             if (objeto.IdRequisitosLegales == 0)
             {
                 objeto.IdPersona = Convert.ToString(Session["Documento"]);
+                if (objeto.IdPersona == "")
+                {
+                    Session["Documento"] = "0";
+                    objeto.IdPersona = "0";
+                }
+
                 if (objeto.IdPersona.Equals("0"))
                 {
                     string documento = ((string)Session["Consultarid"]);

@@ -371,11 +371,11 @@
     </div>
 </div>
 
-<div class="modal fade  " id="message" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+<div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Mensage</h5>
+                <h5 class="modal-title">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -471,12 +471,12 @@
                         console.log(data)
 
                         if (data.estado) {
-                            $("#message").modal("show");
+                            $("#FormModal").modal("show");
                             $("#respuesta").text(data.message)
                             $('#respuesta').removeClass('text-danger');
                             $('#respuesta').addClass('text-primary');
                         } else {
-                            $("#message").modal("show");
+                            $("#FormModal").modal("show");
                             $("#respuesta").text(data.message)
                             $('#respuesta').removeClass('text-primary');
                             $('#respuesta').addClass('text-danger');

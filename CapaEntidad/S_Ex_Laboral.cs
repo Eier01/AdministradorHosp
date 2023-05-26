@@ -21,7 +21,8 @@ namespace CapaEntidad
         public String Dependencia { get; set; }
         public string FechaIngreso { get; set; }
         public String FechaEgreso { get; set; }
-        public string AdjuntarSoporte { get; set; } 
+        public byte[] AdjuntarSoporte { get; set; } 
+        public string AdjuntarSoporteNombre { get; set; }
         public string IdPersona { get; set; } 
     }
 }

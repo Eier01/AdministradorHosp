@@ -33,7 +33,7 @@
         <i class="fas fa-briefcase"></i>  <span class="text-secondary">Verificar Hoja De Vida/ Formacion Academica</span>
     </div>
     <div class="card-body">
-        <div class="row">
+        <div class="row" id="contenido">
             <div class="col-3">
                 <p class="form-label text-danger" id="idNombrec" style="font-size: 13px">NOMBRE DE LA PERSONA A VERIFICAR</p>
             </div>
@@ -130,9 +130,16 @@
                     $("<td>").text(response.data.MesGrado),
                     $("<td>").text(response.data.AñoGrado),
                     $("<td>").append(
-                        $("<button>").addClass("btn btn-outline-success btn-sm mb-1").attr({ "onclick":"abrirModal() ", "type": "button" }).text("Acta"),
-                        $("<br>"),
-                        $("<button>").addClass("btn btn-outline-success btn-sm").attr({ "type": "button"}).text("Diploma"),
+                        $("<form>").attr({ "action": '@Url.Action("verPdfFormacionAcademica", "Verificar")', "method": "post", "target":"_blank"}).append(
+                            $("<input>").attr({ "type": "hidden", "name": "IdFAcademica", "value": response.data.IdFormacionAcademica }),
+                            $("<input>").attr({ "type": "hidden", "name": "nombre", "value":"ActaColegio" }),
+                            $("<button>").addClass("btn btn-outline-success btn-sm mb-2 btn-archivo").attr({ "type": "submit" }).text("ActaColegio"),
+                        ),
+                        $("<form>").attr({ "action": '@Url.Action("verPdfFormacionAcademica", "Verificar")', "method": "post", "target":"_blank" }).append(
+                            $("<input>").attr({ "type": "hidden", "name": "IdFAcademica", "value": response.data.IdFormacionAcademica }),
+                            $("<input>").attr({ "type": "hidden", "name": "nombre", "value":"DiplomaColegio" }),
+                            $("<button>").addClass("btn btn-outline-success btn-sm mb-2 btn-archivo").attr({ "type": "submit" }).text("DiplomaColegio"),
+                        ),
                     ),
 
                     $("<td>").append(
@@ -161,9 +168,16 @@
                     $("<td>").text(response.data.MesTermino),
                     $("<td>").text(response.data.Año),
                     $("<td>").append(
-                        $("<button>").addClass("btn btn-outline-success btn-sm mb-1").attr({ "type": "button" }).text("Acta"),
-                        $("<br>"),
-                        $("<button>").addClass("btn btn-outline-success btn-sm").attr({ "type": "button"}).text("Diploma"),
+                        $("<form>").attr({ "action": '@Url.Action("verPdfFormacionAcademica", "Verificar")', "method": "post", "target":"_blank"}).append(
+                            $("<input>").attr({ "type": "hidden", "name": "IdFAcademica", "value": response.data.IdFormacionAcademica }),
+                             $("<input>").attr({ "type": "hidden", "name": "nombre", "value":"ActaUniversitaria" }),
+                             $("<button>").addClass("btn btn-outline-success btn-sm mb-2 btn-archivo").attr({ "type": "submit" }).text("ActaUniversitaria"),
+                        ),
+                        $("<form>").attr({ "action": '@Url.Action("verPdfFormacionAcademica", "Verificar")', "method": "post", "target":"_blank"}).append(
+                            $("<input>").attr({ "type": "hidden", "name": "IdFAcademica", "value": response.data.IdFormacionAcademica }),
+                            $("<input>").attr({ "type": "hidden", "name": "nombre", "value":"DiplomaUniversitario" }),
+                            $("<button>").addClass("btn btn-outline-success btn-sm mb-2 btn-archivo").attr({ "type": "submit" }).text("DiplomaUniversitario"),
+                        ),
                     ),
                     $("<td>").append(
                         $("<select>").addClass("form-select").attr({ "id": "cbocumplesuperior", "aria-label": "Default select example" }).append(
@@ -199,6 +213,24 @@
                     $("#btnBasica").text("Editar")
                     $("#btnSuperior").text("Editar")
                 }
+
+                $("#contenido").LoadingOverlay("hide")
+            },
+            error: function (error) {
+                
+                $("#contenido").LoadingOverlay("hide")
+
+                $("#respuesta").text("Error Ajax")
+                $("#FormModal").modal("show");
+
+            },
+            beforeSend: function () {
+                $("#contenido").LoadingOverlay("show", {
+                    imageResizeFactor: 2,
+                    text: "Cargando...",
+                    size: 14
+                })    
+                                    
             }
 
         })
@@ -255,9 +287,9 @@
                     } else if (numero == "2") {
                         $("#tabla2").LoadingOverlay("hide")
                     }
-
+                    $("#FormModal").modal("show");
                     $("#respuesta").text("Error Ajax")
-                    $("#respuesta").modal("show");
+                    
 
                 },
                 beforeSend: function () {

@@ -43,10 +43,11 @@
   <ItemGroup>
     <Compile Include="Actividad.cs" />
     <Compile Include="Buscar.cs" />
+    <Compile Include="CapacitacionesCursos.cs" />
     <Compile Include="DatosLaborales.cs" />
     <Compile Include="ExperienciaLaboral.cs" />
     <Compile Include="Idiomas.cs" />
-    <Compile Include="InfoCPersona.cs" />
+    <Compile Include="FormacionAcademica.cs" />
     <Compile Include="Requisitos.cs" />
     <Compile Include="S_CapacitacionesC.cs" />
     <Compile Include="CrearRequisitoLegal.cs" />

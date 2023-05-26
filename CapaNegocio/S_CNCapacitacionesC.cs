@@ -16,7 +16,11 @@ namespace CapaNegocio
         {
             return objCapaDato.Listar(numero);
         }
-
+        
+        public List<S_CapacitacionesC> ListarArchivo()
+        {
+            return objCapaDato.ListarArchivo();
+        }
         public int RegistrarCursos(S_CapacitacionesC obj, out string Mensaje)
         {
             Mensaje = string.Empty;
@@ -41,7 +45,7 @@ namespace CapaNegocio
             {
                 Mensaje = "El campo fecha de finalizacion  es obligatorio";
             }
-            else if (string.IsNullOrEmpty(obj.Archivo) || string.IsNullOrWhiteSpace(obj.Archivo))
+            else if (string.IsNullOrEmpty(obj.ArchivoNombre) || string.IsNullOrWhiteSpace(obj.ArchivoNombre))
             {
                 Mensaje = "El campo adjuntar  es obligatorio";
             }
@@ -79,7 +83,7 @@ namespace CapaNegocio
             {
                 Mensaje = "El campo fecha de finalizacion  es obligatorio";
             }
-            else if (string.IsNullOrEmpty(obj.Archivo) || string.IsNullOrWhiteSpace(obj.Archivo))
+            else if (string.IsNullOrEmpty(obj.ArchivoNombre) || string.IsNullOrWhiteSpace(obj.ArchivoNombre))
             {
                 Mensaje = "El campo adjuntar  es obligatorio";
             }

@@ -65,6 +65,64 @@ namespace CapaDatos
             return lista;
         }
 
+        public List<S_Formacion_academica> ListarArchivo()
+        {
+            List<S_Formacion_academica> lista = new List<S_Formacion_academica>();
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+
+                    string query = "select * from FORMACION_ACADEMICA";
+
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    //SqlDataReader: nos ayuada a leer el resultado del query
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(
+                                new S_Formacion_academica()
+                                {
+                                    IdFormacionAcademica = Convert.ToInt32(dr["IdFormacionAcademica"]),
+                                    CargoAspira = dr["CargoAspira"].ToString(),
+                                    EducacionBasica = dr["EducacionBasica"].ToString(),
+                                    TituloObtenido = dr["TituloObtenido"].ToString(),
+                                    MesGrado = dr["MesGrado"].ToString(),
+                                    AnoGrado = dr["AnoGrado"].ToString(),
+                                    InstituEducativa = dr["InstituEducativa"].ToString(),
+                                    ModalidadAcademica = dr["ModalidadAcademica"].ToString(),
+                                    SemestresAprobados = Convert.ToInt32(dr["SemestresAprobados"]),
+                                    Graduado = dr["Graduado"].ToString(),
+                                    NombreTitulo = dr["NombreTitulo"].ToString(),
+                                    MesTermino = dr["MesTermino"].ToString(),
+                                    Ano = dr["Ano"].ToString(),
+                                    NTarjetaProfecional = dr["NTarjetaProfecional"].ToString(),
+                                    NombreInstitucion = dr["NombreInstitucion"].ToString(),
+                                    ActaColegio = dr["ActaColegio"] as byte[],
+                                    DiplomaColegio = dr["DiplomaColegio"] as byte[],
+                                    ActaUniversitaria = dr["ActaUniversitaria"] as byte[],
+                                    DiplomaUniversitario = dr["DiplomaUniversitario"] as byte[],
+                                }
+                            );
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                lista = new List<S_Formacion_academica>();
+            }
+            return lista;
+        }
+
+
         public int RegistrarFormacion(S_Formacion_academica obj, out string Mensaje)
         {
 

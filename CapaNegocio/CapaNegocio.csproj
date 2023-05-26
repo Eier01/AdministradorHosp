@@ -45,8 +45,10 @@
     <Compile Include="CN_DatosLaborales.cs" />
     <Compile Include="CN_ExperienciaLaboral.cs" />
     <Compile Include="CN_Idiomas.cs" />
-    <Compile Include="CN_InfoCPersona.cs" />
+    <Compile Include="CN_FormacioAc_Cursos.cs" />
+    <Compile Include="CN_Reporte.cs" />
     <Compile Include="CN_Requisitos.cs" />
+    <Compile Include="CN_Usuarios.cs" />
     <Compile Include="S_CNCapacitacionesC.cs" />
     <Compile Include="S_CNF_Academica.cs" />
     <Compile Include="S_CN_Ex_Laboral.cs" />

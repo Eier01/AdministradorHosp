@@ -48,7 +48,7 @@ namespace CapaDatos
                                     IdRequisitosLegales = Convert.ToInt32(dr["IdRequisitosLegales"]),
                                     NombreRequisito = dr["NombreRequisito"].ToString(),
                                     FechaExpedicion = dr["atFechaExpedicion"].ToString(),
-                                    Archivo = dr["Archivo"] as byte[],
+                                    //Archivo = dr["Archivo"] as byte[],
                                     Cumple = dr["Cumple"].ToString(),
                                     Observacion = dr["Observacion"].ToString(),
                                     IdPersona = Convert.ToInt32(dr["IdPersona"]),

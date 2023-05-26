@@ -17,6 +17,11 @@ namespace CapaNegocio
             return objCapaDato.Listar(numero);
         }
 
+        public List<S_Rlegales> ListarArchivo()
+        {
+            return objCapaDato.ListarArchivo();
+        }
+
         public int RegistrarRlegales(S_Rlegales obj, out string Mensaje)
         {
             Mensaje = string.Empty;
@@ -26,9 +31,9 @@ namespace CapaNegocio
                 Mensaje = "El campo fecha de expedición no puede ser vacio";
             }
 
-            else if (string.IsNullOrEmpty(obj.Archivo) || string.IsNullOrWhiteSpace(obj.Archivo))
+            else if (string.IsNullOrEmpty(obj.archivoNombre) || string.IsNullOrWhiteSpace(obj.archivoNombre))
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "Adjunte un pdf";
             }
 
             if (string.IsNullOrEmpty(Mensaje))
@@ -49,7 +54,7 @@ namespace CapaNegocio
                 Mensaje = "El campo fecha de expedición no puede quedar vacio";
             }
 
-            else if (string.IsNullOrEmpty(obj.Archivo) || string.IsNullOrWhiteSpace(obj.Archivo))
+            else if (string.IsNullOrEmpty(obj.archivoNombre) || string.IsNullOrWhiteSpace(obj.archivoNombre))
             {
                 Mensaje = "El campo numero documento no puede quedar  vacio";
             }

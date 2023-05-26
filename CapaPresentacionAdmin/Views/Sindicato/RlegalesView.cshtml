@@ -31,7 +31,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Fecha Expedición</th>
-                        <th>Ver adjunto</th>
+                        @*<th>Ver adjunto</th>*@
                         <th>id rlegal</th>
 
                         <th></th>
@@ -134,7 +134,7 @@
                 //$("#idNombrec").val(data.data.NombreActividad)
                 //$("#idNombrec").text(dLaboral)
                 $.each(data.data, function (i, element) {
-                    $("#idActividad").val(element.IdActividad)
+                    $("#idActividad").val(element.IdActividad)                    
                     listarRequisitos()
                 })
             }
@@ -153,7 +153,7 @@
             "columns": [
                 { "data": "IdRequisitosLegales" },
                 { "data": "FechaExpedicion" },
-                { "data": "Archivo" },
+                //{ "data": "archivoNombre" },
                 { "data": "IdCrearRequisitoLegal" },
 
 
@@ -258,11 +258,12 @@
             }
 
             console.log($("#rLegal").val())
+            console.log($("#formRl")[0].files[0])
 
             var formData = new FormData();
             formData.append("IdRequisitosLegales", $("#txtIdRL").val());
             formData.append("FechaExpedicion", $("#txtFechaEXP").val());
-            formData.append("Archivo", $("#formRl")[0].files[0]);
+            formData.append("archivoNombre", $("#formRl")[0].files[0]);
             formData.append("IdCrearRequisitoLegal", $("#rLegal").val());
 
             //console.info($("#formFile")[0].files[0]);

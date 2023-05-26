@@ -44,7 +44,7 @@ namespace CapaEntidad
         public Boolean Estado { get; set; }
         public String Estadofecha { get; set; }
 
-       // public String  NombreCompleto  { get; set; }
+        // public String  NombreCompleto  { get; set; }
 
         // public int PersonaPerId { get; set; }
     }

@@ -46,8 +46,10 @@
     <Compile Include="CD_DatosLaborales.cs" />
     <Compile Include="CD_ExperienciaLaboral.cs" />
     <Compile Include="CD_Idiomas.cs" />
-    <Compile Include="CD_InfoCPersona.cs" />
+    <Compile Include="CD_FormacioAc_Cursos.cs" />
+    <Compile Include="CD_Reporte.cs" />
     <Compile Include="CD_Requisitos.cs" />
+    <Compile Include="CD_Usuarios.cs" />
     <Compile Include="S_CDExperienciaL.cs" />
     <Compile Include="S_CD_CapacitacionesC.cs" />
     <Compile Include="S_CD_Facademica.cs" />

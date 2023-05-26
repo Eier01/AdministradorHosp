@@ -14,7 +14,8 @@ namespace CapaEntidad
         public string EstadoFormacion { get; set; }
         public string FechaInicio { get; set; }
         public string FechaFinalizacion { get; set; }
-        public string Archivo { get; set; }
+        public byte[] Archivo { get; set; }
+        public string ArchivoNombre { get; set; }
         public string IdPersona { get; set; }
 
 

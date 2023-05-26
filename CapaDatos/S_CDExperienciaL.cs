@@ -66,6 +66,62 @@ namespace CapaDatos
             return lista;
         }
 
+
+        public List<S_Ex_Laboral> ListarArchivo()
+        {
+            List<S_Ex_Laboral> lista = new List<S_Ex_Laboral>();
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+
+                    string query = "select * from EXPERIENCIA_LABORAL";
+
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    //SqlDataReader: nos ayuada a leer el resultado del query
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(
+                                new S_Ex_Laboral()
+                                {
+                                    IdExperienciaLaboral = Convert.ToInt32(dr["IdExperienciaLaboral"]),
+                                    EmpresaEntidad = dr["EmpresaEntidad"].ToString(),
+                                    Pais = dr["Pais"].ToString(),
+                                    Departamento = dr["Departamento"].ToString(),
+                                    Ciudad = dr["Ciudad"].ToString(),
+                                    Direccion = dr["Direccion"].ToString(),
+                                    Telefono = dr["Telefono"].ToString(),
+                                    CorreoElectronico = dr["CorreoElectronico"].ToString(),
+                                    SectorEmpresa = dr["SectorEmpresa"].ToString(),
+                                    CargoContratoActual = dr["CargoContratoActual"].ToString(),
+                                    Dependencia = dr["Dependencia"].ToString(),
+                                    FechaIngreso = dr["FechaIngreso"].ToString(),
+                                    FechaEgreso = dr["FechaEgreso"].ToString(),
+                                    AdjuntarSoporte = dr["AdjuntarSoporte"] as byte[],
+
+                                }
+                            );
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                lista = new List<S_Ex_Laboral>();
+            }
+
+
+            return lista;
+        }
+
         public int RegistrarExpLaboral(S_Ex_Laboral obj, out string Mensaje)
         {
 

@@ -42,11 +42,56 @@ namespace CapaDatos
                                     Nombre = dr["Nombre"].ToString(),
                                     EstadoFormacion = dr["EstadoFormacion"].ToString(),
                                     FechaInicio = dr["FechaInicio"].ToString(),
-                                    Archivo = dr["Archivo"].ToString(),
                                     FechaFinalizacion = dr["FechaFinalizacion"].ToString(),
+                                }
 
-                                   
+                            );
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                lista = new List<S_CapacitacionesC>();
+            }
 
+
+            return lista;
+        }
+
+
+        public List<S_CapacitacionesC> ListarArchivo()
+        {
+            List<S_CapacitacionesC> lista = new List<S_CapacitacionesC>();
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
+
+                    string query = "select * from CAPACITACIONE_CURSOS";
+
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    //SqlDataReader: nos ayuada a leer el resultado del query
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(
+                                new S_CapacitacionesC()
+                                {
+                                    idCapacitacionesCursos = Convert.ToInt32(dr["idCapacitacionesCursos"]),
+                                    TipoFormacion = dr["TipoFormacion"].ToString(),
+                                    Nombre = dr["Nombre"].ToString(),
+                                    EstadoFormacion = dr["EstadoFormacion"].ToString(),
+                                    FechaInicio = dr["FechaInicio"].ToString(),
+                                    Archivo = dr["Archivo"] as byte[],
+                                    FechaFinalizacion = dr["FechaFinalizacion"].ToString(),
                                 }
 
                             );
