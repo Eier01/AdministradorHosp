@@ -184,6 +184,12 @@ namespace CapaPresentacionAdmin.Controllers
             {
                 string documento = ((string)Session["Consultarid"]);
 
+                if (string.IsNullOrEmpty(documento))
+                {
+                    string Mensaje = "Primero consulta una persona";
+                    return Json(new { data = oLista, mensaje = Mensaje }, JsonRequestBehavior.AllowGet);
+                }
+
                 if (documento != null)
                 {
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
@@ -227,6 +233,12 @@ namespace CapaPresentacionAdmin.Controllers
             {
                 string documento = ((string)Session["Consultarid"]);
 
+                if (string.IsNullOrEmpty(documento))
+                {
+                    string Mensaje = "Primero consulta una persona";
+                    return Json(new { data = oLista, mensaje = Mensaje }, JsonRequestBehavior.AllowGet);
+                }
+
                 if (documento != null)
                 {
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
@@ -269,6 +281,12 @@ namespace CapaPresentacionAdmin.Controllers
             if (numero.Equals("0"))
             {
                 string documento = ((string)Session["Consultarid"]);
+
+                if (string.IsNullOrEmpty(documento))
+                {
+                    string Mensaje = "Primero consulta una persona";
+                    return Json(new { data = oLista, mensaje = Mensaje }, JsonRequestBehavior.AllowGet);
+                }
 
                 if (documento != null)
                 {
@@ -314,6 +332,12 @@ namespace CapaPresentacionAdmin.Controllers
             {
                 string documento = ((string)Session["Consultarid"]);
 
+                if (string.IsNullOrEmpty(documento))
+                {
+                    string Mensaje = "Primero consulta una persona";
+                    return Json(new { data = oLista, mensaje = Mensaje }, JsonRequestBehavior.AllowGet);
+                }
+
                 if (documento != null)
                 {
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
@@ -354,6 +378,12 @@ namespace CapaPresentacionAdmin.Controllers
             if (numero.Equals("0"))
             {
                 string documento = ((string)Session["Consultarid"]);
+
+                if (string.IsNullOrEmpty(documento))
+                {
+                    string Mensaje = "Primero consulta una persona";
+                    return Json(new { data = oLista, mensaje = Mensaje }, JsonRequestBehavior.AllowGet);
+                }
 
                 if (documento != null)
                 {
@@ -745,8 +775,12 @@ namespace CapaPresentacionAdmin.Controllers
 
             List<Buscar> oLista = new List<Buscar>();
 
+            if (string.IsNullOrEmpty(documento))
+            {
+                documento = "0";
+            }
+
             oLista = new CN_Buscar().Listar(documento);
-            
 
             Session["Consultarid"] = "0";
 
