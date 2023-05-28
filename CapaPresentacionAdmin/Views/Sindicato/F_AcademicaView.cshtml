@@ -328,7 +328,7 @@
                 NombreInstitucion: $("#txtnominstitucionprof").val(),
             }
 
-
+            console.log($("#adactacol")[0].files[0])
             var formData = new FormData();
             formData.append("IdFormacionAcademica", $("#txtIdFacademica").val());
             formData.append("CargoAspira", $("#txtcargoasp").val());
@@ -353,8 +353,15 @@
             formData.append("ActaUniversitariaNombre", $("#actauni")[0].files[0]);
             formData.append("DiplomaUniversitarioNombre", $("#diplouni")[0].files[0]);
 
+            if ($("#adactacol")[0].files[0] == undefined || $("#addiplomacol")[0].files[0] == undefined || $("#actauni")[0].files[0] == undefined || $("#diplouni")[0].files[0] == undefined) {
 
-             jQuery.ajax({
+                $("#mensajEerror").text("Los campos para adjuntar pdf no puede ser vacio")
+                $("#mensajEerror").show()
+
+
+            } else { 
+
+                 jQuery.ajax({
                 url: '@Url.Action("GuardarFormacion", "Sindicato")',
                  type: "POST",
                  data: formData,
@@ -401,6 +408,9 @@
                              console.log(error)
                         }
             });
+
+            }
+
          }
 
     </script>

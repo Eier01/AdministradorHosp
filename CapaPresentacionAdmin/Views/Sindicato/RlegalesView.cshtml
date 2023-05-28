@@ -134,7 +134,7 @@
                 //$("#idNombrec").val(data.data.NombreActividad)
                 //$("#idNombrec").text(dLaboral)
                 $.each(data.data, function (i, element) {
-                    $("#idActividad").val(element.IdActividad)                    
+                    $("#idActividad").val(element.IdActividad)
                     listarRequisitos()
                 })
             }
@@ -217,7 +217,7 @@
 
             if (json != null) {
 
-                $("#txtIdRL").val(json.IdRequisitosLegales); 
+                $("#txtIdRL").val(json.IdRequisitosLegales);
                 $("#txtFechaEXP").val(json.FechaExpedicion);
                 $("#rLegal").val(json.IdCrearRequisitoLegal);
 
@@ -268,8 +268,14 @@
 
             //console.info($("#formFile")[0].files[0]);
 
+            if ($("#formRl")[0].files[0] == undefined) {
 
-             jQuery.ajax({
+                $("#mensajEerror").text("El campo para adjuntar pdf no puede ser vacio")
+                $("#mensajEerror").show()
+
+            } else {
+
+                jQuery.ajax({
                 url: '@Url.Action("GuardarRlegales", "Sindicato")',
                 type: "POST",
                 data: formData,
@@ -317,6 +323,9 @@
                     console.log(error)
                 }
             });
+
+            }
+
          }
 
     </script>

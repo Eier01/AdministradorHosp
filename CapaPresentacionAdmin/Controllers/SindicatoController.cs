@@ -74,7 +74,13 @@ namespace CapaPresentacionAdmin.Controllers
             {
                 string documento = ((string)Session["Consultarid"]);
 
-                if(documento != null)
+                if (string.IsNullOrEmpty(documento) )
+                {
+                   string Mensaje = "Primero consulta una persona";
+                    return Json(new { data = oLista, mensaje = Mensaje  }, JsonRequestBehavior.AllowGet);
+                }
+
+                if (documento != null)
                 {
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
 
@@ -445,6 +451,8 @@ namespace CapaPresentacionAdmin.Controllers
             {
                 HttpPostedFileBase archivo = Request.Files[i];
                 string nombreArchivo = null;
+
+
 
                 MemoryStream ms = new MemoryStream();
 
