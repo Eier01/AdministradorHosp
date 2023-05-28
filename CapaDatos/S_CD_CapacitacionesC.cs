@@ -40,6 +40,7 @@ namespace CapaDatos
                                     idCapacitacionesCursos = Convert.ToInt32(dr["idCapacitacionesCursos"]),
                                     TipoFormacion = dr["TipoFormacion"].ToString(),
                                     Nombre = dr["Nombre"].ToString(),
+                                    
                                     EstadoFormacion = dr["EstadoFormacion"].ToString(),
                                     FechaInicio = dr["FechaInicio"].ToString(),
                                     FechaFinalizacion = dr["FechaFinalizacion"].ToString(),
@@ -127,6 +128,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("FechaInicio", obj.FechaInicio);
                     cmd.Parameters.AddWithValue("FechaFinalizacion", obj.FechaFinalizacion);
                     cmd.Parameters.AddWithValue("Archivo", obj.Archivo);
+                    cmd.Parameters.AddWithValue("NombreArchivo", obj.ArchivoNombre);
                     cmd.Parameters.AddWithValue("IdPersona", obj.IdPersona);
 
 
@@ -175,7 +177,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("FechaInicio", obj.FechaInicio);
                     cmd.Parameters.AddWithValue("FechaFinalizacion", obj.FechaFinalizacion);
                     cmd.Parameters.AddWithValue("Archivo", obj.Archivo);
-
+                    cmd.Parameters.AddWithValue("NombreArchivo", obj.ArchivoNombre);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 

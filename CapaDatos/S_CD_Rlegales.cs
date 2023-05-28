@@ -127,6 +127,7 @@ namespace CapaDatos
                    
                     cmd.Parameters.AddWithValue("FechaExpedicion", obj.FechaExpedicion);
                     cmd.Parameters.AddWithValue("Archivo", obj.Archivo);
+                    cmd.Parameters.AddWithValue("NombreArchivo", obj.archivoNombre);
                     cmd.Parameters.AddWithValue("IdCrearRequisitoLegal", obj.IdCrearRequisitoLegal);
                     cmd.Parameters.AddWithValue("IdPersona", obj.IdPersona);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -170,6 +171,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("IdRequisitosLegales", obj.IdRequisitosLegales);
                     cmd.Parameters.AddWithValue("FechaExpedicion", obj.FechaExpedicion);
                     cmd.Parameters.AddWithValue("Archivo", obj.Archivo);
+                    cmd.Parameters.AddWithValue("NombreArchivo", obj.archivoNombre);
                     cmd.Parameters.AddWithValue("IdCrearRequisitoLegal", obj.IdCrearRequisitoLegal);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;

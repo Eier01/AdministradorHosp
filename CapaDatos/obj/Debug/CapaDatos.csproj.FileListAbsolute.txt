@@ -43,3 +43,12 @@ C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaDatos\obj\Debug\Cap
 C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
 C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\Sebastian Gutierrez\Documents\AdministradorHosp\CapaDatos\obj\Debug\CapaDatos.pdb
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\bin\Debug\CapaDatos.dll
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\bin\Debug\CapaDatos.pdb
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\bin\Debug\CapaEntidad.dll
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\bin\Debug\CapaEntidad.pdb
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.dll
+F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.pdb
