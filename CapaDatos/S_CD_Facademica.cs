@@ -154,6 +154,11 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("NombreInstitucion", obj.NombreInstitucion);
                     cmd.Parameters.AddWithValue("ActaUniversitaria", obj.ActaUniversitaria);
                     cmd.Parameters.AddWithValue("DiplomaUniversitario", obj.DiplomaUniversitario);
+
+                    cmd.Parameters.AddWithValue("NombreActaColegio", obj.ActaColegioNombre);
+                    cmd.Parameters.AddWithValue("NombreDiplomaColegio", obj.DiplomaColegioNombre);
+                    cmd.Parameters.AddWithValue("NombreActaUniversitaria", obj.ActaUniversitariaNombre);
+                    cmd.Parameters.AddWithValue("NombreDiplomaUniversitario", obj.DiplomaUniversitarioNombre);
                     cmd.Parameters.AddWithValue("IdPersona", obj.IdPersona);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -212,6 +217,10 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("NombreInstitucion", obj.NombreInstitucion);
                     cmd.Parameters.AddWithValue("ActaUniversitaria", obj.ActaUniversitaria);
                     cmd.Parameters.AddWithValue("DiplomaUniversitario", obj.DiplomaUniversitario);
+                    cmd.Parameters.AddWithValue("NombreActaColegio", obj.ActaColegioNombre);
+                    cmd.Parameters.AddWithValue("NombreDiplomaColegio", obj.DiplomaColegioNombre);
+                    cmd.Parameters.AddWithValue("NombreActaUniversitaria", obj.ActaUniversitariaNombre);
+                    cmd.Parameters.AddWithValue("NombreDiplomaUniversitario", obj.DiplomaUniversitarioNombre);
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
 
