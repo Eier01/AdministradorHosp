@@ -4,13 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>RlegalesView</h2>
 
 
-@{
-    ViewBag.Title = "RlegalesView";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@*@{
+        ViewBag.Title = "RlegalesView";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
 
 <br>
 <div class="card">
@@ -22,6 +21,11 @@
             <br>
             <div class="hola1">
                 <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Crear Requisito Legal</button>
+                @if ((int)Session["Revision"] != 0)
+                {
+                    <button type="button" onclick="TerminarRevision()" class="btn btn-success">Terminar Revision</button>
+                }
+
             </div>
             <br>
             <br>
@@ -113,6 +117,23 @@
     </div>
 </div>
 
+<div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="respuesta"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts{
 
     <script>
@@ -121,8 +142,41 @@
 
         var tabladata;
         var filaSeleccionada;
+        //var session = 0;
+
+        function TerminarRevision() {
+
+            jQuery.ajax({
+            url: '@Url.Action("TerminarRegistro", "Sindicato")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
 
 
+                if (data.resultado) {
+
+                    console.log("true")
+
+
+                    $("#FormModal").modal("show");
+                    $("#respuesta").text(data.mensaje)
+                    $('#respuesta').removeClass('text-danger');
+                    $('#respuesta').addClass('text-primary');
+
+                } else {
+
+                    $("#FormModal").modal("show");
+                    $("#respuesta").text(data.mensaje)
+                    $('#respuesta').removeClass('text-primary');
+                    $('#respuesta').addClass('text-danger');
+                }
+
+
+            }
+
+         })
+        }
 
         jQuery.ajax({
             url: '@Url.Action("ListarDatosLaborales", "Sindicato")',

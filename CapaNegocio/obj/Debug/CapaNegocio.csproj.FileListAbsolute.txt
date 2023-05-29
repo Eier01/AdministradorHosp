@@ -64,3 +64,14 @@ F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\
 F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
 F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.dll
 F:\proyecto seminario empresarial\proyecto avanzado\v7\Pasantia\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.pdb
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\bin\Debug\CapaNegocio.dll
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\bin\Debug\CapaNegocio.pdb
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\bin\Debug\CapaDatos.dll
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\bin\Debug\CapaEntidad.dll
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\bin\Debug\CapaDatos.pdb
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\bin\Debug\CapaEntidad.pdb
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.dll
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaNegocio\obj\Debug\CapaNegocio.pdb

@@ -69,8 +69,9 @@ namespace CapaPresentacionAdmin.Controllers
             }
 
             Session["Documento"] = Convert.ToInt32(numero);
+            Session["Revision"] = 0;
 
-            if(numero.Equals("0"))
+            if (numero.Equals("0"))
             {
                 string documento = ((string)Session["Consultarid"]);
 
@@ -82,6 +83,7 @@ namespace CapaPresentacionAdmin.Controllers
 
                 if (documento != null)
                 {
+                    Session["Revision"] = 1;
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
 
 
@@ -115,7 +117,7 @@ namespace CapaPresentacionAdmin.Controllers
             
             List<S_Persona> oLista = new List<S_Persona>();
             oLista = new S_CN_Persona().Listar();
-
+            Session["Revision"] = 0;
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
 
@@ -180,6 +182,8 @@ namespace CapaPresentacionAdmin.Controllers
             {
                 numero = "0";
             }
+
+            Session["Revision"] = 0;
             if (numero.Equals("0"))
             {
                 string documento = ((string)Session["Consultarid"]);
@@ -192,6 +196,7 @@ namespace CapaPresentacionAdmin.Controllers
 
                 if (documento != null)
                 {
+                    Session["Revision"] = 1;
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
 
 
@@ -229,6 +234,8 @@ namespace CapaPresentacionAdmin.Controllers
             {
                 numero = "0";
             }
+
+            Session["Revision"] = 0;
             if (numero.Equals("0"))
             {
                 string documento = ((string)Session["Consultarid"]);
@@ -241,6 +248,7 @@ namespace CapaPresentacionAdmin.Controllers
 
                 if (documento != null)
                 {
+                    Session["Revision"] = 1;
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
 
 
@@ -278,6 +286,8 @@ namespace CapaPresentacionAdmin.Controllers
             {
                 numero = "0";
             }
+
+            Session["Revision"] = 0;
             if (numero.Equals("0"))
             {
                 string documento = ((string)Session["Consultarid"]);
@@ -290,6 +300,7 @@ namespace CapaPresentacionAdmin.Controllers
 
                 if (documento != null)
                 {
+                    Session["Revision"] = 1;
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
 
 
@@ -328,6 +339,7 @@ namespace CapaPresentacionAdmin.Controllers
             }
             Session["Documento"] = Convert.ToInt32(numero); ;
 
+            Session["Revision"] = 0;
             if (numero.Equals("0"))
             {
                 string documento = ((string)Session["Consultarid"]);
@@ -340,6 +352,7 @@ namespace CapaPresentacionAdmin.Controllers
 
                 if (documento != null)
                 {
+                    Session["Revision"] = 1;
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
 
 
@@ -375,6 +388,7 @@ namespace CapaPresentacionAdmin.Controllers
             }
             Session["Documento"] = Convert.ToInt32(numero); ;
 
+            Session["Revision"] = 0;
             if (numero.Equals("0"))
             {
                 string documento = ((string)Session["Consultarid"]);
@@ -387,6 +401,7 @@ namespace CapaPresentacionAdmin.Controllers
 
                 if (documento != null)
                 {
+                    Session["Revision"] = 1;
                     S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
 
 
@@ -783,9 +798,11 @@ namespace CapaPresentacionAdmin.Controllers
             oLista = new CN_Buscar().Listar(documento);
 
             Session["Consultarid"] = "0";
+            Session["Revision"] = 0;
 
             if (oLista.Count() > 0)
             {
+                Session["Revision"] = 1;
                 estado = true;
                 Session["Consultarid"] = documento;
                 return Json(new { message = "operacion exitosa", estado=estado }, JsonRequestBehavior.AllowGet);
@@ -820,6 +837,30 @@ namespace CapaPresentacionAdmin.Controllers
 
             //retornamos esto de esta forma porque DataTable asi lo requiere
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public JsonResult TerminarRegistro()
+        {
+            int Idpersona;
+            object resultado;
+            string mensaje = string.Empty;
+            string documento = ((string)Session["Consultarid"]);
+            if (string.IsNullOrEmpty(documento))
+            {
+                return Json(new { resultado = false, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+            }
+
+            S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
+            Idpersona = persona.IdPersona;
+
+            resultado = new S_CN_Rlegales().TerminarRevision(Idpersona, out mensaje);
+
+            Session["Revision"] = 0;
+            Session["Documento"] = "0";
+            Session["Consultarid"] = "";
+
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
     }
 }

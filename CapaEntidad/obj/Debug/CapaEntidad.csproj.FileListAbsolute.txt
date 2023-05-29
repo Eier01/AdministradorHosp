@@ -34,3 +34,9 @@ C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\obj\Debug\CapaE
 C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
 C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.dll
 C:\Users\PERSONAL\Downloads\Pasantia\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.pdb
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaEntidad\bin\Debug\CapaEntidad.dll
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaEntidad\bin\Debug\CapaEntidad.pdb
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.dll
+F:\proyecto seminario empresarial\proyecto avanzado p2\AdministradorHV\CapaEntidad\obj\Debug\CapaEntidad.pdb

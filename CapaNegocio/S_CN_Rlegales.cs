@@ -69,5 +69,11 @@ namespace CapaNegocio
             }
         }
 
+        public bool TerminarRevision(int idpersona, out String Mensaje)
+        {
+            return objCapaDato.TerminarRevision(idpersona, out Mensaje);
+
+        }
+
     }
 }
