@@ -8,6 +8,7 @@ namespace CapaEntidad
 {
     public class S_Persona
     {
+        
         public int IdPersona { get; set; }
         public string TipoIdentificacion { get; set; }
         public int NumeroDocumento { get; set; }
@@ -41,10 +42,11 @@ namespace CapaEntidad
         public string Eps { get; set; }
         public string FondoPensiones { get; set; }
         public string Arl { get; set; }
-        public Boolean Estado { get; set; }
+        public bool Estado { get; set; }
         public String Estadofecha { get; set; }
 
-        // public String  NombreCompleto  { get; set; }
+
+       
 
         // public int PersonaPerId { get; set; }
     }

@@ -827,6 +827,9 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
 
+       
+
+
 
         [HttpPost]
         public JsonResult ListarParaSindicato(int idActividad)

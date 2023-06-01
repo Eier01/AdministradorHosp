@@ -155,16 +155,16 @@
         var tabladata;
         var filaSeleccionada;
 
-        jQuery.ajax({
+        @*jQuery.ajax({
             url: '@Url.Action("ListaExp_Laboral", "Sindicato")',
             type: "GET",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-                console.log(data)
+                //console.log(data)
             }
 
-        })
+        })*@
         tabladata = $("#tabla3").DataTable({
             responsive: true,
             ordering: false,
@@ -281,6 +281,8 @@
                 contentType: false,
                 success: function (data) {
                     console.info(data);
+                    // este es el que imprimi la data 
+                    console.log(data)
 
                      //Usuario Nuevo
                     if (Experienciag.IdExperienciaLaboral == 0) {

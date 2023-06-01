@@ -18,101 +18,126 @@ namespace CapaNegocio
         public int RegistrarPerson(S_Persona obj, out string Mensaje)
         {
             Mensaje = string.Empty;
-            string numeroDocumento = obj.NumeroDocumento.ToString();
-
 
             if (string.IsNullOrEmpty(obj.TipoIdentificacion) || string.IsNullOrWhiteSpace(obj.TipoIdentificacion))
             {
-                Mensaje = "Este campo identificacion es obligatorio";
+                Mensaje = "El campo identificacion es obligatorio";
             }
-            else if (string.IsNullOrEmpty(numeroDocumento) || string.IsNullOrWhiteSpace(numeroDocumento))
+            else if (obj.NumeroDocumento == 0)
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "El campo numero documento es obligatorio";
             }
-            else if (string.IsNullOrEmpty(obj.Genero) || string.IsNullOrWhiteSpace(obj.Genero))
+            else if (string.IsNullOrEmpty(obj.FechaExpedicion) || string.IsNullOrWhiteSpace(obj.FechaExpedicion))
             {
-                Mensaje = "Este campo genero es obligatorio";
-            }
-            else if (string.IsNullOrEmpty(obj.Pais) || string.IsNullOrWhiteSpace(obj.Pais))
-            {
-                Mensaje = "Este campo pais es obligatorio";
+                Mensaje = "El campo Fecha de Expedición es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.LugarExpedicion) || string.IsNullOrWhiteSpace(obj.LugarExpedicion))
             {
-                Mensaje = "Este campo lugar expedicion es obligatorio";
-            }
-          
-            else if (string.IsNullOrEmpty(obj.EstadoCivil) || string.IsNullOrWhiteSpace(obj.EstadoCivil))
-            {
-                Mensaje = "Este campo estado civil es obligatorio";
+                Mensaje = "El campo lugar expedición es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.PrimerNombre) || string.IsNullOrWhiteSpace(obj.PrimerNombre))
             {
-                Mensaje = "Este campo primer nombre es obligatorio";
+                Mensaje = "El campo primer nombre es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.SegundoNombre) || string.IsNullOrWhiteSpace(obj.SegundoNombre))
             {
-                Mensaje = "Este campo segundo nombre es obligatorio";
+                Mensaje = "El campo segundo nombre es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.PrimerApellido) || string.IsNullOrWhiteSpace(obj.PrimerApellido))
             {
-                Mensaje = "Este campo primer apellido es obligatorio";
+                Mensaje = "El campo primer apellido es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.SegundoApellido) || string.IsNullOrWhiteSpace(obj.SegundoApellido))
             {
-                Mensaje = "Este campo segundo apellido es obligatorio";
+                Mensaje = "El campo segundo apellido es obligatorio";
             }
+
+            else if (string.IsNullOrEmpty(obj.Genero) || string.IsNullOrWhiteSpace(obj.Genero))
+            {
+                Mensaje = "El campo sexo es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.Pais) || string.IsNullOrWhiteSpace(obj.Pais))
+            {
+                Mensaje = "El campo pais es obligatorio";
+            }
+                  
+            else if (string.IsNullOrEmpty(obj.EstadoCivil) || string.IsNullOrWhiteSpace(obj.EstadoCivil))
+            {
+                Mensaje = "El campo estado civil es obligatorio";
+            }
+           
+
+
             else if (string.IsNullOrEmpty(obj.LibretaMilitar) || string.IsNullOrWhiteSpace(obj.LibretaMilitar))
             {
-                Mensaje = "Este campo libreta militar es obligatorio";
-            }      
+                Mensaje = "El campo libreta militar es obligatorio";
+            }
+          
+            else if (string.IsNullOrEmpty(obj.FechaNacimiente) || string.IsNullOrWhiteSpace(obj.FechaNacimiente))
+            {
+                Mensaje = "El campo Fecha de nacimiento  es obligatorio";
+            }
+
             else if (string.IsNullOrEmpty(obj.PaisNacimiento) || string.IsNullOrWhiteSpace(obj.PaisNacimiento))
             {
-                Mensaje = "Este campo pais nacimiento es obligatorio";
+                Mensaje = "El campo pais nacimiento es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.DeapartamentoNacimiento) || string.IsNullOrWhiteSpace(obj.DeapartamentoNacimiento))
             {
-                Mensaje = "Este campo departamento nacimiento es obligatorio";
+                Mensaje = "El campo departamento nacimiento es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.CiudadNacimiento) || string.IsNullOrWhiteSpace(obj.CiudadNacimiento))
             {
-                Mensaje = "Este campo ciudad nacimiento es obligatorio";
+                Mensaje = "El campo ciudad nacimiento es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.Direccion) || string.IsNullOrWhiteSpace(obj.Direccion))
             {
-                Mensaje = "Este campo direccion es obligatorio";
+                Mensaje = "El campo direccion es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.PaisDireccion) || string.IsNullOrWhiteSpace(obj.PaisDireccion))
             {
-                Mensaje = "Este campo pais direccion es obligatorio";
+                Mensaje = "El campo pais residencia es obligatorio";
             }
+
             else if (string.IsNullOrEmpty(obj.DepartamentoResidencia) || string.IsNullOrWhiteSpace(obj.DepartamentoResidencia))
             {
-                Mensaje = "Este campodepartamento residencia es obligatorio";
+                Mensaje = "El campo departamento residencia es obligatorio";
             }
+
             else if (string.IsNullOrEmpty(obj.CiudadDireccion) || string.IsNullOrWhiteSpace(obj.CiudadDireccion))
             {
-                Mensaje = "Este campo ciudad direccion es obligatorio";
+                Mensaje = "El campo ciudad residencia es obligatorio";
             }
+
             else if (string.IsNullOrEmpty(obj.Telefono) || string.IsNullOrWhiteSpace(obj.Telefono))
             {
-                Mensaje = "Este campo telefono es obligatorio";
+                Mensaje = "El campo telefono es obligatorio";
             }
+
             else if (string.IsNullOrEmpty(obj.CorreoElectronico) || string.IsNullOrWhiteSpace(obj.CorreoElectronico))
             {
-                Mensaje = "Este campo correo electronico es obligatorio";
+                Mensaje = "El campo correo electronico es obligatorio";
             }
+            else if (string.IsNullOrEmpty(obj.GrupoSanguineo) || string.IsNullOrWhiteSpace(obj.GrupoSanguineo))
+            {
+                Mensaje = "El campo Grupo sanguineo es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.GrupoEtnico) || string.IsNullOrWhiteSpace(obj.GrupoEtnico))
+            {
+                Mensaje = "El campo Grupo etnico es obligatorio";
+            }
+
             else if (string.IsNullOrEmpty(obj.Profesion) || string.IsNullOrWhiteSpace(obj.Profesion))
             {
-                Mensaje = "Este campo profesion es obligatorio";
+                Mensaje = "El campo profesion es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.Eps) || string.IsNullOrWhiteSpace(obj.Eps))
             {
-                Mensaje = "Este campo eps es obligatorio";
+                Mensaje = "El campo eps es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.FondoPensiones) || string.IsNullOrWhiteSpace(obj.FondoPensiones))
             {
-                Mensaje = "Este campo fondo pensiones es obligatorio";
+                Mensaje = "El campo fondo pensiones es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.Arl) || string.IsNullOrWhiteSpace(obj.Arl))
             {
@@ -136,106 +161,137 @@ namespace CapaNegocio
         public bool EditarPerson(S_Persona obj, out string Mensaje)
         {
             Mensaje = string.Empty;
-            string numeroDocumento = obj.NumeroDocumento.ToString();
-          
+            
 
             if (string.IsNullOrEmpty(obj.TipoIdentificacion) || string.IsNullOrWhiteSpace(obj.TipoIdentificacion))
             {
-                Mensaje = "Este campo identificacion es obligatorio";
+                Mensaje = "El campo identificacion es obligatorio";
             }
-            else if (string.IsNullOrEmpty(numeroDocumento) || string.IsNullOrWhiteSpace(numeroDocumento))
+           
+            else if (obj.NumeroDocumento == 0)
             {
-                Mensaje = "Este campo numero documento es obligatorio";
+                Mensaje = "El campo Identificación es obligatorio";
             }
-            else if (string.IsNullOrEmpty(obj.Genero) || string.IsNullOrWhiteSpace(obj.Genero))
+            else if (string.IsNullOrEmpty(obj.FechaExpedicion) || string.IsNullOrWhiteSpace(obj.FechaExpedicion))
             {
-                Mensaje = "Este campo genero es obligatorio";
-            }
-            else if (string.IsNullOrEmpty(obj.Pais) || string.IsNullOrWhiteSpace(obj.Pais))
-            {
-                Mensaje = "Este campo pais es obligatorio";
+                Mensaje = "El campo Fecha de Expedición es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.LugarExpedicion) || string.IsNullOrWhiteSpace(obj.LugarExpedicion))
             {
-                Mensaje = "Este campo lugar expedicion es obligatorio";
+                Mensaje = "El campo lugar expedición es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.PrimerNombre) || string.IsNullOrWhiteSpace(obj.PrimerNombre))
+            {
+                Mensaje = "El campo primer nombre es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.SegundoNombre) || string.IsNullOrWhiteSpace(obj.SegundoNombre))
+            {
+                Mensaje = "El campo segundo nombre es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.PrimerApellido) || string.IsNullOrWhiteSpace(obj.PrimerApellido))
+            {
+                Mensaje = "El campo primer apellido es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.SegundoApellido) || string.IsNullOrWhiteSpace(obj.SegundoApellido))
+            {
+                Mensaje = "El campo segundo apellido es obligatorio";
+            }
+
+            else if (string.IsNullOrEmpty(obj.Genero) || string.IsNullOrWhiteSpace(obj.Genero))
+            {
+                Mensaje = "El campo sexo es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.Pais) || string.IsNullOrWhiteSpace(obj.Pais))
+            {
+                Mensaje = "El campo pais es obligatorio";
             }
 
             else if (string.IsNullOrEmpty(obj.EstadoCivil) || string.IsNullOrWhiteSpace(obj.EstadoCivil))
             {
-                Mensaje = "Este campo estado civil es obligatorio";
+                Mensaje = "El campo estado civil es obligatorio";
             }
-            else if (string.IsNullOrEmpty(obj.PrimerNombre) || string.IsNullOrWhiteSpace(obj.PrimerNombre))
-            {
-                Mensaje = "Este campo primer nombre es obligatorio";
-            }
-            else if (string.IsNullOrEmpty(obj.SegundoNombre) || string.IsNullOrWhiteSpace(obj.SegundoNombre))
-            {
-                Mensaje = "Este campo segundo nombre es obligatorio";
-            }
-            else if (string.IsNullOrEmpty(obj.PrimerApellido) || string.IsNullOrWhiteSpace(obj.PrimerApellido))
-            {
-                Mensaje = "Este campo primer apellido es obligatorio";
-            }
-            else if (string.IsNullOrEmpty(obj.SegundoApellido) || string.IsNullOrWhiteSpace(obj.SegundoApellido))
-            {
-                Mensaje = "Este campo segundo apellido es obligatorio";
-            }
+           
+
             else if (string.IsNullOrEmpty(obj.LibretaMilitar) || string.IsNullOrWhiteSpace(obj.LibretaMilitar))
             {
-                Mensaje = "Este campo libreta militar es obligatorio";
+                Mensaje = "El campo libreta militar es obligatorio";
             }
+       
+            else if (string.IsNullOrEmpty(obj.FechaNacimiente) || string.IsNullOrWhiteSpace(obj.FechaNacimiente))
+            {
+                Mensaje = "El campo Fecha de nacimiento  es obligatorio";
+            }
+
             else if (string.IsNullOrEmpty(obj.PaisNacimiento) || string.IsNullOrWhiteSpace(obj.PaisNacimiento))
             {
-                Mensaje = "Este campo pais nacimiento es obligatorio";
+                Mensaje = "El campo pais nacimiento es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.DeapartamentoNacimiento) || string.IsNullOrWhiteSpace(obj.DeapartamentoNacimiento))
             {
-                Mensaje = "Este campo departamento nacimiento es obligatorio";
+                Mensaje = "El campo departamento nacimiento es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.CiudadNacimiento) || string.IsNullOrWhiteSpace(obj.CiudadNacimiento))
             {
-                Mensaje = "Este campo ciudad nacimiento es obligatorio";
+                Mensaje = "El campo ciudad nacimiento es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.Direccion) || string.IsNullOrWhiteSpace(obj.Direccion))
             {
-                Mensaje = "Este campo direccion es obligatorio";
+                Mensaje = "El campo direccion es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.PaisDireccion) || string.IsNullOrWhiteSpace(obj.PaisDireccion))
             {
-                Mensaje = "Este campo pais direccion es obligatorio";
+                Mensaje = "El campo pais residencia es obligatorio";
             }
+
             else if (string.IsNullOrEmpty(obj.DepartamentoResidencia) || string.IsNullOrWhiteSpace(obj.DepartamentoResidencia))
             {
-                Mensaje = "Este campodepartamento residencia es obligatorio";
+                Mensaje = "El campo departamento residencia es obligatorio";
             }
+
             else if (string.IsNullOrEmpty(obj.CiudadDireccion) || string.IsNullOrWhiteSpace(obj.CiudadDireccion))
             {
-                Mensaje = "Este campo ciudad direccion es obligatorio";
+                Mensaje = "El campo ciudad residencia es obligatorio";
             }
+
             else if (string.IsNullOrEmpty(obj.Telefono) || string.IsNullOrWhiteSpace(obj.Telefono))
             {
-                Mensaje = "Este campo telefono es obligatorio";
+                Mensaje = "El campo telefono es obligatorio";
             }
+
             else if (string.IsNullOrEmpty(obj.CorreoElectronico) || string.IsNullOrWhiteSpace(obj.CorreoElectronico))
             {
-                Mensaje = "Este campo correo electronico es obligatorio";
+                Mensaje = "El campo correo electronico es obligatorio";
             }
+            else if (string.IsNullOrEmpty(obj.GrupoSanguineo) || string.IsNullOrWhiteSpace(obj.GrupoSanguineo))
+            {
+                Mensaje = "El campo Grupo sanguineo es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.GrupoEtnico) || string.IsNullOrWhiteSpace(obj.GrupoEtnico))
+            {
+                Mensaje = "El campo Grupo etnico es obligatorio";
+            }
+
             else if (string.IsNullOrEmpty(obj.Profesion) || string.IsNullOrWhiteSpace(obj.Profesion))
             {
-                Mensaje = "Este campo profesion es obligatorio";
+                Mensaje = "El campo profesion es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.Eps) || string.IsNullOrWhiteSpace(obj.Eps))
             {
-                Mensaje = "Este campo eps es obligatorio";
+                Mensaje = "El campo eps es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.FondoPensiones) || string.IsNullOrWhiteSpace(obj.FondoPensiones))
             {
-                Mensaje = "Este campo fondo pensiones es obligatorio";
+                Mensaje = "El campo fondo pensiones es obligatorio";
             }
             else if (string.IsNullOrEmpty(obj.Arl) || string.IsNullOrWhiteSpace(obj.Arl))
             {
                 Mensaje = "Este campo arl es obligatorio";
             }
+            else if (string.IsNullOrEmpty(obj.Estadofecha) || string.IsNullOrWhiteSpace(obj.Estadofecha))
+            {
+                Mensaje = "Este campo fecha acticación es obligatorio";
+            }
+           
 
             if (string.IsNullOrEmpty(Mensaje))
             {
@@ -248,6 +304,7 @@ namespace CapaNegocio
 
 
         }
+
         //public bool EliminarPersona(int id, out string Mensaje)
         //{
 

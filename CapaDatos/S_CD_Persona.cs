@@ -18,12 +18,14 @@ namespace CapaDatos
         {
 
             List<S_Persona> lista = new List<S_Persona>();
+            
 
             try
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
                 {
                     string query = "select * from PERSONA";
+
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -38,7 +40,9 @@ namespace CapaDatos
                             lista.Add(
                                 new S_Persona()
                                 {
+                                   
                                     IdPersona = Convert.ToInt32(dr["IdPersona"]),
+                                   
                                     TipoIdentificacion = dr["TipoIdentificacion"].ToString(),
                                     NumeroDocumento = Convert.ToInt32(dr["NumeroDocumento"]),
                                     Genero = dr["Genero"].ToString(),
@@ -73,9 +77,10 @@ namespace CapaDatos
                                     Eps = dr["Eps"].ToString(),
                                     FondoPensiones = dr["FondoPensiones"].ToString(),
                                     Arl = dr["Arl"].ToString(),
-                                   // PersonaPerId = Convert.ToInt32(dr["PersonaPerId"]),
                                     Estado = Convert.ToBoolean(dr["Estado"]),
                                     Estadofecha = dr["Estadofecha"].ToString(),
+                                    
+
                                 }
                             );
                         }

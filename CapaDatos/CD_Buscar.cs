@@ -44,7 +44,9 @@ namespace CapaDatos
                                     FechaNacimiento = dr["FechaNacimiento"].ToString(),
                                     CorreoElectronico = dr["CorreoElectronico"].ToString(),
                                     Telefono = dr["Telefono"].ToString(),
+
                                     Sindicato = dr["Sindicato"].ToString(),
+
                                     Profesion = dr["Profesion"].ToString(),
                                     Actividad = dr["Actividad"].ToString(),
                                     FechaIngreso = dr["FechaIngreso"].ToString(),
