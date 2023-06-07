@@ -13,12 +13,20 @@ using System.Data;
 using static ClosedXML.Excel.XLPredefinedFormat;
 using DateTime = System.DateTime;
 using System.Web.Services.Description;
+using CapaPresentacionAdmin.filter;
+using System.Web.UI;
+using Rotativa;
 
 namespace CapaPresentacionAdmin.Controllers
 {
+  
+    
     [Authorize]
+    [ValidarSession]
     public class VerificarController : Controller
     {
+        private CN_Reporte objReporte = new CN_Reporte();
+
         // GET: Verificar
         public ActionResult Buscar()
         {
@@ -56,6 +64,88 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
+        public ActionResult CrearReporte()
+        {
+            int contador = 0;
+            List<Reporte> oLista = new List<Reporte>();
+            List<Reporte> oLista2 = new List<Reporte>();
+            List<Reporte> oLista3 = new List<Reporte>();
+
+            List<Reporte> eliminar = new List<Reporte>();
+
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = numero;
+
+            //oLista = new CN_Reporte().Listar(numero);
+            oLista = new CN_Reporte().ListarGenerarPdf(numero);
+
+            foreach(Reporte r in oLista)
+            {
+                if(contador >= 18)
+                {
+                    oLista2.Add(r);
+                    eliminar.Add(r);                   
+
+                }
+                contador++;
+            }
+
+            //eliminar
+            foreach(Reporte r in eliminar)
+            {
+                oLista.Remove(r);
+            }
+
+            eliminar.Clear();
+
+            contador = 0;
+            foreach(Reporte r in oLista2)
+            {
+                if (contador >= 32)
+                {
+                    oLista3.Add(r);
+                    eliminar.Add(r);                    
+
+                }
+                contador++;
+            }
+
+            //eliminar
+            foreach (Reporte r in eliminar)
+            {
+                oLista2.Remove(r);
+            }
+
+            eliminar.Clear();
+
+            contador = 0;
+
+            PaginasLista objPaginaList = new PaginasLista()
+            {
+                hoja1 = oLista,
+                hoja2 = oLista2,
+                hoja3 = oLista3,
+            };
+
+            //Reporte persona = oLista.FirstOrDefault();
+
+            //if (persona.objPersona == null)
+            //{
+            //    return View();
+            //}
+
+
+            return new ViewAsPdf("CrearReporte", objPaginaList)
+            {
+                FileName = "Reporte.pdf",
+                PageOrientation = Rotativa.Options.Orientation.Portrait,
+                PageSize = Rotativa.Options.Size.A4,
+                PageMargins = new Rotativa.Options.Margins { Bottom = 5, Left =5, Right=5, Top=5}
+            };
+
+        }
+
 
         //--------------------------------BUSCAR JSONRESULT
 
@@ -85,6 +175,7 @@ namespace CapaPresentacionAdmin.Controllers
             if (oLista.Count() > 0)
             {
                 Session["numDocumento"] = documento;
+              
             }
 
 
@@ -548,6 +639,80 @@ namespace CapaPresentacionAdmin.Controllers
             resultado = new CN_Reporte().Editar(numero, out mensaje);
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+
+        //--------------------------------LISTAR DATOS PERSONALES Y DEMAS
+        [HttpGet]
+        public JsonResult ListarReporte()
+        {
+
+            List<Reporte> oLista = new List<Reporte>();
+
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = numero;
+
+            //oLista = new CN_Reporte().Listar(numero);
+            oLista = objReporte.Listar(numero);          
+
+            //retornamos esto de esta forma porque DataTable asi lo requiere
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+
+        [HttpGet]
+        public ActionResult exportarReporteEspesifico()
+        {
+            List<Reporte> oLista = new List<Reporte>();
+            string numero = ((string)Session["numDocumento"]);
+
+            Session["numDocumento"] = numero;
+
+            oLista = new CN_Reporte().Listar(numero);
+
+            //dt es de tipo tabla
+            DataTable dt = new DataTable();
+
+            dt.Locale = new System.Globalization.CultureInfo("es-CO");
+
+            dt.Columns.Add("oid", typeof(int));
+            dt.Columns.Add("Item", typeof(string));
+            dt.Columns.Add("Cumple", typeof(string));
+            dt.Columns.Add("Observacion", typeof(string));
+            dt.Columns.Add("FechaVerificacion", typeof(string));
+            dt.Columns.Add("FechaResumen", typeof(string));
+            dt.Columns.Add("Numero", typeof(int));
+
+            foreach (Reporte rp in oLista)
+            {
+                dt.Rows.Add(new object[]
+                {
+                    rp.oid,
+                    rp.Item,
+                    rp.Cumple,
+                    rp.Observacion,
+                    rp.FechaVerificacion,
+                    rp.FechaResumen,
+                    rp.Numero,
+                });
+            }
+
+            dt.TableName = "Reporte";
+
+            //creamos el doumento excel
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                var hoja = wb.Worksheets.Add(dt);
+
+                //vamos a guardar el documento en el memorystream
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    wb.SaveAs(stream);
+                    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ReporteEspecifico" + DateTime.Now.ToString() + ".xlsx");
+                }
+            }
         }
     }
 }

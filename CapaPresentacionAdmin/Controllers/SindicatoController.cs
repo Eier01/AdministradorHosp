@@ -11,10 +11,12 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CapaPresentacionAdmin.filter;
 
 namespace CapaPresentacionAdmin.Controllers
 {
     [Authorize]
+    [ValidarSession]
     public class SindicatoController : Controller
     {
         // GET: Sindicato
@@ -54,6 +56,7 @@ namespace CapaPresentacionAdmin.Controllers
 
 
         [HttpGet]
+        
         public JsonResult ListarFacademica()
         {
             List<S_Formacion_academica> oLista = new List<S_Formacion_academica>();
@@ -110,13 +113,22 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
 
-
+        
         [HttpGet]
         public JsonResult ListarPersona()         
         {
             
             List<S_Persona> oLista = new List<S_Persona>();
             oLista = new S_CN_Persona().Listar();
+            Session["Revision"] = 0;
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public JsonResult ListarNombres()
+        {
+
+            List<NombreCompleto> oLista = new List<NombreCompleto>();
+            oLista = new S_CN_Persona().obtener();
             Session["Revision"] = 0;
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -426,22 +438,46 @@ namespace CapaPresentacionAdmin.Controllers
 
         }
 
+        //[HttpPost]
+        //public JsonResult GuardarPersona(S_Persona objeto)
+        //{
+        //    object resultado;
+        //    string mensaje = string.Empty;
+
+        //    if(objeto.IdPersona == 0)
+        //    {
+
+        //        resultado = new S_CN_Persona().RegistrarPerson(objeto, out mensaje);
+        //        int id = Convert.ToInt32(resultado);
+        //        Session["Documento"] = "0";
+        //        if (id != 0)
+        //        {
+        //            Session["Documento"] = id;
+        //        }                
+        //    }
+        //    else
+        //    {
+        //        resultado = new S_CN_Persona().EditarPerson(objeto, out mensaje);
+        //    }
+
+        //    return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        //}
         [HttpPost]
-        public JsonResult GuardarPersona(S_Persona objeto)
+        public JsonResult GuardarPersona(S_Persona objeto, NombreCompleto obj2)
         {
             object resultado;
             string mensaje = string.Empty;
 
-            if(objeto.IdPersona == 0)
+            if (objeto.IdPersona == 0)
             {
 
-                resultado = new S_CN_Persona().RegistrarPerson(objeto, out mensaje);
+                resultado = new S_CN_Persona().RegistrarPerson(objeto, obj2, out mensaje);
                 int id = Convert.ToInt32(resultado);
                 Session["Documento"] = "0";
                 if (id != 0)
                 {
                     Session["Documento"] = id;
-                }                
+                }
             }
             else
             {
@@ -859,6 +895,7 @@ namespace CapaPresentacionAdmin.Controllers
             Session["Revision"] = 0;
             Session["Documento"] = "0";
             Session["Consultarid"] = "";
+            Session["Rol"] = null;
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }

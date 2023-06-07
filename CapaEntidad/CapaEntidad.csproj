@@ -48,6 +48,9 @@
     <Compile Include="ExperienciaLaboral.cs" />
     <Compile Include="Idiomas.cs" />
     <Compile Include="FormacionAcademica.cs" />
+    <Compile Include="NombreCompleto.cs" />
+    <Compile Include="PaginasLista.cs" />
+    <Compile Include="Reporte.cs" />
     <Compile Include="Requisitos.cs" />
     <Compile Include="S_CapacitacionesC.cs" />
     <Compile Include="CrearRequisitoLegal.cs" />

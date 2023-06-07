@@ -28,7 +28,7 @@
                             <th>Educación Basica</th>
                             <th>Titulo</th>
                             <th>Institución Educativa</th>
-                            <th> Nombre del Titulo</th>
+                            <th>Nombre del Titulo</th>
                             <th></th>
 
                         </tr>
@@ -42,10 +42,10 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="FormModalFacademica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="FormModalFacademica" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header  text-light" style="background: hsl(145, 76%, 42%)">
+            <div class="modal-header  text-light" style="background: #000000">
                 <h5 class="modal-title" id="exampleModalLabel">Formación Academica</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -57,7 +57,7 @@
                             <input type="text" class="form-control" id="txtIdFacademica" value="0" style="display: none;">
 
                             <div>
-                                <div class="col-md-3 form-check-inline">
+                                <div class="col-md-5 form-check-inline">
                                     <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
                                     <input type="text" class="form-control" id="txtPerson" required>
                                 </div>
@@ -65,7 +65,10 @@
                             <hr>
                             <div class="col-md-4 form-check-inline">
                                 <label for="txtcargoasp" class="form-label">Cargo que Aspira</label>
-                                <input type="text" class="form-control" id="txtcargoasp" required>
+                                <input type="text" class="form-control" id="txtcargoasp" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese solo texto.
+                                </div>
                             </div>
 
 
@@ -80,9 +83,12 @@
                                     <option value="Media" required>Media</option>
                                 </select>
                             </div>
-                            <div class="col-md-4 ">
+                            <div class="col-md-4">
                                 <label for="txttitulobt" class="form-label">Titulo obtenido</label>
-                                <input type="text" class="form-control" id="txttitulobt" required>
+                                <input type="text" class="form-control" id="txttitulobt" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese solo texto.
+                                </div>
                             </div>
 
                             <div class="col-md-4">
@@ -103,23 +109,31 @@
                                     <option value="12" required>12</option>
                                 </select>
                             </div>
-                            <div class="col-md-4 ">
+
+                            <div class="col-md-4">
                                 <label for="txtañogrado" class="form-label">Año Grado</label>
                                 <input type="text" class="form-control" id="txtañogrado" required>
+                                <div id="error_message" style="color: red;"></div>
                             </div>
+
 
                             <div class="col-md-8">
                                 <label for="txtinstitucion" class="form-label">Institución Educativa</label>
-                                <input type="text" class="form-control" id="txtinstitucion" required>
+                                <input type="text" class="form-control" id="txtinstitucion" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese solo texto.
+                                </div>
                             </div>
+
+
 
                             <div class="col-md-6">
                                 <label for="adactacol" class="form-label">Adjuntar Acta</label>
-                                <input class="form-control" type="file" id="adactacol">
+                                <input class="form-control" type="file" id="adactacol" onchange="adjuntarDocumento(this)">
                             </div>
                             <div class="col-md-6">
                                 <label for="addiplomacol" class="form-label">Adjuntar Diploma</label>
-                                <input class="form-control" type="file" id="addiplomacol">
+                                <input class="form-control" type="file" id="addiplomacol" onchange="adjuntarDocumento(this)">
                             </div>
                             <hr>
                             <h5>Formación Academica Superior</h5>
@@ -160,10 +174,14 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4 ">
+                            <div class="col-md-4">
                                 <label for="txtnomtitulo" class="form-label">Nombre del Titulo</label>
-                                <input type="text" class="form-control" id="txtnomtitulo" required>
+                                <input type="text" class="form-control" id="txtnomtitulo" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese solo texto.
+                                </div>
                             </div>
+
                             <div class="col-md-4">
                                 <label for="txtmestermino" class="form-label">Mes Termino</label>
                                 <select class="form-control" name="txtmestermino" id="txtmestermino">
@@ -185,23 +203,38 @@
                             <div class="col-md-4">
                                 <label for="txtaniotitulo" class="form-label">Año</label>
                                 <input type="text" class="form-control" id="txtaniotitulo" required>
+                                <div id="aniotitulo_error" style="color: red;"></div>
                             </div>
-                            <div class="col-md-4 ">
-                                <label for="txttarprofesional" class="form-label">Numero Targeta Profesional</label>
+                            <div class="col-md-4">
+                                <label for="txttarprofesional" class="form-label">Numero Tarjeta Profesional</label>
                                 <input type="text" class="form-control" id="txttarprofesional" required>
+                                <div id="tarprofesional_error" style="color: red;"></div>
                             </div>
                             <div class="col-md-8">
                                 <label for="txtnominstitucionprof" class="form-label">Nombre Institución</label>
-                                <input type="text" class="form-control" id="txtnominstitucionprof" required>
+                                <input type="text" class="form-control" id="txtnominstitucionprof" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese solo texto.
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="actauni" class="form-label">Adjuntar Acta</label>
-                                <input class="form-control" type="file" id="actauni">
+                                <input class="form-control" type="file" id="actauni" onchange="adjuntarDocumento(this)">
                             </div>
+
+                            @*<div class="col-md-6">
+                                    <label for="actauni" class="form-label">Adjuntar Acta</label>
+                                    <input class="form-control" type="file" id="actauni">
+                                </div>*@
+                            @*<div class="col-md-6">
+                                    <label for="diplouni" class="form-label">Adjuntar Diploma</label>
+                                    <input class="form-control" type="file" id="diplouni">
+                                </div>*@
                             <div class="col-md-6">
                                 <label for="diplouni" class="form-label">Adjuntar Diploma</label>
-                                <input class="form-control" type="file" id="diplouni">
+                                <input class="form-control" type="file" id="diplouni" onchange="adjuntarDocumento(this)">
                             </div>
+
                         </form>
 
                     </section>
@@ -223,23 +256,138 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modalresult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+
+                Guardado Correctamente
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section scripts{
     <script>
         var tabladata;
         var filaSeleccionada;
+        var prueba = 0;
 
-        @*jQuery.ajax({
-            url: '@Url.Action("ListarFacademica", "Sindicato")',
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-            console.log(data)
+        function adjuntarDocumento(input) {
+            if (input.files && input.files.length > 0) {
+                // Obtener el contenedor padre del campo de entrada de archivos
+                var parentDiv = input.parentNode;
+
+                // Aplicar un estilo CSS personalizado al contenedor padre
+                parentDiv.style.backgroundColor = "yellow"; // Cambia el color a amarillo, puedes cambiarlo a tu gusto
             }
+        }
 
-        })*@
+
+
+
+       $.ajax({
+            url: '@Url.Action("ListarNombres", "Sindicato")', // La URL del servicio o endpoint
+            type: 'GET', // El método HTTP utilizado
+            dataType: 'json', // El tipo de datos esperado en la respuesta
+            success: function (data) {
+                // Se ejecuta cuando la solicitud es exitosa
+                console.log(data.data[0].nombre); // Manejo de los datos de respuesta
+                prueba = data.data[0].nombre + " " + data.data[0].senombre + " "+data.data[0].apellido+" "+data.data[0].seapellido
+
+            },
+            error: function (xhr, status, error) {
+                // Se ejecuta si hay algún error en la solicitud
+                console.log(error); // Manejo del error
+            }
+        });
+
+        const inputAnioTitulo = document.getElementById("txtaniotitulo");
+        const anioTituloError = document.getElementById("aniotitulo_error");
+        const inputTarProfesional = document.getElementById("txttarprofesional");
+        const tarProfesionalError = document.getElementById("tarprofesional_error");
+        const inputAnioGrado = document.getElementById("txtañogrado");
+        const anioGradoError = document.getElementById("error_message");
+
+        const validateNumberInput = function (input, errorElement) {
+            const value = input.value.trim();
+            const regex = /^\d+$/; // Expresión regular para solo números
+
+            if (!regex.test(value)) {
+                errorElement.textContent = "Solo se permiten números";
+                input.classList.add("is-invalid");
+            } else {
+                errorElement.textContent = "";
+                input.classList.remove("is-invalid");
+            }
+        };
+
+        inputAnioTitulo.addEventListener("input", function () {
+            validateNumberInput(inputAnioTitulo, anioTituloError);
+        });
+
+        inputTarProfesional.addEventListener("input", function () {
+            validateNumberInput(inputTarProfesional, tarProfesionalError);
+        });
+
+        inputAnioGrado.addEventListener("input", function () {
+            validateNumberInput(inputAnioGrado, anioGradoError);
+        });
+
+
+
+        //Validación para que los campos se digiten correctamente de tipo string
+        const inputcargo = document.getElementById("txtcargoasp");
+        const inputtitulobt = document.getElementById("txttitulobt");
+        const inputinstitucion = document.getElementById("txtinstitucion");
+        const inputnomtitu = document.getElementById("txtnomtitulo");
+        const inputinstpro = document.getElementById("txtnominstitucionprof");
+        const inputuni = document.getElementById("txtnomtitulo");
+
+
+        const validateInput = function (input) {
+            const value = input.value.trim();
+            const hasNumbers = /\d/.test(value);
+
+            if (hasNumbers) {
+                input.setCustomValidity("No se permiten números en este campo");
+                input.classList.add("is-invalid");
+            } else {
+                input.setCustomValidity("");
+                input.classList.remove("is-invalid");
+            }
+        };
+
+        inputcargo.addEventListener("input", function () {
+            validateInput(inputcargo);
+        });
+
+        inputtitulobt.addEventListener("input", function () {
+            validateInput(inputtitulobt);
+        });
+        inputinstitucion.addEventListener("input", function () {
+            validateInput(inputinstitucion);
+        });
+        inputnomtitu.addEventListener("input", function () {
+            validateInput(inputnomtitu);
+        });
+        inputuni.addEventListener("input", function () {
+            validateInput(inputuni);
+        });
+        inputinstpro.addEventListener("input", function () {
+            validateInput(inputinstpro);
+        });
+
+
+
         tabladata = $("#tablaF").DataTable({
             responsive: true,
             ordering: false,
@@ -271,6 +419,7 @@
 
         function abrirmodal(json) {
             document.getElementById("fAcadec").reset();
+            document.getElementById('txtPerson').value = prueba
             $("#txtIdFacademica").val(0);
             $("#mensajEerror").hide();
 
@@ -292,6 +441,10 @@
                 $("#txtaniotitulo").val(json.Ano);
                 $("#txttarprofesional").val(json.NTarjetaProfecional);
                 $("#txtnominstitucionprof").val(json.NombreInstitucion);
+                if (json.ActaColegio) {
+                    var base64Data = btoa(String.fromCharCode.apply(null, json.ActaColegio));
+                    $("#addiplomacol").val(base64Data);
+                }
 
             }
 
@@ -359,7 +512,7 @@
                 $("#mensajEerror").show()
 
 
-            } else { 
+            } else {
 
                  jQuery.ajax({
                 url: '@Url.Action("GuardarFormacion", "Sindicato")',
@@ -385,6 +538,7 @@
 
                              $("#mensajEerror").text(data.mensaje)
                              $("#mensajEerror").show()
+                             $("#modalresult").modal("show")
                          }
                          //Usuario Editar
                      }
@@ -395,6 +549,7 @@
                              tabladata.row(filaSeleccionada).data(FormacionG).draw(false);
                              filaSeleccionada = null;
                              $("#FormModalFacademica").modal("hide");
+                             $("#modalresult").modal("show");
 
                          } else {
                              $("#mensajEerror").text(data.mensaje)

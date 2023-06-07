@@ -1,4 +1,5 @@
 ﻿
+
 @{
     ViewBag.Title = "Reporte";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -35,42 +36,43 @@
     <div class="card-body">
         <div class="row">
             <div class="col-3">
-                <p class="form-label" for="validationCustom05" style="color: #ff0000; font-size: 13px">
-                    MARIA CLAUDIA
-                    MARTINEZ GAEHT
-                </p>
+                <p class="form-label text-danger" id="idNombrec" style="font-size: 13px">NOMBRE DE LA PERSONA A VERIFICAR</p>
             </div>
             <div class="col-6">
-                <p class="form-label" for="validationCustom05" style="font-size:13px">
-                    UNION DE EMPLEADOS
-                    TRABAJADORES Y CONTRATISTAS DE LA SALUD - UTRASSALUD Gestion Humana Profecional del Talento
-                    Humano
-                </p>
+                <p class="form-label" for="validationCustom05" style="font-size:13px">UNION DE EMPLEADOS TRABAJADORES Y CONTRATISTAS DE LA SALUD - UTRASSALUD Gestion Humana Profecional del Talento Humano</p>
             </div>
             <div class="col-3">
                 <p class="form-label" for="validationCustom05" style="font-size:13px">Confirmado:</p>
             </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-warning">Generar Reporte</button>
-            </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-success">Imprimir</button>
-            </div>
+            @if (HttpContext.Current.Session["numDocumento"] == null || HttpContext.Current.Session["numDocumento"] == "0")
+            {
+
+            }
+            else
+            {
+                <div class="col-md-3">
+                    <form class="mb-2" action="@Url.Action("CrearReporte","Verificar")" method="get">
+                        <button id="btnpdf" type="submit" class="btn btn-outline-primary mx-2"><i class="fas fa-file-pdf mx-1"></i>Generar Pdf</button>
+                    </form>
+                </div>
+            }
+
+            @*<div class="col-md-2">
+            <button type="button" class="btn btn-success">Imprimir</button>
+        </div>*@
             <div class="col-md-3">
                 <button type="button" class="btn btn-info" onclick="confirmarVerific()">Comfirmar Verificación</button>
             </div>
             <div class="col-md-3">
                 <p class="form-label" for="validationCustom05" style="font-size:13px"></p>
             </div>
+            <form class="mb-3 mt-4" action="@Url.Action("exportarReporteEspesifico","Verificar")" method="get">
+                <button id="btnexportar" type="submit" class="btn btn-success"><i class="fas fa-file-excel mx-1"></i>Exportar</button>
+            </form>
+
             <table id="tabla" class="table table-hover mt-4 " style="width:100%; font-size:12px">
-                <div class="input-group">
-                    <div class="col-md-2 mt-4">
-                        <a> <i class="fas fa-file-excel"></i>Export to XLS</a>
-                    </div>
-                </div>
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>oid</th>
                         <th>Item</th>
                         <th>Cumple</th>
@@ -109,6 +111,52 @@
 
     <script>
 
+        var tabladata;
+
+        var Url = '@Url.Action("ListarReporte", "Verificar")';
+
+        jQuery.ajax({
+            url: '@Url.Action("ListarFAcademica", "Verificar")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                $("#idNombrec").text(response.data.NombreCompleto)
+
+                if (response.data.Verificado != 'Si') {
+                    $('#idNombrec').addClass('text-danger');
+                } else {
+                    $('#idNombrec').removeClass('text-danger');
+                    $('#idNombrec').addClass('text-primary');
+                }
+
+            }
+
+        })
+
+        tabladata = $("#tabla").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: Url,
+                type: "GET",
+                dataType: "json",
+            },
+            "columns": [
+                { "data": "oid" },
+                { "data": "Item" },
+                { "data": "Cumple" },
+                { "data": "Observacion" },
+                { "data": "FechaVerificacion" },
+                { "data": "FechaResumen" },
+                { "data": "Numero" },
+
+            ],
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.13.3/i18n/es-ES.json"
+            }
+
+        });
 
         function confirmarVerific(){
             jQuery.ajax({

@@ -1,12 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CapaDatos",
-    "\\CapaNegocio",
     "\\CapaPresentacionAdmin",
+    "\\CapaPresentacionAdmin\\Content",
     "\\CapaPresentacionAdmin\\Controllers",
     "\\CapaPresentacionAdmin\\Views",
     "\\CapaPresentacionAdmin\\Views\\Home",
+    "\\CapaPresentacionAdmin\\Views\\Shared",
     "\\CapaPresentacionAdmin\\Views\\Sindicato",
     "\\CapaPresentacionAdmin\\Views\\Subidos",
     "\\CapaPresentacionAdmin\\Views\\Verificar"

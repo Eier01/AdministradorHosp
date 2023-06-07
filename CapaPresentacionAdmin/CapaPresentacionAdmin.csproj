@@ -55,6 +55,9 @@
       <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\packages\SixLabors.Fonts.1.0.0-beta19\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
@@ -149,6 +152,7 @@
     <Compile Include="Controllers\SindicatoController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\VerificarController.cs" />
+    <Compile Include="filter\ValidarSessionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +179,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\brands.css" />
     <Content Include="Content\brands.min.css" />
+    <Content Include="Content\CrearReporte.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap4.css" />
@@ -336,6 +341,9 @@
     <Content Include="Content\fontawesome.min.css" />
     <Content Include="Content\images\103822173_717587448993059_5436283079673595969_n.jpg" />
     <Content Include="Content\images\292244152_415367150616799_892335905339182029_n.jpg" />
+    <Content Include="Content\images\2b32b59dbfc427812eef579985234524.gif" />
+    <Content Include="Content\images\ea7f2dd47969349da148ea0b4ec56815.gif" />
+    <Content Include="Content\images\hospital.jpg" />
     <Content Include="Content\images\ui-icons_444444_256x240 - Copia.png" />
     <Content Include="Content\images\ui-icons_444444_256x240.png" />
     <Content Include="Content\images\ui-icons_555555_256x240.png" />
@@ -359,6 +367,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -392,6 +404,8 @@
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="json\es-ES.json" />
     <Content Include="pdf\moral.pdf" />
+    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Content\images\Media-Animated-GIF-Icon-pack-by-Discover-Template.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -551,6 +565,9 @@
     <Content Include="Views\Acceso\Reestablecer.cshtml" />
     <Content Include="Views\Usuarios\UsuariosView.cshtml" />
     <Content Include="Views\Acceso\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout - Reporte.cshtml" />
+    <Content Include="Views\ReporteVerificar\myPdf.cshtml" />
+    <Content Include="Views\Verificar\CrearReporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

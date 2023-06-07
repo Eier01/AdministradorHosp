@@ -15,7 +15,14 @@ namespace CapaNegocio
         {
             return objCapaDato.Listar();
         }
-        public int RegistrarPerson(S_Persona obj, out string Mensaje)
+
+        private CD_nombreCompleto objCapaDato1 = new CD_nombreCompleto();
+        public List<NombreCompleto> obtener()
+        {
+            return objCapaDato1.Listar();
+
+        }
+        public int RegistrarPerson(S_Persona obj, NombreCompleto obj2, out string Mensaje)
         {
             Mensaje = string.Empty;
             string numeroDocumento = obj.NumeroDocumento.ToString();

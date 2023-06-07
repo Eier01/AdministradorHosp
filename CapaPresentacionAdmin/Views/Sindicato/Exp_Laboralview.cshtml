@@ -40,7 +40,7 @@
     <div class="modal fade" id="FormModalExp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
+                <div class="modal-header text-light" style="background: #000000">
                     <h5 class="modal-title" id="exampleModalLabel">Formulario Experiencia laboral</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -55,7 +55,7 @@
                                 <input type="text" id="txtIdExp" value="0" style="display: none;" />
 
                                 <div>
-                                    <div class="col-md-3 form-check-inline">
+                                    <div class="col-md-5 form-check-inline">
                                         <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
                                         <input type="text" class="form-control" id="txtPerson" required autocomplete="off">
                                     </div>
@@ -65,21 +65,33 @@
                                 <div class="col-md-5 form-check-inline">
                                     <label for="txtEntidad" class="form-label">Entidad o Empresa</label>
                                     <input type="text" class="form-control" id="txtEntidad" required autocomplete="off">
+                                    <div class="invalid-feedback">
+                                        Por favor, ingrese solo texto.
+                                    </div>
                                 </div>
 
                                 <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtLaboro" class="form-label">Pais laboró</label>
                                     <input type="text" class="form-control" id="txtLaboro" required autocomplete="off">
+                                    <div class="invalid-feedback">
+                                        Por favor, ingrese solo texto.
+                                    </div>
                                 </div>
 
                                 <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtdepartamento" class="form-label">Departamento</label>
                                     <input type="text" class="form-control" id="txtdepartamento" required autocomplete="off">
+                                    <div class="invalid-feedback">
+                                        Por favor, ingrese solo texto.
+                                    </div>
                                 </div>
 
                                 <div class="col-md-2 form-check-inline d-inline-block">
                                     <label for="txtciudad" class="form-label">Ciudad</label>
                                     <input type="text" class="form-control" id="txtciudad" required autocomplete="off">
+                                    <div class="invalid-feedback">
+                                        Por favor, ingrese solo texto.
+                                    </div>
                                 </div>
                                 @*______________*@
                                 <div class="col-md-3 form-check-inline">
@@ -89,6 +101,7 @@
                                 <div class="col-md-2 form-check-inline">
                                     <label for="txttelefono" class="form-label">Telefonos</label>
                                     <input type="text" class="form-control" id="txttelefono" required autocomplete="off">
+                                    <div id="txttelefono_error" style="color: red;"></div>
                                 </div>
                                 <div class="col-md-4 form-check-inline">
                                     <label for="txtcorreo" class="form-label">Correo Electronico</label>
@@ -107,10 +120,16 @@
                                 <div class="col-md-3 form-check-inline">
                                     <label for="txtcargo" class="form-label">Cargo o contrato actual</label>
                                     <input type="text" class="form-control" id="txtcargo" required autocomplete="off">
+                                    <div class="invalid-feedback">
+                                        Por favor, ingrese solo texto.
+                                    </div>
                                 </div>
                                 <div class="col-md-3 form-check-inline">
                                     <label for="txtdependencia" class="form-label">Dependencia</label>
                                     <input type="text" class="form-control" id="txtdependencia" required autocomplete="off">
+                                    <div class="invalid-feedback">
+                                        Por favor, ingrese solo texto.
+                                    </div>
                                 </div>
                                 <div class="col-md-2 form-check-inline">
                                     <label for="txtfechain" class="form-label">Fecha Ingreso</label>
@@ -147,24 +166,110 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modalresult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+
+                Guardado Correctamente
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts{
     <script>
 
         $("#txtfechain").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
         $("#txtfechasal").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+
         var tabladata;
         var filaSeleccionada;
+        var prueba = 0;
 
-        jQuery.ajax({
-            url: '@Url.Action("ListaExp_Laboral", "Sindicato")',
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
+         $.ajax({
+            url: '@Url.Action("ListarNombres", "Sindicato")', // La URL del servicio o endpoint
+            type: 'GET', // El método HTTP utilizado
+            dataType: 'json', // El tipo de datos esperado en la respuesta
             success: function (data) {
-                console.log(data)
-            }
+                // Se ejecuta cuando la solicitud es exitosa
+                console.log(data.data[0].nombre); // Manejo de los datos de respuesta
+                prueba = data.data[0].nombre + " " + data.data[0].senombre + " "+data.data[0].apellido+" "+data.data[0].seapellido
 
-        })
+            },
+            error: function (xhr, status, error) {
+                // Se ejecuta si hay algún error en la solicitud
+                console.log(error); // Manejo del error
+            }
+        });
+
+
+        const inputtxttelefono = document.getElementById("txttelefono");
+        const txttelefonoError = document.getElementById("txttelefono_error");
+
+        const validateNumberInput = function (input, errorElement) {
+            const value = input.value.trim();
+            const regex = /^\d+$/; // Expresión regular para solo números
+
+            if (!regex.test(value)) {
+                errorElement.textContent = "Solo se permiten números";
+                input.classList.add("is-invalid");
+            } else {
+                errorElement.textContent = "";
+                input.classList.remove("is-invalid");
+            }
+        };
+        inputtxttelefono.addEventListener("input", function () {
+            validateNumberInput(inputtxttelefono, txttelefonoError);
+        });
+
+        // validando que solo se digite texto
+        const inputtxtEntidad = document.getElementById("txtEntidad");
+        const inputtxtLaboro = document.getElementById("txtLaboro");
+        const inputtxtdepartamento = document.getElementById("txtdepartamento");
+        const inputtxtciudad = document.getElementById("txtciudad");
+        const inputtxtcargo = document.getElementById("txtcargo");
+        const inputtxtdependencia = document.getElementById("txtdependencia");
+        const validateInput = function (input) {
+            const value = input.value.trim();
+            const hasNumbers = /\d/.test(value);
+
+            if (hasNumbers) {
+                input.setCustomValidity("No se permiten números en este campo");
+                input.classList.add("is-invalid");
+            } else {
+                input.setCustomValidity("");
+                input.classList.remove("is-invalid");
+            }
+        };
+
+        inputtxtEntidad.addEventListener("input", function () {
+            validateInput(inputtxtEntidad);
+        });
+        inputtxtLaboro.addEventListener("input", function () {
+            validateInput(inputtxtLaboro);
+        });
+        inputtxtdepartamento.addEventListener("input", function () {
+            validateInput(inputtxtdepartamento);
+        });
+        inputtxtciudad.addEventListener("input", function () {
+            validateInput(inputtxtciudad);
+        });
+        inputtxtcargo.addEventListener("input", function () {
+            validateInput(inputtxtcargo);
+        });
+        inputtxtdependencia.addEventListener("input", function () {
+            validateInput(inputtxtdependencia);
+        });
+
+
         tabladata = $("#tabla3").DataTable({
             responsive: true,
             ordering: false,
@@ -196,6 +301,7 @@
 
         function abrirmodal(json) {
             document.getElementById("FormExpLaboral").reset();
+            document.getElementById('txtPerson').value = prueba
             $("#txtIdExp").val(0);
             $("#mensajEerror").hide();
 
@@ -268,22 +374,30 @@
             formData.append("FechaEgreso", $("#txtfechasal").val());
             formData.append("AdjuntarSoporteNombre", $("#formFile")[0].files[0]);
 
+            if ($("#formFile")[0].files[0] == undefined) {
+
+                $("#mensajEerror").text("El  campos para adjuntar pdf no puede ser vacio")
+                $("#mensajEerror").show()
 
 
+            } else {
 
-             jQuery.ajax({
-                url: '@Url.Action("GuardarExp", "Sindicato")',
-                type: "POST",
-                data: formData,
-                cache: false,
-                processData: false,
-                cache:false,
-                contentType: false,
-                success: function (data) {
-                    console.info(data);
 
-                     //Usuario Nuevo
-                    if (Experienciag.IdExperienciaLaboral == 0) {
+                jQuery.ajax({
+                    url: '@Url.Action("GuardarExp", "Sindicato")',
+                    type: "POST",
+                    data: formData,
+                    cache: false,
+                    processData: false,
+                    cache: false,
+                    contentType: false,
+                    success: function (data) {
+                        console.info(data);
+                        // este es el que imprimi la data
+                        console.log(data)
+
+                        //Usuario Nuevo
+                        if (Experienciag.IdExperienciaLaboral == 0) {
 
                             if (data.resultado != 0) {
 
@@ -295,30 +409,33 @@
 
                                 $("#mensajEerror").text(data.mensaje)
                                 $("#mensajEerror").show()
+                                $("#modalresult").modal("show");
                             }
 
                             //Usuario Editar
-                    }
-                    else {
-
-                        if (data.resultado) {
-
-                            tabladata.row(filaSeleccionada).data(Experienciag).draw(false);
-                            filaSeleccionada = null;
-                            $("#FormModalExp").modal("hide");
-
-                        } else {
-                            $("#mensajEerror").text(data.mensaje)
-                            $("#mensajEerror").show()
                         }
+                        else {
+
+                            if (data.resultado) {
+
+                                tabladata.row(filaSeleccionada).data(Experienciag).draw(false);
+                                filaSeleccionada = null;
+                                $("#FormModalExp").modal("hide");
+                                $("#modalresult").modal("show");
+
+                            } else {
+                                $("#mensajEerror").text(data.mensaje)
+                                $("#mensajEerror").show()
+                            }
 
 
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error)
                     }
-                },
-                error: function (error) {
-                    console.log(error)
-                }
-            });
+                });
+            }
          }
 
     </script>

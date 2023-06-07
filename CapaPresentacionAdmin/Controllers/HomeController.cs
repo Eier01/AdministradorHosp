@@ -10,10 +10,12 @@ using System.Web.Mvc;
 using CapaEntidad;
 using CapaNegocio;
 using ClosedXML.Excel;
+using CapaPresentacionAdmin.filter;
 
 namespace CapaPresentacionAdmin.Controllers
 {
     [Authorize]
+    [ValidarSession]
     public class HomeController : Controller
     {
         public ActionResult Index()

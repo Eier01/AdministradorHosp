@@ -9,18 +9,18 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background:  hsl(145, 76%, 42%);">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background: #4AA6FA;">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3">Hospita Timbio</a>
+        <a class="navbar-brand ps-3">Hospital Timbio</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-        <div class="contenedor">
+        <div class="contenedor  px-5 mx-5 justify-content-center">
             <div class="foto">
                
             </div>
-            <h2 class="logo">
-                Administrador hojas de vida
+            <h2 class="logo ">
+                <a class="navbar-brand ps-3">Administrador Hojas de Vida</a>
             </h2>
         </div>
         <!-- Navbar-->
@@ -40,7 +40,7 @@
         <div id="layoutSidenav_nav">
             @if ((int)Session["Rol"] == 1)
             {
-                <nav class="sb-sidenav sb-sidenav-light accordion " id="sidenavAccordion">
+                <nav class="sb-sidenav sb-sidenav-light accordion bg-light shadow p-3 mb-4 bg-body rounded border border-1" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Administrador gestion humana hv</div>
@@ -84,7 +84,7 @@
                                             <a class="nav-link" href="@Url.Action("DatosLaborales","Verificar")">Datos Laborales</a>
                                             <a class="nav-link" href="@Url.Action("Requisitos","Verificar")">Requisitos</a>
                                             <a class="nav-link" href="@Url.Action("Reporte","Verificar")">Reporte</a>
-                                            
+
                                         </nav>
                                     </div>
                                     <a class="nav-link" href="@Url.Action("ReporteGeneral","Home")">
@@ -247,46 +247,46 @@
             }
             else if ((int)Session["Rol"] == 4)
             {
-        <nav class="sb-sidenav sb-sidenav-light accordion " id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div class="sb-sidenav-menu-heading">Administrador gestion humana hv</div>
-                    <a class="nav-link collapsed" href="@Url.Action("ReporteGeneral","Home")" data-bs-toggle="collapse" data-bs-target="#collapsegestionHumana" aria-expanded="false" aria-controls="collapsegestionHumana">
-                        <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                        Gestion Humana
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                    </a>
-                    <div class="collapse" id="collapsegestionHumana" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Verificar Hojas De Vida
+                <nav class="sb-sidenav sb-sidenav-light accordion " id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Administrador gestion humana hv</div>
+                            <a class="nav-link collapsed" href="@Url.Action("ReporteGeneral","Home")" data-bs-toggle="collapse" data-bs-target="#collapsegestionHumana" aria-expanded="false" aria-controls="collapsegestionHumana">
+                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                                Gestion Humana
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordionPages">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages2">
-                                    <a class="nav-link" href="@Url.Action("Buscar","Verificar")">Buscar</a>
-                                    <a class="nav-link" href="@Url.Action("DatosPersonales","Verificar")">Datos Personales</a>
-                                    <a class="nav-link" href="@Url.Action("FormacionAcademica","Verificar")">Formacion Academica</a>
-                                    <a class="nav-link" href="@Url.Action("Capacitaciones","Verificar")">Capacitaciones o Cursos</a>
-                                    <a class="nav-link" href="@Url.Action("Idiomas","Verificar")">Idiomas</a>
-                                    <a class="nav-link" href="@Url.Action("ExperienciaLaboral","Verificar")">Experiencia Laboral</a>
-                                    <a class="nav-link" href="@Url.Action("DatosLaborales","Verificar")">Datos Laborales</a>
-                                    <a class="nav-link" href="@Url.Action("Requisitos","Verificar")">Requisitos</a>
-                                    <a class="nav-link" href="@Url.Action("Reporte","Verificar")">Reporte</a>
-                                    
+                            <div class="collapse" id="collapsegestionHumana" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                        Verificar Hojas De Vida
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages2">
+                                            <a class="nav-link" href="@Url.Action("Buscar","Verificar")">Buscar</a>
+                                            <a class="nav-link" href="@Url.Action("DatosPersonales","Verificar")">Datos Personales</a>
+                                            <a class="nav-link" href="@Url.Action("FormacionAcademica","Verificar")">Formacion Academica</a>
+                                            <a class="nav-link" href="@Url.Action("Capacitaciones","Verificar")">Capacitaciones o Cursos</a>
+                                            <a class="nav-link" href="@Url.Action("Idiomas","Verificar")">Idiomas</a>
+                                            <a class="nav-link" href="@Url.Action("ExperienciaLaboral","Verificar")">Experiencia Laboral</a>
+                                            <a class="nav-link" href="@Url.Action("DatosLaborales","Verificar")">Datos Laborales</a>
+                                            <a class="nav-link" href="@Url.Action("Requisitos","Verificar")">Requisitos</a>
+                                            <a class="nav-link" href="@Url.Action("Reporte","Verificar")">Reporte</a>
+
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link" href="@Url.Action("ReporteGeneral","Home")">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-file-excel"></i></div>
+                                        Reporte General
+                                    </a>
                                 </nav>
                             </div>
-                            <a class="nav-link" href="@Url.Action("ReporteGeneral","Home")">
-                                <div class="sb-nav-link-icon"><i class="fas fa-file-excel"></i></div>
-                                Reporte General
-                            </a>
-                        </nav>
+
+                        </div>
                     </div>
-                    
-                </div>
-            </div>
-        </nav>
+                </nav>
 
             }
 

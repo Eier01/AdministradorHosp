@@ -44,17 +44,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input id="txtid" type="text" value="0" />
+                <input id="txtid" type="hidden" value="0" />
                 <label for="txtactividad" class="form-label">Actividad:</label>
                 <input type="text" class="form-control" id="txtactividad" aria-label="Username" aria-describedby="addon-wrapping" autocomplete="off">
-                
+                <div class="invalid-feedback">
+                    Por favor, ingrese solo texto.
+                </div>
+
                 <label for="cbotipoactividad" class="form-label mt-1">Tipo de Actividad:</label>
                 <select id="cbotipoactividad" class="form-select" aria-label="Default select example">
                     <option selected>Sin selecionar</option>
                     <option value="Asistenciales">Asistenciales</option>
                     <option value="Supervision">Supervision</option>
                     <option value="Analisis">Analisis</option>
-                  
+
                 </select>
                 <div id="mensajeError" class="alert alert-danger mt-2" role="alert">
                     A simple danger alert—check it out!
@@ -68,12 +71,49 @@
     </div>
 </div>
 
+<div class="modal fade" id="modalresult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+
+                Operación exitosa
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts{
     
     <script>
 
         var tabladata;
         var filaSeleccionada;
+
+        const inputtxtactividad = document.getElementById("txtactividad");
+
+
+        const validateInput = function (input) {
+            const value = input.value.trim();
+            const hasNumbers = /\d/.test(value);
+
+            if (hasNumbers) {
+                input.setCustomValidity("No se permiten números en este campo");
+                input.classList.add("is-invalid");
+            } else {
+                input.setCustomValidity("");
+                input.classList.remove("is-invalid");
+            }
+        };
+
+        inputtxtactividad.addEventListener("input", function () {
+            validateInput(inputtxtactividad);
+        });
 
         jQuery.ajax({
             url: '@Url.Action("ListarActividades", "Home")',
@@ -214,9 +254,11 @@
                             Actividad.IdActividad = data.resultado
                             tabladata.row.add(Actividad).draw(false)
                             $("#FormModal").modal("hide")
+                            $("#modalresult").modal("show")
                         } else {
                             $("#mensajeError").text(data.mensaje)
                             $("#mensajeError").show()
+                            
                         }
                     }
                     //editar
@@ -226,6 +268,7 @@
                             tabladata.row(filaSeleccionada).data(Actividad).draw(false)
                             filaSeleccionada = null;
                             $("#FormModal").modal("hide");
+                            $("#modalresult").modal("show")
                         } else {
                             $("#mensajeError").text(data.mensaje)
                             $("#mensajeError").show()

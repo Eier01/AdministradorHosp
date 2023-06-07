@@ -44,9 +44,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input id="txtid" type="text" value="0" />
+                <input id="txtid" type="hidden" value="0" />
                 <label for="txtrequisitolegal" class="form-label">Requisito Legal</label>
                 <input type="text" class="form-control" id="txtrequisitolegal" aria-label="Username" aria-describedby="addon-wrapping" autocomplete="off">
+                <div class="invalid-feedback">
+                    Por favor, ingrese solo texto.
+                </div>
                 <div id="mensajeError" class="alert alert-danger mt-2" role="alert">
                     A simple danger alert—check it out!
                 </div>
@@ -59,12 +62,52 @@
     </div>
 </div>
 
+<div class="modal fade" id="modalresult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+
+                Operación exitosa
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section scripts{
 
     <script>
 
         var tabladata;
         var filaSeleccionada;
+        
+
+
+        const inputtxtrequisitolegal = document.getElementById("txtrequisitolegal");
+
+
+        const validateInput = function (input) {
+            const value = input.value.trim();
+            const hasNumbers = /\d/.test(value);
+
+            if (hasNumbers) {
+                input.setCustomValidity("No se permiten números en este campo");
+                input.classList.add("is-invalid");
+            } else {
+                input.setCustomValidity("");
+                input.classList.remove("is-invalid");
+            }
+        };
+
+        inputtxtrequisitolegal.addEventListener("input", function () {
+            validateInput(inputtxtrequisitolegal);
+        });
 
         tabladata = $("#tabla").DataTable({
             responsive: true,
@@ -190,6 +233,7 @@
                             CrearRequisitoLegal.IdCrearRequisitoLegal = data.resultado
                             tabladata.row.add(CrearRequisitoLegal).draw(false)
                             $("#FormModal").modal("hide")
+                            $("#modalresult").modal("show")
                         } else {
                             $("#mensajeError").text(data.mensaje)
                             $("#mensajeError").show()
@@ -203,6 +247,7 @@
                             tabladata.row(filaSeleccionada).data(CrearRequisitoLegal).draw(false)
                             filaSeleccionada = null;
                             $("#FormModal").modal("hide");
+                            $("#modalresult").modal("show")
                         } else {
                             $("#mensajeError").text(data.mensaje)
                             $("#mensajeError").show()
