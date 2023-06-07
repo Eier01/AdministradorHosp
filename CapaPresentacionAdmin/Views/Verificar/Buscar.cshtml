@@ -40,36 +40,59 @@
                     </div>
                     <div class="col-sm-3">
                         <button id="btnconsultar" type="button" class="btn btn-primary ">Consultar</button>
-                        <button id="btnexportar" type="submit" class="btn btn-success" name="numero"><i class="fas fa-file-excel mx-1"></i>Exporatar</button>
+                        <button id="btnexportar" type="submit" class="btn btn-success" name="numero"><i class="fas fa-file-excel mx-1"></i>Exportar</button>
                     </div>
                 </div>
             </form>
         </div>
-        <table id="tabla" class="table table-hover" style="width:100%; font-size:10px">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Cédula</th>
-                    <th>Nombre</th>
-                    <th>Género</th>
-                    <th>Fecha Nac.</th>
-                    <th>Correo</th>
-                    <th>Telefono</th>
-                    <th>Sindicato</th>
-                    <th>Profesión</th>
-                    <th>Actividad</th>
-                    <th>Fec. Ingreso</th>
-                    <th>Fec. Retiro</th>
-                    <th>Estado</th>
-                    <th>Verificado</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <style>
+            #miTabla_wrapper {
+                overflow-x: auto;
+            }
+        </style>
+        <div class="miTabla_wrapper">
+            <table id="tabla" class="cell-border table-responsive">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Género</th>
+                        <th>Fecha Nac.</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Sindicato</th>
+                        <th>Profesión</th>
+                        <th>Actividad</th>
+                        <th>Fec. Ingreso</th>
+                        <th>Fec. Retiro</th>
+                        <th>Estado</th>
+                        <th>Verificado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>       
     </div>
 </div>
+<div class="modal fade" id="modalresult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
 
+                Operación exitosa
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section scripts{
 
@@ -81,7 +104,8 @@
 
         $(document).ready(function () {
             tabladata = $("#tabla").DataTable({
-                responsive: true,
+                /*responsive: true,*/
+                scrollX: true,
                 ordering: false,
                 "ajax": {
                     url: Url,
@@ -116,6 +140,7 @@
                 "?documento=" + $("#txtConsultar").val()
 
                 tabladata.ajax.url(nueva_url).load();
+                $("#modalresult").modal("show")
             })
 
         });

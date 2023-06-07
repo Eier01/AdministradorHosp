@@ -32,5 +32,18 @@ namespace CapaNegocio
                 return false;
             }
         }
+
+        public List<Reporte> Listar(string numero)
+            {
+            List<Reporte> lista = new List<Reporte>();
+            lista = objCapaDato.ListarFormacionAcademicaEduBasic(numero);
+            return lista;
+        }
+
+        public List<Reporte> ListarGenerarPdf(string numero)
+        {
+            return objCapaDato.ListarGenerarPdf(numero);
+        }
+
     }
 }

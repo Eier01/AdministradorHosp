@@ -24,6 +24,11 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
+        public ActionResult CrearReporte()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Index(string correo, string clave)
         {

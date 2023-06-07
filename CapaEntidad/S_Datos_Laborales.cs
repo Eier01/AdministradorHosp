@@ -19,6 +19,9 @@ namespace CapaEntidad
         public String HorasContratadas { get; set; }
 
         public String IdPersona { get; set; }
+        public String NombreActividad { get; set; }
+        public String NombreProceso{ get; set; }
+
 
     }
 }

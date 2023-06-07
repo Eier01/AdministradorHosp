@@ -43,7 +43,7 @@
     <div class="modal fade" id="FormModalIdiomas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl" />
         <div class="modal-content">
-            <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
+            <div class="modal-header text-light" style="background: #000000">
                 <h5 class="modal-title" id="exampleModalLabel">Formulario Idiomas </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -59,7 +59,7 @@
                             <input type="text" id="txtIdIdiomas" value="0" style="display: none;" />
 
                             <div class="contenido_texto block " data-seccion="1">
-                                <div class="col-md-4 form-check-inline">
+                                <div class="col-md-5 form-check-inline">
                                     <label for="txtPerson" class="form-label" style="margin-top: 20px"><b>Persona en Registro</b></label>
                                     <input type="text" class="form-control" id="txtPerson" required autocomplete="off">
                                 </div>
@@ -68,6 +68,9 @@
                                 <div class="col-md-4 form-check-inline">
                                     <label for="txtIdioma" class="form-label" style="margin-top: 20px"><b>Idioma</b></label>
                                     <input type="text" class="form-control" id="txtIdioma" required autocomplete="off">
+                                    <div class="invalid-feedback">
+                                        Por favor, ingrese solo texto.
+                                    </div>
                                 </div>
                             </div>
 
@@ -122,13 +125,64 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modalresult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
 
+                Guardado Correctamente
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section scripts{
     <script>
         var tabladata;
         var filaSeleccionada;
+        var prueba = 0;
+
+         $.ajax({
+            url: '@Url.Action("ListarNombres", "Sindicato")', // La URL del servicio o endpoint
+            type: 'GET', // El método HTTP utilizado
+            dataType: 'json', // El tipo de datos esperado en la respuesta
+            success: function (data) {
+                // Se ejecuta cuando la solicitud es exitosa
+                console.log(data.data[0].nombre); // Manejo de los datos de respuesta
+                prueba = data.data[0].nombre + " " + data.data[0].senombre + " "+data.data[0].apellido+" "+data.data[0].seapellido
+
+            },
+            error: function (xhr, status, error) {
+                // Se ejecuta si hay algún error en la solicitud
+                console.log(error); // Manejo del error
+            }
+        });
+
+        const inputtxtIdioma = document.getElementById("txtIdioma");
+        const validateInput = function (input) {
+            const value = input.value.trim();
+            const hasNumbers = /\d/.test(value);
+
+            if (hasNumbers) {
+                input.setCustomValidity("No se permiten números en este campo");
+                input.classList.add("is-invalid");
+            } else {
+                input.setCustomValidity("");
+                input.classList.remove("is-invalid");
+            }
+        };
+
+        inputtxtIdioma.addEventListener("input", function () {
+            validateInput(inputtxtIdioma);
+        });
 
         jQuery.ajax({
             url: '@Url.Action("ListarIdioma", "Sindicato")',
@@ -170,6 +224,7 @@
 
         function abrirmodal(json) {
             document.getElementById("formIidiomas").reset();
+            document.getElementById('txtPerson').value = prueba
             $("#txtIdIdiomas").val(0);
             $("#mensajEerror").hide();
 
@@ -227,11 +282,13 @@
                              IdiomasG.IdIdiomas = data.resultado;
                              tabladata.row.add(IdiomasG).draw(false);
                              $("#FormModalIdiomas").modal("hide");
+
                          } else {
 
 
                              $("#mensajEerror").text(data.mensaje)
                              $("#mensajEerror").show()
+                             $("#modalresult").modal("show");
                          }
 
                          //Usuario Editar
@@ -243,6 +300,7 @@
                              tabladata.row(filaSeleccionada).data(IdiomasG).draw(false);
                              filaSeleccionada = null;
                              $("#FormModalIdiomas").modal("hide");
+                             $("#modalresult").modal("show");
 
                          } else {
                              $("#mensajEerror").text(data.mensaje)
@@ -260,5 +318,7 @@
 
     </script>
 }
+
+
 
 

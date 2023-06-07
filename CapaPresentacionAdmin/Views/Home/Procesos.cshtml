@@ -41,17 +41,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Proceso</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Proceso</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input id="txtid" type="text" value="0"/>
+                <input id="txtid" type="hidden" value="0" />
                 <label for="txtproceso" class="form-label">Proceso</label>
                 <input type="text" class="form-control" id="txtproceso" aria-label="Username" aria-describedby="addon-wrapping" autocomplete="off">
+                <div class="invalid-feedback">
+                    Por favor, ingrese solo texto.
+                </div>
                 <div id="mensajeError" class="alert alert-danger mt-2" role="alert">
                     A simple danger alert—check it out!
                 </div>
-            </div>            
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary" onclick="Guardar()">Guardar</button>
@@ -60,11 +63,48 @@
     </div>
 </div>
 
+<div class="modal fade" id="modalresult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+
+                Operación exitosa
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts{
     <script>
 
         var tabladata;
         var filaSeleccionada;
+
+        const inputtxtproceso = document.getElementById("txtproceso");
+
+
+        const validateInput = function (input) {
+            const value = input.value.trim();
+            const hasNumbers = /\d/.test(value);
+
+            if (hasNumbers) {
+                input.setCustomValidity("No se permiten números en este campo");
+                input.classList.add("is-invalid");
+            } else {
+                input.setCustomValidity("");
+                input.classList.remove("is-invalid");
+            }
+        };
+
+        inputtxtproceso.addEventListener("input", function () {
+            validateInput(inputtxtproceso);
+        });
 
         jQuery.ajax({
             url: '@Url.Action("ListarProcesos", "Home")',
@@ -158,7 +198,7 @@
                     dataType: "json",
                     contentType: "application/json; charset=utf-8",
                     success: function (data) {
-                        
+
                         if (data.resultado) {
                             tabladata.row(procesoSeleccionado).remove().draw()
                         } else {
@@ -198,9 +238,11 @@
                             Proceso.IdProceso = data.resultado
                             tabladata.row.add(Proceso).draw(false)
                             $("#FormModal").modal("hide")
+                            $("#modalresult").modal("show")
                         } else {
                             $("#mensajeError").text(data.mensaje)
                             $("#mensajeError").show()
+                            
                         }
 
                         //Usuario editar
@@ -211,6 +253,7 @@
                             tabladata.row(filaSeleccionada).data(Proceso).draw(false)
                             filaSeleccionada = null;
                             $("#FormModal").modal("hide");
+                            $("#modalresult").modal("show")
                         } else {
                             $("#mensajeError").text(data.mensaje)
                             $("#mensajeError").show()

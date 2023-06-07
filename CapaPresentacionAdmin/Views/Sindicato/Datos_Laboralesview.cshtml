@@ -49,7 +49,7 @@
 <div class="modal fade" id="FormModalDatoslaborales" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header  text-light" style="background: hsl(145, 76%, 42%)">
+            <div class="modal-header  text-light" style="background: #000000">
                 <h5 class="modal-title" id="exampleModalLabel"> Formulario Datos Laborales</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -137,6 +137,23 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modalresult" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+
+                Guardado Correctamente
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @*<select required="required" class="form-control" name="servicio" id="servicio">
     <option value="" selected="selected"></option>
@@ -179,6 +196,24 @@
         var tipoActSinRepetir = [];
         var unicos = [];
 
+        const inputtxtNombrearea = document.getElementById("txtNombrearea");
+        const validateInput = function (input) {
+            const value = input.value.trim();
+            const hasNumbers = /\d/.test(value);
+
+            if (hasNumbers) {
+                input.setCustomValidity("No se permiten números en este campo");
+                input.classList.add("is-invalid");
+            } else {
+                input.setCustomValidity("");
+                input.classList.remove("is-invalid");
+            }
+        };
+
+        inputtxtNombrearea.addEventListener("input", function () {
+            validateInput(inputtxtNombrearea);
+        });
+
         function unicosElementos() {
             for (var i = 0; i < tipoActSinRepetir.length; i++) {
                 const elemento = tipoActSinRepetir[i]
@@ -188,6 +223,8 @@
                 }
             }
         }
+
+
 
         $(document).on('change', '#txtipoactividad', function (event) {
 
@@ -218,6 +255,23 @@
 
         var tabladata;
         var filaSeleccionada;
+        var prueba = 0;
+
+         $.ajax({
+            url: '@Url.Action("ListarNombres", "Sindicato")', // La URL del servicio o endpoint
+            type: 'GET', // El método HTTP utilizado
+            dataType: 'json', // El tipo de datos esperado en la respuesta
+            success: function (data) {
+                // Se ejecuta cuando la solicitud es exitosa
+                console.log(data.data[0].nombre); // Manejo de los datos de respuesta
+                prueba = data.data[0].nombre + " " + data.data[0].senombre + " "+data.data[0].apellido+" "+data.data[0].seapellido
+
+            },
+            error: function (xhr, status, error) {
+                // Se ejecuta si hay algún error en la solicitud
+                console.log(error); // Manejo del error
+            }
+        });
 
 
 
@@ -262,7 +316,7 @@
             if (json != null) {
                 tipoActividad = json.TipoActividad;
                 actividad = json.IdActividad;
-                proceso = json.IdProceso;                
+                proceso = json.IdProceso;
 
             }
 
@@ -344,7 +398,7 @@
 
             if (json != null) {
 
-               
+
                 $("#txtIddatoslaborales").val(json.IdDatosLaborales)
                 $("#txtarea").val(json.Area == "Sindicato" ? "Sindicato" : json.Area == "OPS" ? "OPS" : "Planta");
                 $("#txtNombrearea").val(json.NombreArea);
@@ -388,7 +442,7 @@
         selectProceso.addEventListener('change',
             function () {
                 idProceso = this.options[selectProceso.selectedIndex].value;
-                
+
             })
 
 
@@ -411,7 +465,7 @@
                 idProceso = $("#txtProceso").val().find(element => element != undefined);
             }
 
-            
+
 
 
             var DatosLab = {
@@ -450,6 +504,7 @@
 
                              $("#mensajEerror").text(data.mensaje)
                              $("#mensajEerror").show()
+                             $("#modalresult").modal("show");
                          }
 
                          //Usuario Editar
@@ -461,6 +516,7 @@
                              tabladata.row(filaSeleccionada).data(DatosLab).draw(false);
                              filaSeleccionada = null;
                              $("#FormModalDatoslaborales").modal("hide");
+                             $("#modalresult").modal("show");
 
                          } else {
                              $("#mensajEerror").text(data.mensaje)

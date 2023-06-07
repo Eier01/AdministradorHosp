@@ -27,8 +27,9 @@
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>Correo</th>
-                            <th>Estado</th>
+                            <th>Activo</th>
                             <th>Rol</th>
+                            
                             <th></th>
                         </tr>
                     </thead>
@@ -44,7 +45,7 @@
     <div class="modal fade" id="FormMoUsuarios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" />
         <div class="modal-content">
-            <div class="modal-header text-light" style="background: hsl(145, 76%, 42%)">
+            <div class="modal-header text-light" style="background: #000000">
                 <h5 class="modal-title" id="exampleModalLabel">Registro De Usuarios Administrativos </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -136,8 +137,32 @@
                 { "data": "Nombres" },
                 { "data": "Apelldios" },
                 { "data": "Correo" },
-                { "data": "Activo" },
-                { "data": "IdRol" },
+                { "data": "Activo", "render": function (valor) {
+                        if (valor) {
+                            return '<span class="badge bg-success"> SI</span>';
+                        } else {
+                            return '<span class="badge bg-danger"> NO</span>';
+                    }
+                    }
+
+                },
+                {
+                    "data": "IdRol", "render": function (valor) {
+                        if (valor == 1) {
+                            return '<p>Administrador</p>';
+                        } else if (valor == 2) {
+                            return '<p>Sindicato</p>';
+                        } else if (valor == 3) {
+                            return '<p>Gestion Humana Visualizador</p>';
+                        } else if (valor == 4) {
+                            return '<p>Gestion Humana Verificador</p>';
+                        }
+                    }
+
+                },
+                
+                
+
 
 
                 {
