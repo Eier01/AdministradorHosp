@@ -29,17 +29,16 @@
                 </div>
 
                 <div class="hola1 row">
-
-                    @*<input type="button" class="btn btn-success" value="Exportar" onclick="location.href='@Url.Action("ExportPersona", "Sindicato")'" />*@
-                    @*<button type="button" class="btn btn-success" onclick="location.href=@Url.Action("ExportPersona","Sindicato")">Exportar</button>*@
                     <form class="mb-3 mt-4" action="@Url.Action("ExportPersona","Sindicato")" method="get">
                         <button type="button" class="btn btn-primary" onclick="abrirModal(null)">Crear Nuevo</button>
-                        <button id="btnexportar" type="submit" class="btn btn-success"><i class="fas fa-file-excel mx-1"></i>Exporatar</button>
+                        <button id="btnexportar" type="submit" class="btn btn-success"><i class="fas fa-file-excel mx-1"></i>Exportar</button>
                     </form>
+                    <button style="margin-top: 5px; margin-bottom: 15px; margin-left: 15px" id="btnexportarhv" onclick="exportarHv()" class="btn btn-danger"><i class="fas fa-file-pdf mx-1"></i>Exportar HV</button>
+
                 </div>
              
                 <br>
-                <br>
+               
                 <hr>
 
                 <style>
@@ -651,6 +650,27 @@
 
         }
 
+        function exportarHv() {
+              //traer datos hoj de vida
+              console.log("datos")
+                    jQuery.ajax({
+                    url: '@Url.Action("ConsultarDataPrueba", "Sindicato")',
+                    type: "POST",
+                    data: JSON.stringify({ documento: $("#txtConsultar").val() }),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            localStorage.setItem("datosHojaDeVida", JSON.stringify(data));
+                            console.log(JSON.stringify(data));
+                            window.open("@Url.Action("descargaPdfView","Sindicato")", "_blank");
+
+                    },
+                });
+        }
+
+         
+
+
 
         function abrirModal(json) {
             document.getElementById("form_persona").reset();
@@ -827,3 +847,4 @@
 
     </script>
 }
+@*ACTUAL*@

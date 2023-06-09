@@ -568,6 +568,7 @@
     <Content Include="Views\Shared\_Layout - Reporte.cshtml" />
     <Content Include="Views\ReporteVerificar\myPdf.cshtml" />
     <Content Include="Views\Verificar\CrearReporte.cshtml" />
+    <Content Include="Views\Sindicato\descargaPdfView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

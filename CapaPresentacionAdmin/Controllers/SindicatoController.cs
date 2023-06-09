@@ -54,6 +54,11 @@ namespace CapaPresentacionAdmin.Controllers
             return View();
         }
 
+        public ActionResult descargaPdfView()
+        {
+            return View();
+        }
+
 
         [HttpGet]
         
@@ -849,6 +854,65 @@ namespace CapaPresentacionAdmin.Controllers
             //retornamos esto de esta forma porque DataTable asi lo requiere
             return Json(new { message = "No se encontro a la persona ", estado=estado}, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public JsonResult ConsultarDataPrueba(string documento)
+        {
+            bool estado;
+
+            List<Buscar> oLista = new List<Buscar>();
+           
+
+            List<S_Formacion_academica> lista_F_academica = new List<S_Formacion_academica>();
+            List<S_Idiomas> lista_Idioma = new List<S_Idiomas>();
+            List<S_CapacitacionesC> lista_Capacitacion = new List<S_CapacitacionesC>();
+            List<S_Ex_Laboral> lista_ExpLaboral = new List<S_Ex_Laboral>();
+            List<S_Datos_Laborales> lista_DatosL = new List<S_Datos_Laborales>();
+            List<S_Rlegales> lista_Requisitos = new List<S_Rlegales>();
+
+            if (string.IsNullOrEmpty(documento))
+            {
+                documento = "0";
+            }
+
+            oLista = new CN_Buscar().Listar(documento);
+
+            Session["Consultarid"] = "0";
+            Session["Revision"] = 0;
+
+            S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.NumeroDocumento == int.Parse(documento)).FirstOrDefault();
+
+
+            string idPersona = Convert.ToString(persona.IdPersona);
+
+            lista_F_academica = new S_CNF_Academica().Listar(idPersona);
+
+            lista_Idioma = new S_CN_Idiomas().Listar(idPersona);
+
+            lista_ExpLaboral = new S_CN_Ex_Laboral().Listar(idPersona);
+
+            lista_Capacitacion = new S_CNCapacitacionesC().Listar(idPersona);
+
+            lista_DatosL = new S_CN_Laborales().Listar(idPersona);
+
+            lista_Requisitos = new S_CN_Rlegales().Listar(idPersona);
+
+            if (oLista.Count() > 0)
+            {
+                Session["Revision"] = 1;
+                estado = true;
+                Session["Consultarid"] = documento;
+               
+                return Json(new { message = "operacion exitosa", estado = estado, data = oLista, formPersona = persona, formAcionAcademica = lista_F_academica, idiomaL = lista_Idioma, CapacitacionesL = lista_Capacitacion, ExpLaboral = lista_ExpLaboral, DatosLaboralesL = lista_DatosL, RequisitosL = lista_Requisitos }, JsonRequestBehavior.AllowGet);
+            }
+
+            estado = false;
+
+           // retornamos esto de esta forma porque DataTable asi lo requiere
+            return Json(new { message = "No se encontro a la persona ", estado = estado }, JsonRequestBehavior.AllowGet);
+        }
+
+
 
 
         [HttpPost]

@@ -25,7 +25,7 @@ namespace CapaEntidad
         public string LibretaMilitar { get; set; }
         public int NumeroLibreta { get; set; }
         public int DistritoMilitar { get; set; }
-        public String FechaNacimiente { get; set; }
+        public string FechaNacimiente { get; set; }
         public string PaisNacimiento { get; set; }
         public string DeapartamentoNacimiento { get; set; }
         public string CiudadNacimiento { get; set; }
