@@ -28,6 +28,7 @@
                 }
 
             </div>
+
             <br>
             <br>
             <hr />
@@ -68,12 +69,7 @@
 
                         <form class="row g-3 needs-validation" novalidate id="formRlegales">
                             <input type="text" id="txtIdRL" value="0" style="display: none;" />
-                            <div>
-                                <div class="col-md-5 form-check-inline">
-                                    <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
-                                    <input type="text" class="form-control" id="txtPerson" required autocomplete="off">
-                                </div>
-                            </div>
+
                             <div class="col-md-4 form-check-inline">
                                 <label for="txtPersonRequisito" class="form-label" style="margin-top: 20px"><b>Actividad</b></label>
                                 <p class="form-label text-primary" id="idActividad" style="font-size: 13px">Nombre de la actividad</p>
@@ -164,25 +160,21 @@
 
         var tabladata;
         var filaSeleccionada;
-        var prueba = 0;
-        //var session = 0;
 
 
-        $.ajax({
-            url: '@Url.Action("ListarNombres", "Sindicato")', // La URL del servicio o endpoint
-            type: 'GET', // El método HTTP utilizado
-            dataType: 'json', // El tipo de datos esperado en la respuesta
-            success: function (data) {
-                // Se ejecuta cuando la solicitud es exitosa
-                console.log(data.data[0].nombre); // Manejo de los datos de respuesta
-                prueba = data.data[0].nombre + " " + data.data[0].senombre + " "+data.data[0].apellido+" "+data.data[0].seapellido
 
-            },
-            error: function (xhr, status, error) {
-                // Se ejecuta si hay algún error en la solicitud
-                console.log(error); // Manejo del error
-            }
-        });
+       jQuery.ajax({
+                url: '@Url.Action("ListarRequisitos", "Sindicato")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    console.log(response)
+                    $("#idNombrec").text(response.data.NombreCompleto)
+
+                }
+
+            })
 
         function TerminarRevision() {
 
@@ -303,7 +295,6 @@
             //}
 
             document.getElementById("formRlegales").reset();
-            document.getElementById('txtPerson').value = prueba
             $("#txtIdRL").val(0);
             $("#mensajEerror").hide();
 
@@ -345,7 +336,7 @@
 
         })
 
-     
+
 
         $("#tablaRl tbody").on("click", '.btn-eliminarRequisito', function () {
 

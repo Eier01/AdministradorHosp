@@ -17,6 +17,11 @@
                 <div class="hola1">
                     <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Añadir Formación</button>
                 </div>
+                <div>
+                    <div class="col-md-5 form-check-inline">
+                        <p class="form-label text-primary" id="idNombrec" style="font-size: 13px">NOMBRE DE LA PERSONA A VERIFICAR</p>
+                    </div>
+                </div>
                 <br>
                 <br>
                 <hr>
@@ -56,12 +61,6 @@
 
                             <input type="text" class="form-control" id="txtIdFacademica" value="0" style="display: none;">
 
-                            <div>
-                                <div class="col-md-5 form-check-inline">
-                                    <label for="txtPerson" class="form-label" style="margin-top: 5px"><b>Persona en Registro</b></label>
-                                    <input type="text" class="form-control" id="txtPerson" required>
-                                </div>
-                            </div>
                             <hr>
                             <div class="col-md-4 form-check-inline">
                                 <label for="txtcargoasp" class="form-label">Cargo que Aspira</label>
@@ -278,7 +277,6 @@
     <script>
         var tabladata;
         var filaSeleccionada;
-        var prueba = 0;
 
         function adjuntarDocumento(input) {
             if (input.files && input.files.length > 0) {
@@ -291,23 +289,21 @@
         }
 
 
+        jQuery.ajax({
+            url: '@Url.Action("ListarRequisitos", "Sindicato")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                console.log(response)
+                $("#idNombrec").text(response.data.NombreCompleto)
 
-
-       $.ajax({
-            url: '@Url.Action("ListarNombres", "Sindicato")', // La URL del servicio o endpoint
-            type: 'GET', // El método HTTP utilizado
-            dataType: 'json', // El tipo de datos esperado en la respuesta
-            success: function (data) {
-                // Se ejecuta cuando la solicitud es exitosa
-                console.log(data.data[0].nombre); // Manejo de los datos de respuesta
-                prueba = data.data[0].nombre + " " + data.data[0].senombre + " "+data.data[0].apellido+" "+data.data[0].seapellido
-
-            },
-            error: function (xhr, status, error) {
-                // Se ejecuta si hay algún error en la solicitud
-                console.log(error); // Manejo del error
             }
-        });
+
+        })
+
+
+      
 
         const inputAnioTitulo = document.getElementById("txtaniotitulo");
         const anioTituloError = document.getElementById("aniotitulo_error");
@@ -419,7 +415,6 @@
 
         function abrirmodal(json) {
             document.getElementById("fAcadec").reset();
-            document.getElementById('txtPerson').value = prueba
             $("#txtIdFacademica").val(0);
             $("#mensajEerror").hide();
 
@@ -556,59 +551,59 @@
 
             } else {
 
-                 jQuery.ajax({
-                url: '@Url.Action("GuardarFormacion", "Sindicato")',
-                 type: "POST",
-                 data: formData,
-                 cache: false,
-                 processData: false,
-                 cache: false,
-                 contentType: false,
-                 success: function (data) {
-                     console.info(data);
+                jQuery.ajax({
+                    url: '@Url.Action("GuardarFormacion", "Sindicato")',
+                    type: "POST",
+                    data: formData,
+                    cache: false,
+                    processData: false,
+                    cache: false,
+                    contentType: false,
+                    success: function (data) {
+                         console.info(data);
 
-                        //Usuario Nuevo
-                     if (FormacionG.IdFormacionAcademica == 0) {
+                            //Usuario Nuevo
+                         if (FormacionG.IdFormacionAcademica == 0) {
 
-                         if (data.resultado != 0) {
+                             if (data.resultado != 0) {
 
-                             FormacionG.IdFormacionAcademica = data.resultado;
-                             tabladata.row.add(FormacionG).draw(false);
-                             $("#FormModalFacademica").modal("hide");
-                         } else {
+                                 FormacionG.IdFormacionAcademica = data.resultado;
+                                 tabladata.row.add(FormacionG).draw(false);
+                                 $("#FormModalFacademica").modal("hide");
+                             } else {
 
 
-                             $("#mensajEerror").text(data.mensaje)
-                             $("#mensajEerror").show()
-                             $("#modalresult").modal("show")
+                                 $("#mensajEerror").text(data.mensaje)
+                                 $("#mensajEerror").show()
+                                 $("#modalresult").modal("show")
+                             }
+                             //Usuario Editar
                          }
-                         //Usuario Editar
-                     }
-                     else {
+                         else {
 
-                         if (data.resultado) {
+                             if (data.resultado) {
 
-                             tabladata.row(filaSeleccionada).data(FormacionG).draw(false);
-                             filaSeleccionada = null;
-                             $("#FormModalFacademica").modal("hide");
-                             $("#modalresult").modal("show");
+                                 tabladata.row(filaSeleccionada).data(FormacionG).draw(false);
+                                 filaSeleccionada = null;
+                                 $("#FormModalFacademica").modal("hide");
+                                 $("#modalresult").modal("show");
 
-                         } else {
-                             $("#mensajEerror").text(data.mensaje)
-                             $("#mensajEerror").show()
-                         }
+                             } else {
+                                 $("#mensajEerror").text(data.mensaje)
+                                 $("#mensajEerror").show()
+                             }
 
 
                          }
                      },
                      error: function (error) {
-                             console.log(error)
-                        }
-            });
+                        console.log(error)
+                     }
+                });
 
             }
 
-         }
+        }
 
     </script>
 }

@@ -17,6 +17,11 @@
                 <div class="hola1">
                     <button type="button" class="btn btn-primary" onclick="abrirmodal(null)">Crear Idioma</button>
                 </div>
+                <div>
+                    <div class="col-md-5 form-check-inline">
+                        <p class="form-label text-primary" id="idNombrec" style="font-size: 13px">NOMBRE DE LA PERSONA A VERIFICAR</p>
+                    </div>
+                </div>
                 <br>
                 <br>
                 <hr>
@@ -59,11 +64,7 @@
                             <input type="text" id="txtIdIdiomas" value="0" style="display: none;" />
 
                             <div class="contenido_texto block " data-seccion="1">
-                                <div class="col-md-5 form-check-inline">
-                                    <label for="txtPerson" class="form-label" style="margin-top: 20px"><b>Persona en Registro</b></label>
-                                    <input type="text" class="form-control" id="txtPerson" required autocomplete="off">
-                                </div>
-                                <hr>
+                               
 
                                 <div class="col-md-4 form-check-inline">
                                     <label for="txtIdioma" class="form-label" style="margin-top: 20px"><b>Idioma</b></label>
@@ -148,23 +149,20 @@
     <script>
         var tabladata;
         var filaSeleccionada;
-        var prueba = 0;
 
-         $.ajax({
-            url: '@Url.Action("ListarNombres", "Sindicato")', // La URL del servicio o endpoint
-            type: 'GET', // El método HTTP utilizado
-            dataType: 'json', // El tipo de datos esperado en la respuesta
-            success: function (data) {
-                // Se ejecuta cuando la solicitud es exitosa
-                console.log(data.data[0].nombre); // Manejo de los datos de respuesta
-                prueba = data.data[0].nombre + " " + data.data[0].senombre + " "+data.data[0].apellido+" "+data.data[0].seapellido
 
-            },
-            error: function (xhr, status, error) {
-                // Se ejecuta si hay algún error en la solicitud
-                console.log(error); // Manejo del error
-            }
-        });
+         jQuery.ajax({
+                url: '@Url.Action("ListarRequisitos", "Sindicato")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (response) {
+                    console.log(response)
+                    $("#idNombrec").text(response.data.NombreCompleto)
+
+                }
+
+            })
 
         const inputtxtIdioma = document.getElementById("txtIdioma");
         const validateInput = function (input) {
@@ -225,7 +223,6 @@
 
         function abrirmodal(json) {
             document.getElementById("formIidiomas").reset();
-            document.getElementById('txtPerson').value = prueba
             $("#txtIdIdiomas").val(0);
             $("#mensajEerror").hide();
 

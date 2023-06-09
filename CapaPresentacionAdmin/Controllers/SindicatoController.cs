@@ -60,8 +60,7 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
 
-        [HttpGet]
-        
+        [HttpGet]        
         public JsonResult ListarFacademica()
         {
             List<S_Formacion_academica> oLista = new List<S_Formacion_academica>();
@@ -1035,6 +1034,59 @@ namespace CapaPresentacionAdmin.Controllers
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public JsonResult ListarRequisitos()
+        {
+
+            FormacionAcademica oLista;
+            string numero;
+            numero = Convert.ToString(Session["Documento"]);
+
+            if (string.IsNullOrWhiteSpace(numero))
+            {
+                numero = "0";
+            }
+
+            Session["Revision"] = 0;
+            if (numero.Equals("0"))
+            {
+                string documento = ((string)Session["Consultarid"]);
+
+                if (string.IsNullOrEmpty(documento))
+                {
+                    string Mensaje = "Primero consulta una persona";
+                    return Json(new { data = new FormacionAcademica(), mensaje = Mensaje }, JsonRequestBehavior.AllowGet);
+                }
+
+                if (documento != null)
+                {
+                    Session["Revision"] = 1;
+
+                    oLista = new CN_FormacioAc_Cursos().ListarFormacion(documento).Where((Ra) => Ra.NumeroDocumento == int.Parse(documento)).FirstOrDefault(); ;
+                    return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    oLista = new FormacionAcademica();
+                    return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+                }
+
+
+            }
+
+            Session["Documento"] = Convert.ToInt32(numero); ;
+            S_Persona persona = new S_CN_Persona().Listar().Where((p) => p.IdPersona == int.Parse(numero)).FirstOrDefault();
+
+
+            string document = Convert.ToString(persona.NumeroDocumento);
+
+            oLista = new CN_FormacioAc_Cursos().ListarFormacion(document).Where((Ra) => Ra.NumeroDocumento == int.Parse(document)).FirstOrDefault();
+
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+
+        }
+
     }
 }
 
