@@ -973,7 +973,7 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
         [HttpPost]
-        public JsonResult EliminarRequisitoL(int id)
+        public JsonResult EliminarRequisito(int id)
         {
             bool respuesta = false;
             string mensaje = string.Empty;

@@ -36,10 +36,10 @@
                 <p class="form-label text-danger" id="idNombrec" style="font-size: 13px">NOMBRE DE LA PERSONA A VERIFICAR</p>
             </div>
             <div class="col-6">
-                <p class="form-label" for="validationCustom05" style="font-size:13px">UNION DE EMPLEADOS TRABAJADORES Y CONTRATISTAS DE LA SALUD - UTRASSALUD Gestion Humana Profecional del Talento Humano</p>
+                <p class="form-label" id="idArea" for="validationCustom05" style="font-size:13px">UNION DE EMPLEADOS TRABAJADORES Y CONTRATISTAS DE LA SALUD - UTRASSALUD Gestion Humana Profecional del Talento Humano</p>
             </div>
             <div class="col-3">
-                <p class="form-label" for="validationCustom05" style="font-size:13px">Confirmado:</p>
+                <p class="form-label" id="idverific" for="validationCustom05" style="font-size:13px">Confirmado:</p>
             </div>
             <div class="col-md-4">
                 <label for="validationCustom05" class="form-label">SERVIDOR PUBLICO</label>
@@ -136,6 +136,7 @@
             contentType: "application/json; charset=utf-8",
             success: function (response) {
                 $("#idNombrec").text(response.data.NombreCompleto)
+                $("#idverific").text("Confirmado: " + response.data.Verificado)
 
                 if (response.data.Verificado != 'Si') {
                     $('#idNombrec').addClass('text-danger');
@@ -143,6 +144,20 @@
                     $('#idNombrec').removeClass('text-danger');
                     $('#idNombrec').addClass('text-primary');
                 }
+
+            }
+
+        })
+
+        Query.ajax({
+            url: '@Url.Action("ListarDatosLaborales", "Verificar")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                const dLaboral = response.data[0]
+                $("#idArea").text(dLaboral.NombreArea)
+
 
             }
 
@@ -176,7 +191,7 @@
                         $("<td>").append(
                             $("<button>").addClass("btn btn-outline-success btn-sm btn-editar").attr({ "type": "button", "onclick": "abrirModal()" }).text("Obervacion y Guardar"),
                         ),
-                    ).appendTo("#bodyRequisitos")       
+                    ).appendTo("#bodyRequisitos")
 
                     $("#txtidPersona").val(element.IdPersona)
                 })
@@ -195,10 +210,10 @@
 
         })
 
-        
 
-        function abrirModal(json) {            
-            
+
+        function abrirModal(json) {
+
             $("#txtid").val(0)
             $("#idObservacion").val("")
             $("#cboCumple").val("Sin selecionar")
@@ -207,11 +222,11 @@
 
 
 
-            if (json != null) {   
+            if (json != null) {
                 //id del requisto
                 $("#txtid").val(json[0])
                 $("#cboCumple").val(json[4])
-                $("#idObservacion").val(json[5])                
+                $("#idObservacion").val(json[5])
             }
 
 
@@ -248,7 +263,7 @@
 
                     $(".modal-body").LoadingOverlay("hide")
 
-                    if (data.resultado) {                                                
+                    if (data.resultado) {
                         $("#FormModal").modal("hide");
                     } else {
                         $("#mensajeError").text(data.mensaje)

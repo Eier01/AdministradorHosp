@@ -128,20 +128,14 @@ namespace CapaPresentacionAdmin.Controllers
                 hoja3 = oLista3,
             };
 
-            //Reporte persona = oLista.FirstOrDefault();
-
-            //if (persona.objPersona == null)
-            //{
-            //    return View();
-            //}
-
+            //return View(objPaginaList);
 
             return new ViewAsPdf("CrearReporte", objPaginaList)
             {
                 FileName = "Reporte.pdf",
                 PageOrientation = Rotativa.Options.Orientation.Portrait,
                 PageSize = Rotativa.Options.Size.A4,
-                PageMargins = new Rotativa.Options.Margins { Bottom = 5, Left =5, Right=5, Top=5}
+                PageMargins = new Rotativa.Options.Margins { Bottom = 5, Left = 5, Right = 5, Top = 5 }
             };
 
         }

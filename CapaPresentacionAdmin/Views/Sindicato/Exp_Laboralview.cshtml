@@ -360,7 +360,7 @@
                     jQuery.ajax({
                         url: '@Url.Action("EliminarExlaboral", "Sindicato")',
                         type: "POST",
-                        data: JSON.stringify({ id: data.idCapacitacionesCursos }),
+                        data: JSON.stringify({ id: data.IdExperienciaLaboral }),
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
                         success: function (data) {

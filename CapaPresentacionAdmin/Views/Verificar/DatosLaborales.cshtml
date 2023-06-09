@@ -36,10 +36,10 @@
                 <p class="form-label text-danger" id="idNombrec" style="font-size: 13px">NOMBRE DE LA PERSONA A VERIFICAR</p>
             </div>
             <div class="col-6">
-                <label for="validationCustom05" class="form-label" style="font-size:13px">UNION DE EMPLEADOS TRABAJADORES Y CONTRATISTAS DE LA SALUD - UTRASSALUD Gestion Humana Profecional del Talento Humano</label>
+                <p class="form-label" id="idArea" for="validationCustom05" style="font-size:13px">UNION DE EMPLEADOS TRABAJADORES Y CONTRATISTAS DE LA SALUD - UTRASSALUD Gestion Humana Profecional del Talento Humano</p>
             </div>
             <div class="col-3">
-                <label for="validationCustom05" class="form-label" style="font-size:13px">Confirmado:</label>
+                <p class="form-label" id="idverific" for="validationCustom05" style="font-size:13px">Confirmado:</p>
             </div>
             <table id="tabla" class="table table-hover" style="width:100%; font-size:12px">
                 <thead>
@@ -114,6 +114,7 @@
             contentType: "application/json; charset=utf-8",
             success: function (response) {
                 $("#idNombrec").text(response.data.NombreCompleto)
+                $("#idverific").text("Confirmado: " + response.data.Verificado)
 
                 if (response.data.Verificado != 'Si') {
                     $('#idNombrec').addClass('text-danger');
@@ -121,6 +122,20 @@
                     $('#idNombrec').removeClass('text-danger');
                     $('#idNombrec').addClass('text-primary');
                 }
+
+            }
+
+                })
+
+                jQuery.ajax({
+            url: '@Url.Action("ListarDatosLaborales", "Verificar")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                const dLaboral = response.data[0]
+                $("#idArea").text(dLaboral.NombreArea)
+
 
             }
 

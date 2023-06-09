@@ -12,257 +12,308 @@
     <meta charset="utf-8">
     <title>Example 2</title>
     <style>
+                font-face {
+                    font-family: SourceSansPro;
+                    src: url(SourceSansPro-Regular.ttf);
+                }
 
-        font-face {
-            font-family: SourceSansPro;
-            src: url(SourceSansPro-Regular.ttf);
-        }
+                .clearfix:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
 
-        .clearfix:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
+                a {
+                    color: #0087C3;
+                    text-decoration: none;
+                }
 
-        a {
-            color: #0087C3;
-            text-decoration: none;
-        }
+                body {
+                    position: relative;
+                    width: 21cm;
+                    height: 29.7cm;
+                    margin: 0 auto;
+                    color: #555555;
+                    background: #FFFFFF;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-family: SourceSansPro;
+                }
 
-        body {
-            position: relative;
-            width: 21cm;
-            height: 29.7cm;
-            margin: 0 auto;
-            color: #555555;
-            background: #FFFFFF;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-family: SourceSansPro;
-        }
+                header {
+                    padding: 10px 0;
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid #AAAAAA;
+                }
 
-        header {
-            padding: 10px 0;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #AAAAAA;
-        }
+                #logo {
+                    float: left;
+                    margin-top: 20px;
+                }
 
-        #logo {
-            float: left;
-            margin-top: 20px;
-        }
+                    #logo img {
+                        height: 80px;
+                        width: 80px;
+                    }
 
-            #logo img {
-                height: 100px;
-            }
-
-        #company {
-            float: right;
-            text-align: right;
-        }
+                #company {
+                    float: right;
+                    text-align: right;
+                }
 
 
-        #details {
-            margin-bottom: 50px;
-        }
+                #details {
+                    margin-bottom: 50px;
+                }
 
-        #client {
+                #client {
+                    padding-left: 6px;
+                    border-left: 6px solid #0087C3;
+                    float: left;
+                }
+
+                #encabezado {
+                    height: 115px;
+                    padding-left: 6px;
+                    border-right: 1px solid #000000;
+                    border-top: 1px solid #000000;
+                    border-bottom: 1px solid #000000;
+                    float: left;
+                    text-align: center;
+                    width: 240px;
+                }
+
+        #encabezadoImg {
+            height: 115px;
             padding-left: 6px;
-            border-left: 6px solid #0087C3;
+            border-right: 1px solid #000000;
+            border-top: 1px solid #000000;
+            border-bottom: 1px solid #000000;
             float: left;
+            text-align: center;
+            width: 130px;
         }
 
-            #client .to {
-                color: #777777;
-            }
+                #client .to {
+                    color: #777777;
+                }
 
-        h2.name {
-            font-size: 1.4em;
-            font-weight: normal;
-            margin: 0;
-        }
+                h2.name {
+                    font-size: 1.4em;
+                    font-weight: normal;
+                    margin: 0;
+                }
 
-        #invoice {
-            float: right;
-            text-align: right;
-        }
+                #invoice {
+                    float: right;
+                    text-align: right;
+                }
 
-            #invoice h1 {
-                color: #0087C3;
-                font-size: 2.4em;
-                line-height: 1em;
-                font-weight: normal;
-                margin: 0 0 10px 0;
-            }
+                    #invoice h1 {
+                        color: #0087C3;
+                        font-size: 2.4em;
+                        line-height: 1em;
+                        font-weight: normal;
+                        margin: 0 0 10px 0;
+                    }
 
-            #invoice .date {
-                font-size: 1.1em;
-                color: #777777;
-            }
+                    #invoice .date {
+                        font-size: 1.1em;
+                        color: #777777;
+                    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            margin-bottom: 20px;
-        }
-
-
-            table .thdesc,
-            table td,
-            table tr {
-                width: 60%;
-                padding: 6px;
-                background: #FFFFFF;
-                text-align: center;
-                border: 1px solid #292929;
-            }
-
-            table .thobservacion,
-            table .thcumple {
-                width: 35%;
-                padding: 6px;
-                background: #FFFFFF;
-                text-align: center;
-                border: 1px solid #292929;
-            }
-
-            table th {
-                white-space: nowrap;
-                font-weight: normal;
-                text-align: center;
-            }
-
-            table td {
-                text-align: left;
-            }
-
-            table th {
-                text-align: left;
-            }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    margin-bottom: 20px;
+                }
 
 
-            table td h3 {
-                color: #57B223;
-                font-size: 1.2em;
-                font-weight: normal;
-                margin: 0 0 0.2em 0;
-            }
+                    table .thdesc,
+                    table td,
+                    table tr {
+                        width: 60%;
+                        padding: 6px;
+                        background: #FFFFFF;
+                        text-align: center;
+                        border: 1px solid #292929;
+                    }
 
-            table .no {
-                color: #FFFFFF;
-                /*font-size: 1rem;*/
-                background: #0087C3;
-                padding: 5px;
-                height: 4px;
-                width: 4px;
-                text-align: left;
-            }
+                    table .thobservacion,
+                    table .thcumple {
+                        width: 35%;
+                        padding: 6px;
+                        background: #FFFFFF;
+                        text-align: center;
+                        border: 1px solid #292929;
+                    }
 
-            table .desc {
-                text-align: left;
-            }
+                    table th {
+                        white-space: nowrap;
+                        font-weight: normal;
+                        text-align: center;
+                    }
 
-            table .cumple {
-                /* background: #DDDDDD; */
-                text-align: left;
-            }
+                    table td {
+                        text-align: left;
+                    }
+
+                    table th {
+                        text-align: left;
+                    }
 
 
-            table .observacion {
-                /* background: #DDDDDD; */
-                text-align: left;
-            }
+                    table td h3 {
+                        color: #57B223;
+                        font-size: 1.2em;
+                        font-weight: normal;
+                        margin: 0 0 0.2em 0;
+                    }
 
-            table .total {
-                /*background: #57B223;
+                    table .no {
+                        color: #FFFFFF;
+                        /*font-size: 1rem;*/
+                        background: #0087C3;
+                        padding: 5px;
+                        height: 4px;
+                        width: 4px;
+                        text-align: left;
+                    }
+
+                    table .desc {
+                        text-align: left;
+                    }
+
+                    table .cumple {
+                        /* background: #DDDDDD; */
+                        text-align: left;
+                    }
+
+
+                    table .observacion {
+                        /* background: #DDDDDD; */
+                        text-align: left;
+                    }
+
+                    table .total {
+                        /*background: #57B223;
         color: #FFFFFF;*/
-                padding: 5px;
-                height: 4px;
-                width: 4px;
-            }
+                        padding: 5px;
+                        height: 4px;
+                        width: 4px;
+                    }
 
-            table td.cumple,
-            table td.observacion,
-            table td.total,
-            table td.fechare {
-                /* font-size: 1.2em; */
-                text-align: left;
-            }
-
-
-
-            table tfoot td {
-                padding: 10px 20px;
-                background: #FFFFFF;
-                border-bottom: none;
-                font-size: 1.2em;
-                white-space: nowrap;
-                border-top: 1px solid #AAAAAA;
-            }
-
-            table tfoot tr:first-child td {
-                border-top: none;
-            }
-
-            table tfoot tr:last-child td {
-                color: #57B223;
-                font-size: 1.4em;
-                border-top: 1px solid #57B223;
-            }
-
-            table tfoot tr td:first-child {
-                border: none;
-            }
-
-        #thanks {
-            font-size: 1rem;
-            margin-bottom: 50px;
-            margin-top: 30px;
-        }
-
-        #notices {
-            padding-left: 6px;
-            border-left: 6px solid #0087C3;
-        }
-
-            #notices .notice {
-                font-size: 1.2em;
-            }
+                    table td.cumple,
+                    table td.observacion,
+                    table td.total,
+                    table td.fechare {
+                        /* font-size: 1.2em; */
+                        text-align: left;
+                    }
 
 
-        .bolded {
-            font-weight: bold;
-        }
 
-        table .mayuscula {
-            text-transform: uppercase;
-        }
+                    table tfoot td {
+                        padding: 10px 20px;
+                        background: #FFFFFF;
+                        border-bottom: none;
+                        font-size: 1.2em;
+                        white-space: nowrap;
+                        border-top: 1px solid #AAAAAA;
+                    }
 
-        table .descripcion {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
+                    table tfoot tr:first-child td {
+                        border-top: none;
+                    }
 
-        #salto {
-            height: 12rem;
-            background-color: #ffffff;
+                    table tfoot tr:last-child td {
+                        color: #57B223;
+                        font-size: 1.4em;
+                        border-top: 1px solid #57B223;
+                    }
+
+                    table tfoot tr td:first-child {
+                        border: none;
+                    }
+
+                #thanks {
+                    font-size: 1rem;
+                    margin-bottom: 50px;
+                    margin-top: 30px;
+                }
+
+                #notices {
+                    padding-left: 6px;
+                    border-left: 6px solid #0087C3;
+                }
+
+                    #notices .notice {
+                        font-size: 1.2em;
+                    }
+
+
+                .bolded {
+                    font-weight: bold;
+                }
+
+                table .mayuscula {
+                    text-transform: uppercase;
+                }
+
+                table .descripcion {
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+                #salto {
+                    height: 12rem;
+                    background-color: #ffffff;
+                }
+
+        .encabezadoBorder{
+            margin-bottom:6px;
+            border-bottom: 1px solid #000000;
         }
     </style>
 </head>
 
 <body>
     <header class="clearfix">
-        <div id="logo">
-            <img src="~/Content/images/hospital.jpg">
-        </div>
-        <div id="company">
-            <h2 class="name">Hospital Timbio</h2>
-            <div>Barrio San Judas, Cra. 22 #18-00, Timbio, Timbío, Cauca</div>
-            <div>0000-0000</div>
-            <div><a href="mailto:company@example.com">Hospital@gmail.com</a></div>
+        @*<div id="logo">
+                <img src="~/Content/images/hospital.jpg">
+            </div>
+            <div id="company">
+                <h2 class="name">Hospital Timbio</h2>
+                <div>Barrio San Judas, Cra. 22 #18-00, Timbio, Timbío, Cauca</div>
+                <div>0000-0000</div>
+                <div><a href="mailto:company@example.com">Hospital@gmail.com</a></div>
+            </div>*@
+        <div class="otraimg">
+            <div id="encabezadoImg">
+                <div><img src="~/Content/images/escudo-nacional-de-colombia.jpg" alt="" style="width:120px; height:80px; margin-top:10px"></div>
+            </div>
+            <div id="encabezado">
+                <div class="encabezadoBorder">
+                    <div>REPUBLICA DE COLOMBIA-</div>
+                    <div>DEPARTAMENTO DEL CAUCA</div>
+                </div>
+                <div>
+                    <div>Formato Informe Verificacion Requisitos de Ingreso</div>
+                </div>
+            </div>
+            <div id="encabezadoImg">
+                <div><img src="~/Content/images/hospital.jpg" alt="" style="width: 120px; height: 70px; margin-top: 10px"></div>
+            </div>
+            <div id="encabezado">
+                <h2 class="name">Hospital Timbio</h2>
+                <div>Barrio San Judas, Cra. 22 #18-00, Timbio</div>
+                <div>0000-0000</div>
+                <div><a href="mailto:company@example.com">Hospital@gmail.com</a></div>
+            </div>
         </div>
     </header>
+
     <main>
         <div id="details" class="clearfix">
 
