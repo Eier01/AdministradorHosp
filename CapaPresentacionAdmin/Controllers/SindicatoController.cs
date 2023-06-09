@@ -939,6 +939,17 @@ namespace CapaPresentacionAdmin.Controllers
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public JsonResult EliminarPersona(int id)
+        {
+            bool respuesta = false;
+            string mensaje = string.Empty;
+
+            respuesta = new S_CN_Persona().EliminarPersona(id, out mensaje);
+
+            return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpGet]
         public JsonResult TerminarRegistro()
         {
@@ -967,7 +978,7 @@ namespace CapaPresentacionAdmin.Controllers
 }
 
 
-
+//ULTIMO
 
 
 

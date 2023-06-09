@@ -255,6 +255,14 @@ namespace CapaNegocio
 
 
         }
+
+        public bool EliminarPersona(int id, out string Mensaje)
+        {
+
+            return objCapaDato.EliminarPersona(id, out Mensaje);
+
+        }
+
         //public bool EliminarPersona(int id, out string Mensaje)
         //{
 
