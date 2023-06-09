@@ -287,7 +287,8 @@
                 { "data": "FechaEgreso" },
 
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarExplaboral"><i class="fas fa-pen"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarExplaboral"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminarExperiencia"><i class="fas fa-trash"></i></button>',
                     "orderable": false,
                     "searchable": false,
                     "width":"90px"
@@ -336,6 +337,48 @@
 
             abrirmodal(data)
 
+        })
+
+         // eliminar Capacitacion
+        $("#tabla3 tbody").on("click", '.btn-eliminarExperiencia', function () {
+
+            var usuarioseleccionado = $(this).closest("tr");
+            var data = tabladata.row(usuarioseleccionado).data();
+
+            swal({
+                title: "¿Esta seguro?",
+                text: "Desea eliminar la experiencia laboral?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-primary",
+                confirmButtonText: "Si!",
+                cancelButtonText: "No, cancelar",
+                closeOnConfirm: true
+
+            },
+                function () {
+                    jQuery.ajax({
+                        url: '@Url.Action("EliminarExlaboral", "Sindicato")',
+                        type: "POST",
+                        data: JSON.stringify({ id: data.idCapacitacionesCursos }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+
+                            if (data.resultado) {
+                                tabladata.row(usuarioseleccionado).remove().draw();
+
+                            } else {
+                                swal("Error al eliminar", data.mensaje, "error")
+                            }
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        },
+
+                    });
+
+                });
         })
 
         function Guardar() {

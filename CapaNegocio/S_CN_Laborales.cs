@@ -84,5 +84,10 @@ namespace CapaNegocio
                 return false;
             }
         }
+
+        public bool EliminarDLaborales(int id, out string Mensaje)
+        {
+            return objCapaDato.EliminarDLaborales(id, out Mensaje);
+        }
     }
 }

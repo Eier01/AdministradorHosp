@@ -75,5 +75,10 @@ namespace CapaNegocio
 
         }
 
+        public bool EliminarRequisito(int id, out string Mensaje)
+        {
+            return objCapaDato.EliminarRequisito(id, out Mensaje);
+        }
+
     }
 }

@@ -150,6 +150,11 @@ namespace CapaNegocio
                 return false;
             }
         }
+        public bool EliminarExlaboral(int id, out string Mensaje)
+        {
+            return objCapaDato.EliminarExlaboral(id, out Mensaje);
+        }
+        
     }
 
 }

@@ -160,5 +160,10 @@ namespace CapaNegocio
                 return false;
             }
         }
+
+        public bool EliminarFormacion(int id, out string Mensaje)
+        {
+            return objCapaDato.EliminarFormacion(id, out Mensaje);
+        }
     }
 }

@@ -81,8 +81,8 @@
                             <hr>
 
                             <div class="col-md-4">
-                                <label for="txtFechaEXP" class="form-label">Seleccione Tipo de documento</label>
-                                <select class="form-control" name="txtarea" id="rLegal" required autocomplete="off">
+                                <label for="rLegal" class="form-label">Seleccione Tipo de documento</label>
+                                <select class="form-control" name="rLegal" id="rLegal" required autocomplete="off">
                                 </select>
                             </div>
 
@@ -252,7 +252,8 @@
 
 
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarRl"><i class="fas fa-pen"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarRl"><i class="fas fa-pen"></i></button>' +
+                        '<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminarRequisito"><i class="fas fa-trash"></i></button>',
                     "orderable": false,
                     "searchable": false,
                     "width":"90px"
@@ -342,6 +343,50 @@
 
             abrirmodal(data)
 
+        })
+
+        btn - eliminarRequisito
+
+        $("#tablaRl tbody").on("click", '.btn-eliminarRequisito', function () {
+
+            var requisitoseleccionado = $(this).closest("tr");
+            var data = tabladata.row(requisitoseleccionado).data();
+
+            swal({
+                title: "¿Esta seguro?",
+                text: "Desea eliminar el requisito legal ?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-primary",
+                confirmButtonText: "Si!",
+                cancelButtonText: "No, cancelar",
+                closeOnConfirm: true
+
+            },
+
+                function () {
+                    jQuery.ajax({
+                        url: '@Url.Action("EliminarRequisito", "Sindicato")',
+                        type: "POST",
+                        data: JSON.stringify({ id: data.IdRequisitosLegales }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+
+                            if (data.resultado) {
+                                tabladata.row(requisitoseleccionado).remove().draw();
+
+                            } else {
+                                swal("Error al eliminar", data.mensaje, "error")
+                            }
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        },
+
+                    });
+
+                });
         })
 
         function Guardar() {

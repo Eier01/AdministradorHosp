@@ -47,8 +47,8 @@ namespace CapaNegocio
                 return 0;
             }
         }
-             public bool EditarIdiomas(S_Idiomas obj, out String Mensaje)
-        {
+             public bool EditarIdiomas(S_Idiomas obj, out String Mensaje){
+            
             Mensaje = string.Empty;
 
             if (string.IsNullOrEmpty(obj.Idioma) || string.IsNullOrWhiteSpace(obj.Idioma))
@@ -76,7 +76,12 @@ namespace CapaNegocio
             {
                 return false;
             }
-        }
+            }
+
+            public bool EliminarIdioma(int id, out string Mensaje)
+            {
+                return objCapaDato.EliminarIdioma(id, out Mensaje);
+            }
     }
 
     

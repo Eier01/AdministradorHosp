@@ -210,7 +210,8 @@
                 { "data": "LoEscribe" },
 
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarIdiomas"><i class="fas fa-pen"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editarIdiomas"><i class="fas fa-pen"></i></button>' +
+                    '<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminarIdioma"><i class="fas fa-trash"></i></button>',
                     "orderable": false,
                     "searchable": false,
                     "width":"90px"
@@ -265,7 +266,6 @@
             }
 
 
-
              jQuery.ajax({
                 url: '@Url.Action("GuardarIdioma", "Sindicato")',
                 type: "POST",
@@ -314,7 +314,50 @@
                             console.log(error)
                         }
             });
-         }
+        }
+
+
+         $("#tabla1 tbody").on("click", '.btn-eliminarIdioma', function () {
+
+            var idiomaseleccionado = $(this).closest("tr");
+            var data = tabladata.row(idiomaseleccionado).data();
+
+            swal({
+                title: "¿Esta seguro?",
+                text: "Desea eliminar el idioma ?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-primary",
+                confirmButtonText: "Si!",
+                cancelButtonText: "No, cancelar",
+                closeOnConfirm: true
+
+            },
+
+                function () {
+                    jQuery.ajax({
+                        url: '@Url.Action("EliminarIdioma", "Sindicato")',
+                        type: "POST",
+                        data: JSON.stringify({ id: data.IdIdiomas }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+
+                            if (data.resultado) {
+                                tabladata.row(idiomaseleccionado).remove().draw();
+
+                            } else {
+                                swal("Error al eliminar", data.mensaje, "error")
+                            }
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        },
+
+                    });
+
+                });
+        })
 
     </script>
 }

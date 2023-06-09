@@ -97,5 +97,10 @@ namespace CapaNegocio
                 return false;
             }
         }
+
+        public bool EliminarCapacitacion(int id, out string Mensaje)
+        {
+            return objCapaDato.EliminarCapacitacion(id, out Mensaje);
+        }
     }
 }
