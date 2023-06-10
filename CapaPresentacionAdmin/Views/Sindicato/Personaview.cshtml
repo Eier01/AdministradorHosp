@@ -545,9 +545,9 @@
         }
         };
 
-        $("#FechaEx").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
-        $("#Fnacimento").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
-        $("#Fechaestado").datepicker({ dateFormat: 'dd/mm/yy' }).datepicker('setDate', new Date())
+        $("#FechaEx").datepicker({ dateFormat: 'yy-mm-dd' }).datepicker('setDate', new Date())
+        $("#Fnacimento").datepicker({ dateFormat: 'yy-mm-dd' }).datepicker('setDate', new Date())
+        $("#Fechaestado").datepicker({ dateFormat: 'yy-mm-dd' }).datepicker('setDate', new Date())
 
 
         $.ajax({
@@ -720,9 +720,6 @@
 
         }
 
-
-
-
         $("#tablapersona tbody").on("click", '.btn-editarP', function () {
 
             var filaSeleccionada = $(this).closest("tr");
@@ -731,6 +728,48 @@
             abrirModal(data)
 
 
+        })
+
+         $("#tablapersona tbody").on("click", '.btn-eliminarp', function () {
+
+                  var perseleccionado = $(this).closest("tr");
+                  var data = tabladata.row(perseleccionado).data();
+
+            swal({
+                title: "¿Esta seguro?",
+                text: "Desea eliminar la persona, antes de eliminarla debes remover los anteriores registros! ?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-primary",
+                confirmButtonText: "Si!",
+                cancelButtonText: "No, cancelar",
+                closeOnConfirm: true
+
+            },
+
+                function () {
+                    jQuery.ajax({
+                        url: '@Url.Action("EliminarPersona", "Sindicato")',
+                        type: "POST",
+                        data: JSON.stringify({ id: data.IdPersona }),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+
+                            if (data.resultado) {
+                                tabladata.row(perseleccionado).remove().draw();
+
+                            } else {
+                                swal("Error al eliminar", data.mensaje, "error")
+                            }
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        },
+
+                    });
+
+                });
         })
 
     function Guardar()
@@ -839,45 +878,6 @@
             });
 
 
-             //Eliminar
-        $("#tablapersona tbody").on("click", '.btn-eliminarP', function () {
-            var personaSeleccionada = $(this).closest("tr")
-
-            //data es un json porque data() retorna un json
-            var data = tabladata.row(personaSeleccionada).data()
-            swal({
-                title: "Estas Seguro?",
-                text: "¿Desea eliminar esta Actividad?",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonClass: "btn-primary",
-                confirmButtonText: "Si",
-                cancelButtonText: "No",
-                closeOnConfirm: true
-            },
-            function () {
-                jQuery.ajax({
-                    url: '@Url.Action("EliminarPersona", "Sindicato")',
-                    type: "POST",
-                    data: JSON.stringify({ id: data.IdPersona}),
-                    dataType: "json",
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-
-                        if (data.resultado) {
-                            tabladata.row(personaSeleccionada).remove().draw()
-                        } else {
-                            swal("No se pudo eliminar", data.mensaje,"error")
-                        }
-
-                    },
-                    error: function (error) {
-                        console.log(error)
-                    }
-                })
-            })
-
-        })
 
         }
 

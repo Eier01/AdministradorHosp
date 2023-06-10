@@ -88,3 +88,21 @@ C:\Users\PERSONAL\Downloads\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\Capa
 C:\Users\PERSONAL\Downloads\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
 C:\Users\PERSONAL\Downloads\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\PERSONAL\Downloads\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\bin\Debug\CapaDatos.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\bin\Debug\CapaDatos.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\bin\Debug\CapaEntidad.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\bin\Debug\CapaEntidad.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaDatos\obj\Debug\CapaDatos.pdb

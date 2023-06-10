@@ -1782,7 +1782,7 @@
 
                     if (parseInt(fechaIngreso[1]) < 10) {
                         $("#ml10").text('0');
-                        $("#ml20").text(fechaIngreso[1]);
+                        $("#ml20").text(parseInt(fechaIngreso[1]));
                     } else {
                         $("#ml10").text(fechaIngreso[1].substr(0, 1));
                         $("#ml20").text(fechaIngreso[1].substr(1, 1));
@@ -1790,7 +1790,7 @@
 
                     if (parseInt(fechaIngreso[2]) < 10) {
                         $("#dl10").text('0');
-                        $("#dl20").text(fechaIngreso[2]);
+                        $("#dl20").text(parseInt(fechaIngreso[2]));
                     } else {
                         $("#dl10").text(fechaIngreso[2].substr(0, 1));
                         $("#dl20").text(fechaIngreso[2].substr(1, 1));
@@ -1809,7 +1809,7 @@
 
                     if (parseInt(fechaRetiro[1]) < 10) {
                         $("#mlr10").text('0');
-                        $("#mlr20").text(fechaRetiro[1]);
+                        $("#mlr20").text(parseInt(fechaRetiro[1]));
                     } else {
                         $("#mlr10").text(fechaRetiro[1].substr(0, 1));
                         $("#mlr20").text(fechaRetiro[1].substr(1, 1));
@@ -1817,7 +1817,7 @@
 
                     if (parseInt(fechaRetiro[2]) < 10) {
                         $("#dlr10").text('0');
-                        $("#dlr20").text(fechaRetiro[2]);
+                        $("#dlr20").text(parseInt(fechaRetiro[2]));
                     } else {
                         $("#dlr10").text(fechaRetiro[2].substr(0, 1));
                         $("#dlr20").text(fechaRetiro[2].substr(1, 1));
@@ -1833,134 +1833,134 @@
 
                 if (i > 3) {
                     let info = `<tr>
-                    <td class="  border_s p-0">
-                        <table class=" b_collapse full_size">
-                            <tr>
-                                <td class="text-center s-10">EMPLEO O CONTRATO ANTERIOR </td>
-                            </tr>
-                            <tr>
-                                <td class="border_s">
-                                    <table class="full_size b_collapse  ">
-                                        <tr class="h-30">
-                                            <td class="">
-                                                <span class="font_italic s-10">EMPRESA O ENTIDAD</span> <br>
-                                                <span class="s-12" id="ee${(parseInt(i) + 1)}"></span>
-                                            </td>
-                                            <td class="b-left w-100">
-                                                <span class="font_italic s-10 ">PÚBLICA</span> <br>
-                                                <span class="s-12" id="epublica${(parseInt(i) + 1)}"></span>
-                                            </td>
-                                            <td class="b-left w-100">
-                                                <span class="font_italic s-10">PRIVADA</span> <br>
-                                                <span class="s-12" id="eprivada${(parseInt(i) + 1)}"></span>
-                                            </td>
-                                            <td class="b-left w-33-p">
-                                                <span class="font_italic s-10">PAÍS</span> <br>
-                                                <span class="s-12" id="paisl${(parseInt(i) + 1)}"></span>
-                                            </td>
+                <td class="  border_s p-0">
+                    <table class=" b_collapse full_size">
+                        <tr>
+                            <td class="text-center s-10">EMPLEO O CONTRATO ANTERIOR </td>
+                        </tr>
+                        <tr>
+                            <td class="border_s">
+                                <table class="full_size b_collapse  ">
+                                    <tr class="h-30">
+                                        <td class="">
+                                            <span class="font_italic s-10">EMPRESA O ENTIDAD</span> <br>
+                                            <span class="s-12" id="ee${(parseInt(i) + 1)}"></span>
+                                        </td>
+                                        <td class="b-left w-100">
+                                            <span class="font_italic s-10 ">PÚBLICA</span> <br>
+                                            <span class="s-12" id="epublica${(parseInt(i) + 1)}"></span>
+                                        </td>
+                                        <td class="b-left w-100">
+                                            <span class="font_italic s-10">PRIVADA</span> <br>
+                                            <span class="s-12" id="eprivada${(parseInt(i) + 1)}"></span>
+                                        </td>
+                                        <td class="b-left w-33-p">
+                                            <span class="font_italic s-10">PAÍS</span> <br>
+                                            <span class="s-12" id="paisl${(parseInt(i) + 1)}"></span>
+                                        </td>
 
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="border_s">
-                                    <table class="full_size  b_collapse">
-                                        <tr class="h-30">
-                                            <td>
-                                                <span class="font_italic s-10">DEPARTAMENTO</span> <br>
-                                                <span class="s-12" id="depto${(parseInt(i) + 1)}"></span>
-                                            </td>
-                                            <td class="b-left">
-                                                <span class="font_italic s-10">MUNICIPIO</span> <br>
-                                                <span class="s-12" id="mun${(parseInt(i) + 1)}"></span>
-                                            </td>
-                                            <td class="b-left">
-                                                <span class="font_italic s-10"> CORREO ELECTRÓNICO</span> <br>
-                                                <span class="s-12" id="correoe${(parseInt(i) + 1)}"></span>
-                                            </td>
-
-
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="border_s">
-                                    <table class="full_size  b_collapse">
-                                        <tr class="h-30">
-                                            <td>
-                                                <span class="font_italic s-10">TELÉFONOS</span> <br>
-                                                <span class="s-12" id="telefonol${(parseInt(i) + 1)}"></span>
-                                            </td>
-                                            <td class="b-left w-30-p">
-                                                <span class="font_italic s-10">FECHA DE INGRESO</span> <br>
-                                                <table class=" b_collapse s-12 center">
-                                                    <tr>
-                                                        <td>DIA</td>
-                                                        <td class="border_s w-20" id="dl1${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="dl2${(parseInt(i) + 1)}"></td>
-                                                        <td>MES</td>
-                                                        <td class="border_s w-20" id="ml1${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="ml2${(parseInt(i) + 1)}"></td>
-                                                        <td>AÑO</td>
-                                                        <td class="border_s w-20" id="al1${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="al2${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="al3${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="al4${(parseInt(i) + 1)}"></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                            <td class="b-left w-30-p">
-                                                <span class="font_italic s-10">FECHA DE RETIRO</span> <br>
-                                                <table class=" b_collapse s-12 center">
-                                                    <tr>
-                                                        <td>DIA</td>
-                                                        <td class="border_s w-20" id="dlr1${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="dlr2${(parseInt(i) + 1)}"></td>
-                                                        <td>MES</td>
-                                                        <td class="border_s w-20" id="mlr1${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="mlr2${(parseInt(i) + 1)}"></td>
-                                                        <td>AÑO</td>
-                                                        <td class="border_s w-20" id="alr1${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="alr2${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="alr3${(parseInt(i) + 1)}"></td>
-                                                        <td class="border_s w-20" id="alr4${(parseInt(i) + 1)}"></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border_s">
+                                <table class="full_size  b_collapse">
+                                    <tr class="h-30">
+                                        <td>
+                                            <span class="font_italic s-10">DEPARTAMENTO</span> <br>
+                                            <span class="s-12" id="depto${(parseInt(i) + 1)}"></span>
+                                        </td>
+                                        <td class="b-left">
+                                            <span class="font_italic s-10">MUNICIPIO</span> <br>
+                                            <span class="s-12" id="mun${(parseInt(i) + 1)}"></span>
+                                        </td>
+                                        <td class="b-left">
+                                            <span class="font_italic s-10"> CORREO ELECTRÓNICO</span> <br>
+                                            <span class="s-12" id="correoe${(parseInt(i) + 1)}"></span>
+                                        </td>
 
 
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="border_s">
-                                    <table class="full_size  b_collapse">
-                                        <tr class="h-30">
-                                            <td>
-                                                <span class="font_italic s-10">CARGO O CONTRATO</span> <br>
-                                                <span class="s-12" id="cargo${(parseInt(i) + 1)}"></span>
-                                            </td>
-                                            <td class="b-left">
-                                                <span class="font_italic s-10">DEPENDENCIA</span> <br>
-                                                <span class="s-12" id="dependencia${(parseInt(i) + 1)}"></span>
-                                            </td>
-                                            <td class="b-left">
-                                                <span class="font_italic s-10">DIRECCIÓN</span> <br>
-                                                <span class="s-12" id="direccion${(parseInt(i) + 1)}"></span>
-                                            </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border_s">
+                                <table class="full_size  b_collapse">
+                                    <tr class="h-30">
+                                        <td>
+                                            <span class="font_italic s-10">TELÉFONOS</span> <br>
+                                            <span class="s-12" id="telefonol${(parseInt(i) + 1)}"></span>
+                                        </td>
+                                        <td class="b-left w-30-p">
+                                            <span class="font_italic s-10">FECHA DE INGRESO</span> <br>
+                                            <table class=" b_collapse s-12 center">
+                                                <tr>
+                                                    <td>DIA</td>
+                                                    <td class="border_s w-20" id="dl1${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="dl2${(parseInt(i) + 1)}"></td>
+                                                    <td>MES</td>
+                                                    <td class="border_s w-20" id="ml1${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="ml2${(parseInt(i) + 1)}"></td>
+                                                    <td>AÑO</td>
+                                                    <td class="border_s w-20" id="al1${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="al2${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="al3${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="al4${(parseInt(i) + 1)}"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class="b-left w-30-p">
+                                            <span class="font_italic s-10">FECHA DE RETIRO</span> <br>
+                                            <table class=" b_collapse s-12 center">
+                                                <tr>
+                                                    <td>DIA</td>
+                                                    <td class="border_s w-20" id="dlr1${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="dlr2${(parseInt(i) + 1)}"></td>
+                                                    <td>MES</td>
+                                                    <td class="border_s w-20" id="mlr1${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="mlr2${(parseInt(i) + 1)}"></td>
+                                                    <td>AÑO</td>
+                                                    <td class="border_s w-20" id="alr1${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="alr2${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="alr3${(parseInt(i) + 1)}"></td>
+                                                    <td class="border_s w-20" id="alr4${(parseInt(i) + 1)}"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
 
 
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border_s">
+                                <table class="full_size  b_collapse">
+                                    <tr class="h-30">
+                                        <td>
+                                            <span class="font_italic s-10">CARGO O CONTRATO</span> <br>
+                                            <span class="s-12" id="cargo${(parseInt(i) + 1)}"></span>
+                                        </td>
+                                        <td class="b-left">
+                                            <span class="font_italic s-10">DEPENDENCIA</span> <br>
+                                            <span class="s-12" id="dependencia${(parseInt(i) + 1)}"></span>
+                                        </td>
+                                        <td class="b-left">
+                                            <span class="font_italic s-10">DIRECCIÓN</span> <br>
+                                            <span class="s-12" id="direccion${(parseInt(i) + 1)}"></span>
+                                        </td>
 
-                </tr>`;
+
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>`;
 
                     let table = $("#tabla_experiencia").html();
 
@@ -1996,7 +1996,7 @@
 
                     if (parseInt(fechaIngreso[1]) < 10) {
                         $("#ml1" + (parseInt(i) + 1)).text('0');
-                        $("#ml2" + (parseInt(i) + 1)).text(fechaIngreso[1]);
+                        $("#ml2" + (parseInt(i) + 1)).text(parseInt(fechaIngreso[1]));
                     } else {
                         $("#ml1" + (parseInt(i) + 1)).text(fechaIngreso[1].substr(0, 1));
                         $("#ml2" + (parseInt(i) + 1)).text(fechaIngreso[1].substr(1, 1));
@@ -2004,7 +2004,7 @@
 
                     if (parseInt(fechaIngreso[2]) < 10) {
                         $("#dl1" + (parseInt(i) + 1)).text('0');
-                        $("#dl2" + (parseInt(i) + 1)).text(fechaIngreso[2]);
+                        $("#dl2" + (parseInt(i) + 1)).text(parseInt(fechaIngreso[2]));
                     } else {
                         $("#dl1" + (parseInt(i) + 1)).text(fechaIngreso[2].substr(0, 1));
                         $("#dl2" + (parseInt(i) + 1)).text(fechaIngreso[2].substr(1, 1));
@@ -2021,7 +2021,7 @@
 
                     if (parseInt(fechaRetiro[1]) < 10) {
                         $("#mlr1" + (parseInt(i) + 1)).text('0');
-                        $("#mlr2" + (parseInt(i) + 1)).text(fechaRetiro[1]);
+                        $("#mlr2" + (parseInt(i) + 1)).text(parseInt(fechaRetiro[1]));
                     } else {
                         $("#mlr1" + (parseInt(i) + 1)).text(fechaRetiro[1].substr(0, 1));
                         $("#mlr2" + (parseInt(i) + 1)).text(fechaRetiro[1].substr(1, 1));
@@ -2029,7 +2029,7 @@
 
                     if (parseInt(fechaRetiro[2]) < 10) {
                         $("#dlr1" + (parseInt(i) + 1)).text('0');
-                        $("#dlr2" + (parseInt(i) + 1)).text(fechaRetiro[2]);
+                        $("#dlr2" + (parseInt(i) + 1)).text(parseInt(fechaRetiro[2]));
                     } else {
                         $("#dlr1" + (parseInt(i) + 1)).text(fechaRetiro[2].substr(0, 1));
                         $("#dlr2" + (parseInt(i) + 1)).text(fechaRetiro[2].substr(1, 1));
@@ -2042,6 +2042,7 @@
 
             }
         }
+
 
 
         var cargaTiempoExp = datos => {

@@ -1054,3 +1054,223 @@ C:\Users\PERSONAL\Downloads\pasantia v3\AdministradorHV\CapaPresentacionAdmin\ob
 C:\Users\PERSONAL\Downloads\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.csproj.CopyComplete
 C:\Users\PERSONAL\Downloads\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.dll
 C:\Users\PERSONAL\Downloads\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaPresentacionAdmin.dll.config
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaPresentacionAdmin.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaPresentacionAdmin.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csc.exe
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csc.exe.config
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csc.rsp
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csi.exe
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csi.exe.config
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csi.rsp
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.AppContext.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Collections.Immutable.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Console.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Globalization.Calendars.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.IO.Compression.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.IO.FileSystem.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Net.Http.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Net.Sockets.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Reflection.Metadata.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.ValueTuple.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Xml.XPath.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\vbc.exe
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\vbc.exe.config
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\vbc.rsp
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\VBCSCompiler.exe
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\VBCSCompiler.exe.config
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Antlr3.Runtime.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaEntidad.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaNegocio.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\DocumentFormat.OpenXml.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ExcelNumberFormat.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Microsoft.Web.Infrastructure.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Newtonsoft.Json.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Rotativa.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\SixLabors.Fonts.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Buffers.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.IO.Packaging.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Helpers.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Mvc.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Optimization.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Razor.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.Deployment.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.Razor.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\WebGrease.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaDatos.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Memory.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Numerics.Vectors.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaEntidad.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaNegocio.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\DocumentFormat.OpenXml.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ExcelNumberFormat.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\SixLabors.Fonts.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Buffers.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Helpers.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Mvc.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Optimization.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Razor.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.Deployment.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.Razor.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Newtonsoft.Json.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Antlr3.Runtime.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaDatos.pdb
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Memory.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.Helpers.resources.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.Mvc.resources.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.Optimization.resources.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.Razor.resources.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.WebPages.resources.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.csproj.AssemblyReference.cache
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.csproj.CoreCompileInputs.cache
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.csproj.CopyComplete
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.dll
+D:\Nueva carpeta\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaPresentacionAdmin.dll.config
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaPresentacionAdmin.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaPresentacionAdmin.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csc.exe
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csc.exe.config
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csc.rsp
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csi.exe
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csi.exe.config
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\csi.rsp
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.AppContext.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Console.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.IO.Compression.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Net.Http.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Net.Sockets.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.ValueTuple.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Xml.XPath.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\vbc.exe
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\vbc.exe.config
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\vbc.rsp
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\VBCSCompiler.exe
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Antlr3.Runtime.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaEntidad.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaNegocio.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\DocumentFormat.OpenXml.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ExcelNumberFormat.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Newtonsoft.Json.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Rotativa.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\SixLabors.Fonts.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Buffers.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.IO.Packaging.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Helpers.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Mvc.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Optimization.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Razor.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.Deployment.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.Razor.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\WebGrease.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaDatos.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Memory.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Numerics.Vectors.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaEntidad.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaNegocio.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ClosedXML.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\DocumentFormat.OpenXml.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\ExcelNumberFormat.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\SixLabors.Fonts.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Buffers.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Helpers.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Mvc.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Optimization.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.Razor.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.Deployment.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Web.WebPages.Razor.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Newtonsoft.Json.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Antlr3.Runtime.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\CapaDatos.pdb
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Memory.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.Helpers.resources.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.Mvc.resources.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.Optimization.resources.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.Razor.resources.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.WebPages.resources.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.csproj.CopyComplete
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.dll
+C:\Users\USUARIO\Desktop\pasantia v3\AdministradorHV\CapaPresentacionAdmin\obj\Debug\CapaPresentacionAdmin.pdb

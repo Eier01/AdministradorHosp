@@ -251,6 +251,8 @@
 
         })
 
+
+
         function Guardar() {
 
             var IdiomasG = {
@@ -314,47 +316,7 @@
         }
 
 
-         $("#tabla1 tbody").on("click", '.btn-eliminarIdioma', function () {
-
-            var idiomaseleccionado = $(this).closest("tr");
-            var data = tabladata.row(idiomaseleccionado).data();
-
-            swal({
-                title: "¿Esta seguro?",
-                text: "Desea eliminar el idioma ?",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonClass: "btn-primary",
-                confirmButtonText: "Si!",
-                cancelButtonText: "No, cancelar",
-                closeOnConfirm: true
-
-            },
-
-                function () {
-                    jQuery.ajax({
-                        url: '@Url.Action("EliminarIdioma", "Sindicato")',
-                        type: "POST",
-                        data: JSON.stringify({ id: data.IdIdiomas }),
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (data) {
-
-                            if (data.resultado) {
-                                tabladata.row(idiomaseleccionado).remove().draw();
-
-                            } else {
-                                swal("Error al eliminar", data.mensaje, "error")
-                            }
-                        },
-                        error: function (error) {
-                            console.log(error);
-                        },
-
-                    });
-
-                });
-        })
+        
 
     </script>
 }

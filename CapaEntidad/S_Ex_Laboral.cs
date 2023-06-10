@@ -16,10 +16,10 @@ namespace CapaEntidad
         public String Direccion { get; set; }
         public String Telefono { get; set; }
         public String CorreoElectronico { get; set; }
-        public string SectorEmpresa { get; set; }
+        public String SectorEmpresa { get; set; }
         public String CargoContratoActual { get; set; }
         public String Dependencia { get; set; }
-        public string FechaIngreso { get; set; }
+        public String FechaIngreso { get; set; }
         public String FechaEgreso { get; set; }
         public byte[] AdjuntarSoporte { get; set; } 
         public string AdjuntarSoporteNombre { get; set; }
